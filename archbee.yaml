@@ -1,0 +1,14 @@
+
+sites:
+  - docsPath: ./CHS
+  - docsPath: ./CHT
+  - docsPath: ./DEU
+  - docsPath: ./ENG
+  - docsPath: ./ENU
+  - docsPath: ./ESP
+  - docsPath: ./FIN
+  - docsPath: ./FRA
+  - docsPath: ./ITA
+  - docsPath: ./JPN
+  - docsPath: ./KOR
+  - docsPath: ./PTB

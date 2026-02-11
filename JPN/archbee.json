@@ -1,0 +1,595 @@
+{
+  "$schema": "https://api.archbee.com/git-config-schema",
+  "docsPath": "./docs",
+  "structure": {
+    "assets": "assets",
+    "docsTree": [
+  {
+    "group": "TOC",
+    "pages": [
+      {
+        "group": "VAS Platform Help - Table of Contents",
+        "pages": [
+          "Ivanti_Neurons_for_MDM_について.md",
+          "新しい機能の概要.md",
+          "サンドボックステナントで利用できる機能のプレビュー.md",
+          "統一ナビゲーション.md",
+          {
+            "group": "はじめに",
+            "pages": [
+              "はじめに.md",
+              "macOSデバイスの構成.md",
+              "Configuring_registration_confirmation_emails.md",
+              "Configuring_policy_compliance_notification_emails.md",
+              "オンデマンド機能.md",
+              "Android_Enterprise_デバイス_サポートの準備.md"
+            ]
+          },
+          {
+            "group": "ダッシュボード",
+            "pages": [
+              "ダッシュボード.md",
+              "ウィジェットの操作.md",
+              "アプリ情報.md",
+              "スケジュール済みのレポートの使用.md",
+              "カスタムレポートの使用.md"
+            ]
+          },
+          {
+            "group": "ユーザー",
+            "pages": [
+              "ユーザー.md",
+              "ユーザーの追加.md",
+              "ユーザーグループ.md",
+              "ユーザー設定.md",
+              "ユーザーのブランディング.md",
+              "Apple_Business_Managerでのユーザー登録.md",
+              "ユーザーライセンス.md",
+              {
+                "group": "ユーザーの管理",
+                "pages": [
+                  "ユーザーの管理.md",
+                  "Cisco_ISE操作へのAPIユーザー追加.md",
+                  "ユーザーへの役割の割り当て.md",
+                  "ユーザーの役割.md",
+                  "ユーザーの検索とフィルタリング.md",
+                  "ユーザーグループへのユーザーの割り当て.md",
+                  "ユーザーの招待.md",
+                  "ユーザーの有効化と無効化.md",
+                  "複数の管理者ログインの管理.md",
+                  "パスワードの変更.md",
+                  "メッセージの送信.md",
+                  "ユーザーグループからのユーザーの削除.md",
+                  "ユーザーの削除.md",
+                  "ユーザーのエクスポート.md",
+                  "ユーザーへのカスタム属性の割り当て.md",
+                  "ユーザーからのカスタム属性の削除.md",
+                  "ユーザーロケールの変更.md",
+                  "ユーザー名の編集.md",
+                  "位置情報データ収集の免除.md",
+                  "タイムアウト情報.md",
+                  "システム利用分析のオプトアウト.md",
+                  "PIN生成によるデバイス登録.md"
+                ]
+              }
+            ]
+          },
+          {
+            "group": "デバイス",
+            "pages": [
+              "デバイス.md",
+              "デバイスの基本.md",
+              "デバイスグループ.md",
+              "非マネージドデバイス.md",
+              "アプリのインベントリ.md",
+              {
+                "group": "デバイスの管理",
+                "pages": [
+                  "デバイスの管理.md",
+                  "Appleデバイスの導入.md",
+                  "Windowsデバイスの導入.md",
+                  "macOSデバイスにおけるAppleリモートデスクトップのセットアップ.md",
+                  "デバイス登録_iOS、macOS、Android_.md",
+                  "デバイスの登録（Windows_10_のPCおよびMicrosoft_Hololens_2）.md",
+                  "PINでのパッケージ登録のプロビジョニング.md",
+                  {
+                    "group": "Windows デバイスでの一括登録の使用",
+                    "pages": [
+                      "Windows_デバイスでの一括登録の使用.md",
+                      "Ivanti一括登録.md"
+                    ]
+                  },
+                  "パスコード設定の変更.md",
+                  "デバイス名の変更.md",
+                  "デバイスの検索とフィルタリング.md",
+                  "デバイス所有者の使用.md",
+                  "仕事用プロファイルを持つマネージドデバイス.md",
+                  "Android一括登録の使用.md",
+                  "CSVファイルのアップロードを使用するデバイスの一括登録.md",
+                  "Samsung_KNOX_Mobile_Enrollmentの使用.md",
+                  "Oculusデバイスの登録.md",
+                  "デバイスでのBluetooth有効化.md",
+                  "iOS更新のスケジュールを設定.md",
+                  "iOSシステムアプリの再インストール.md",
+                  "新しいユーザーへのデバイスの割り当て.md",
+                  "Androidデバイスの再割り当て.md",
+                  "デバイスのチェックインの強制.md",
+                  "デバイスの位置検索.md",
+                  "デバイスのロック.md",
+                  "紛失モードにあるAppleデバイスの管理.md",
+                  "紛失モードのAndroidデバイスの管理.md",
+                  "デバッグログのリクエスト.md",
+                  "デバイスの撤去.md",
+                  "デバイスの所有権の放棄.md",
+                  "デバイスのワイプ.md",
+                  "デバイスの削除.md",
+                  "デバイスのロック解除.md",
+                  "デバイスの再起動とシャットダウン.md",
+                  "制約パスワードのクリア（iOSのみ）.md",
+                  "デバイスのSentry連携の削除.md",
+                  "デバイスへのカスタム属性の割り当て.md",
+                  "デバイスからのカスタム属性の削除.md",
+                  "アプリフィードバックの同期とフェッチ.md",
+                  "ファームウェアパスワードの設定.md",
+                  "個人リカバリキーの再発行.md",
+                  "リカバリロックの設定または変更.md",
+                  "Appleアクセス管理.md"
+                ]
+              }
+            ]
+          },
+          {
+            "group": "アプリ",
+            "pages": [
+              "アプリ.md",
+              "アプリのカタログ.md",
+              "Apps@Work__iOS、Android、Windows、macOS_.md",
+              "iOS_Apps@Work_AppStore_Features.md",
+              {
+                "group": "アプリ詳細の表示",
+                "pages": [
+                  "アプリ詳細の表示-.md",
+                  "アプリ詳細の表示-.md"
+                ]
+              },
+              "アプリ構成.md",
+              "アプリへのカスタム属性の割り当て.md",
+              "Android用マネージド構成.md",
+              "Google_Playアプリの管理.md",
+              "アプリカタログからのアプリ削除.md",
+              "社内アプリのアップグレード.md",
+              "Androidアプリのパッケージ名の検索.md",
+              "カテゴリ.md",
+              "配布フィルター.md",
+              "アプリの除外または配布.md",
+              "レビュー.md",
+              "Appleの「Appとブック」.md",
+              "カタログ設定.md",
+              "アプリ依存性の導入.md",
+              "Android_enterpriseによるDivide_Productivityの導入.md",
+              "Provisionerアプリの設定.md",
+              "Windows_アプリケーションの管理.md",
+              "Ivanti_Bridge.md"
+            ]
+          },
+          {
+            "group": "コンテンツ",
+            "pages": [
+              "コンテンツ.md",
+              "コンテンツの管理.md",
+              "カテゴリ-.md"
+            ]
+          },
+          {
+            "group": "設定",
+            "pages": [
+              "設定.md",
+              "構成の操作.md",
+              "ユーザーセルフサービスポータル構成の作成.md",
+              "カスタム構成.md",
+              "カスタム構成を使用したデバイスへのSyncMLプッシュ.md",
+              "ホーム画面レイアウト構成.md",
+              "アプリ制御構成：デバイスごとにインストールするアプリを制御.md",
+              "アプリ通知構成.md",
+              "構成のエクスポート.md",
+              "構成の優先度決定.md",
+              {
+                "group": "構成の管理",
+                "pages": [
+                  "構成の管理.md",
+                  "構成のタイプ.md",
+                  "変数.md",
+                  {
+                    "group": "AppConnect構成",
+                    "pages": [
+                      "AppConnect構成.md",
+                      "AppConnectの概要.md",
+                      "AppConnectパスコード.md"
+                    ]
+                  },
+                  {
+                    "group": "セキュリティ構成",
+                    "pages": [
+                      "セキュリティ構成.md",
+                      "Android_Enterprise.md",
+                      "既定の_Android_Enterprise_構成の編集.md",
+                      "Android_Enterprise_の設定.md",
+                      "Android_Enterprise：仕事用マネージドデバイス非GMSモード（AOSP）.md",
+                      "Android仕事用本人確認.md",
+                      "証明書構成.md",
+                      "証明書の透明性.md",
+                      "証明書失効チェック構成.md",
+                      "自律_Single_Appモード構成の作成.md",
+                      "DNSプロキシ構成の作成.md",
+                      "デバイス_ログ構成.md",
+                      "ディスク管理構成.md",
+                      "Android暗号化.md",
+                      "暗号化DNS.md",
+                      "脅威防御.md",
+                      "FileVault_2.md",
+                      "FileVaultリカバリキー.md",
+                      "FileVaultオプション構成.md",
+                      "ID証明書.md",
+                      "Appleアクティベーションロック構成.md",
+                      "iOSカスタム構成.md",
+                      "iOSの制約.md",
+                      "会議室ディスプレイ.md",
+                      "ロックダウン＆キオスク：Androidデバイス管理者モード.md",
+                      "Android対応キオスクモードの設定.md",
+                      "Android共有デバイスキオスクの設定.md",
+                      "ロックダウン＆キオスク：Android_Enterprise.md",
+                      "ロックダウン＆キオスク：Samsung_Knox_Standard.md",
+                      "macOSのファイアウォール.md",
+                      "macOSの制約.md",
+                      "macOS_AppStoreの制約.md",
+                      "macOSディスク焼き付けの制約.md",
+                      "許可メディアの制御（廃止）.md",
+                      "macOS_Finder設定.md",
+                      "macOSカーネル拡張ポリシー.md",
+                      "macOS対応Mobile@Work.md",
+                      "macOSソフトウェア更新ルール構成.md",
+                      "証明書設定.md",
+                      "Active_Directory（macOS）.md",
+                      "ID設定.md",
+                      "Office_365自動アカウント作成（macOS）.md",
+                      "認証.md",
+                      "Appleアプリカタログ.md",
+                      "マネージドドメイン.md",
+                      "パスコード構成.md",
+                      "プライバシー設定（macOS）.md",
+                      "プライバシー構成.md",
+                      "クライアントプライバシーステートメント情報.md",
+                      "Ivanti_Goクライアント設定.md",
+                      "Safari拡張機能の設定構成.md",
+                      "ソフトウェア更新.md",
+                      "ソフトウェア更新設定構成.md",
+                      "セキュリティ設定の構成.md",
+                      "タイムサーバー.md",
+                      "Webコンテンツフィルター.md",
+                      "Windowsファイアウォール.md",
+                      "Windows情報保護.md",
+                      "Windowsの制約.md",
+                      "Windowsデスクトップ制約.md",
+                      "Windows_10のデスクトップ設定.md",
+                      "Windows_Hello_for_Business構成.md",
+                      "Windows_AI管理構成.md",
+                      "Play_Integrity（旧称SafetyNet_Attestation）.md",
+                      "高度なAndroidパスコードおよびロック画面.md",
+                      "Microsoft_Defender_for_Endpoint.md",
+                      "証明書ベースの認証.md"
+                    ]
+                  },
+                  {
+                    "group": "ユーザーリソース構成",
+                    "pages": [
+                      "ユーザーリソース構成.md",
+                      "CalDAV構成.md",
+                      "CardDAV構成.md",
+                      "Google構成.md",
+                      "Eメール構成.md",
+                      "Exchange構成.md",
+                      "フォント構成.md",
+                      "署名済みカレンダー構成.md",
+                      "Web_クリップ構成の作成.md",
+                      "Office_365のインストール.md",
+                      "Windows_GPO設定.md",
+                      "BitLocker暗号化構成.md"
+                    ]
+                  },
+                  {
+                    "group": "エンタープライズネットワークアクセス構成",
+                    "pages": [
+                      "エンタープライズネットワークアクセス構成.md",
+                      "AirPlay構成.md",
+                      "AirPrint構成.md",
+                      "Always_On_VPN構成.md",
+                      "デフォルトのアプリランタイム許可.md",
+                      "教育.md",
+                      "グローバルプロキシ構成.md",
+                      "LDAP構成.md",
+                      "macOSサーバー構成.md",
+                      "Tunnel.md",
+                      "AppTunnelの設定.md",
+                      "Per-App_VPN構成.md",
+                      "シングルサインオン構成.md",
+                      "ネットワークリレー構成.md",
+                      "iOS対応マルチユーザーセキュアサインイン.md",
+                      "Android_APN設定の構成.md",
+                      "VPN構成.md",
+                      "VPNオンデマンド.md",
+                      "Wi-Fi構成.md"
+                    ]
+                  },
+                  {
+                    "group": "セルラーネットワーク構成",
+                    "pages": [
+                      "セルラーネットワーク構成.md",
+                      "APN構成.md",
+                      "セルラー.md",
+                      "モバイル通信プライベートネットワーク構成.md",
+                      "iOS_Telecomのプリセット構成.md",
+                      "強化された5Gネットワークスライシング構成.md",
+                      "eSIM構成.md"
+                    ]
+                  },
+                  {
+                    "group": "その他の構成",
+                    "pages": [
+                      "その他の構成.md",
+                      "関連付けられたドメイン構成.md",
+                      "Android_ファイル転送構成.md",
+                      "Apple_TVの構成.md",
+                      "AirPlayミラーリング.md",
+                      "ブラウザの設定.md",
+                      "iOSのSingle_Appモードの構成.md",
+                      "iOS_MDMプロファイルの構成.md",
+                      "macOS_MDM_プロファイルの構成.md",
+                      "コンテンツキャッシュ.md",
+                      "Androidショートカットの作成.md",
+                      "アクセシビリティ設定の構成の作成.md",
+                      "スクリーンセーバー構成の作成.md",
+                      "ユーザーのスクリーンセーバーの構成.md",
+                      "デバイス名設定.md",
+                      "デバイスの壁紙構成.md",
+                      "EMAサーバー統合構成.md",
+                      "省エネルギー構成.md",
+                      "イーサネット構成（macOS）.md",
+                      "Google_BeyondCorp構成.md",
+                      "ロック画面メッセージ構成.md",
+                      "ログインウィンドウ構成_-_macOS.md",
+                      "macOSシステム拡張の構成.md",
+                      "MAMのみ.md",
+                      "マネージドGoogle_Play構成.md",
+                      "プリンター設定.md",
+                      "ブロートウェア削除構成.md",
+                      "Samsungフォンの制約構成.md",
+                      "デフォルトブラウザ構成_-_iOSとvisionOS.md",
+                      "Single_Appモード構成.md",
+                      "ソフトウェア更新の推奨頻度の構成.md",
+                      "スタートメニューとタスクバー.md",
+                      "システム更新構成.md",
+                      "Windows_10の更新管理.md",
+                      "Windowsアプリスケジューリング.md",
+                      "Windows_BIOS構成.md",
+                      "Windows_BitLocker.md",
+                      "Windowsキオスク構成.md",
+                      "Windowsライセンス構成.md"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "group": "ポリシー",
+            "pages": [
+              "ポリシー.md",
+              "ポリシーの操作.md",
+              "カスタムポリシー.md",
+              "許可されたアプリの監視と制御.md",
+              "ポリシーの優先度決定.md",
+              "Windowsハードウェアのポリシー.md"
+            ]
+          },
+          {
+            "group": "管理",
+            "pages": [
+              "管理.md",
+              {
+                "group": "システム",
+                "pages": [
+                  "システム.md",
+                  "属性.md",
+                  "デバイスクリーンアップ設定.md",
+                  "GDPRプロファイル.md",
+                  "通知メール.md",
+                  "役割管理.md",
+                  {
+                    "group": "スペース",
+                    "pages": [
+                      "スペース.md",
+                      "スペース-.md",
+                      "スペースの管理.md",
+                      "スペースの例.md",
+                      "デバイスの委譲.md",
+                      "アプリの委譲.md"
+                    ]
+                  },
+                  "サポート管理者.md",
+                  "[管理]___[システム使用通知].md"
+                ]
+              },
+              {
+                "group": "インフラ",
+                "pages": [
+                  "インフラ.md",
+                  "Access.md",
+                  "アプリリスト.md",
+                  "監査証跡のエクスポート.md",
+                  "証明書管理.md",
+                  "外部認証機関用のSCEP構成.md",
+                  "派生認証情報プロバイダー.md",
+                  "Connector.md",
+                  "Connectorへのhttpproxyコマンド使用.md",
+                  "Help@Work.md",
+                  {
+                    "group": "インフラID",
+                    "pages": [
+                      "インフラID.md",
+                      "IDプロバイダーの構成.md",
+                      {
+                        "group": "SCIM によるユーザー プロビジョニング",
+                        "pages": [
+                          "SCIM_によるユーザー_プロビジョニング.md",
+                          "Entra_ID_IdPのユーザープロビジョニング.md",
+                          "Okta_IdPのユーザープロビジョニング.md"
+                        ]
+                      }
+                    ]
+                  },
+                  "LDAPサーバーの構成.md",
+                  "[Sentry].md"
+                ]
+              },
+              {
+                "group": "Appleの設定",
+                "pages": [
+                  "Appleの設定.md",
+                  "Apple_Configurator.md",
+                  "アカウント主導の登録.md",
+                  "デバイス登録.md",
+                  "ベータ登録.md",
+                  "セットアップ_アシスタントの構成.md",
+                  "MDM証明書のインストール.md",
+                  "業務用共有_iPad_デバイス.md",
+                  "School_Manager.md",
+                  "設定（Apple）.md"
+                ]
+              },
+              {
+                "group": "Windowsデバイスでの作業",
+                "pages": [
+                  "Windowsデバイスでの作業.md",
+                  "Windows_Autopilotプロファイルの構成.md",
+                  "Windows_Autopilot_プロファイルの監査証跡.md",
+                  "TenantLockdown_CSP.md",
+                  "ADMX（GPO）ブラウザ.md",
+                  "アプリインベントリ間隔の構成.md",
+                  "ハードウェアインベントリ.md"
+                ]
+              },
+              {
+                "group": "Microsoft Azureでの設定",
+                "pages": [
+                  "Microsoft_Azureでの設定.md",
+                  "Microsoft_Azureの使用.md",
+                  "Entra_ID_Windows_10_統合エンドポイント管理の設定.md",
+                  "Entra_ID_UEMアプリの割り当て.md",
+                  "Ivanti_Neurons_for_MDMとEntra_IDユーザーソースの連携.md",
+                  {
+                    "group": "Azureテナント",
+                    "pages": [
+                      "Azureテナント.md",
+                      "Azure_Tenant_Requirements.md",
+                      "デバイスユーザーへのIntuneライセンス適用.md",
+                      "コンプライアンスパートナーとしてのMobileIronの追加.md",
+                      "Microsoft_Endpoint_Managerにおける条件付きアクセスポリシーの作成.md",
+                      "Microsoft_Azure_の接続_Ivanti_Neurons_for_MDM.md",
+                      "パートナーデバイスコンプライアンスポリシーの作成.md",
+                      "Ivanti_Neurons_for_MDM_から_Azure_へのデバイス_ステータスの報告.md",
+                      "Azureテナントのプロビジョニング解除.md"
+                    ]
+                  },
+                  "[管理]___[Microsoft_Azure]___[Office_365アプリ保護].md"
+                ]
+              },
+              {
+                "group": "Googleアプリとの連携",
+                "pages": [
+                  "Googleアプリとの連携.md",
+                  "マネージドGoogle_Playアカウント（Android_Enterpriseアカウント）.md",
+                  "Androidデバイスの登録.md",
+                  "Android_Management_API.md",
+                  "Google_Apps_API.md",
+                  "[管理]_-_[Android_Enterprise].md"
+                ]
+              },
+              {
+                "group": "ChromeOSデバイスの操作",
+                "pages": [
+                  "ChromeOSデバイスの操作.md",
+                  "ChromeOSとIvanti_Neurons_for_MDM.md",
+                  "ChromeOSデバイスへのAndroidアプリの配布.md",
+                  "ChromeOS拡張アプリの追加と配布.md",
+                  "ChromeOSブループリント構成.md",
+                  "デバイスアクション.md",
+                  "FAQ.md",
+                  "評価の際の推奨手順.md"
+                ]
+              },
+              {
+                "group": "ファームウェア管理",
+                "pages": [
+                  "ファームウェア管理.md",
+                  "Zebra_OTAサービスの登録.md",
+                  "Samsung_E-FOTAライセンス管理（終了）.md"
+                ]
+              },
+              {
+                "group": "スクリプトの管理",
+                "pages": [
+                  "スクリプトの管理.md",
+                  "すべてのスクリプト.md"
+                ]
+              },
+              {
+                "group": "ブランディング",
+                "pages": [
+                  "ブランディング.md",
+                  "[管理]___[Appleアプリカタログ（ブランディング）].md",
+                  "Androidアプリカタログのブランディング.md",
+                  "[管理]___[Androidキオスクのブランディング].md",
+                  "メールテンプレートのブランディング.md",
+                  "セルフサービスポータル.md",
+                  "セルフサービスポータル（ブランディング）.md",
+                  "マルチユーザーサインイン（Webクリップ）のブランディング.md"
+                ]
+              },
+              "非iOSデバイスの管理追加.md"
+            ]
+          },
+          {
+            "group": "パッケージ",
+            "pages": [
+              "パッケージ-.md",
+              "アップグレード.md",
+              "パッケージ-.md",
+              {
+                "group": "パッケージ",
+                "pages": [
+                  "パッケージ-.md",
+                  "パッケージ-.md",
+                  "パッケージ-.md",
+                  "パッケージ-.md",
+                  "パッケージ-.md"
+                ]
+              },
+              "パッケージ-.md"
+            ]
+          },
+          {
+            "group": "デバイスライセンス",
+            "pages": [
+              "デバイスライセンス.md",
+              "テナント一時停止.md"
+            ]
+          },
+          "サポート_チケットを登録する.md",
+          "サードパーティ属性.md"
+        ]
+      }
+    ]
+  }
+]
+  }
+}
