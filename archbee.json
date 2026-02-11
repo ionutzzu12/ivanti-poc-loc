@@ -1,0 +1,572 @@
+{
+  "$schema": "https://api.archbee.com/git-config-schema",
+  "docsPath": "./docs",
+  "structure": {
+    "assets": "assets",
+    "docsTree": [
+  {
+    "group": "TOC",
+    "pages": [
+      "About_Ivanti_Neurons_for_MDM.md",
+      "New_features_summary.md",
+      "Preview_features_available_in_Sandbox_tenants.md",
+      "Unified_Navigation.md",
+      {
+        "group": "Getting Started",
+        "pages": [
+          "Getting_Started.md",
+          "Configuring_macOS_devices.md",
+          "Configuring_registration_confirmation_emails.md",
+          "Configuring_policy_compliance_notification_emails.md",
+          "On-demand_features.md",
+          "Preparing_for_Android_Enterprise_device_support.md"
+        ]
+      },
+      {
+        "group": "Dashboard",
+        "pages": [
+          "Dashboard.md",
+          "Working_with_Widgets.md",
+          "App_Insights.md",
+          "Using_Scheduled_Reports.md",
+          "Using_Custom_Reports.md"
+        ]
+      },
+      {
+        "group": "Users",
+        "pages": [
+          "Users.md",
+          "Adding_Users.md",
+          "User_Groups.md",
+          "User_Settings.md",
+          "User_Branding.md",
+          "User_Enrollment_with_Apple_Business_Manager.md",
+          "User_Licenses.md",
+          {
+            "group": "Managing Users",
+            "pages": [
+              "Managing_Users.md",
+              "Adding_an_API_user_for_Cisco_ISE_operations.md",
+              "Assigning_Roles_to_Users.md",
+              "User_Roles.md",
+              "Finding_and_Filtering_Users.md",
+              "Assigning_Users_to_User_Groups.md",
+              "Inviting_Users.md",
+              "Enabling_and_Disabling_Users.md",
+              "Managing_Multiple_Administrator_Logins.md",
+              "Changing_a_Password.md",
+              "Sending_a_Message.md",
+              "Removing_Users_from_User_Groups.md",
+              "Deleting_a_User.md",
+              "Exporting_Users.md",
+              "Assigning_Custom_Attributes_to_Users.md",
+              "Removing_Custom_Attributes_from_Users.md",
+              "Changing_the_User_Locale.md",
+              "Editing_a_Username.md",
+              "Opting_Out_of_Location_Data_Collection.md",
+              "Timeout_Information.md",
+              "Opting_Out_of_System_Usage_Analytics.md",
+              "Device_Registration_by_PIN_Generation.md"
+            ]
+          }
+        ]
+      },
+      {
+        "group": "Devices",
+        "pages": [
+          "Devices.md",
+          "Getting_Started_with_Devices.md",
+          "Device_Groups.md",
+          "Unmanaged_Devices.md",
+          "App_Inventory.md",
+          {
+            "group": "Managing Devices",
+            "pages": [
+              "Managing_Devices.md",
+              "Deploying_Apple_Devices.md",
+              "Deploying_Windows_devices.md",
+              "Setup_Apple_Remote_Desktop_on_macOS_devices.md",
+              "Device_Registration__iOS__macOS__and_Android_.md",
+              "Device_Registration__Windows_10__PC_and_Microsoft_HoloLens_2_.md",
+              "Provisioning_Package_Enrollment_with_PIN.md",
+              {
+                "group": "Using Bulk Enrollment for Windows devices",
+                "pages": [
+                  "Using_Bulk_Enrollment_for_Windows_devices.md",
+                  "Ivanti_Bulk_Enrollment.md"
+                ]
+              },
+              "Changing_Passcode_Settings.md",
+              "Changing_the_Device_Name.md",
+              "Finding_and_Filtering_Devices.md",
+              "Using_Device_Owner.md",
+              "Managed_Device_with_Work_Profile.md",
+              "Using_Bulk_Enrollment_for_Android.md",
+              "Bulk_Enrolling_devices_using_CSV_file_upload.md",
+              "Using_Samsung_Knox_Mobile_Enrollment.md",
+              "Enrolling_Oculus_devices.md",
+              "Enabling_Bluetooth_on_a_Device.md",
+              "Schedule_iOS_Update.md",
+              "Re-install_iOS_System_Apps.md",
+              "Assigning_a_Device_to_a_new_user.md",
+              "Reassigning_an_Android_device.md",
+              "Forcing_a_device_to_Check-in.md",
+              "Locating_a_Device.md",
+              "Locking_a_Device.md",
+              "Managing_Apple_devices_in_lost_mode.md",
+              "Managing_Android_devices_in_Lost_Mode.md",
+              "Requesting_debug_logs.md",
+              "Retiring_a_Device.md",
+              "Relinquishing_Ownership_of_a_Device.md",
+              "Wiping_a_Device.md",
+              "Deleting_devices.md",
+              "Unlocking_a_Device.md",
+              "Restarting_or_shutting_down_devices.md",
+              "Clearing_the_Restrictions_Password__iOS_only_.md",
+              "Deleting_Sentry_association_for_a_device.md",
+              "Assigning_Custom_Attributes_to_Devices.md",
+              "Removing_Custom_Attributes_from_Devices.md",
+              "Synchronizing_and_fetching_app_feedback.md",
+              "Setting_firmware_password.md",
+              "Reissuing_a_new_Personal_Recovery_Key.md",
+              "Setting_or_changing_recovery_lock.md",
+              "Apple_Access_Management.md"
+            ]
+          }
+        ]
+      },
+      {
+        "group": "Apps",
+        "pages": [
+          "Apps.md",
+          "App_Catalog.md",
+          "Apps@Work__iOS__Android__Windows__and_macOS_.md",
+          "iOS_Apps@Work_AppStore_Features.md",
+          "Viewing_App_Details.md",
+          "App_Configuration.md",
+          "Assigning_Custom_Attributes_to_Apps.md",
+          "Managed_Configurations_for_Android.md",
+          "Managing_Google_Play_Apps.md",
+          "Deleting_Apps_from_the_App_Catalog.md",
+          "Upgrading_In-House_Apps.md",
+          "Finding_the_Package_Name_for_an_Android_App.md",
+          "Categories.md",
+          "Distribution_Filters.md",
+          "Exclude_or_Distribute_apps.md",
+          "Reviews.md",
+          "Apple_Apps_and_Books.md",
+          "Catalog_Settings.md",
+          "Deploying_app_dependencies.md",
+          "Deploying_Divide_Productivity_with_Android_Enterprise.md",
+          "Setting_up_the_Provisioner_app.md",
+          "Managing_Windows_Applications.md",
+          "Ivanti_Bridge.md"
+        ]
+      },
+      {
+        "group": "Content",
+        "pages": [
+          "Content.md",
+          "Managing_Content.md",
+          "Categories-.md"
+        ]
+      },
+      {
+        "group": "Configurations",
+        "pages": [
+          "Configurations.md",
+          "Working_with_Configurations.md",
+          "Creating_a_User_Self-Service_Portal_Configuration.md",
+          "Custom_Configuration.md",
+          "Pushing_SyncML_to_Devices_using_Custom_Configurations.md",
+          "Home_Screen_Layout_Configuration.md",
+          "App_Control_Configuration__Control_Which_Apps_Are_Installed_Per_Device.md",
+          "App_Notifications_Configuration.md",
+          "Exporting_Configurations.md",
+          "Prioritizing_Configurations.md",
+          {
+            "group": "Managing Configurations",
+            "pages": [
+              "Managing_Configurations.md",
+              "Configuration_Types.md",
+              "Variables.md",
+              {
+                "group": "AppConnect Configurations",
+                "pages": [
+                  "AppConnect_Configurations.md",
+                  "AppConnect_Overview.md",
+                  "AppConnect_Passcode.md"
+                ]
+              },
+              {
+                "group": "Security Configuration",
+                "pages": [
+                  "Security_Configuration.md",
+                  "Android_Enterprise.md",
+                  "Editing_the_Android_Enterprise_default_configuration.md",
+                  "Setting_up_Android_Enterprise.md",
+                  "Android_Enterprise__Work_Managed_Device_Non-GMS_mode__AOSP_.md",
+                  "Android_Work_Challenge.md",
+                  "Certificate_configuration.md",
+                  "Certificate_Transparency.md",
+                  "Certificate_Revocation_Checking_Configuration.md",
+                  "Create_Autonomous_Single_App_Mode_Configuration.md",
+                  "Creating_DNS_Proxy_Configuration.md",
+                  "Device_Logging_configuration.md",
+                  "Disk_Management_Configuration.md",
+                  "Android_Encryption.md",
+                  "Encrypted_DNS.md",
+                  "Threat_Defense.md",
+                  "FileVault_2.md",
+                  "FileVault_Recovery_Key.md",
+                  "FileVault_Options_Configuration.md",
+                  "Identity_Certificate.md",
+                  "Apple_Activation_Lock_Configuration.md",
+                  "iOS_Custom_Configuration.md",
+                  "iOS_Restrictions.md",
+                  "Conference_Room_Display.md",
+                  "Lockdown___Kiosk__Android_Device_Admin_Mode.md",
+                  "Setting_up_Kiosk_Mode_for_Android.md",
+                  "Setting_up_Android_shared_device_kiosk.md",
+                  "Lockdown___Kiosk__Android_Enterprise.md",
+                  "Lockdown___Kiosk__Samsung_Knox_Standard.md",
+                  "macOS_Firewall.md",
+                  "macOS_Restrictions.md",
+                  "macOS_AppStore_Restrictions.md",
+                  "macOS_Disk_Burning_Restrictions.md",
+                  "Allowed_Media_Control__Deprecated_.md",
+                  "macOS_Finder_Settings.md",
+                  "macOS_Kernel_Extension_Policy.md",
+                  "Mobile@Work_for_macOS.md",
+                  "macOS_Software_Update_Rules_Configuration.md",
+                  "Certificate_Preference.md",
+                  "Active_Directory__macOS_.md",
+                  "Identity_Preference.md",
+                  "Office_365_Auto_Account_Creation__macOS_.md",
+                  "Authenticate.md",
+                  "Apple_App_Catalog.md",
+                  "Managed_Domains.md",
+                  "Passcode_Configuration.md",
+                  "Privacy_Preference__macOS_.md",
+                  "Privacy_Configuration.md",
+                  "Client_Privacy_Statement_Information.md",
+                  "Ivanti_Go_Client_Settings.md",
+                  "Safari_Extension_Settings_Configuration.md",
+                  "Software_Updates.md",
+                  "Software_Update_Settings_Configuration.md",
+                  "Security_Preferences_Configuration.md",
+                  "Time_Server.md",
+                  "Web_Content_Filter.md",
+                  "Windows_Firewall.md",
+                  "Windows_Information_Protection.md",
+                  "Windows_Restrictions.md",
+                  "Windows_Desktop_restrictions.md",
+                  "Desktop_Settings_for_Windows_10.md",
+                  "Windows_Hello_for_Business_Configuration.md",
+                  "Windows_AI_Management_Configuration.md",
+                  "Play_Integrity__Previously_SafetyNet_Attestation_.md",
+                  "Advanced_Android_Passcode_and_Lock_Screen.md",
+                  "Microsoft_Defender_for_Endpoint.md",
+                  "Certificate-based_authentication.md"
+                ]
+              },
+              {
+                "group": "User Resource Configurations",
+                "pages": [
+                  "User_Resource_Configurations.md",
+                  "CalDAV_Configuration.md",
+                  "CardDAV_Configuration.md",
+                  "Google_Configuration.md",
+                  "Email_Configuration.md",
+                  "Exchange_Configuration.md",
+                  "Font_Configuration.md",
+                  "Subscribed_Calendar_Configuration.md",
+                  "Create_a_Web_Clip_Configuration.md",
+                  "Office_365_Installation.md",
+                  "Windows_GPO_Settings.md",
+                  "BitLocker_Encryption_Configuration.md"
+                ]
+              },
+              {
+                "group": "Enterprise Network Access Configuration",
+                "pages": [
+                  "Enterprise_Network_Access_Configuration.md",
+                  "AirPlay_Configuration.md",
+                  "AirPrint_Configuration.md",
+                  "Always-on_VPN_Configuration.md",
+                  "Default_App_Runtime_Permissions.md",
+                  "Education.md",
+                  "Global_Proxy_Configuration.md",
+                  "LDAP_Configuration.md",
+                  "macOS_Server_Configuration.md",
+                  "Tunnel.md",
+                  "Setting_Up_AppTunnel.md",
+                  "Per-app_VPN_Configuration.md",
+                  "Single_Sign-On_Configuration.md",
+                  "Network_Relay_Configuration.md",
+                  "Multi-user_Secure_Sign-in_for_iOS.md",
+                  "Android_APN_Settings_Configuration.md",
+                  "VPN_Configuration.md",
+                  "VPN_On_Demand.md",
+                  "Wi-Fi_Configuration.md"
+                ]
+              },
+              {
+                "group": "Cellular Network Configuration",
+                "pages": [
+                  "Cellular_Network_Configuration.md",
+                  "APN_Configuration.md",
+                  "Cellular.md",
+                  "Cellular_Private_Network_Configuration.md",
+                  "iOS_Telecom_Presets_Configuration.md",
+                  "Enhanced_5G_Network_Slicing_Configuration.md",
+                  "eSIM_Configuration.md"
+                ]
+              },
+              {
+                "group": "Other Configuration",
+                "pages": [
+                  "Other_Configuration.md",
+                  "Associated_Domains_Configuration.md",
+                  "Android_File_Transfer_Configuration.md",
+                  "Apple_TV_Configuration.md",
+                  "AirPlay_Mirroring.md",
+                  "Browser_Settings.md",
+                  "Configuring_Single_App_Mode_for_iOS.md",
+                  "Configuring_an_iOS_MDM_Profile.md",
+                  "Configuring_a_macOS_MDM_Profile.md",
+                  "Content_Caching.md",
+                  "Creating_an_Android_Shortcut.md",
+                  "Creating_Accessibility_Settings_Configurations.md",
+                  "Create_Screen_Saver_Configuration.md",
+                  "Configure_User_s_Screen_Saver.md",
+                  "Device_Name_Settings.md",
+                  "Device_Wallpaper_Configuration.md",
+                  "EMA_Server_Intergration_Configuration.md",
+                  "Energy_Saver_Configuration.md",
+                  "Ethernet_Configuration__macOS_.md",
+                  "Google_BeyondCorp_Configuration.md",
+                  "Lock_Screen_Message_Configuration.md",
+                  "Login_Window_Configuration_-_macOS.md",
+                  "macOS_System_Extension_configuration.md",
+                  "MAM-Only.md",
+                  "Managed_Google_Play_Configuration.md",
+                  "Printer_Settings.md",
+                  "Remove_Bloatware_Configuration.md",
+                  "Samsung_Phone_Restrictions_Configuration.md",
+                  "Default_Browser_Configuration_-_iOS_and_visionOS.md",
+                  "Single_App_Mode_Configuration.md",
+                  "Software_update_recommendation_cadence_configuration.md",
+                  "Start_menu_and_Taskbar.md",
+                  "System_Update_Configuration.md",
+                  "Windows_10_Update_Management.md",
+                  "Windows_app_scheduling.md",
+                  "Windows_BIOS_Configuration.md",
+                  "Windows_BitLocker.md",
+                  "Windows_Kiosk_Configuration.md",
+                  "Windows_License_Configuration.md"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "group": "Policies",
+        "pages": [
+          "Policies.md",
+          "Working_with_Policies.md",
+          "Custom_Policy.md",
+          "Monitoring_and_Controlling_Allowed_Apps.md",
+          "Prioritizing_Policies.md",
+          "Windows_Hardware_policy.md"
+        ]
+      },
+      {
+        "group": "Admin",
+        "pages": [
+          "Admin.md",
+          {
+            "group": "System",
+            "pages": [
+              "System.md",
+              "Attributes.md",
+              "Device_Cleanup_Settings.md",
+              "GDPR_Profiles.md",
+              "Notification_emails.md",
+              "Roles_Management.md",
+              {
+                "group": "Spaces",
+                "pages": [
+                  "Spaces.md",
+                  "Spaces-.md",
+                  "Managing_Spaces.md",
+                  "Space_Examples.md",
+                  "Delegating_Devices.md",
+                  "Delegating_Apps.md"
+                ]
+              },
+              "Support_Administrators.md",
+              "Admin___System_Use_Notification.md"
+            ]
+          },
+          {
+            "group": "Infrastructure",
+            "pages": [
+              "Infrastructure.md",
+              "Access.md",
+              "App_Lists.md",
+              "Exporting_Audit_Trails.md",
+              "Certificate_Management.md",
+              "SCEP_Configuration_for_External_Certificate_Authorities.md",
+              "Derived_Credential_Providers.md",
+              "Connector.md",
+              "Using_the_httpproxy_command_for_Connector.md",
+              "Help@Work.md",
+              {
+                "group": "Infrastructure Identity",
+                "pages": [
+                  "Infrastructure_Identity.md",
+                  "Configure_Identity_Provider.md",
+                  {
+                    "group": "User Provisioning with SCIM",
+                    "pages": [
+                      "User_Provisioning_with_SCIM.md",
+                      "User_Provisioning_for_Entra_ID_IdP.md",
+                      "User_Provisioning_for_Okta_IdP.md"
+                    ]
+                  }
+                ]
+              },
+              "Configuring_LDAP_server.md",
+              "Sentry.md"
+            ]
+          },
+          {
+            "group": "Apple Settings",
+            "pages": [
+              "Apple_Settings.md",
+              "Apple_Configurator.md",
+              "Account-driven_Enrollment.md",
+              "Device_Enrollment.md",
+              "Beta_Enrollment.md",
+              "Configuring_the_Setup_Assistant.md",
+              "Install_MDM_Certificate.md",
+              "Shared_iPad_devices_for_business.md",
+              "School_Manager.md",
+              "Settings__Apple_.md"
+            ]
+          },
+          {
+            "group": "Work with Windows Devices",
+            "pages": [
+              "Work_with_Windows_Devices.md",
+              "Configuring_Windows_Autopilot_Profiles.md",
+              "Audit_Trails_on_Windows_Autopilot_Profiles.md",
+              "TenantLockdown_CSP.md",
+              "ADMX__GPO__Browser.md",
+              "Configuring_app_inventory_intervals.md",
+              "Hardware_Inventory.md"
+            ]
+          },
+          {
+            "group": "Setup with Microsoft Azure",
+            "pages": [
+              "Setup_with_Microsoft_Azure.md",
+              "Using_Microsoft_Azure.md",
+              "Entra_ID_Windows_10_Unified_Endpoint_Management_Setup.md",
+              "Assigning_Entra_ID_UEM_app.md",
+              "Connect_Ivanti_Neurons_for_MDM_with_Entra_ID_User_Source.md",
+              {
+                "group": "Azure Tenant",
+                "pages": [
+                  "Azure_Tenant.md",
+                  "Azure_Tenant_Requirements.md",
+                  "Apply_the_Intune_license_to_device_users.md",
+                  "Adding_MobileIron_as_a_compliance_partner.md",
+                  "Creating_a_conditional_access_policy_in_Microsoft_Endpoint_Manager.md",
+                  "Connecting_Microsoft_Azure_to_Ivanti_Neurons_for_MDM.md",
+                  "Creating_a_partner_device_compliance_policy.md",
+                  "Device_status_reporting_from_Ivanti_Neurons_for_MDM_to_Azure.md",
+                  "De-provisioning_of_the_Azure_tenant.md"
+                ]
+              },
+              "Admin___Microsoft_Azure___Office_365_App_Protection.md"
+            ]
+          },
+          {
+            "group": "Connect with Google Apps",
+            "pages": [
+              "Connect_with_Google_Apps.md",
+              "Managed_Google_Play_Accounts__Android_Enterprise_Accounts_.md",
+              "Android_device_registration.md",
+              "Android_Management_API.md",
+              "Google_Apps_API.md",
+              "Admin_-_Android_Enterprise.md"
+            ]
+          },
+          {
+            "group": "Work with ChromeOS Devices",
+            "pages": [
+              "Work_with_ChromeOS_Devices.md",
+              "ChromeOS_and_Ivanti_Neurons_for_MDM.md",
+              "Distribute_Android_apps_to_ChromeOS_devices.md",
+              "Add_and_distribute_ChromeOS_extension_apps.md",
+              "ChromeOS_Blueprint_Configuration.md",
+              "Device_Actions.md",
+              "FAQs.md",
+              "Recommended_Steps_for_evaluation.md"
+            ]
+          },
+          {
+            "group": "Firmware Management",
+            "pages": [
+              "Firmware_Management.md",
+              "Enrolling_to_Zebra_OTA_service.md",
+              "Samsung_E-FOTA_License_Management__Decommissioned_.md"
+            ]
+          },
+          {
+            "group": "Manage Scripts",
+            "pages": [
+              "Manage_Scripts.md",
+              "All_Scripts.md"
+            ]
+          },
+          {
+            "group": "Branding",
+            "pages": [
+              "Branding.md",
+              "Admin___Apple_App_Catalog__Branding_.md",
+              "Branding_the_Android_App_Catalog.md",
+              "Admin___Android_Kiosk_Branding.md",
+              "Branding_Email_Templates.md",
+              "Self-Service_Portal.md",
+              "Self-Service_Portal__Branding_.md",
+              "Multi_User_Sign-In__Webclip__Branding.md"
+            ]
+          },
+          "Adding_management_of_non-iOS_devices.md"
+        ]
+      },
+      {
+        "group": "Packages",
+        "pages": [
+          "Packages.md",
+          "Upgrading.md"
+        ]
+      },
+      {
+        "group": "Device Licenses",
+        "pages": [
+          "Device_Licenses.md",
+          "Tenant_Suspension.md"
+        ]
+      },
+      "Opening_a_Support_Ticket.md",
+      "Third-Party_Attributes.md"
+    ]
+  }
+]
+  }
+}
