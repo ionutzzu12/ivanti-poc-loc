@@ -4,592 +4,582 @@
   "structure": {
     "assets": "assets",
     "docsTree": [
-  {
-    "group": "TOC",
-    "pages": [
+      "Acerca_de_Ivanti_Neurons_for_MDM.md",
+      "Resumen_de_nuevas_funciones.md",
+      "Funciones_de_vista_previa_disponibles_en_los_abonados_de_Sandbox.md",
+      "Navegación_unificada.md",
       {
-        "group": "VAS Platform Help - Table of Contents",
+        "group": "Introducción",
         "pages": [
-          "Acerca_de_Ivanti_Neurons_for_MDM.md",
-          "Resumen_de_nuevas_funciones.md",
-          "Funciones_de_vista_previa_disponibles_en_los_abonados_de_Sandbox.md",
-          "Navegación_unificada.md",
+          "Introducción.md",
+          "Configuración_de_dispositivos_macOS.md",
+          "Configuring_registration_confirmation_emails.md",
+          "Configuring_policy_compliance_notification_emails.md",
+          "Características_a_petición.md",
+          "Preparación_para_la_compatibilidad_con_un_dispositivo_de_Android_Enterprise.md"
+        ]
+      },
+      {
+        "group": "Panel",
+        "pages": [
+          "Panel.md",
+          "Trabajar_con_widgets.md",
+          "Datos_sobre_aplicaciones.md",
+          "Uso_de_Informes_programados.md",
+          "Uso_de_Informes_personalizados.md"
+        ]
+      },
+      {
+        "group": "Usuarios",
+        "pages": [
+          "Usuarios.md",
+          "Añadir_usuarios.md",
+          "Grupos_de_usuarios.md",
+          "Ajustes_del_usuario.md",
+          "Marca_del_usuario.md",
+          "Inscripción_de_usuarios_en_el_Apple_Business_Manager.md",
+          "Licencias_de_usuario.md",
           {
-            "group": "Introducción",
+            "group": "Administrar usuarios",
             "pages": [
-              "Introducción.md",
-              "Configuración_de_dispositivos_macOS.md",
-              "Configuring_registration_confirmation_emails.md",
-              "Configuring_policy_compliance_notification_emails.md",
-              "Características_a_petición.md",
-              "Preparación_para_la_compatibilidad_con_un_dispositivo_de_Android_Enterprise.md"
+              "Administrar_usuarios.md",
+              "Añadir_el_usuario_de_una_API_para_operaciones_de_Cisco_ISE.md",
+              "Asignar_funciones_a_usuarios.md",
+              "Funciones_del_usuario.md",
+              "Encontrar_y_filtrar_usuarios.md",
+              "Asignar_usuarios_a_grupos_de_usuarios.md",
+              "Invitar_a_usuarios.md",
+              "Activar_y_desactivar_usuarios.md",
+              "Gestionar_múltiples_inicios_de_sesión_del_administrador.md",
+              "Cambiar_una_contraseña.md",
+              "Enviar_un_mensaje.md",
+              "Quitar_usuarios_de_grupos_de_usuarios.md",
+              "Eliminar_a_un_usuario.md",
+              "Exportar_usuarios.md",
+              "Asignar_atributos_personalizados_a_los_usuarios.md",
+              "Eliminar_atributos_personalizados_de_los_usuarios.md",
+              "Cambiar_la_configuración_regional_del_usuario.md",
+              "Editar_un_nombre_de_usuario.md",
+              "No_participar_en_la_obtención_de_datos_sobre_localización.md",
+              "Información_de_tiempo_de_espera.md",
+              "Cancelar_las_analíticas_sobre_el_uso_del_sistema.md",
+              "Registro_de_dispositivo_por_generación_de_PIN.md"
             ]
-          },
+          }
+        ]
+      },
+      {
+        "group": "Dispositivos",
+        "pages": [
+          "Dispositivos.md",
+          "Introducción_a_los_dispositivos.md",
+          "Grupos_de_dispositivos.md",
+          "Dispositivos_no_administrados.md",
+          "Inventario_de_aplicaciones.md",
           {
-            "group": "Panel",
+            "group": "Administrar dispositivos",
             "pages": [
-              "Panel.md",
-              "Trabajar_con_widgets.md",
-              "Datos_sobre_aplicaciones.md",
-              "Uso_de_Informes_programados.md",
-              "Uso_de_Informes_personalizados.md"
-            ]
-          },
-          {
-            "group": "Usuarios",
-            "pages": [
-              "Usuarios.md",
-              "Añadir_usuarios.md",
-              "Grupos_de_usuarios.md",
-              "Ajustes_del_usuario.md",
-              "Marca_del_usuario.md",
-              "Inscripción_de_usuarios_en_el_Apple_Business_Manager.md",
-              "Licencias_de_usuario.md",
+              "Administrar_dispositivos.md",
+              "Despliegue_de_dispositivos_Apple.md",
+              "Desplegar_dispositivos_de_Windows.md",
+              "Configurar_Apple_Remote_Desktop_en_dispositivos_macOS.md",
+              "Registro_de_dispositivos__iOS__macOS_y_Android_.md",
+              "Registro_de_dispositivos__PC_con_Windows_10__y_Microsoft_HoloLens_2_.md",
+              "Inscripción_de_paquete_de_aprovisionamiento_con_PIN.md",
               {
-                "group": "Administrar usuarios",
+                "group": "Uso de la Inscripción en masa para dispositivos Windows",
                 "pages": [
-                  "Administrar_usuarios.md",
-                  "Añadir_el_usuario_de_una_API_para_operaciones_de_Cisco_ISE.md",
-                  "Asignar_funciones_a_usuarios.md",
-                  "Funciones_del_usuario.md",
-                  "Encontrar_y_filtrar_usuarios.md",
-                  "Asignar_usuarios_a_grupos_de_usuarios.md",
-                  "Invitar_a_usuarios.md",
-                  "Activar_y_desactivar_usuarios.md",
-                  "Gestionar_múltiples_inicios_de_sesión_del_administrador.md",
-                  "Cambiar_una_contraseña.md",
-                  "Enviar_un_mensaje.md",
-                  "Quitar_usuarios_de_grupos_de_usuarios.md",
-                  "Eliminar_a_un_usuario.md",
-                  "Exportar_usuarios.md",
-                  "Asignar_atributos_personalizados_a_los_usuarios.md",
-                  "Eliminar_atributos_personalizados_de_los_usuarios.md",
-                  "Cambiar_la_configuración_regional_del_usuario.md",
-                  "Editar_un_nombre_de_usuario.md",
-                  "No_participar_en_la_obtención_de_datos_sobre_localización.md",
-                  "Información_de_tiempo_de_espera.md",
-                  "Cancelar_las_analíticas_sobre_el_uso_del_sistema.md",
-                  "Registro_de_dispositivo_por_generación_de_PIN.md"
-                ]
-              }
-            ]
-          },
-          {
-            "group": "Dispositivos",
-            "pages": [
-              "Dispositivos.md",
-              "Introducción_a_los_dispositivos.md",
-              "Grupos_de_dispositivos.md",
-              "Dispositivos_no_administrados.md",
-              "Inventario_de_aplicaciones.md",
-              {
-                "group": "Administrar dispositivos",
-                "pages": [
-                  "Administrar_dispositivos.md",
-                  "Despliegue_de_dispositivos_Apple.md",
-                  "Desplegar_dispositivos_de_Windows.md",
-                  "Configurar_Apple_Remote_Desktop_en_dispositivos_macOS.md",
-                  "Registro_de_dispositivos__iOS__macOS_y_Android_.md",
-                  "Registro_de_dispositivos__PC_con_Windows_10__y_Microsoft_HoloLens_2_.md",
-                  "Inscripción_de_paquete_de_aprovisionamiento_con_PIN.md",
-                  {
-                    "group": "Uso de la Inscripción en masa para dispositivos Windows",
-                    "pages": [
-                      "Uso_de_la_Inscripción_en_masa_para_dispositivos_Windows.md",
-                      "Inscripción_en_masa_de_Ivanti.md"
-                    ]
-                  },
-                  "Cambiar_ajustes_del_código_de_acceso.md",
-                  "Cambiar_nombre_del_dispositivo.md",
-                  "Encontrar_y_filtrar_dispositivos.md",
-                  "Uso_del_modo_Propietario_del_dispositivo.md",
-                  "Dispositivo_administrado_con_perfil_profesional.md",
-                  "Uso_de_la_inscripción_en_masa_para_Android.md",
-                  "Inscripción_de_dispositivos_en_masa_mediante_carga_de_archivos_CSV.md",
-                  "Uso_de_la_inscripción_móvil_de_Samsung_Knox.md",
-                  "Inscribir_dispositivos_de_Oculus.md",
-                  "Activar_Bluetooth_en_un_dispositivo.md",
-                  "Programar_actualización_de_iOS.md",
-                  "Reinstalar_aplicaciones_del_sistema_iOS.md",
-                  "Asignar_un_dispositivo_a_un_nuevo_usuario.md",
-                  "Reasignar_un_dispositivo_Android.md",
-                  "Forzar_el_ingreso_de_un_dispositivo.md",
-                  "Encontrar_un_dispositivo.md",
-                  "Bloquear_un_dispositivo.md",
-                  "Administrar_dispositivos_en_el_modo_Perdido_de_Apple.md",
-                  "Administración_de_dispositivos_Android_en_modo_Perdido.md",
-                  "Solicitar_registros_de_depuración.md",
-                  "Retirar_un_dispositivo.md",
-                  "Renuncia_de_la_propiedad_de_un_dispositivo.md",
-                  "Borrar_un_dispositivo.md",
-                  "Eliminar_dispositivos.md",
-                  "Desbloquear_un_dispositivo.md",
-                  "Reiniciar_o_apagar_dispositivos.md",
-                  "Borrar_la_contraseña_de_las_restricciones__solo_iOS_.md",
-                  "Eliminar_la_asociación_de_Sentry_de_un_dispositivo.md",
-                  "Asignar_atributos_personalizados_a_los_dispositivos.md",
-                  "Eliminar_atributos_personalizados_de_los_dispositivos.md",
-                  "Sincronizar_y_obtener_comentarios_de_aplicaciones.md",
-                  "Establecer_la_contraseña_del_firmware.md",
-                  "Volver_a_emitir_una_nueva_clave_de_recuperación_personal.md",
-                  "Configurar_o_cambiar_el_bloqueo_de_recuperación.md",
-                  "Administración_de_acceso_de_Apple.md"
-                ]
-              }
-            ]
-          },
-          {
-            "group": "Aplicaciones",
-            "pages": [
-              "Aplicaciones.md",
-              "Catálogo_de_aplicaciones.md",
-              "Apps@Work__iOS__Android__Windows_y_macOS_.md",
-              "Funciones_de_la_tienda_de_aplicaciones_de_Apps@Work_en_iOS.md",
-              {
-                "group": "Ver Detalles de la aplicación",
-                "pages": [
-                  "Ver_Detalles_de_la_aplicación-.md",
-                  "Ver_Detalles_de_la_aplicación-.md"
+                  "Uso_de_la_Inscripción_en_masa_para_dispositivos_Windows.md",
+                  "Inscripción_en_masa_de_Ivanti.md"
                 ]
               },
-              "Configuración_de_aplicaciones.md",
-              "Asignar_atributos_personalizados_a_las_aplicaciones.md",
-              "Configuraciones_administradas_para_Android.md",
-              "Administrar_aplicaciones_de_Google_Play.md",
-              "Eliminar_aplicaciones_del_App_Catalog.md",
-              "Actualizar_aplicaciones_internas.md",
-              "Encontrar_el_nombre_del_paquete_de_una_aplicación_de_Android.md",
-              "Categorías.md",
-              "Filtros_de_distribución.md",
-              "Excluir_o_distribuir_aplicaciones.md",
-              "Opiniones.md",
-              "Apps_and_Books_de_Apple.md",
-              "Ajustes_del_catálogo.md",
-              "Instalar_dependencias_de_aplicaciones.md",
-              "Desplegar_Divide_Productivity_con_Android_Enterprise.md",
-              "Configurar_la_aplicación_Provisioner.md",
-              "Administración_de_aplicaciones_de_Windows.md",
-              "Ivanti_Bridge.md"
+              "Cambiar_ajustes_del_código_de_acceso.md",
+              "Cambiar_nombre_del_dispositivo.md",
+              "Encontrar_y_filtrar_dispositivos.md",
+              "Uso_del_modo_Propietario_del_dispositivo.md",
+              "Dispositivo_administrado_con_perfil_profesional.md",
+              "Uso_de_la_inscripción_en_masa_para_Android.md",
+              "Inscripción_de_dispositivos_en_masa_mediante_carga_de_archivos_CSV.md",
+              "Uso_de_la_inscripción_móvil_de_Samsung_Knox.md",
+              "Inscribir_dispositivos_de_Oculus.md",
+              "Activar_Bluetooth_en_un_dispositivo.md",
+              "Programar_actualización_de_iOS.md",
+              "Reinstalar_aplicaciones_del_sistema_iOS.md",
+              "Asignar_un_dispositivo_a_un_nuevo_usuario.md",
+              "Reasignar_un_dispositivo_Android.md",
+              "Forzar_el_ingreso_de_un_dispositivo.md",
+              "Encontrar_un_dispositivo.md",
+              "Bloquear_un_dispositivo.md",
+              "Administrar_dispositivos_en_el_modo_Perdido_de_Apple.md",
+              "Administración_de_dispositivos_Android_en_modo_Perdido.md",
+              "Solicitar_registros_de_depuración.md",
+              "Retirar_un_dispositivo.md",
+              "Renuncia_de_la_propiedad_de_un_dispositivo.md",
+              "Borrar_un_dispositivo.md",
+              "Eliminar_dispositivos.md",
+              "Desbloquear_un_dispositivo.md",
+              "Reiniciar_o_apagar_dispositivos.md",
+              "Borrar_la_contraseña_de_las_restricciones__solo_iOS_.md",
+              "Eliminar_la_asociación_de_Sentry_de_un_dispositivo.md",
+              "Asignar_atributos_personalizados_a_los_dispositivos.md",
+              "Eliminar_atributos_personalizados_de_los_dispositivos.md",
+              "Sincronizar_y_obtener_comentarios_de_aplicaciones.md",
+              "Establecer_la_contraseña_del_firmware.md",
+              "Volver_a_emitir_una_nueva_clave_de_recuperación_personal.md",
+              "Configurar_o_cambiar_el_bloqueo_de_recuperación.md",
+              "Administración_de_acceso_de_Apple.md"
+            ]
+          }
+        ]
+      },
+      {
+        "group": "Aplicaciones",
+        "pages": [
+          "Aplicaciones.md",
+          "Catálogo_de_aplicaciones.md",
+          "Apps@Work__iOS__Android__Windows_y_macOS_.md",
+          "Funciones_de_la_tienda_de_aplicaciones_de_Apps@Work_en_iOS.md",
+          {
+            "group": "Ver Detalles de la aplicación",
+            "pages": [
+              "Ver_Detalles_de_la_aplicación-.md",
+              "Ver_Detalles_de_la_aplicación-.md"
             ]
           },
+          "Configuración_de_aplicaciones.md",
+          "Asignar_atributos_personalizados_a_las_aplicaciones.md",
+          "Configuraciones_administradas_para_Android.md",
+          "Administrar_aplicaciones_de_Google_Play.md",
+          "Eliminar_aplicaciones_del_App_Catalog.md",
+          "Actualizar_aplicaciones_internas.md",
+          "Encontrar_el_nombre_del_paquete_de_una_aplicación_de_Android.md",
+          "Categorías.md",
+          "Filtros_de_distribución.md",
+          "Excluir_o_distribuir_aplicaciones.md",
+          "Opiniones.md",
+          "Apps_and_Books_de_Apple.md",
+          "Ajustes_del_catálogo.md",
+          "Instalar_dependencias_de_aplicaciones.md",
+          "Desplegar_Divide_Productivity_con_Android_Enterprise.md",
+          "Configurar_la_aplicación_Provisioner.md",
+          "Administración_de_aplicaciones_de_Windows.md",
+          "Ivanti_Bridge.md"
+        ]
+      },
+      {
+        "group": "Contenido",
+        "pages": [
+          "Contenido.md",
+          "Gestión_de_contenidos.md",
+          "Categorías-.md"
+        ]
+      },
+      {
+        "group": "Configuraciones",
+        "pages": [
+          "Configuraciones.md",
+          "Trabajar_con_configuraciones.md",
+          "Creación_de_una_configuración_del_portal_de_autoservicio_para_usuarios.md",
+          "Configuración_personalizada.md",
+          "Insertar_SyncML_en_dispositivos_mediante_la_configuración_personalizada.md",
+          "Configuración_del_diseño_de_la_pantalla_de_inicio.md",
+          "Configuración_del_control_de_aplicaciones__controle_qué_aplicaciones_pueden_instalarse_en_cada_dispositivo.md",
+          "Configuración_de_las_notificaciones_de_la_aplicación.md",
+          "Exportar_configuraciones.md",
+          "Priorizar_configuraciones.md",
           {
-            "group": "Contenido",
+            "group": "Administrar configuraciones",
             "pages": [
-              "Contenido.md",
-              "Gestión_de_contenidos.md",
-              "Categorías-.md"
-            ]
-          },
-          {
-            "group": "Configuraciones",
-            "pages": [
-              "Configuraciones.md",
-              "Trabajar_con_configuraciones.md",
-              "Creación_de_una_configuración_del_portal_de_autoservicio_para_usuarios.md",
-              "Configuración_personalizada.md",
-              "Insertar_SyncML_en_dispositivos_mediante_la_configuración_personalizada.md",
-              "Configuración_del_diseño_de_la_pantalla_de_inicio.md",
-              "Configuración_del_control_de_aplicaciones__controle_qué_aplicaciones_pueden_instalarse_en_cada_dispositivo.md",
-              "Configuración_de_las_notificaciones_de_la_aplicación.md",
-              "Exportar_configuraciones.md",
-              "Priorizar_configuraciones.md",
+              "Administrar_configuraciones.md",
+              "Tipos_de_configuración.md",
+              "Variables.md",
               {
-                "group": "Administrar configuraciones",
+                "group": "Configuraciones de App Connect",
                 "pages": [
-                  "Administrar_configuraciones.md",
-                  "Tipos_de_configuración.md",
-                  "Variables.md",
+                  "Configuraciones_de_App_Connect.md",
+                  "Introducción_a_AppConnect.md",
+                  "Código_de_acceso_de_AppConnect.md"
+                ]
+              },
+              {
+                "group": "Configuración de seguridad",
+                "pages": [
+                  "Configuración_de_seguridad.md",
+                  "Android_Enterprise.md",
+                  "Editar_la_configuración_predeterminada_de_Android_Enterprise.md",
+                  "Configurar_Android_Enterprise.md",
+                  "Android_Enterprise__modo_no_GMS_para_el_dispositivo_administrado_en_el_trabajo__AOSP_.md",
+                  "Desafío_de_acceso__Work_Challenge__de_Android.md",
+                  "Configuración_del_certificado.md",
+                  "Transparencia_del_certificado.md",
+                  "Configuración_de_comprobación_de_revocación_de_certificados.md",
+                  "Crear_configuración_en_modo_autónomo_de_una_única_aplicación.md",
+                  "Creación_de_una_configuración_de_proxy_de_DNS.md",
+                  "Configuración_del_registro_de_dispositivos.md",
+                  "Configuración_del_administrador_de_discos.md",
+                  "Cifrado_en_Android.md",
+                  "DNS_cifrado.md",
+                  "Defensa_contra_amenazas.md",
+                  "FileVault_2.md",
+                  "Clave_de_recuperación_de_FileVault.md",
+                  "Configuración_de_opciones_de_FileVault.md",
+                  "Certificado_de_identidad.md",
+                  "Configuración_del_Bloqueo_de_activación_de_Apple.md",
+                  "Configuración_personalizada_iOS.md",
+                  "Restricciones_de_iOS.md",
+                  "Visualización_de_la_sala_de_conferencias.md",
+                  "Bloqueo_y_kiosco__modo_de_administrador_de_dispositivos_de_Android.md",
+                  "Configurar_el_modo_kiosco_para_Android.md",
+                  "Configurar_el_kiosco_del_dispositivo_compartido_Android.md",
+                  "Bloqueo_y_kiosco__Android_Enterprise.md",
+                  "Bloqueo_y_kiosco__Samsung_KNOX_Standard.md",
+                  "Firewall_de_macOS.md",
+                  "Restricciones_de_macOS.md",
+                  "Restricciones_de_la_AppStore_de_macOS.md",
+                  "Restricciones_de_grabación_en_disco_de_macOS.md",
+                  "Control_multimedia_permitido__obsoleto_.md",
+                  "Ajustes_del_Finder_de_macOS.md",
+                  "Política_de_extensiones_del_kernel_de_macOS.md",
+                  "Mobile@Work_para_macOS.md",
+                  "Configuración_de_las_reglas_de_actualización_de_software_macOS.md",
+                  "Preferencia_de_certificado.md",
+                  "Active_Directory__macOS_.md",
+                  "Preferencia_de_identidad.md",
+                  "Creación_automática_de_cuentas_en_Office_365__macOS_.md",
+                  "Autenticar.md",
+                  "App_Catalog_de_Apple.md",
+                  "Dominios_administrados.md",
+                  "Configuración_del_código_de_acceso.md",
+                  "Preferencias_de_privacidad__macOS_.md",
+                  "Configuración_de_privacidad.md",
+                  "Información_de_Declaración_de_la_privacidad_del_cliente.md",
+                  "Ajustes_del_cliente_de_Ivanti_Go.md",
+                  "Configuración_de_los_ajustes_de_la_extensión_de_Safari.md",
+                  "Actualizaciones_de_software.md",
+                  "Configuración_de_los_ajustes_de_actualización_del_software.md",
+                  "Configuración_de_Preferencias_de_Seguridad.md",
+                  "Servidor_de_zona_horaria.md",
+                  "Filtro_de_contenido_web.md",
+                  "Firewall_de_Windows.md",
+                  "Protección_de_la_información_de_Windows.md",
+                  "Restricciones_de_Windows.md",
+                  "Restricciones_de_Windows_Desktop.md",
+                  "Ajustes_de_escritorio_para_Windows_10.md",
+                  "Configuración_predeterminada_de_Windows_Hello_para_empresas.md",
+                  "Configuración_del_administrador_de_IA_de_Windows.md",
+                  "Play_Integrity__antes_SafetyNet_Attestation_.md",
+                  "Código_de_acceso_y_pantalla_de_bloqueo_avanzados_de_Android.md",
+                  "Microsoft_Defender_for_Endpoint.md",
+                  "Autenticación_basada_en_certificado.md"
+                ]
+              },
+              {
+                "group": "Configuraciones de recursos del usuario",
+                "pages": [
+                  "Configuraciones_de_recursos_del_usuario.md",
+                  "Configuración_de_CalDAV.md",
+                  "Configuración_de_CardDAV.md",
+                  "Configuración_de_Google.md",
+                  "Configuración_de_correo_electrónico.md",
+                  "Configuración_de_Exchange.md",
+                  "Configuración_de_fuente.md",
+                  "Configuración_del_calendario_suscrito.md",
+                  "Crear_una_configuración_de_Web_Clip.md",
+                  "Instalación_de_Office_365.md",
+                  "Ajustes_de_GPO_de_Windows.md",
+                  "Configuración_de_cifrado_de_BitLocker.md"
+                ]
+              },
+              {
+                "group": "Configuración de acceso a la red de la empresa",
+                "pages": [
+                  "Configuración_de_acceso_a_la_red_de_la_empresa.md",
+                  "Configuración_de_AirPlay.md",
+                  "Configuración_de_AirPrint.md",
+                  "Configuración_de_VPN_siempre_activa.md",
+                  "Permisos_predeterminados_del_tiempo_de_ejecución_de_las_aplicaciones.md",
+                  "Educación.md",
+                  "Configuración_de_proxy_global.md",
+                  "Configuración_de_LDAP.md",
+                  "Configuración_del_servidor_de_macOS.md",
+                  "Tunnel.md",
+                  "Configurar_AppTunnel.md",
+                  "Configuración_de_VPN_por_aplicación.md",
+                  "Configuración_de_inicio_de_sesión_único.md",
+                  "Configuración_del_relé_de_red.md",
+                  "Inicio_de_sesión_seguro_multiusuario_para_iOS.md",
+                  "Configuración_de_ajustes_de_la_APN_de_Android.md",
+                  "Configuración_de_VPN.md",
+                  "VPN_a_petición.md",
+                  "Configuración_de_Wi-Fi.md"
+                ]
+              },
+              {
+                "group": "Configuración de la red móvil",
+                "pages": [
+                  "Configuración_de_la_red_móvil.md",
+                  "Configuración_de_APN.md",
+                  "Móvil.md",
+                  "Configuración_de_la_red_móvil_privada.md",
+                  "Configuración_de_preajustes_de_iOS_para_Telecom.md",
+                  "Configuración_mejorada_de_segmentación_de_red_5G.md",
+                  "Configuración_de_eSIM.md"
+                ]
+              },
+              {
+                "group": "Otra configuración",
+                "pages": [
+                  "Otra_configuración.md",
+                  "Configuración_de_dominios_asociados.md",
+                  "Configuración_de_la_transferencia_de_archivos_de_Android.md",
+                  "Configuración_de_Apple_TV.md",
+                  "Duplicación_AirPlay.md",
+                  "Ajustes_del_navegador.md",
+                  "Configurar_el_modo_Single_App_para_iOS.md",
+                  "Configurar_un_perfil_de_MDM_en_iOS.md",
+                  "Configurar_un_perfil_de_MDM_en_macOS.md",
+                  "Caché_de_contenidos.md",
+                  "Crear_un_acceso_directo_de_Android.md",
+                  "Creación_de_configuraciones_de_ajustes_de_accesibilidad.md",
+                  "Crear_configuración_de_salva_pantallas.md",
+                  "Configurar_el_salvapantallas_del_usuario.md",
+                  "Ajustes_del_nombre_del_dispositivo.md",
+                  "Configuración_del_fondo_de_pantalla_del_dispositivo.md",
+                  "Configuración_de_la_integración_de_servidores_EMA.md",
+                  "Configuración_de_ahorro_de_energía.md",
+                  "Configuración_de_Ethernet__macOS_.md",
+                  "Configuración_de_Google_BeyondCorp.md",
+                  "Configuración_del_mensaje_de_la_pantalla_de_bloqueo.md",
+                  "Configuración_de_la_ventana_de_inicio_de_sesión__macOS.md",
+                  "Configuración_de_las_extensiones_del_sistema_de_macOS.md",
+                  "MAM_solo.md",
+                  "Configuración_Google_Play_administrada.md",
+                  "Ajustes_de_la_impresora.md",
+                  "Configuración_para_eliminar_el_«bloatware».md",
+                  "Configuración_de_las_restricciones_de_teléfonos_Samsung.md",
+                  "Configuración_predeterminada_del_navegador__iOS_y_visionOS.md",
+                  "Configuración_del_modo_Single-App.md",
+                  "Configuración_de_la_cadencia_de_recomendación_de_actualizaciones_de_software.md",
+                  "Menú_Inicio_y_Barra_de_tareas.md",
+                  "Configuración_de_la_actualización_del_sistema.md",
+                  "Administración_de_actualización_de_Windows_10.md",
+                  "Programación_de_aplicaciones_Windows.md",
+                  "Configuración_del_BIOS_de_Windows.md",
+                  "BitLocker_de_Windows.md",
+                  "Configuración_del_kiosco_de_Windows.md",
+                  "Configuración_de_la_licencia_de_Windows.md"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "group": "Políticas",
+        "pages": [
+          "Políticas.md",
+          "Trabajar_con_políticas.md",
+          "Política_personalizada.md",
+          "Supervisar_y_controlar_las_aplicaciones_permitidas.md",
+          "Priorizar_políticas.md",
+          "Política_de_hardware_de_Windows.md"
+        ]
+      },
+      {
+        "group": "Administración",
+        "pages": [
+          "Administración.md",
+          {
+            "group": "Sistema",
+            "pages": [
+              "Sistema.md",
+              "Atributos.md",
+              "Ajustes_de_borrado_del_dispositivo.md",
+              "Perfiles_GDPR.md",
+              "Correos_electrónicos_de_notificación.md",
+              "Administración_de_funciones.md",
+              {
+                "group": "Espacios",
+                "pages": [
+                  "Espacios.md",
+                  "Espacios-.md",
+                  "Administrar_espacios.md",
+                  "Ejemplos_de_espacios.md",
+                  "Delegar_dispositivos.md",
+                  "Delegar_aplicaciones.md"
+                ]
+              },
+              "Administradores_de_asistencia_técnica.md",
+              "Administrador___Notificación_de_uso_del_sistema.md"
+            ]
+          },
+          {
+            "group": "Infraestructura",
+            "pages": [
+              "Infraestructura.md",
+              "Acceso.md",
+              "Listas_de_aplicaciones__plists_.md",
+              "Exportar_trazas_de_auditorías.md",
+              "Gestión_de_certificados.md",
+              "Configuración_de_SCEP_para_Entidades_de_Certificación_externas.md",
+              "Proveedores_de_credenciales_derivadas.md",
+              "Conector.md",
+              "Uso_del_comando_httpproxy_para_Conector.md",
+              "Help@Work.md",
+              {
+                "group": "Identidad de la infrastructura",
+                "pages": [
+                  "Identidad_de_la_infrastructura.md",
+                  "Configurar_el_proveedor_de_identidades.md",
                   {
-                    "group": "Configuraciones de App Connect",
+                    "group": "Aprovisionamiento de usuarios con SCIM",
                     "pages": [
-                      "Configuraciones_de_App_Connect.md",
-                      "Introducción_a_AppConnect.md",
-                      "Código_de_acceso_de_AppConnect.md"
-                    ]
-                  },
-                  {
-                    "group": "Configuración de seguridad",
-                    "pages": [
-                      "Configuración_de_seguridad.md",
-                      "Android_Enterprise.md",
-                      "Editar_la_configuración_predeterminada_de_Android_Enterprise.md",
-                      "Configurar_Android_Enterprise.md",
-                      "Android_Enterprise__modo_no_GMS_para_el_dispositivo_administrado_en_el_trabajo__AOSP_.md",
-                      "Desafío_de_acceso__Work_Challenge__de_Android.md",
-                      "Configuración_del_certificado.md",
-                      "Transparencia_del_certificado.md",
-                      "Configuración_de_comprobación_de_revocación_de_certificados.md",
-                      "Crear_configuración_en_modo_autónomo_de_una_única_aplicación.md",
-                      "Creación_de_una_configuración_de_proxy_de_DNS.md",
-                      "Configuración_del_registro_de_dispositivos.md",
-                      "Configuración_del_administrador_de_discos.md",
-                      "Cifrado_en_Android.md",
-                      "DNS_cifrado.md",
-                      "Defensa_contra_amenazas.md",
-                      "FileVault_2.md",
-                      "Clave_de_recuperación_de_FileVault.md",
-                      "Configuración_de_opciones_de_FileVault.md",
-                      "Certificado_de_identidad.md",
-                      "Configuración_del_Bloqueo_de_activación_de_Apple.md",
-                      "Configuración_personalizada_iOS.md",
-                      "Restricciones_de_iOS.md",
-                      "Visualización_de_la_sala_de_conferencias.md",
-                      "Bloqueo_y_kiosco__modo_de_administrador_de_dispositivos_de_Android.md",
-                      "Configurar_el_modo_kiosco_para_Android.md",
-                      "Configurar_el_kiosco_del_dispositivo_compartido_Android.md",
-                      "Bloqueo_y_kiosco__Android_Enterprise.md",
-                      "Bloqueo_y_kiosco__Samsung_KNOX_Standard.md",
-                      "Firewall_de_macOS.md",
-                      "Restricciones_de_macOS.md",
-                      "Restricciones_de_la_AppStore_de_macOS.md",
-                      "Restricciones_de_grabación_en_disco_de_macOS.md",
-                      "Control_multimedia_permitido__obsoleto_.md",
-                      "Ajustes_del_Finder_de_macOS.md",
-                      "Política_de_extensiones_del_kernel_de_macOS.md",
-                      "Mobile@Work_para_macOS.md",
-                      "Configuración_de_las_reglas_de_actualización_de_software_macOS.md",
-                      "Preferencia_de_certificado.md",
-                      "Active_Directory__macOS_.md",
-                      "Preferencia_de_identidad.md",
-                      "Creación_automática_de_cuentas_en_Office_365__macOS_.md",
-                      "Autenticar.md",
-                      "App_Catalog_de_Apple.md",
-                      "Dominios_administrados.md",
-                      "Configuración_del_código_de_acceso.md",
-                      "Preferencias_de_privacidad__macOS_.md",
-                      "Configuración_de_privacidad.md",
-                      "Información_de_Declaración_de_la_privacidad_del_cliente.md",
-                      "Ajustes_del_cliente_de_Ivanti_Go.md",
-                      "Configuración_de_los_ajustes_de_la_extensión_de_Safari.md",
-                      "Actualizaciones_de_software.md",
-                      "Configuración_de_los_ajustes_de_actualización_del_software.md",
-                      "Configuración_de_Preferencias_de_Seguridad.md",
-                      "Servidor_de_zona_horaria.md",
-                      "Filtro_de_contenido_web.md",
-                      "Firewall_de_Windows.md",
-                      "Protección_de_la_información_de_Windows.md",
-                      "Restricciones_de_Windows.md",
-                      "Restricciones_de_Windows_Desktop.md",
-                      "Ajustes_de_escritorio_para_Windows_10.md",
-                      "Configuración_predeterminada_de_Windows_Hello_para_empresas.md",
-                      "Configuración_del_administrador_de_IA_de_Windows.md",
-                      "Play_Integrity__antes_SafetyNet_Attestation_.md",
-                      "Código_de_acceso_y_pantalla_de_bloqueo_avanzados_de_Android.md",
-                      "Microsoft_Defender_for_Endpoint.md",
-                      "Autenticación_basada_en_certificado.md"
-                    ]
-                  },
-                  {
-                    "group": "Configuraciones de recursos del usuario",
-                    "pages": [
-                      "Configuraciones_de_recursos_del_usuario.md",
-                      "Configuración_de_CalDAV.md",
-                      "Configuración_de_CardDAV.md",
-                      "Configuración_de_Google.md",
-                      "Configuración_de_correo_electrónico.md",
-                      "Configuración_de_Exchange.md",
-                      "Configuración_de_fuente.md",
-                      "Configuración_del_calendario_suscrito.md",
-                      "Crear_una_configuración_de_Web_Clip.md",
-                      "Instalación_de_Office_365.md",
-                      "Ajustes_de_GPO_de_Windows.md",
-                      "Configuración_de_cifrado_de_BitLocker.md"
-                    ]
-                  },
-                  {
-                    "group": "Configuración de acceso a la red de la empresa",
-                    "pages": [
-                      "Configuración_de_acceso_a_la_red_de_la_empresa.md",
-                      "Configuración_de_AirPlay.md",
-                      "Configuración_de_AirPrint.md",
-                      "Configuración_de_VPN_siempre_activa.md",
-                      "Permisos_predeterminados_del_tiempo_de_ejecución_de_las_aplicaciones.md",
-                      "Educación.md",
-                      "Configuración_de_proxy_global.md",
-                      "Configuración_de_LDAP.md",
-                      "Configuración_del_servidor_de_macOS.md",
-                      "Tunnel.md",
-                      "Configurar_AppTunnel.md",
-                      "Configuración_de_VPN_por_aplicación.md",
-                      "Configuración_de_inicio_de_sesión_único.md",
-                      "Configuración_del_relé_de_red.md",
-                      "Inicio_de_sesión_seguro_multiusuario_para_iOS.md",
-                      "Configuración_de_ajustes_de_la_APN_de_Android.md",
-                      "Configuración_de_VPN.md",
-                      "VPN_a_petición.md",
-                      "Configuración_de_Wi-Fi.md"
-                    ]
-                  },
-                  {
-                    "group": "Configuración de la red móvil",
-                    "pages": [
-                      "Configuración_de_la_red_móvil.md",
-                      "Configuración_de_APN.md",
-                      "Móvil.md",
-                      "Configuración_de_la_red_móvil_privada.md",
-                      "Configuración_de_preajustes_de_iOS_para_Telecom.md",
-                      "Configuración_mejorada_de_segmentación_de_red_5G.md",
-                      "Configuración_de_eSIM.md"
-                    ]
-                  },
-                  {
-                    "group": "Otra configuración",
-                    "pages": [
-                      "Otra_configuración.md",
-                      "Configuración_de_dominios_asociados.md",
-                      "Configuración_de_la_transferencia_de_archivos_de_Android.md",
-                      "Configuración_de_Apple_TV.md",
-                      "Duplicación_AirPlay.md",
-                      "Ajustes_del_navegador.md",
-                      "Configurar_el_modo_Single_App_para_iOS.md",
-                      "Configurar_un_perfil_de_MDM_en_iOS.md",
-                      "Configurar_un_perfil_de_MDM_en_macOS.md",
-                      "Caché_de_contenidos.md",
-                      "Crear_un_acceso_directo_de_Android.md",
-                      "Creación_de_configuraciones_de_ajustes_de_accesibilidad.md",
-                      "Crear_configuración_de_salva_pantallas.md",
-                      "Configurar_el_salvapantallas_del_usuario.md",
-                      "Ajustes_del_nombre_del_dispositivo.md",
-                      "Configuración_del_fondo_de_pantalla_del_dispositivo.md",
-                      "Configuración_de_la_integración_de_servidores_EMA.md",
-                      "Configuración_de_ahorro_de_energía.md",
-                      "Configuración_de_Ethernet__macOS_.md",
-                      "Configuración_de_Google_BeyondCorp.md",
-                      "Configuración_del_mensaje_de_la_pantalla_de_bloqueo.md",
-                      "Configuración_de_la_ventana_de_inicio_de_sesión__macOS.md",
-                      "Configuración_de_las_extensiones_del_sistema_de_macOS.md",
-                      "MAM_solo.md",
-                      "Configuración_Google_Play_administrada.md",
-                      "Ajustes_de_la_impresora.md",
-                      "Configuración_para_eliminar_el_«bloatware».md",
-                      "Configuración_de_las_restricciones_de_teléfonos_Samsung.md",
-                      "Configuración_predeterminada_del_navegador__iOS_y_visionOS.md",
-                      "Configuración_del_modo_Single-App.md",
-                      "Configuración_de_la_cadencia_de_recomendación_de_actualizaciones_de_software.md",
-                      "Menú_Inicio_y_Barra_de_tareas.md",
-                      "Configuración_de_la_actualización_del_sistema.md",
-                      "Administración_de_actualización_de_Windows_10.md",
-                      "Programación_de_aplicaciones_Windows.md",
-                      "Configuración_del_BIOS_de_Windows.md",
-                      "BitLocker_de_Windows.md",
-                      "Configuración_del_kiosco_de_Windows.md",
-                      "Configuración_de_la_licencia_de_Windows.md"
+                      "Aprovisionamiento_de_usuarios_con_SCIM.md",
+                      "Aprovisionamiento_de_usuarios_para_IdP_de_Entra_ID.md",
+                      "Aprovisionamiento_de_usuarios_para_Okta_IdP.md"
                     ]
                   }
                 ]
-              }
+              },
+              "Configuración_del_servidor_LDAP.md",
+              "Sentry.md"
             ]
           },
           {
-            "group": "Políticas",
+            "group": "Ajustes de Apple",
             "pages": [
-              "Políticas.md",
-              "Trabajar_con_políticas.md",
-              "Política_personalizada.md",
-              "Supervisar_y_controlar_las_aplicaciones_permitidas.md",
-              "Priorizar_políticas.md",
-              "Política_de_hardware_de_Windows.md"
+              "Ajustes_de_Apple.md",
+              "Configurador_de_Apple.md",
+              "Inscripción_basada_en_cuentas.md",
+              "Inscripción_de_dispositivos.md",
+              "Inscripción_Beta.md",
+              "Configuración_del_asistente_de_configuración.md",
+              "Instalación_del_Certificado_MDM.md",
+              "Dispositivos_iPad_compartidos_para_empresas.md",
+              "Director_de_la_escuela.md",
+              "Ajustes__Apple_.md"
             ]
           },
           {
-            "group": "Administración",
+            "group": "Trabajar con dispositivos Windows",
             "pages": [
-              "Administración.md",
-              {
-                "group": "Sistema",
-                "pages": [
-                  "Sistema.md",
-                  "Atributos.md",
-                  "Ajustes_de_borrado_del_dispositivo.md",
-                  "Perfiles_GDPR.md",
-                  "Correos_electrónicos_de_notificación.md",
-                  "Administración_de_funciones.md",
-                  {
-                    "group": "Espacios",
-                    "pages": [
-                      "Espacios.md",
-                      "Espacios-.md",
-                      "Administrar_espacios.md",
-                      "Ejemplos_de_espacios.md",
-                      "Delegar_dispositivos.md",
-                      "Delegar_aplicaciones.md"
-                    ]
-                  },
-                  "Administradores_de_asistencia_técnica.md",
-                  "Administrador___Notificación_de_uso_del_sistema.md"
-                ]
-              },
-              {
-                "group": "Infraestructura",
-                "pages": [
-                  "Infraestructura.md",
-                  "Acceso.md",
-                  "Listas_de_aplicaciones__plists_.md",
-                  "Exportar_trazas_de_auditorías.md",
-                  "Gestión_de_certificados.md",
-                  "Configuración_de_SCEP_para_Entidades_de_Certificación_externas.md",
-                  "Proveedores_de_credenciales_derivadas.md",
-                  "Conector.md",
-                  "Uso_del_comando_httpproxy_para_Conector.md",
-                  "Help@Work.md",
-                  {
-                    "group": "Identidad de la infrastructura",
-                    "pages": [
-                      "Identidad_de_la_infrastructura.md",
-                      "Configurar_el_proveedor_de_identidades.md",
-                      {
-                        "group": "Aprovisionamiento de usuarios con SCIM",
-                        "pages": [
-                          "Aprovisionamiento_de_usuarios_con_SCIM.md",
-                          "Aprovisionamiento_de_usuarios_para_IdP_de_Entra_ID.md",
-                          "Aprovisionamiento_de_usuarios_para_Okta_IdP.md"
-                        ]
-                      }
-                    ]
-                  },
-                  "Configuración_del_servidor_LDAP.md",
-                  "Sentry.md"
-                ]
-              },
-              {
-                "group": "Ajustes de Apple",
-                "pages": [
-                  "Ajustes_de_Apple.md",
-                  "Configurador_de_Apple.md",
-                  "Inscripción_basada_en_cuentas.md",
-                  "Inscripción_de_dispositivos.md",
-                  "Inscripción_Beta.md",
-                  "Configuración_del_asistente_de_configuración.md",
-                  "Instalación_del_Certificado_MDM.md",
-                  "Dispositivos_iPad_compartidos_para_empresas.md",
-                  "Director_de_la_escuela.md",
-                  "Ajustes__Apple_.md"
-                ]
-              },
-              {
-                "group": "Trabajar con dispositivos Windows",
-                "pages": [
-                  "Trabajar_con_dispositivos_Windows.md",
-                  "Configuración_de_los_perfiles_de_Windows_Autopilot.md",
-                  "Audit_Trails_en_los_perfiles_de_Windows_Autopilot.md",
-                  "TenantLockdown_CSP.md",
-                  "Explorador_ADMX__GPO_.md",
-                  "Configuración_de_los_intervalos_del_inventario_de_aplicaciones.md",
-                  "Inventario_de_hardware.md"
-                ]
-              },
-              {
-                "group": "Configuración con Microsoft Azure",
-                "pages": [
-                  "Configuración_con_Microsoft_Azure.md",
-                  "Uso_de_Microsoft_Azure.md",
-                  "Configuración_de_la_gestión_del_endpoint_unificado_de_Entra_ID_de_Windows_10.md",
-                  "Asignación_de_la_aplicación_Entra_ID_UEM.md",
-                  "Conecte_Ivanti_Neurons_for_MDM_con_Entra_ID_User_Source.md",
-                  {
-                    "group": "Inquilino de Azure",
-                    "pages": [
-                      "Inquilino_de_Azure.md",
-                      "Azure_Tenant_Requirements.md",
-                      "Aplicar_la_licencia_de_Intune_a_usuarios_de_dispositivos.md",
-                      "Para_añadir_MobileIron_como_socio_de_cumplimiento.md",
-                      "Creación_de_una_directiva_de_acceso_condicional_en_Microsoft_Endpoint_Manager.md",
-                      "Conexión_de_Microsoft_Azure_con_Ivanti_Neurons_for_MDM.md",
-                      "Creación_de_una_directiva_de_cumplimiento_de_los_dispositivos_de_los_socios.md",
-                      "Estado_del_dispositivo_que_notifica_desde_Ivanti_Neurons_for_MDM_a_Azure.md",
-                      "Cancelar_el_aprovisionamiento_del_inquilino_de_Azure.md"
-                    ]
-                  },
-                  "Administrador___Microsoft_Azure___Office_365_App_Protection.md"
-                ]
-              },
-              {
-                "group": "Conectar con Google Apps",
-                "pages": [
-                  "Conectar_con_Google_Apps.md",
-                  "Cuentas_administradas_de_Google_Play__cuentas_con_Android_Enterprise_.md",
-                  "Registro_de_dispositivos_Android.md",
-                  "API_de_administración_de_Android.md",
-                  "API_de_Google_Apps.md",
-                  "Administrador-_Android_Enterprise.md"
-                ]
-              },
-              {
-                "group": "Trabajar con dispositivos de ChromeOS",
-                "pages": [
-                  "Trabajar_con_dispositivos_de_ChromeOS.md",
-                  "ChromeOS_e_Ivanti_Neurons_for_MDM.md",
-                  "Distribuir_aplicaciones_de_Android_en_dispositivos_de_ChromeOS.md",
-                  "Agregar_y_distribuir_aplicaciones_de_extensión_de_ChromeOS.md",
-                  "Configuración_de_ChromeOS_Blueprint.md",
-                  "Acciones_de_dispositivos.md",
-                  "Preguntas_más_frecuentes.md",
-                  "Pasos_recomendados_para_la_evaluación.md"
-                ]
-              },
-              {
-                "group": "Administración del firmware",
-                "pages": [
-                  "Administración_del_firmware.md",
-                  "Inscripción_al_servicio_Zebra_OTA.md",
-                  "Administración_de_licencias_de_Samsung_E-FOTA__Retirado_.md"
-                ]
-              },
-              {
-                "group": "Gestionar secuencias de comandos",
-                "pages": [
-                  "Gestionar_secuencias_de_comandos.md",
-                  "Todas_las_secuencia_de_comandos.md"
-                ]
-              },
-              {
-                "group": "Personalización de marca",
-                "pages": [
-                  "Personalización_de_marca.md",
-                  "Administrador___Catálogo_de_aplicaciones_Apple__personalización_de_marca_.md",
-                  "Personalizar_el_App_Catalog_de_Android.md",
-                  "Administrador___Personalización_de_marca_del_kiosko_de_Android.md",
-                  "Cómo_personalizar_las_plantillas_de_correo_electrónico.md",
-                  "Portal_de_autoservicio.md",
-                  "Portal_de_autoservicio__personalización_.md",
-                  "Personalización_del_inicio_de_sesión_multiusuario__clip_web_.md"
-                ]
-              },
-              "Añadir_la_administración_de_dispositivos_que_no_sean_iOS.md"
+              "Trabajar_con_dispositivos_Windows.md",
+              "Configuración_de_los_perfiles_de_Windows_Autopilot.md",
+              "Audit_Trails_en_los_perfiles_de_Windows_Autopilot.md",
+              "TenantLockdown_CSP.md",
+              "Explorador_ADMX__GPO_.md",
+              "Configuración_de_los_intervalos_del_inventario_de_aplicaciones.md",
+              "Inventario_de_hardware.md"
             ]
           },
+          {
+            "group": "Configuración con Microsoft Azure",
+            "pages": [
+              "Configuración_con_Microsoft_Azure.md",
+              "Uso_de_Microsoft_Azure.md",
+              "Configuración_de_la_gestión_del_endpoint_unificado_de_Entra_ID_de_Windows_10.md",
+              "Asignación_de_la_aplicación_Entra_ID_UEM.md",
+              "Conecte_Ivanti_Neurons_for_MDM_con_Entra_ID_User_Source.md",
+              {
+                "group": "Inquilino de Azure",
+                "pages": [
+                  "Inquilino_de_Azure.md",
+                  "Azure_Tenant_Requirements.md",
+                  "Aplicar_la_licencia_de_Intune_a_usuarios_de_dispositivos.md",
+                  "Para_añadir_MobileIron_como_socio_de_cumplimiento.md",
+                  "Creación_de_una_directiva_de_acceso_condicional_en_Microsoft_Endpoint_Manager.md",
+                  "Conexión_de_Microsoft_Azure_con_Ivanti_Neurons_for_MDM.md",
+                  "Creación_de_una_directiva_de_cumplimiento_de_los_dispositivos_de_los_socios.md",
+                  "Estado_del_dispositivo_que_notifica_desde_Ivanti_Neurons_for_MDM_a_Azure.md",
+                  "Cancelar_el_aprovisionamiento_del_inquilino_de_Azure.md"
+                ]
+              },
+              "Administrador___Microsoft_Azure___Office_365_App_Protection.md"
+            ]
+          },
+          {
+            "group": "Conectar con Google Apps",
+            "pages": [
+              "Conectar_con_Google_Apps.md",
+              "Cuentas_administradas_de_Google_Play__cuentas_con_Android_Enterprise_.md",
+              "Registro_de_dispositivos_Android.md",
+              "API_de_administración_de_Android.md",
+              "API_de_Google_Apps.md",
+              "Administrador-_Android_Enterprise.md"
+            ]
+          },
+          {
+            "group": "Trabajar con dispositivos de ChromeOS",
+            "pages": [
+              "Trabajar_con_dispositivos_de_ChromeOS.md",
+              "ChromeOS_e_Ivanti_Neurons_for_MDM.md",
+              "Distribuir_aplicaciones_de_Android_en_dispositivos_de_ChromeOS.md",
+              "Agregar_y_distribuir_aplicaciones_de_extensión_de_ChromeOS.md",
+              "Configuración_de_ChromeOS_Blueprint.md",
+              "Acciones_de_dispositivos.md",
+              "Preguntas_más_frecuentes.md",
+              "Pasos_recomendados_para_la_evaluación.md"
+            ]
+          },
+          {
+            "group": "Administración del firmware",
+            "pages": [
+              "Administración_del_firmware.md",
+              "Inscripción_al_servicio_Zebra_OTA.md",
+              "Administración_de_licencias_de_Samsung_E-FOTA__Retirado_.md"
+            ]
+          },
+          {
+            "group": "Gestionar secuencias de comandos",
+            "pages": [
+              "Gestionar_secuencias_de_comandos.md",
+              "Todas_las_secuencia_de_comandos.md"
+            ]
+          },
+          {
+            "group": "Personalización de marca",
+            "pages": [
+              "Personalización_de_marca.md",
+              "Administrador___Catálogo_de_aplicaciones_Apple__personalización_de_marca_.md",
+              "Personalizar_el_App_Catalog_de_Android.md",
+              "Administrador___Personalización_de_marca_del_kiosko_de_Android.md",
+              "Cómo_personalizar_las_plantillas_de_correo_electrónico.md",
+              "Portal_de_autoservicio.md",
+              "Portal_de_autoservicio__personalización_.md",
+              "Personalización_del_inicio_de_sesión_multiusuario__clip_web_.md"
+            ]
+          },
+          "Añadir_la_administración_de_dispositivos_que_no_sean_iOS.md"
+        ]
+      },
+      {
+        "group": "Paquetes",
+        "pages": [
+          "Paquetes-.md",
+          "Actualización.md",
+          "Paquetes-.md",
           {
             "group": "Paquetes",
             "pages": [
               "Paquetes-.md",
-              "Actualización.md",
               "Paquetes-.md",
-              {
-                "group": "Paquetes",
-                "pages": [
-                  "Paquetes-.md",
-                  "Paquetes-.md",
-                  "Paquetes-.md",
-                  "Paquetes-.md",
-                  "Paquetes-.md"
-                ]
-              },
+              "Paquetes-.md",
+              "Paquetes-.md",
               "Paquetes-.md"
             ]
           },
-          {
-            "group": "Licencias de dispositivo",
-            "pages": [
-              "Licencias_de_dispositivo.md",
-              "Suspensión_del_abonado.md"
-            ]
-          },
-          "Abrir_un_tique_de_asistencia.md",
-          "Atributos_de_terceros.md"
+          "Paquetes-.md"
         ]
-      }
+      },
+      {
+        "group": "Licencias de dispositivo",
+        "pages": [
+          "Licencias_de_dispositivo.md",
+          "Suspensión_del_abonado.md"
+        ]
+      },
+      "Abrir_un_tique_de_asistencia.md",
+      "Atributos_de_terceros.md"
     ]
-  }
-]
   }
 }
