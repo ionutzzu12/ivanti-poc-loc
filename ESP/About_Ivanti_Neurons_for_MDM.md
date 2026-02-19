@@ -1,17 +1,19 @@
 ---
-title: Translated About Ivanti Neurons for MDM
-createdAt: Wed Feb 11 2026 15:31:27 GMT+0200 (Eastern European Standard Time)
-updatedAt: Wed Feb 11 2026 15:31:27 GMT+0200 (Eastern European Standard Time)
+title: Acerca de Ivanti Neurons for MDM
+createdAt: 2026-02-19T13:20:03.821Z
+updatedAt: 2026-02-19T13:20:03.821Z
 ---
 
-A modern approach to mobile security, Ivanti Neurons for MDM provides unified endpoint management (UEM) solutions in a highly scalable, secure, and easy to update infrastructure that supports millions of devices around the world.
+Como método moderno para la seguridad de dispositivos móviles, Ivanti Neurons for MDM proporciona soluciones de Administración unificada de extremos (UEM) en una infraestructura sumamente escalable, segura y fácil de actualizar que es compatible con millones de dispositivos en el mundo.
 
-•Instant updates: Get automatic software and security updates and access to the new features the moment they become available.
+Actualizaciones instantáneas: obtenga actualizaciones automáticas de software y seguridad, y acceso a nuevas funciones en el momento en que estén disponibles.
 
-•On-demand scalability: Scale your deployment as business needs change without having to worry about capacity planning.
+Escalabilidad a demanda: escale su implementación a medida que las necesidades de la empresa cambian sin tener que preocuparse por planificar la capacidad.
 
-•Minimize hardware costs: By eliminating the need to maintain on-premise hardware, cloud-based services require zero footprint to manage.
+Minimizar los costes del hardware: al eliminar la necesidad de mantener el hardware de forma local, los servicios basados en la nube no requieren de ninguna huella para su gestión.
 
-•High up-time and high availability.
+Alto tiempo de funcionamiento y alta disponibilidad.
 
-•Maximize existing investments: Re-allocate IT resources from hardware maintenance to more strategic tasks that add value to the business.
+Maximizar las inversiones existentes: reasigne los recursos informáticos para que dejen de dedicarse al mantenimiento de hardware y se dediquen a tareas más estratégicas que aporten valor al negocio.
+
+Puede consultar los resúmenes de Nuevas funciones disponibles en esta versión.

@@ -1,13 +1,13 @@
 ---
-title: Access
-createdAt: Wed Feb 11 2026 15:31:34 GMT+0200 (Eastern European Standard Time)
-updatedAt: Wed Feb 11 2026 15:31:34 GMT+0200 (Eastern European Standard Time)
+title: Acceso
+createdAt: 2026-02-19T13:20:03.829Z
+updatedAt: 2026-02-19T13:20:03.829Z
 ---
 
-**Applicable to:** iOS and Android devices.
+**Aplicable a: dispositivos** iOS y Android.
 
-Access keeps business data secure while enabling a seamless and productive user experience on any device or app. Access establishes a data boundary that prevents users from accessing enterprise cloud services on unsecured devices, apps, or cloud services.
+Acceda de forma segura a los datos corporativos a la vez que hace posible una experiencia del usuario fluida y productiva en cualquier dispositivo o aplicación. Además, Access instaura un límite de datos que evita que los usuarios puedan acceder a los servicios corporativos en la nube en dispositivos, aplicaciones o servicios en la nube no segurizados.
 
-## Latest documentation
+## Documentación más reciente
 
-Visit [**Product Documentation**](https://www.ivanti.com/support/product-documentation) and click Access for more information about Access and how to set up Access. Select the document appropriate to your version of Access.
+Visite la [**Documentación del producto**](https://www.ivanti.com/support/product-documentation) y haga clic en Access para obtener más información sobre Access y cómo configurarlo. Seleccione el documento apropiado para su versión de Access.
