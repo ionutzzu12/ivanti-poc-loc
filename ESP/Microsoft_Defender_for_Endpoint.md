@@ -1,22 +1,22 @@
 ---
 title: Microsoft Defender for Endpoint
-createdAt: Wed Feb 11 2026 17:29:06 GMT+0200 (Eastern European Standard Time)
-updatedAt: Wed Feb 11 2026 17:29:06 GMT+0200 (Eastern European Standard Time)
+createdAt: Wed Feb 11 2026 15:31:31 GMT+0200 (Eastern European Standard Time)
+updatedAt: Wed Feb 11 2026 15:31:31 GMT+0200 (Eastern European Standard Time)
 ---
 
-La configuración de Microsoft Defender for Endpoint (MDE), antes conocida como Windows Advanced Threat Protection, permite a los clientes incorporar y eliminar dispositivos al servicio MDE.
+Microsoft Defender for Endpoint (MDE) configuration formerly known as Windows Advanced Threat Protection, allows customers to onboard and offboard devices to MDE service.
 
-**Procedimiento**
+**Procedure**
 
-1. Vaya a **Configuración > +Añadir**.
-2. Seleccione la configuración de **Microsoft Defender for Endpoint**.
-3. Introduzca un nombre para la configuración.
-4. Introduzca una descripción.
-5. En la sección Establecimiento de la configuración, especifique los demás ajustes según se describe en la siguiente tabla.| Ajuste                                  | Descripción                                                                                                     |
-   \| --------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
-   \| **Blob de incorporación o de retirada** | Pegue el blob de onboarding o offboarding del sitio del Centro de seguridad de Microsoft Defender for Endpoint. |
-6. Haga clic en **Siguiente**.
-7. Seleccione una de las siguientes opciones de distribución:\* Todos los dispositivos
-   - Ningún dispositivo (predeterminada)
-   - personalizada
-8. Haga clic en **Hecho**.
+1. Go to **Configuration > +Add**.
+2. Select **Microsoft Defender for Endpoint** configuration.
+3. Enter a name for the configuration.
+4. Enter a description.
+5. In the Configuration Setup section, specify the remaining settings as described in the following table.| Setting                            | Description                                                                                            |
+   \| ---------------------------------- | ------------------------------------------------------------------------------------------------------ |
+   \| **Onboarding or Offboarding Blob** | Paste the onboarding or offboarding blob from the Microsoft Defender for Endpoint Security Center site |
+6. Click **Next**.
+7. Select one of the following distribution options:\* All Devices
+   - No Devices(default)
+   - Custom
+8. Click **Done**.

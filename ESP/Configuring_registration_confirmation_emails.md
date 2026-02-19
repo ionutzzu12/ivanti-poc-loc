@@ -1,19 +1,19 @@
 ---
 title: Configuring registration confirmation emails
-createdAt: Wed Feb 11 2026 17:29:03 GMT+0200 (Eastern European Standard Time)
-updatedAt: Wed Feb 11 2026 17:29:03 GMT+0200 (Eastern European Standard Time)
+createdAt: Wed Feb 11 2026 15:31:27 GMT+0200 (Eastern European Standard Time)
+updatedAt: Wed Feb 11 2026 15:31:27 GMT+0200 (Eastern European Standard Time)
 ---
 
-## Configuración y uso de los correos electrónicos de confirmación de registro
+## Configuring and using registration confirmation emails
 
-Los administradores pueden configurar y activar los correos electrónicos para los usuarios una vez que hayan completado el registro. Este correo electrónico puede contener, por ejemplo, instrucciones adicionales para los usuarios después de haberse registrado con éxito. Los administradores pueden activar el envío de este correo electrónico durante la invitación del usuario.
+Administrators can configure and trigger emails to users after they have completed registration. This email can contain, for example, additional instructions for users after having successfully registered. Administrators can enable sending of this email during user invitation.
 
-El proceso:
+The process:
 
-- **Configuración de la función:**\* Configure la plantilla de correo electrónico: la plantilla de correo electrónico en inglés tiene este aspecto por defecto, pero se puede revisar para que se adapte mejor a sus necesidades siguiendo las instrucciones que hay en [**Personalización de una plantilla de correo electrónico**](./Cómo_personalizar_las_plantillas_de_correo_electrónico.md) en [**Cómo personalizar las plantillas de correo electrónico**](./Cómo_personalizar_las_plantillas_de_correo_electrónico.md).
+- **Configuring the feature:**\* Configure the email template: The English email template looks like this by default, but you can revise it to better suit your purposes by following the instructions at [**Customizing an email template**](./Branding_Email_Templates.md) in [**Branding Email Templates**](./Branding_Email_Templates.md).
 
 ::Image[]{src="Resources/Images/cloud67_emailtemplate001.png" signedSrc="Resources/Images/cloud67_emailtemplate001.png" size="35" caption alt isUploading="false" sha initialPath="Resources/Images/cloud67_emailtemplate001.png" githubPath="Resources/Images/cloud67_emailtemplate001.png" position="flex-start" indent="2"}
 
 :::Paragraph{listStyleType="disc" indent="2"}
-Active el correo electrónico de confirmación de registro. Consulte [**Configuración de los correos electrónicos de confirmación de registro del usuario**](./Ajustes_del_usuario.md) en [**Ajustes del usuario**](./Ajustes_del_usuario.md).
+Turn on the registration confirmation email. See [**Configuring User Registration Confirmation emails**](./User_Settings.md) in [**User Settings**](./User_Settings.md).
 :::

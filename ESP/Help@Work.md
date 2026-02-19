@@ -1,96 +1,96 @@
 ---
 title: Help@Work
-createdAt: Wed Feb 11 2026 17:29:08 GMT+0200 (Eastern European Standard Time)
-updatedAt: Wed Feb 11 2026 17:29:08 GMT+0200 (Eastern European Standard Time)
+createdAt: Wed Feb 11 2026 15:31:34 GMT+0200 (Eastern European Standard Time)
+updatedAt: Wed Feb 11 2026 15:31:34 GMT+0200 (Eastern European Standard Time)
 ---
 
-**Licencia:** Platinum
+**License:** Platinum
 
-**Compatible con:** dispositivos Android y iOS compatibles con Ivanti Neurons for MDM
+**Supported on:** Android and iOS devices as supported by Ivanti Neurons for MDM
 
-Utilice Help\@Work para Android/iOS para proporcionar asistencia remota a los usuarios de los dispositivos Android y iOS. Help\@Work para Android/iOS se basa en la aplicación TeamViewer QuickSupport. Necesitará una cuenta de TeamViewer para usar Help\@Work para Android/iOS. Si no tiene ya una cuenta, visite teamviewer.com para obtener más detalles.
+Use Help\@Work for Android/iOS to provide remote assistance to users of Android and iOS devices. Help\@Work for Android/iOS is based on the TeamViewer QuickSupport app. You will need a TeamViewer account to use Help\@Work for Android/iOS. If you do not have an account, visit teamviewer.com for details.
 
-Help\@Work transforma la experiencia de soporte técnico para los dispositivos iOS 11.0+ y Android permitiendo que los usuarios pidan ayuda con un solo clic y compartan su pantalla con un representante del soporte técnico. Los usuarios ya no tienen que perder tiempo explicando verbalmente el problema, mientras que el personal informático puede trabajar de forma más eficiente a la hora de solucionar problemas con un dispositivo. Esto no es compatible con los dispositivos iOS «MAM only».
+Help\@Work transforms the help desk experience for iOS 11.0+ and Android devices by allowing users to ask for help with a click of a button and to share their screen with a help desk agent. Users no longer waste valuable time trying to verbalize the issue, and IT staff is more efficient when troubleshooting device issues. This is not supported for MAM-only iOS devices.
 
-TeamViewer es compatible con los dispositivos de Propietario del dispositivo Android en modo Kiosco.
+TeamViewer is supported on Android Device Owner devices in Kiosk mode.
 
-Los comandos de inicio de TeamViewer dejan de existir si se sale de la aplicación o el dispositivo se reinicia.
+TeamViewer launch commands ceases to exist if the app exits or the device reboots.
 
-En los dispositivos Android, si la aplicación Teamviewer QuickSupport no está instalada, se le pedirá al usuario que descargue la aplicación. En los dispositivos iOS, la aplicación se tiene que insertar mediante el App Catalog o, si ya está instalada en el dispositivo, se debe convertir en aplicación administrada.
+In Android devices, if the Teamviewer QuickSupport app is not installed, the user is prompted to download the app. In iOS devices, the app has to be pushed through App Catalog or if it is already installed on device, it must be converted as a managed app.
 
-La aplicación Teamviewer QuickSupport debe estar en primer plano para que la sesión se aplique a la aplicación. Para el modo Sin atender es necesaria la aplicación del host de TeamViewer.
+The Teamviewer QuickSupport app should be in foreground for the session to be applied to the application. The TeamViewer host app is required for Unattended mode.
 
-La versión de la aplicación de escritorio que instala el administrador debe ser compatible con la versión de Quicksupport instalada en el dispositivo del cliente para admitir sesiones remotas.
+The desktop application version that admin installs should be compatible with the Quicksupport version installed in the client device to support remote sessions.
 
-## Configurar Help\@Work para Androido iOS
+## Setting up Help\@Work for Android or iOS
 
-A continuación le indicamos los pasos para una única configuración para personalizar y distribuir Help\@Work para Androido iOS:
+The following are one-time setup steps for branding and distributing Help\@Work for Android or iOS:
 
-1. Vaya a la pestaña **Administrador**.
-2. En Infraestructura, haga clic e&#x6E;**&#x20;Help\@Work**.
-3. **Help\@Work&#x20;**&#x72;equiere TeamViewer. En la sección Activar TeamViewer, active la opción **TeamViewer asistido** o **TeamViewer sin atender (solo Android)** haciendo clic en el botón **Activar ahora**.
-4. Revise el acuerdo de licencia de TeamViewer y haga clic en **Aceptar** para continuar. Su licencia corporativa ya está activada. De este modo, TeamViewer identifica los clientes de Ivanti para que su acceso esté garantizado.
-5. La opción **Eliminar activación** está disponible al activar el TeamViewer. Cuando hace clic en **Eliminar activación** bajo la sección **Activar TeamViewer**, aparece la ventana **Confirmar la eliminación de la activación** en la pantalla. Haga clic en **Eliminar activación** para eliminar la Activación de TeamViewer, que, a su vez, eliminará la función de Help\@Work en todos los dispositivos compatibles. No obstante, puede activar TeamViewer mediante una cuenta existente o una cuenta distinta en una fase posterior.
-   Si quiere eliminar la cuenta de **TeamViewer** en modo Desatendido, debe cancelar el aprovisionamiento de los dispositivos asociados para los que está activado el modo Desatendido. Para desaprovisionar los dispositivos asociados, debe deshacer la distribución de la aplicación **TeamViewer** desde los dispositivos asociados y forzar una conexión. Asegúrese de que la aplicación TeamViewer se elimina de todos los dispositivos y, a continuación, elimine le unión de cuentas desde la consola del administrador.
-   Distribuya la aplicación TeamViewer entre los usuarios que desee utilizando el flujo de trabajo estándar de la aplicación para iniciar las sesiones remotas. Esto es específico para los modos **Atendido** y **Sin atender**. Si el administrador quiere controlar el dispositivo, el complemento universal o el complemento específico por modelo/OEM de TeamViewer se debe distribuir también en los dipositivos. Consulte [**Configuración de la aplicación**](./Configuración_de_aplicaciones.md) para ver las instrucciones.
+1. Go to the **Admin** tab.
+2. Under Infrastructure, click **Help\@Work**.
+3. **Help\@Work** requires TeamViewer. In the Activate TeamViewer section, activate either **TeamViewer Attended** or **TeamViewer Unattended (Android only)** option by clicking the **Activate Now** button.
+4. Review the TeamViewer license agreement and click **Agree** to continue. Your Enterprise License is now activated. This identifies Ivanti customers to TeamViewer so that access is granted.
+5. The **Remove Activation** option becomes available upon activating the TeamViewer. When you click **Remove Activation** present under the **Activate TeamViewer** section, the **Confirm Remove Activation** window appears on the screen. Click **Remove Activation** to remove the TeamViewer Activation, which in turn will remove the Help\@Work functionality on all supported devices. However, you can activate TeamViewer using an existing account or a different account at a later stage.
+   If you want to delete the **TeamViewer** account in Unattended mode, you must de-provision the associated devices for which the Unattended mode is enabled. To de-provision the associated devices, you must undistribute the **TeamViewer** app from the associated devices and do a force check-in. Ensure the TeamViewer app is deleted from all devices and then delete the binding of the account from the Admin console.
+   Distribute the TeamViewer app to users you wish to start remote sessions using the standard app distribution workflow. This is specific to **Attended** and **Unattended** modes. If the admin wants to control the device, the Universal add-on or OEM/model-specific add-on by TeamViewer needs to be distributed to the device as well. See [**App Configuration**](./App_Configuration.md) for instructions.
 
-## Iniciar una sesión remota utilizando Help\@Work para Androido iOS
+## Starting a remote session using Help\@Work for Android or iOS
 
-La sesión típica de Help\@Work para Androido iOS empieza por un usuario final que necesita ayuda.
+A typical Help\@Work for Androidor iOS session starts with an end-user needing help.
 
-Para iniciar una sesión de Help\@Work con el dispositivo del usuario:
+To start a Help\@Work session with the user's device:
 
 ::::WorkflowBlock
 :::WorkflowBlockItem
-En Ivanti Neurons for MDM, vaya a **Dispositivos**.
+In Ivanti Neurons for MDM, go to **Devices**.
 :::
 
 :::WorkflowBlockItem
-En la página de la lista de dispositivos, haga clic en el dispositivo que necesita asistencia técnica.
+In the device list page, click on the device that needs support.
 :::
 
 :::WorkflowBlockItem
-En el menú Acciones, haga clic en **Iniciar control remoto de TeamViewer** para dispositivos Android o **Visualización remota** para dispositivos iOS. Verá dos opciones:
+From the Actions menu, click **Start TeamViewer Remote Control** for Android devices or **Remote Display** for iOS devices. You will see two options:
 :::
 
 :::WorkflowBlockItem
-- Modo atendido (predeterminado): esta opción requiere tener instalada la aplicación **Compatibilidad rápida con TeamViewer** y que esté en la lista blanca del dispositivo de destino.
-- Modo desatendido (disponible solo en Android): esta opción requiere que la aplicación **TeamViewer Host** esté instalada y en la lista blanca del dispositivo de destino.
-  Si desea incluir los nombres de host en la lista blanca o anular la política de seguridad de contenidos, póngase en contacto con el equipo de asistencia.
+- Attended mode (default) - This option requires **TeamViewer Quick Support** app to be installed and Whitelisted in the target device.
+- Unattended mode (available on Android only) - This option requires **TeamViewer Host** app to be installed and Whitelisted in the target device.
+  If you want to Whitelist the hostnames or override the content security policy, please contact the support team.
 
-La opción de modo Sin atender funciona también en modo Kiosco. Se debe habilitar desde la página de integración de TeamViewer. El control remoto Sin atender requiere que la aplicación del host TeamViewer esté en el dispositivo, la activación de una vez en un dispositivo y una licencia de complemento MI. Para la activación única, el aviso de permiso se mostrará cuando la aplicación de host de TeamViewer se instale y se inicie por primera vez. Si lo desea, el administrador puede usar la aplicación de TeamViewer de "Inicio automático (ajustes de Configuración de aplicaciones administradas)" después del a instalación. El número de licencias se calcula en base a la distribución de la aplicación del host de TeamViewer. Si la aplicación del host de TeamViewer se distribuye en un dispositivo, se consume una licencia de sesión de host remoto sin atender. Además de la aplicación del host de TeamViewer, es posible que necesite las otras aplicaciones complementos y se deben permitir en el modo kiosco y kiosco compartido. Es posible que sean necesarios otros complementos según el modelo y el fabricante del dispositivo.
+The Unattended mode option works on Kiosk mode as well. It should be enabled from the TeamViewer integration page. The Unattended remote control requires TeamViewer host app on device, one time activation on a device, and a MI add-on license. For the one time activation, the permission prompt will be displayed when the TeamViewer host app installed and launched for the very first time. The administrator can use the "Auto-launch (settings in Managed App configuration)" TeamViewer app after installation if desired. The number of licenses is calculated based on TeamViewer host app distribution. If the TeamViewer host app is distributed to a device, one Unattended remote host session license is consumed. In addition to the TeamViewer host app, other add-on apps may be needed and should be allowed in kiosk or shared kiosk mode. Other add-ons might be needed depending on the device model and manufacturer.
 
-Los dispositivos de Google Pixel no continúan con este permiso y requieren el consentimiento de permiso para cada sesión.
+The Google Pixel devices do not persist this permission grant and require consent for permission for every session.
 
-Si el administrador tiene un token válido de TeamViewer, el cliente de escritorio se inicia con una sesión de asistencia al dispositivo. En caso contrario, el administrador deberá iniciar sesión con TeamViewer y conceder permisos.
+If the administrator has a valid TeamViewer token, the desktop client starts with a support session to the device. Otherwise, the administrator will be required to log in with TeamViewer and grant permissions.
 :::
 ::::
 
-Para iniciar rápidamente una sesión remota, los administradores pueden iniciar sesión en la aplicación de escritorio de antemano.
+To quickly initiate a remove session, administrators can login to the desktop application beforehand.
 
-## Instalar TeamViewer
+## Installing TeamViewer
 
-Instale la aplicación de TeamViewer en su escritorio para poder acceder y proporcionar asistencia técnica a los dispositivos remotos de sus usuarios. Para instalar TeamViewer:
+Install the TeamViewer app on the desktop to access and provide support for your users' remote devices. To install TeamViewer:
 
-1. Descargue aquí el paquete de instalación para la versión completa de TeamViewer para Mac, Windows o Android:[**https://www.teamviewer.com/en/download/**](https://www.teamviewer.com/en/download/)
-2. Inicia el programa de instalación de TeamViewer.
-3. Seleccione **Instalación básica**.
-4. Seleccione **Uso empresarial/comercial**.
-5. Haga clic en **Aceptar - finalizar**.
+1. Download the installation package for the TeamViewer full version for Mac, Windows, or Android from here:[**https://www.teamviewer.com/en/download/**](https://www.teamviewer.com/en/download/)
+2. Launch the TeamViewer installation program.
+3. Select **Basic Installation**.
+4. Select **Company / Commercial use**.
+5. Click **Accept - finish**.
 
-## Solicitar una cuenta de TeamViewer
+## Requesting a TeamViewer account
 
-Debe tener una cuenta de TeamViewer para poder proporcionar asistencia técnica con TeamViewer. Para obtener una cuenta de TeamViewer:
+You must have a TeamViewer account to provide support using TeamViewer. To obtain a TeamViewer account:
 
-1. Vaya a [**https://login.teamviewer.com/**](https://login.teamviewer.com/LogOn#register).
-2. Introduzca su correo electrónico, nombre y contraseña.
-3. Haga clic en **Registrarme**.
-4. Utilice la cuenta de correo electrónico que introdujo en el paso 2 para recibir un mensaje de correo de activación de su cuenta en TeamViewer.
-5. Complete las instrucciones que aparecen en el correo electrónico para activar su cuenta de TeamViewer.
+1. Go to [**https://login.teamviewer.com/**](https://login.teamviewer.com/LogOn#register).
+2. Enter your email, name, and password.
+3. Click **Sign Up**.
+4. Use the email account you entered in step 2 to receive an TeamViewer account activation email.
+5. Complete the instructions in the email to activate your TeamViewer account.
 
-## Confirmar la Id. de la sesión de TeamViewer
+## Confirming TeamViewer session ID
 
-TeamViewer genera una Id. de la sesión cuando se establece la conexión entre el ordenador del administrador y el dispositivo móvil del usuario.
+TeamViewer generates a session ID when connection is established between the administrator's computer and the user's mobile device.
 
-1. Cuando se genera la ID de sesión, Ivanti Neurons for MDM la pasa a la aplicación TeamViewer QuickSupport utilizando la configuración de la aplicación administrada, que a su vez utiliza esta ID de sesión para invocar el cliente de TeamViewer en el dispositivo. En el caso de iOS, la ID de sesión caduca a los 30 minutos.
-2. Se solicita al usuario que acepte el EULA de TeamViewer.
+1. When the session ID is generated, Ivanti Neurons for MDM passes it to the TeamViewer QuickSupport app using the managed app configuration, which in turn uses this session ID to invoke the TeamViewer client on the device. For iOS, the session ID expires after 30 minutes.
+2. The user is prompted to accept the TeamViewer EULA.

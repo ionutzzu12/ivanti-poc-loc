@@ -1,22 +1,22 @@
 ---
 title: Tunnel
-createdAt: Wed Feb 11 2026 17:29:06 GMT+0200 (Eastern European Standard Time)
-updatedAt: Wed Feb 11 2026 17:29:06 GMT+0200 (Eastern European Standard Time)
+createdAt: Wed Feb 11 2026 15:31:31 GMT+0200 (Eastern European Standard Time)
+updatedAt: Wed Feb 11 2026 15:31:31 GMT+0200 (Eastern European Standard Time)
 ---
 
-Ivanti Tunnel permite la función VPN en dispositivos iOS, Android y Windows. Ivanti Tunnel interactúa con la plataforma Unified Endpoint Management (UEM), Standalone Sentry y Access para proteger el acceso a los recursos empresariales desde fuera de la red de la empresa. El recurso empresarial puede estar en las instalaciones o en la nube. Las plataformas UEM son: Ivanti EPMM e Ivanti Neurons for MDM.
+Ivanti Tunnel enables VPN capability on iOS, Android, and Windows devices. Ivanti Tunnel interacts with the Unified Endpoint Management (UEM) platform, Standalone Sentry, and Access to secure access to enterprise resources from outside the enterprise network. The enterprise resource can be on premise or in the cloud. The UEM platforms are: Ivanti EPMM and Ivanti Neurons for MDM.
 
-La configuración por aplicación está obsoleta para los dispositivos Android Enterprise. Es necesario utilizar la configuración gestionada para Ivanti Tunnel del Catálogo de aplicaciones.
+The Per-App Configuration is deprecated for Android Enterprise devices. You need to use the Managed Configuration for Ivanti Tunnel from the App Catalog.
 
-## Acerca de la configuración del Ivanti Tunnel
+## About Ivanti Tunnel configuration
 
-Las configuraciones para Ivanti Tunnel se crean en una plataforma de Unified Endpoint Management (UEM). Ivanti Tunnel recibe la configuración del cliente UEM. El cliente para Ivanti EPMM es Mobile\@Work, y el cliente para Ivanti Neurons por MDM es Go.
+Configurations for Ivanti Tunnel are created in a Unified Endpoint Management (UEM) platform. Ivanti Tunnel receives the configuration from the UEM client. The client for Ivanti EPMM is Mobile\@Work, and the client for Ivanti Neurons for MDM is Go.
 
-### Documentación más reciente
+### Latest documentation
 
-Para las últimas instrucciones de Tunnel, visite la documentación del producto:
+For the latest Tunnel instructions, visit product documentation:
 
-- Tunnel para Android, consulte la [**Guía de Ivanti Tunnel for Android**](https://help.ivanti.com/mi/help/en_us/TUN/4.x/gda/LandingPage.htm)
-- Tunnel para iOS, consulte la [**Guía de Ivanti Tunnel for iOS**](https://help.ivanti.com/mi/help/en_us/TUN/4.x/gdi/LandingPage.htm)
-- Tunnel para macOS, consulte la [**Guía de Ivanti Tunnel for macOS**](https://help.ivanti.com/mi/help/en_us/TUN/4.x/gdm/LandingPage.htm)
-- Túnel de Windows, ver la [**Guía de Windows para Ivanti Tunnel**](https://help.ivanti.com/mi/help/en_us/TUN/1.x/gdw/LandingPage.htm)El túnel Ivanti para Windows está en desuso y ahora no es compatible con Ivanti Neurons for MDM.
+- Tunnel for Android, see [**Ivanti Tunnel for Android Guide**](https://help.ivanti.com/mi/help/en_us/TUN/4.x/gda/LandingPage.htm)
+- Tunnel for iOS, see [**Ivanti Tunnel for iOS Guide**](https://help.ivanti.com/mi/help/en_us/TUN/4.x/gdi/LandingPage.htm)
+- Tunnel for macOS, see [**Ivanti Tunnel for macOS Guide**](https://help.ivanti.com/mi/help/en_us/TUN/4.x/gdm/LandingPage.htm)
+- Windows Tunnel, see [**Ivanti Tunnel for Windows Guide**](https://help.ivanti.com/mi/help/en_us/TUN/1.x/gdw/LandingPage.htm)Ivanti Tunnel for Windows is deprecated and not supported with Ivanti Neurons for MDM now.

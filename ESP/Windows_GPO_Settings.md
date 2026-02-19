@@ -1,0 +1,39 @@
+---
+title: Windows GPO Settings
+createdAt: Wed Feb 11 2026 15:31:31 GMT+0200 (Eastern European Standard Time)
+updatedAt: Wed Feb 11 2026 15:31:31 GMT+0200 (Eastern European Standard Time)
+---
+
+License: Bridge
+
+Applicable to: Windows Desktop
+
+## Setting up Windows GPO Settings
+
+Group Policy Object (GPO) is a collection of settings defining the permissions that the device(s) are allowed or not allowed to do. It is a prerequisite to have a Bridge setup to manage GPO settings. See [**Ivanti Bridge**](./Ivanti_Bridge.md) for more details.
+
+Contact the site administrator if the GPO metadata is not uploaded to the database. The GPO configuration is deployed to devices by PowerShell scripts over Bridge. Using the GPO Settings you can configure and push specific settings to device(s).
+
+**Procedure**
+
+1. In the **Configuration** tab, click **+Add**.
+2. Select **Windows GPO Settings** configuration. The **Windows GPO Settings** page is displayed.
+3. In the **Name** field, type an appropriate name for the Windows GPO Settings.
+4. Click the +**Add Description** link to add a description for the configuration. This field is optional.
+5. In the **Configuration Setup** section, click +**Add**. The **Add Windows Group Policy Object(GPO)** window is displayed.
+6. Search and select a GPO by clicking the relevant component from the GPO hierarchy tree in the left pane. The GPO hierarchy tree represents the path of the policy settings. You can alternatively, search for a specific GPO settings by typing the name of the GPO settings in the search field.After you select a GPO setting, you can view the details of the selected GPO setting in the right pane.
+7. In the **Setting Status** field, the following setting options are available:|                    |                                 |
+   \| ------------------ | ------------------------------- |
+   \| Option             | Description                     |
+   \| **Not Configured** | Removes  existing GPO settings. |
+   \| **Enabled**        | Enables the GPO settings.       |
+   \| **Disabled**       | Disables the GPO settings.      |
+8. In the **Settings Value** field, type an appropriate name to be given to the GPO.This field is editable only when the **Enabled** option is selected under **Setting Status**.For adding additional settings value, click on the **+** icon. Some GPO settings may not require any additional Settings Value. Some may require additional data to be specified under the Setting Value in the form of text value. In such settings, select any value from the available drop-down values.
+9. Click **Save & Close** to save the GPO and close the window. If you wish to add another GPO, click **Save & Add another** to save and keep the GPO window open.  The GPO setting that is added is displayed in the **Configuration Setup** section.You can edit or delete a GPO setting by clicking on the relevant icons in  the **Actions** column.|                               |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+   \| ----------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+   \| **Option**                    | **Description**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+   \| **Enable this configuration** | Selecting the check box allows this configuration to the selected devices. Unselecting the check box removes the configuration, if already applied to devices.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+   \| **All Devices**               | Distributes the settings to all the devices.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+   \| **No Devices**                | Withholds the settings to be distributed to device(s).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+   \| **Custom**                    | Distributes the settings for a defined device group. Select the check box next to the device type for which you wish to distribute the settings. You can alternatively search for device groups by typing the device group name in the **Search Device Groups** search field. If you wish to create a new device group, click the **Create New Device Group** link at the bottom of the page. See [**Device Groups**](./Device_Groups.md) for more information.As and when you select the device category, you can observe the details (**name**, **phone#**, and **device type**) of the list of device users for the selected device category under the **Distribution Summary** section. |
+10. Click **Done** to push the GPO setting to the selected devices.

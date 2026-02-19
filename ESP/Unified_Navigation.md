@@ -1,0 +1,25 @@
+---
+title: Unified Navigation
+createdAt: Wed Feb 11 2026 15:31:27 GMT+0200 (Eastern European Standard Time)
+updatedAt: Wed Feb 11 2026 15:32:01 GMT+0200 (Eastern European Standard Time)
+---
+
+Neurons Unified Navigation is introduced to allow Neurons users to have a consistent and streamlined experience across **Ivanti Neurons for MDM**, **Neurons for Endpoint Management**, and **Neurons for IT Service Management** applications.
+
+The new top navigation now enables you to access different sections from the upper-right corner using the following icons:
+
+**Toolbar icons**
+
+| Icon                                                                                                                                                                                                                                                                                                                                                      | Description                                                                                                                                                                                                     |
+| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ::Image[]{src="Resources/Images/bell_icon.png" signedSrc="Resources/Images/bell_icon.png" size="10" caption alt isUploading="false" sha initialPath="Resources/Images/bell_icon.png" githubPath="Resources/Images/bell_icon.png" position="flex-start" width="54" height="53" darkWidth="54" darkHeight="53"}                                             | **Notifications**: Click to view list of important events or messages.                                                                                                                                          |
+| ::Image[]{src="Resources/Images/Global_Announcements.JPG" signedSrc="Resources/Images/Global_Announcements.JPG" size="10" caption alt isUploading="false" sha initialPath="Resources/Images/Global_Announcements.JPG" githubPath="Resources/Images/Global_Announcements.JPG" position="flex-start" width="56" height="55" darkWidth="56" darkHeight="55"} | **Global Announcements**: Click to view list of What's New announcements that were made available recently.                                                                                                     |
+| ::Image[]{src="Resources/Images/help_icon.png" signedSrc="Resources/Images/help_icon.png" size="10" caption alt isUploading="false" sha initialPath="Resources/Images/help_icon.png" githubPath="Resources/Images/help_icon.png" position="flex-start" width="54" height="54" darkWidth="54" darkHeight="54"}                                             | **Help**: Click to view the **Ivanti Neurons for MDM** documentation.                                                                                                                                           |
+| ::Image[]{src="Resources/Images/app_switcher.png" signedSrc="Resources/Images/app_switcher.png" size="10" caption alt isUploading="false" sha initialPath="Resources/Images/app_switcher.png" githubPath="Resources/Images/app_switcher.png" position="flex-start" width="49" height="53" darkWidth="49" darkHeight="53"}                                 | **Neurons App Switcher**: Click to view the apps that you can access from here.\* Use the **Neurons App Switcher** to navigate to **Neurons for Endpoint Management** or **Neurons for IT Service Management**. |
+
+- The **Neurons App Switcher** lets you switch between Ivanti Neurons for MDM, **Neurons for Endpoint Management**, and **Neurons for IT Service Management** if you have the required access to these applications.
+- If you do not have access to **Neurons for Endpoint Management** or **Neurons for IT Service Management**, you will see the Ivanti Neurons for MDM option only. |
+  \| :inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/BbT7KQqqvz3LSYn2rwmao/01Ac6kVPZzOAZGPrF6vXm_profileicon.png" alt caption}         | **Account**: Click to view your account details. This section provides the following options:\* **Upgrade**
+- **Support Portal**
+- **Change Password**
+- **Sign Out**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |

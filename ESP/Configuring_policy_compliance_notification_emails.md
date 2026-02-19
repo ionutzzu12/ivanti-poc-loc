@@ -1,19 +1,19 @@
 ---
 title: Configuring policy compliance notification emails
-createdAt: Wed Feb 11 2026 17:29:03 GMT+0200 (Eastern European Standard Time)
-updatedAt: Wed Feb 11 2026 17:29:03 GMT+0200 (Eastern European Standard Time)
+createdAt: Wed Feb 11 2026 15:31:27 GMT+0200 (Eastern European Standard Time)
+updatedAt: Wed Feb 11 2026 15:31:27 GMT+0200 (Eastern European Standard Time)
 ---
 
-## Configuración y uso de los correos electrónicos de notificación de cumplimiento de políticas
+## Configuring and using policy compliance notification emails
 
-Los administradores pueden ajustar en una plantilla de correo electrónico de notificación de cumplimiento de políticas los correos electrónicos enviados por las acciones de envío de correos «políticas de aplicaciones personalizadas y permitidas» para los usuarios cuyos dispositivos hayan infringido el cumplimiento. Los siguientes procesos describen la configuración:
+Administrators can wrap in a policy compliance notification email template the emails sent by the Custom and Allowed Apps policies' send email actions to users whose devices have fallen out of compliance. The following process describes the configuration:
 
-- **Configuración de la función:**\* **Configure la plantilla de correo electrónico**.La plantilla de correo electrónico en inglés tiene este aspecto por defecto, pero se puede revisar para que se adapte mejor a sus necesidades siguiendo las instrucciones que hay en [**Personalización de una plantilla de correo electrónico**](./Cómo_personalizar_las_plantillas_de_correo_electrónico.md) en [**Cómo personalizar las plantillas de correo electrónico**](./Cómo_personalizar_las_plantillas_de_correo_electrónico.md)
+- **Configuring the feature:**\* **Configure the email template**.The English email template looks like this by default, but you can revise it to better suit your purposes by following the instructions at [**Customizing an email template**](./Branding_Email_Templates.md) in [**Branding Email Templates**](./Branding_Email_Templates.md):
 
-::Image[]{src="Resources/Images/68PolicyEmailTemplate.png" signedSrc="Resources/Images/68PolicyEmailTemplate.png" size="41" caption alt isUploading="false" sha initialPath="Resources/Images/68PolicyEmailTemplate.png" githubPath="Resources/Images/68PolicyEmailTemplate.png" position="flex-start" indent="2"}
+::Image[]{src="Resources/Images/68PolicyEmailTemplate.png" signedSrc="Resources/Images/68PolicyEmailTemplate.png" size="40" caption alt isUploading="false" sha initialPath="Resources/Images/68PolicyEmailTemplate.png" githubPath="Resources/Images/68PolicyEmailTemplate.png" position="flex-start" indent="2"}
 
 :::Paragraph{listStyleType="disc" indent="2"}
-**Active la plantilla de notificación de cumplimiento de políticas**. Esta plantilla funciona junto con el mensaje que se elabora mediante las acciones de envío de correo electrónico de «políticas de aplicaciones personalizadas y permitidas» . Ivanti Neurons for MDM inserta la información que usted especifica en esas acciones de correo electrónico en la plantilla de notificación de cumplimiento de políticas. Se puede activar la plantilla de correo electrónico de cumplimiento de políticas al crear o editar una política de aplicaciones personalizadas o permitidas. Para obtener más información sobre las instrucciones para habilitar la plantilla de notificación de cumplimiento de políticas para una política Personalizada o una política de Aplicaciones permitidas, consulte [**Añadir una política personalizada**](./Política_personalizada.md) y [**Crear una Política de aplicaciones permitidas**](./Supervisar_y_controlar_las_aplicaciones_permitidas.md) respectivamente.
+**Turn on the policy compliance notification template**. This template works in conjunction with the message you craft using the Custom and Allowed Apps policies' send email actions. Ivanti Neurons for MDM inserts the information you specify in those email actions into the policy compliance notification template. You can turn on the policy compliance email template when you create or edit a Custom or Allowed Apps policy. For more information about instructions on enabling the policy compliance notification template for a Custom policy or Allowed apps policy, see [**Adding a custom policy**](./Custom_Policy.md) and [**Creating an Allowed Apps policy**](./Monitoring_and_Controlling_Allowed_Apps.md) respectively.
 :::
 
-- **Cómo usar esta función:**\* Cuando un dispositivo no cumple con una política de aplicaciones personalizadas o permitidas con la plantilla de notificación de políticas activada, Ivanti Neurons for MDM envía un correo electrónico al propietario del dispositivo, y ajusta primero el correo electrónico en la plantilla de notificación de políticas. Su interacción con esta función consiste en configurarla como se ha resumido anteriormente, mientras que Ivanti Neurons for MDM es quien hace uso de esta función.
+- **Using the feature:**\* When a device falls out of compliance with a Custom or Allowed apps policy with the policy notification template enabled, Ivanti Neurons for MDM sends the device owner an email, first wrapping the email in the policy notification template. Your interaction with the feature is to configure it as summarized above, whereas Ivanti Neurons for MDM itself uses the feature.

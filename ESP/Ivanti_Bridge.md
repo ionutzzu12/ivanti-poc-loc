@@ -1,179 +1,179 @@
 ---
 title: Ivanti Bridge
-createdAt: Wed Feb 11 2026 17:29:05 GMT+0200 (Eastern European Standard Time)
-updatedAt: Wed Feb 11 2026 17:29:05 GMT+0200 (Eastern European Standard Time)
+createdAt: Wed Feb 11 2026 15:31:29 GMT+0200 (Eastern European Standard Time)
+updatedAt: Wed Feb 11 2026 15:31:29 GMT+0200 (Eastern European Standard Time)
 ---
 
-Esta sección contiene los siguientes temas:
+This section contains the following topics:
 
-- [**Tipos de archivo compatibles con Bridge**](./Ivanti_Bridge.md)
-- [**Configuración de Bridge**](./Ivanti_Bridge.md)
-- [**Registros de Bridge**](./Ivanti_Bridge.md)
-- [**Último ingreso de Bridge**](./Ivanti_Bridge.md)
-- [**Recuperación de un fallo en el servicio de Bridge**](./Ivanti_Bridge.md)
+- [**Bridge supported file types**](./Ivanti_Bridge.md)
+- [**Bridge setup**](./Ivanti_Bridge.md)
+- [**Bridge Logs**](./Ivanti_Bridge.md)
+- [**Bridge Last Check-in**](./Ivanti_Bridge.md)
+- [**Bridge Service Failure Recovery**](./Ivanti_Bridge.md)
 
-Ivanti Bridge unifica las operaciones móviles y de escritorio para Windows 10 mediante una única consola y un único canal de comunicaciones. Amplía las funciones de UEM para administrar PC permite a las organizaciones sacar partido de [**costes considerablemente reducidos**](https://www.mobileiron.com/en/solutions/windows/pc-management-tco) y una mayor eficiencia a la vez que se garantiza una seguridad uniforme en todos los PC y dispositivos móviles. Usando Ivanti Bridge, las empresas pueden usar un único protocolo para los dispositivos de Windows 10 Desktop, del mismo modo que hacen con dispositivos móviles compatibles con Windows, para enviar información a las aplicaciones legadas del SO.
+Ivanti Bridge unifies mobile and desktop operations for Windows 10 using a single console and communications channel. It extends UEM capabilities to managing PCs and allows organizations to take advantage of [**significantly reduced costs**](https://www.mobileiron.com/en/solutions/windows/pc-management-tco) and increased efficiency while ensuring consistent security across PCs and mobile. By using Ivanti Bridge, enterprises have the ability to use a single protocol for Windows 10 Desktop devices as they do for supported Windows mobile devices, to send information to the legacy applications on the OS.
 
-Ivanti Bridge permite que el departamento informático modernice las operaciones de Windows en UEM sin sacrificar las funciones críticas. El departamento informático puede aplicar políticas y secuencias de comandos que ya estén implementados sin que sea necesaria una imagen del sistema, unirse al dominio o múltiples canales de comunicación con el dispositivo.
+Ivanti Bridge allows IT to modernize Windows operations on UEM without giving up critical functionality. IT can apply policies and scripts already in place without requiring a systems image, domain join, or multiple channels of communication to the device.
 
-Con Ivanti Bridge, ahora las empresas pueden:
+With Ivanti Bridge, organizations can now:
 
-- Tener un control total sobre los PC con UEM
-- Administrar los PC de forma remota e inalámbrica
-- Reducir la necesidad de digitalización de equipos de sobremesa
-- Hacer uso de comandos basados en GPO con secuencias de comandos Powershell implementados por UEM
-- Editar y administrar fácilmente el registro
-- Despliegue fácilmente aplicaciones Win32 no envueltas en MSI y aplicaciones Win32 Store
-- Obtener visibilidad del sistema de archivos
+- Have complete control over PCs with UEM
+- Manage PCs remotely, over-the-air
+- Reduce the need for imaging desktops
+- Leverage GPO-based commands with PowerShell scripts deployed by UEM
+- Easily edit and manage Registry
+- Effortlessly deploy non-MSI wrapped Win32 apps and Win32 Store apps
+- Gain File System visibility
 
-Ivanti Bridge es compatible con dispositivos Windows 11+ y procesadores ARM. Ivanti Bridge no es compatible con dispositivos de escritorio de Windows 10 Home.
+Ivanti Bridge is supported on Windows 11+ devices and ARM processors. Ivanti Bridge does not support Windows 10 Home desktop devices.
 
-## Tipos de archivo compatibles con Bridge
+## Bridge supported file types
 
-Ivanti Bridge incluye la compatibilidad para los siguientes tipos de archivos:
+Ivanti Bridge includes support for the following file types:
 
-- PowerShellLas secuencias de comando de PowerShell que se insertan en los dispositivos con Bridge admiten estos argumentos.Las secuencias de comandos de PowerShell de 64 bits son compatibles con los dispositivos de sobremesa Windows 10 de 64 bits.
-- El tiempo de espera de Bridge en el lado del servidor para el resultado esperado tras enviar una secuencia de comandos de PowerShell es de aproximadamente 20 minutos. El tiempo de espera se registra como un Fallo. No obstante, la secuencia de comandos del dispositivo sigue funcionando.
-  El tiempo de espera de Bridge en el lado del dispositivo para el proceso esperado de la ejecución de una secuencia de comandos de PowerShell es de aproximadamente 60 minutos. Tras 60 minutos, el proceso se cerrará, no se guardan los resultados de la secuencia de comandos y se envía un nuevo Fallo al servidor.
-  Los tiempos de espera del lado del servidor y del lado del dispositivo están registrados como Errores. Si transcurre el segundo tiempo de espera y la secuencia de comandos genera algún resultado, no se registrará ningún resultado en el servidor.
-  Registro
-- Secuencias de comandos VB
-- .EXE para implementación de aplicaciones Win32
-- Las aplicaciones de Win32 Store utilizan la herramienta WinGet para instalar y desinstalar las aplicaciones.
+- PowerShellPowerShell scripts pushed to devices using Bridge support named arguments.64-bit PowerShell scripts are supported on 64-bit Windows 10 desktop devices.
+- The Bridge timeout on the server-side for expecting a result after sending a PowerShell script to device is about 20 minutes. The timeout is logged as a Failure. However, the script on the device continues to work.
+  The Bridge timeout on the device-side for expecting the process of a PowerShell script execution is about 60 minutes. After 60 minutes, the process will be killed, no output from the script is saved, and a new Failure is sent to the server.
+  The server-side and device-side timeouts are logged as Failures. If the second timeout passes and the script generates some output, no output is logged on the server-side.
+  Registry
+- VB Scripts
+- .EXE for Win32 application deployment
+- Win32 Store apps uses WinGet tool for installing and uninstalling the apps.
 
-Si el administrador necesita insertar archivos Win32 (.EXE) en un dispositivo (por ejemplo, como aplicación interna Windows, se utilizará la funcionalidad de Bridge automáticamente si estuviera disponible. Es obligatorio introducir un argumento para ejecutar de forma silenciosa al archivo (por ejemplo, /SILENT o /VERYSILENT).Las aplicaciones .EXE se instalan a través de Bridge usando el modo de administrador de PowerShell. En los dispositivos Windows, para instalar usando las credenciales del usuario, seleccione la opción «Ejecutado como usuario».
+If admins need to push Win32 (.EXE) files to a device (for example, as a Windows in-house app), the Bridge functionality will be automatically used if available. It is mandatory to enter an argument to silently run the file (for example, /SILENT or /VERYSILENT).The .EXE apps are installed through Bridge using the Admin PowerShell mode. For Windows devices, to install using user's credentials select 'Run as User' option.
 
-Los administradores deben seleccionar la casilla de verificación **Instalador ejecutado como usuario** en **Instalador de aplicaciones: ajustes** para instalar las aplicaciones para un usuario. No marque la casilla si desea que las aplicaciones se instalen a nivel de sistema.
+The admins should select the **Installer run as user** checkbox in **App Installer - Settings** to install the apps for a user. Do not select the check box if you want the apps to install at the system level.
 
-Mediante Ivanti Bridge, el dispositivo se puede aumentar en las siguientes áreas clave.
+Using Ivanti Bridge, the device can be augmented in following key areas.
 
-- **Registro:** leer, escribir y actualizar valores del registro.
-- **Archivos:** verificar, leer y actualizar contenidos de un archivo.
-- **Implementación de aplicaciones:** añadir la posibilidad de instalar aplicaciones basadas en .EXE al dispositivo de sobremesa. Estas aplicaciones se pueden encontrar en los servidores de Ivanti Neurons for MDM o en una red de entrega de contenido (CDN, por sus siglas en inglés) en la nube.
+- **Registry:** Reading, writing, and updating registry values.
+- **Files:** Verifying, reading, and updating contents of a file.
+- **Application Deployment:** Adding the ability to install .EXE-based applications to the desktop device. These applications can either reside on the Ivanti Neurons for MDM servers or on a Content Delivery Network (CDN) in the Cloud.
 
-## Configuración de Bridge
+## Bridge setup
 
-La configuración de Ivanti Bridge requiere que los administradores completen los pasos siguientes en el orden indicado:
+Setting up Ivanti Bridge requires that admins complete the following steps in the following order:
 
-1. [**Activación de las licencias de Bridge**](./Ivanti_Bridge.md)
-2. [**Instalación de la aplicación Bridge**](./Ivanti_Bridge.md)
-3. [**Cargar secuencias de comandos en los dispositivos**](./Ivanti_Bridge.md) para uso permanente o único en los dispositivos
+1. [**Activating Bridge licenses**](./Ivanti_Bridge.md)
+2. [**Installing the Bridge application**](./Ivanti_Bridge.md)
+3. [**Uploading scripts to the devices**](./Ivanti_Bridge.md) for permanent or one time use to the devices
 
-### Activación de las licencias de Bridge
+### Activating Bridge licenses
 
-Ivanti Bridge forma parte del paquete Gold legado y del paquete actual de Secure UEM.
+Ivanti Bridge is part of the legacy Gold package and the current Secure UEM package.
 
-### Instalación de la aplicación Bridge
+### Installing the Bridge application
 
-Después de desactivar las licencias de Ivanti Bridge, la aplicación móvil de Bridge se puede instalar de la siguiente manera:
+After activating the Ivanti Bridge licenses, the Bridge mobile application can be installed as follows:
 
-1. Vaya a **Aplicaciones > Catálogo de aplicaciones**.
-2. Haga clic en **+Añadir**.
-3. Haga clic en **Ivanti Bridge** en la sección de Aplicaciones empresariales.
-4. Añada los detalles, personalice y distribuya la aplicación móvil Bridge a los dispositivos necesarios según las licencias que haya obtenido.Si activó la opción **Instalación silenciosa en los dispositivos Windows**, la aplicación móvil Bridge se instalará en silencio y el servicio Bridge comenzará a ejecutarse en los dispositivos.
+1. Go to **Apps > App Catalog**.
+2. Click **+Add**.
+3. Click **Ivanti Bridge** in the Business Apps section.
+4. Add details, customize, and distribute the Bridge mobile application to the required devices as per the procured licenses.If you have enabled the **Silently install on Windows devices** option, Bridge mobile application will be silently installed and the Bridge service will start running on the devices.
 
-La aplicación Bridge se añade al Catálogo de aplicaciones por defecto, y también se distribuye por defecto a todos los dispositivos.
+Bridge app is added to the app catalog by default, and also distributed by default to all devices.
 
-Tras importar la última versión de Ivanti Bridge (2.1.419.0) al catálogo del abonado, el administrador puede ver la versión recién alineada de la aplicación.
+After importing the latest version of the Ivanti Bridge (2.1.419.0) into the tenant's catalog, the admin can view the newly aligned version of the app.
 
-### Cargar secuencias de comandos en los dispositivos
+### Uploading scripts to the devices
 
-Los administradores pueden cargar secuencias de comandos en los dispositivos para usarlos de forma permanente creando una nueva configuración de Bridge:
+Administrators can upload scripts to the devices for permanent use by creating a new Bridge configuration:
 
 ::::WorkflowBlock
 :::WorkflowBlockItem
-Vaya a **Configuración > +Agregar**.
+Go to **Configuration > +Add**.
 :::
 
 :::WorkflowBlockItem
-Seleccione la configuración de **Ivanti Bridge**.
+Select the **Ivanti Bridge** configuration.
 :::
 
 :::WorkflowBlockItem
-Introduzca un nombre para la configuración.
+Enter a name for the configuration.
 :::
 
 :::WorkflowBlockItem
-Introduzca una descripción.
+Enter a description.
 :::
 
 :::WorkflowBlockItem
-En la sección Establecimiento de la configuración, especifique los demás ajustes según se describe en la tabla del paso 7:
+In the Configuration Setup section, specify the remaining settings as described in the table under step 7.
 :::
 
 :::WorkflowBlockItem
-1. Ingrese los ajustes de la categoría **Archivo de la secuencia de comandos** para especificar una secuencia de comandos de instalación para ser insertado o ejecutado en los dispositivos.
-2. (Opcional) Ingrese los ajustes de la categoría **Deshacer**&#xNAN;**&#x20;archivo de la secuencia de comandos** para especificar la secuencia de comandos de desinstalación que se insertará o ejecutará en los dispositivos. Esto es útil cuando, por ejemplo, se retira un dispositivo o se borra una configuración.
-3. (Opcional) Seleccione la opción **Configurar Outlook** para configurar Microsoft Outlook en un dispositivo mediante Bridge.Solo es compatible con Outlook 2000 y 2013.
-   Haga clic en **Siguiente**.
+1. Enter the **Script File** category settings to specify an installation script to be pushed or executed on the devices.
+2. (Optional) Enter the **Undo\*\*\*\*Script File** category settings to specify an uninstallation script to be pushed or executed on the devices. This is useful in scenarios such as device retirement or configuration deletion.
+3. (Optional) Select the option **Configure Outlook** to configure Microsoft Outlook to a device using Bridge.Only supported on Outlook 2010 and 2013.
+   Click **Next**.
 :::
 
 :::WorkflowBlockItem
-Seleccione una distribución para esta configuración.Para estas acciones de los dispositivos se forzará el ingreso automáticamente.
+Select a distribution for this configuration.A force check-in will be done automatically for these device actions.
 :::
 ::::
 
-| Categoría                        | Ajuste                                                 | Qué hacer                                                                                                                                                                                             |
-| -------------------------------- | ------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|                                  | Nombre                                                 | Introduzca un nombre que identifique a esta configuración.                                                                                                                                            |
-|                                  | Descripción                                            | Introduzca una descripción que explique la finalidad de esta configuración.                                                                                                                           |
-| Archivo de secuencia de comandos | Todas las versiones (equipos de sobremesa Windows 10+) |                                                                                                                                                                                                       |
-|                                  | Archivo de secuencia de comandos                       | Seleccione una secuencia de comandos válida o archivo ejecutable (.ps1, .reg, .exe).\* El archivo de secuencia de comandos o ejecutable especificado (.ps1, .reg, .exe) se ejecutará automáticamente. |
+| Category    | Setting                            | What To Do                                                                                                                                                     |
+| ----------- | ---------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|             | Name                               | Enter a name that identifies this configuration.                                                                                                               |
+|             | Description                        | Enter a description that clarifies the purpose of this configuration.                                                                                          |
+| Script File | All Versions (Windows 10+ Desktop) |                                                                                                                                                                |
+|             | Script File                        | Select a valid script or executable file (.ps1, .reg, .exe).\* The specified script file or executable file (.ps1, .reg, .exe) will be automatically executed. |
 
-- Otros tipos de archivo solamente se copiarán el la carpeta de destino. |
-  \|                                           | Argumentos de secuencia de comandos                    | Especifique la lista de argumentos para el archivo de la secuencia de comandos.\* En archivos Win32 (.exe), introduzca un argumento para ejecutar de forma silenciosa al archivo (por ejemplo, /SILENT o /VERYSILENT). Esto es obligatorio.                                    |
-  \|                                           | Carpeta de destino                                     | Especifique la carpeta de destino para el archivo de la secuencia de comandos.\* Si no se especifica la carpeta de destino, se utilizará el valor de la variable del entorno del sistema %TEMP% como carpeta de destino.                                                       |
-  \| Deshacer archivo de secuencia de comandos | Todas las versiones (equipos de sobremesa Windows 10+) |                                                                                                                                                                                                                                                                               |
-  \|                                           | Archivo de secuencia de comandos                       | Seleccione una secuencia de comandos válida o archivo ejecutable (.ps1, .reg, .exe).\* El archivo de secuencia de comandos o ejecutable especificado (.ps1, .reg, .exe) se ejecutará automáticamente.
-- Otros tipos de archivo solamente se copiarán el la carpeta de destino. |
-  \|                                           | Argumentos de secuencia de comandos                    | Especifique la lista de argumentos para el archivo de la secuencia de comandos.\* En archivos Win32 (.exe), introduzca un argumento para ejecutar de forma silenciosa al archivo (por ejemplo, /SILENT o /VERYSILENT). Esto es obligatorio.                                    |
-  \|                                           | Carpeta de destino                                     | Especifique la carpeta de destino para el archivo de la secuencia de comandos.\* Si no se especifica la carpeta de destino, se utilizará el valor de la variable del entorno del sistema %TEMP% de forma predeterminada.                                                       |
+- Other file types will only be copied to the target folder. |
+  \|                  | Script Arguments                   | Specify the list of arguments for the script file.\* For Win32 (.exe) files, enter an argument to silently run the file (for example, /SILENT or /VERYSILENT). This is mandatory.                                           |
+  \|                  | Target Folder                      | Specify the target folder for the script file.\* If the target folder is not specified, then the value of the %TEMP% system environment variable is used as the target folder.                                              |
+  \| Undo Script File | All Versions (Windows 10+ Desktop) |                                                                                                                                                                                                                            |
+  \|                  | Script File                        | Select a valid script or executable file (.ps1, .reg, .exe).\* The specified script file or executable file (.ps1, .reg, .exe) will be automatically executed.
+- Other file types will only be copied to the target folder. |
+  \|                  | Script Arguments                   | Specify the list of arguments for the script file.\* For Win32 (.exe) files, enter an argument to silently run the file (for example, /SILENT or /VERYSILENT). This is mandatory.                                           |
+  \|                  | Target Folder                      | Specify the target folder for the script file.\* If the target folder is not specified, then the value of the %TEMP% system environment variable is used by default.                                                        |
 
-### Cargar secuencias de comandos a los dispositivos para un uso puntual
+### Uploading scripts to the devices for one-time use
 
-Los administradores pueden cargar una secuencia de comandos en los dispositivos para utilizarlos una sola vez (ad hoc).
+Administrators can upload a script to the devices for one-time (ad hoc) use.
 
-1. Vaya a **Dispositivos > Dispositivos**.
-2. Haga clic en el enlace con el nombre del dispositivo para ir a la página de detalles del Dispositivo. Este es el dispositivo de sobremesa Windows 10 donde se insertará/ejecutará la secuencia de comandos de uso puntual.
-3. Haga clic en el icono
-
-::Image[]{src="More_icon.png" signedSrc="More_icon.png" size="10" caption alt isUploading="false" sha initialPath="More_icon.png" githubPath="More_icon.png" position="flex-start" indent="2"}
-
-:::Paragraph{indent="1"}
-y en **Script y Acciones a través de Ivanti Bridge**.
-:::
-
-4. Introduzca nombre.
-5. En la sección Archivo de la secuencia de comandos, especifique una secuencia de comandos para insertar/ejecutar en el dispositivo tal y como se describe en la tabla anterior.
-6. Haga clic en **Aplicar**.La ejecución de la secuencia de comandos se pondrá en la cola y puede que tarde en completarse. Vaya a la pestaña Registros para comprobar y ver el estado (mensajes de salida y error). Para estas acciones de los dispositivos se forzará el ingreso automáticamente.
-
-## Registros de Bridge
-
-Esta función le permite extraer informes de Ivanti Bridge para dispositivos individuales, para aplicaciones de resolución de problemas y de diagnóstico. Los registros se envían la próxima vez que el dispositivo ingrese. Puede esperar a la próxima sincronización programada o realizar un registro forzado del dispositivo para obtener los registros rápidamente.
-
-Para extraer los registros desde un dispositivo:
-
-1. Vaya a **Dispositivos > Dispositivos**.
-2. Haga clic en el enlace con el nombre del dispositivo para ir a la página de detalles del Dispositivo. Este es el dispositivo de sobremesa Windows 10 donde se insertará/ejecutará la secuencia de comandos de uso puntual.
-3. Haga clic en el icono
+1. Go to **Devices > Devices**.
+2. Click the device name link to go to the Device details page. This is a Windows 10 desktop device to which the one-time script will be pushed/executed.
+3. Click the
 
 ::Image[]{src="More_icon.png" signedSrc="More_icon.png" size="10" caption alt isUploading="false" sha initialPath="More_icon.png" githubPath="More_icon.png" position="flex-start" indent="2"}
 
 :::Paragraph{indent="1"}
-y en **Extraer el registro de Ivanti Bridge**. Se muestra la ventana **Extraer registro de Ivanti Bridge**.
+icon and click **Script and Actions via Ivanti Bridge**.
 :::
 
-4. Seleccione una de las siguientes opciones:**Un solo registro**: solicita a Ivanti Neurons for MDM que extraiga el registro de Bridge más reciente del dispositivo.**Todos los registros:** solicita a Ivanti Neurons for MDM extraer todos los registros (hasta 30 días) en el dispositivo.
-5. Haga clic en **Extraer registro**. Una vez que el dispositivo lo haya enviado a Ivanti Neurons for MDM, puede ver el registro de Bridge en la pestaña Registros en la página Detalles del dispositivo.Solo los registros enviados mediante la opción **Todos los registros** pueden descargarse como un archivo ZIP únicamente.
+4. Enter a name.
+5. In the Script File section, specify a script to be pushed/executed on the device as described in the preceding table.
+6. Click **Apply**.The script execution will be queued and may take a while to complete. Go to the Logs tab to check and view the status (output or failure messages). A force check-in will be done automatically for these device actions.
 
-## Último ingreso de Bridge
+## Bridge Logs
 
-La columna última conexión de Bridge lista la fecha y hora de la última conexión del dispositivo Bridge en la página de Dispositivos. Se puede agregar la columna a la página Dispositivos mediante la opción Personalizar columnas y no es visible por defecto.
+This feature allows you to pull Ivanti Bridge logs for individual devices for troubleshooting and diagnosing applications. The logs are sent at the next device check-in. You can wait for the next scheduled sync or perform a forced device check-in to get the logs quickly.
 
-Para que esta columna sea visible, seleccione **Dispositivos** > **Personalizar columnas** > seleccione **Contacto de Bridge**.
+To pull logs from a device:
 
-Los datos exportados también tendrán los detalles de la última conexión de Bridge siempre que sea de aplicación.
+1. Go to **Devices > Devices**.
+2. Click the device name link to go to the Device details page. This is a Windows 10 desktop device to which the one-time script will be pushed/executed.
+3. Click the
 
-## Recuperación de un fallo en el servicio de Bridge
+::Image[]{src="More_icon.png" signedSrc="More_icon.png" size="10" caption alt isUploading="false" sha initialPath="More_icon.png" githubPath="More_icon.png" position="flex-start" indent="2"}
 
-Bridge Service Failure Recovery se ha introducido en Bridge 2.1.14. Por defecto, esta versión se importa al Catálogo de aplicaciones de todos los usuarios. En raras ocasiones, el Servicio de Bridge puede fallar sin un motivo conocido. En esos casos, la compatibilidad está disponible para Bridge 2.1.14 y versiones posteriores.
+:::Paragraph{indent="1"}
+icon and click **Pull Ivanti Bridge Log**. The **Pull Ivanti Bridge Log** window is displayed.
+:::
+
+4. Select one of the following options:**Single log** - requests Ivanti Neurons for MDM to pull the most recent Bridge log on the device.**All logs** - requests Ivanti Neurons for MDM to pull all log (up to 30 days) on the device.
+5. Click **Pull Log**. After a device has sent it to Ivanti Neurons for MDM, you can view the Bridge log from the Logs tab in the Device details page.Only logs sent using **All logs** option can be downloaded as zip file only.
+
+## Bridge Last Check-in
+
+The Bridge Last Check-in column lists the Bridge service's last check-in date and time on the Devices page. The column can be added to the Devices page using the Customize Columns option and it is not visible by default.
+
+To make this column visible, select **Devices** > **Customize columns** > select **Bridge Check-in**.
+
+The exported data will also have the Bridge Last Check-in details wherever applicable.
+
+## Bridge Service Failure Recovery
+
+The Bridge Service Failure Recovery has been introduced in Bridge 2.1.14 version. By default, this version gets imported into the App Catalog for all the users. In some rare cases, the Bridge Service may fail without any known reason. In such cases, the support is available in Bridge 2.1.14 and later versions.

@@ -1,62 +1,62 @@
 ---
-title: Active Directory (macOS)
-createdAt: Wed Feb 11 2026 17:29:06 GMT+0200 (Eastern European Standard Time)
-updatedAt: Wed Feb 11 2026 17:29:06 GMT+0200 (Eastern European Standard Time)
+title: Active Directory (macOS)
+createdAt: Wed Feb 11 2026 15:31:31 GMT+0200 (Eastern European Standard Time)
+updatedAt: Wed Feb 11 2026 15:31:31 GMT+0200 (Eastern European Standard Time)
 ---
 
-**Aplicable a:** macOS 10.9 o versiones más recientes compatibles.
+**Applicable to:** macOS 10.9 or supported newer versions.
 
-Configure opciones avanzadas para enlazar los dispositivos macOS con un dominio de Active Directory (AD) a fin de que puedan acceder a los servicios de software que dependen de Active Directory para la autenticación y seguridad.
+Configure advanced options to bind macOS devices to an Active Directory (AD) domain in order to access software services that rely on AD for authentication and security.
 
-Esta sección contiene los siguientes temas:
+This section contains the following topics:
 
-- [**Creación de una configuración de Active Directory**](./Active_Directory__macOS_.md)
-- [**Ajustes de Active Directory**](./Active_Directory__macOS_.md)
+- [**Creating an Active Directory configuration**](./Active_Directory__macOS_.md)
+- [**Active Directory settings**](./Active_Directory__macOS_.md)
 
-## Creación de una configuración de Active Directory
+## Creating an Active Directory configuration
 
-Procedimiento
+Procedure
 
-1. Seleccione **Configuraciones**.
-2. Haga clic en **+Añadir**.
-3. Escriba **privacidad** en el campo de búsqueda y, a continuación, haga clic en la configuración de **Active Directory**
-4. Asigne un nombre a la configuración y descríbala.
-5. Introduzca los ajustes tal y como se describe en la siguiente tabla de ajustes de Active Directory.
-6. Haga clic en **Siguiente** para configurar los ajustes de distribución.
-7. Haga clic en **Hecho**.
+1. Select **Configurations**.
+2. Click **+ Add**.
+3. Type **privacy** in the search field, and then click the **Active Directory** configuration.
+4. Name and describe the configuration.
+5. Enter the settings as described in the following Active Directory settings table.
+6. Click **Next** to configure the distribution settings.
+7. Click **Done**.
 
-## Ajustes de Active Directory
+## Active Directory settings
 
-| **Ajuste**                          | **Qué hacer**                                                                                                  |
-| ----------------------------------- | -------------------------------------------------------------------------------------------------------------- |
-| Ajustes de Active Directory: Básico |                                                                                                                |
-| Nombre de host                      | (Obligatorio) Introduzca el nombre de host, que es el dominio de Active Directory al que desea unirse.         |
-| Nombre de usuario                   | Introduzca el nombre de usuario de la cuenta utilizada para unirse al dominio.                                 |
-| Contraseña                          | Introduzca la contraseña de la cuenta utilizada para unirse al dominio.                                        |
-| Unidad organizativa de AD           | Introduzca la unidad organizativa (UO) donde se va a añadir el objeto de equipo que se une.                    |
-| Estilo de montaje de AD             | Seleccione una de las siguientes opciones para indicar el protocolo de red doméstica que desea utilizar:\* AFP |
+| **Setting**                       | **What To Do**                                                                          |
+| --------------------------------- | --------------------------------------------------------------------------------------- |
+| Active Directory Settings - Basic |                                                                                         |
+| Hostname                          | (Required) Enter the host name, which is the Active Directory domain to join.           |
+| Username                          | Enter the user name of the account used to join the domain.                             |
+| Password                          | Enter the password of the account used to join the domain.                              |
+| AD Organizational Unit            | Enter the organizational unit (OU) where the joining computer object is added.          |
+| AD Mount Style                    | Select one of the following options to indicate the network home protocol to use:\* AFP |
 
-- SMB                                                                                         |
-  \| Ajustes de Active Directory: Avanzado                                            |                                                                                                                                                                                                             |
-  \| Activar la clave ADCreateMobileAccountAtLogin                                    | Activa o desactiva la clave ADCreateMobileAccountAtLogin.Opción adicional: Crear una cuenta móvil al iniciar sesión.                                                                                        |
-  \| Activar la clave ADWarnUserBeforeCreatingMA                                      | Activa o desactiva la clave ADWarnUserBeforeCreatingMA.Opción adicional: Avisar al usuario antes de crear una cuenta móvil.                                                                                 |
-  \| Activar la clave ADForceHomeLocal                                                | Activa o desactiva la clave ADForceHomeLocal.Opción adicional: Forzar el directorio principal local.                                                                                                        |
-  \| Activar la clave ADUseWindowsUNCPath                                             | Activa o desactiva la clave ADUseWindowsUNCPath.Opción adicional: Usar la ruta de acceso UNC en AD para derivar la ubicación principal.                                                                     |
-  \| Activar la clave ADAllowMultiDomainAuth                                          | Activa o desactiva la clave ADAllowMultiDomainAuth.Opción adicional: Permitir la autenticación desde cualquier dominio del bosque.                                                                          |
-  \| Shell de usuario predeterminado                                                  | Introduzca el shell de usuario predeterminado, como /bin/bash.                                                                                                                                              |
-  \| Asignar UID de usuario al atributo                                               | Seleccione esta opción para asignar el UID de usuario al atributo especificado.                                                                                                                             |
-  \| Asignar GID de usuario al atributo                                               | Seleccione esta opción para asignar el GID de usuario al atributo especificado.                                                                                                                             |
-  \| Asignar GID de grupo al atributo                                                 | Seleccione esta opción para asignar el GID de grupo al atributo especificado.                                                                                                                               |
-  \| Servidor de dominio preferido                                                    | Seleccione este servidor de dominio como preferido.                                                                                                                                                         |
-  \| Convención de espacio de nombres                                                 | Seleccione una de las siguientes convenciones de nombres de la cuenta de usuario:\* Dominio (predeterminado)
-- Bosque                                                                                        |
-  \| Firma de paquetes                                                                | Seleccione una de las siguientes opciones de firma de paquetes:\* Permitir (predeterminado)
-- Desactivar
-- Requerir                                                                                          |
-  \| Cifrado de paquetes                                                              | Seleccione una de las siguientes opciones de cifrado de paquetes:\* Permitir (predeterminado)
-- Desactivar
-- Requerir
-- SSL                                                                                  |
-  \| Permitir la administración por parte de grupos especificados de Active Directory | Seleccione esta opción para permitir la administración por parte de grupos especificados de Active Directory.Haga clic en **Añadir** para añadir uno o más grupos.                                          |
-  \| Restringir DNS dinámico                                                          | Seleccione esta opción para restringir las actualizaciones dinámicas de DNS a las interfaces especificadas (por ejemplo, en0, en1, etc.).Haga clic en **Añadir** para añadir uno o más nombres de interfaz. |
-  \| Cambiar el intervalo de contraseñas                                              | Especifique la frecuencia (en días) con la que se requiere un cambio de la contraseña de la cuenta de confianza del equipo. El valor cero está desactivado.                                                 |
+- SMB                                                      |
+  \| Active Directory Settings - Advanced                      |                                                                                                                                                   |
+  \| Enable ADCreateMobileAccountAtLogin key                   | Enable or disable the ADCreateMobileAccountAtLogin key.Additional option: Create mobile account at login.                                         |
+  \| Enable ADWarnUserBeforeCreatingMA key                     | Enable or disable the ADWarnUserBeforeCreatingMA key.Additional option: Warn user before creating mobile account.                                 |
+  \| Enable ADForceHomeLocal key                               | Enable or disable the ADForceHomeLocal key.Additional option: Force local home directory.                                                         |
+  \| Enable ADUseWindowsUNCPath key                            | Enable or disable the ADUseWindowsUNCPath key.Additional option: Use UNC path from AD to derive network home location.                            |
+  \| Enable ADAllowMultiDomainAuth key                         | Enable or disable the ADAllowMultiDomainAuth key.Additional option: Allow authentication from any domain in the forest.                           |
+  \| Default user shell                                        | Enter the default user shell such as /bin/bash.                                                                                                   |
+  \| Map user UID to attribute                                 | Select to map the user UID to the specified attribute.                                                                                            |
+  \| Map user GID to attribute                                 | Select to map the user GID to the specified attribute.                                                                                            |
+  \| Map group GID to attribute                                | Select to map the group GID to the specified attribute.                                                                                           |
+  \| Preferred Domain Server                                   | Prefer this domain server.                                                                                                                        |
+  \| Namespace convention                                      | Select one of the following user account naming conventions:\* Domain (default)
+- Forest                                                           |
+  \| Packet Signing                                            | Select one of the following packet signing options:\* Allow (default)
+- Disable
+- Require                                                          |
+  \| Packet Encryption                                         | Select one of the following packet encryption options:\* Allow (default)
+- Disable
+- Require
+- SSL                                                 |
+  \| Allow administration by specified Active Directory groups | Select to allow administration by specified Active Directory groups.Click **Add** to add one or more groups.                                      |
+  \| Restrict Dynamic DNS                                      | Select to restrict dynamic DNS updates to the specified interfaces (for example, en0, en1, etc).Click **Add** to add one or more interface names. |
+  \| Change Password Interval                                  | Specify how often (in days) a change of the computer trust account password is required. The zero value is disabled.                              |

@@ -1,37 +1,37 @@
 ---
 title: Azure Tenant Requirements
-createdAt: Wed Feb 11 2026 17:29:08 GMT+0200 (Eastern European Standard Time)
-updatedAt: Wed Feb 11 2026 17:29:08 GMT+0200 (Eastern European Standard Time)
+createdAt: Wed Feb 11 2026 15:31:34 GMT+0200 (Eastern European Standard Time)
+updatedAt: Wed Feb 11 2026 15:31:34 GMT+0200 (Eastern European Standard Time)
 ---
 
-En esta sección se describe cómo configurar Ivanti Neurons for MDM con Microsoft Azure Tenant.
+This section describes setting up Ivanti Neurons for MDM with Microsoft Azure Tenant.
 
-## Requisitos
+## Requirements
 
 ### Microsoft
 
-Los clientes de Ivanti Neurons for MDM deben tener una suscripción válida a Microsoft Intune y asignar una licencia de Microsoft Intune a los usuarios de dispositivos.
+Ivanti Neurons for MDM customers must have a valid subscription to Microsoft Intune and assign a Microsoft Intune license to device users.
 
 ### MobileIron
 
-- Ivanti Neurons for MDM: Ivanti Neurons for MDM versión 75 hasta la última versión compatible con MobileIron.
-- Licencias adicionales: el Cumplimiento de los dispositivos de Azure es una oferta Premium y está disponible para clientes de [**Secure UEM Premium**](https://www.mobileiron.com/en/pricing#) y Platinum. Una licencia Platinum es suficiente para los clientes existentes.
-- Go para iOS (cliente) o Go para Android (cliente) versión 75.0 hasta la versión más reciente compatible con MobileIron.
+- Ivanti Neurons for MDM - Ivanti Neurons for MDM version 75 through the latest version as supported by MobileIron.
+- Additional licensing - Azure Device Compliance is a Premium offering and is available to [**Secure UEM Premium**](https://www.mobileiron.com/en/pricing#) and Platinum customers. A Platinum license suffices for existing customers.
+- Go for iOS (client) or Go for Android (client) version 75.0 through the latest version as supported by MobileIron.
 
-### Compatibilidad con múltiples Ivanti Neurons for MDM
+### Multiple Ivanti Neurons for MDMs support
 
-Si tiene varios Ivanti Neurons for MDM conectados al mismo arrendatario de Azure, desconéctese de todos los Ivanti Neurons for MDM o desactive la política de conformidad para la integración de conformidad de Entra ID desde un Ivanti Neurons for MDM específico (único) para que no cargue los datos del dispositivo en Azure.
+If you have multiple Ivanti Neurons for MDMs connected to the same Azure tenant, disconnect from all Ivanti Neurons for MDMs or disable compliance policy for Entra ID compliance integration from a specific (single) Ivanti Neurons for MDM so that it does not upload device data to Azure
 
-Asegúrese de deshabilitar la política de cumplimiento antes de desconectar Ivanti Neurons for MDM.
+Be sure to disable the compliance policy prior to disconnecting Ivanti Neurons for MDM.
 
-## Proceso del administrador de Ivanti Neurons for MDM
+## Ivanti Neurons for MDM administrator's process
 
-El proceso desde la perspectiva del administrador de Ivanti Neurons for MDM es el siguiente:
+The process from the Ivanti Neurons for MDM administrator's perspective:
 
-1. El administrador aplica licencias de Intune a los usuarios de dispositivos. Consulte [**Aplicar la licencia de Intune a usuarios de dispositivos**](./Aplicar_la_licencia_de_Intune_a_usuarios_de_dispositivos.md).
-2. El administrador inicia sesión en Azure Portal.
-3. El administrador agrega MobileIron como socio de cumplimiento de Azure. Consulte [**Para añadir MobileIron como socio de cumplimiento**](./Para_añadir_MobileIron_como_socio_de_cumplimiento.md).
-4. El administrador crea la directiva de Acceso condicional para las aplicaciones. Consulte [**Creación de una directiva de acceso condicional en Microsoft Endpoint Manager**](./Creación_de_una_directiva_de_acceso_condicional_en_Microsoft_Endpoint_Manager.md).
-5. El administrador establece la conexión entre MobileIron y Azure. Consulte [**Conexión de Microsoft Azure con Ivanti Neurons for MDM**](./Conexión_de_Microsoft_Azure_con_Ivanti_Neurons_for_MDM.md).
-6. El administrador crea la política de cumplimiento del dispositivo en Ivanti Neurons for MDM. Consulte [**Creación de una directiva de cumplimiento de los dispositivos de los socios**](./Creación_de_una_directiva_de_cumplimiento_de_los_dispositivos_de_los_socios.md).
-7. La directiva de Acceso condicional entra en vigor. El acceso a las aplicaciones se concede o deniega en función de que el dispositivo sea o no compatible.Ivanti recomienda que el administrador ejecute pruebas en cada aplicación de Microsoft.
+1. Administrator applies Intune licenses to device users. See [**Apply the Intune license to device users**](./Apply_the_Intune_license_to_device_users.md).
+2. Administrator logs into Azure Portal.
+3. Administrator adds MobileIron as an Azure compliance partner. See [**Adding MobileIron as a compliance partner**](./Adding_MobileIron_as_a_compliance_partner.md).
+4. Administrator creates the Conditional Access policy for the apps. See [**Creating a conditional access policy in Microsoft Endpoint Manager**](./Creating_a_conditional_access_policy_in_Microsoft_Endpoint_Manager.md).
+5. Administrator sets up the connection between MobileIron and Azure. See [**Connecting Microsoft Azure to Ivanti Neurons for MDM**](./Connecting_Microsoft_Azure_to_Ivanti_Neurons_for_MDM.md).
+6. Administrator creates the device compliance policy in Ivanti Neurons for MDM. See [**Creating a partner device compliance policy**](./Creating_a_partner_device_compliance_policy.md).
+7. The Conditional Access policy goes into effect. Depending upon whether the device is compliant or not, the access to the app(s) is granted or denied.Ivanti recommends the administrator run tests on each Microsoft app.

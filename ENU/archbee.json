@@ -1,14 +1,11 @@
 {
   "$schema": "https://api.archbee.com/git-config-schema",
-  "docsPath": "./ENU",
+  "docsPath": "./docs",
   "structure": {
     "assets": "assets",
     "docsTree": [
-  {
-    "group": "TOC",
-    "pages": [
       "About_Ivanti_Neurons_for_MDM.md",
-      "New_features_summary.md",
+      "New_features_summary1.md",
       "Preview_features_available_in_Sandbox_tenants.md",
       "Unified_Navigation.md",
       {
@@ -566,7 +563,5 @@
       "Opening_a_Support_Ticket.md",
       "Third-Party_Attributes.md"
     ]
-  }
-]
   }
 }
