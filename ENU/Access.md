@@ -1,10 +1,10 @@
 ---
-title: Access
+title: Access v2
 createdAt: Wed Feb 11 2026 15:31:34 GMT+0200 (Eastern European Standard Time)
 updatedAt: Wed Feb 11 2026 15:31:34 GMT+0200 (Eastern European Standard Time)
 ---
 
-**Applicable to:** iOS and Android devices.
+**Applicable to:** iOS and Android devices. v2
 
 Access keeps business data secure while enabling a seamless and productive user experience on any device or app. Access establishes a data boundary that prevents users from accessing enterprise cloud services on unsecured devices, apps, or cloud services.
 
