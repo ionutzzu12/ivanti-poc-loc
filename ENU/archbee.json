@@ -9,7 +9,7 @@
         "children": [
           {
             "name": "blabla2",
-            "path": "Access.md",
+            "path": "test/Access.md",
             "children": []
           }]
       }
