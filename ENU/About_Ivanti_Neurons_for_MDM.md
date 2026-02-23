@@ -1,10 +1,6 @@
----
-title: About Ivanti Neurons for MDM
-createdAt: Wed Feb 11 2026 15:31:27 GMT+0200 (Eastern European Standard Time)
-updatedAt: Wed Feb 11 2026 15:31:27 GMT+0200 (Eastern European Standard Time)
----
+# About Ivanti Neurons for MDM
 
-A modern approach to mobile security, Ivanti Neurons for MDM provides unified endpoint management (UEM) solutions in a highly scalable, secure, and easy to update infrastructure that supports millions of devices around the world.
+A modern approach to mobile security, Ivanti Neurons for MDM provides unified endpoint management (UEM) solutions in a highly scalable, secure, and easy to update infrastructure that supports millions of devices around the world. bla
 
 •Instant updates: Get automatic software and security updates and access to the new features the moment they become available.
 
