@@ -1,15 +1,15 @@
 {
   "$schema": "https://api.archbee.com/git-config-schema",
-  "docsPath": "./docs",
+  "docsPath": ".",
   "structure": {
     "assets": "assets",
     "docsTree": [
       { "name": "blabla",
-        "path": "About_Ivanti_Neurons_for_MDM.md",
+        "path": "ENU/About_Ivanti_Neurons_for_MDM.md",
         "children": [
           {
             "name": "blabla2",
-            "path": "test/Access.md",
+            "path": "ENU/test/Access.md",
             "children": []
           }]
       }
