@@ -8,10 +8,16 @@
         "path": "About_Ivanti_Neurons_for_MDM.md",
         "children": [
           {
-            "name": "blabla2",
-            "path": "test/Access.md",
-            "children": []
-          }]
+            "categoryName": "CA",
+            "isCategory": true,
+            "children": [
+              {
+                "name": "blabla2",
+                "path": "test/Access.md",
+                "children": []
+              }]
+          }
+        ]
       }
     ]
   },
