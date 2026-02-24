@@ -1,6 +1,6 @@
 {
   "$schema": "https://api.archbee.com/git-config-schema",
-  "docsPath": ".",
+  "docsPath": "./ESP",
   "structure": {
     "assets": "assets",
     "docsTree": [
