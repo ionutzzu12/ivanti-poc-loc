@@ -5,11 +5,11 @@
     "assets": "assets",
     "docsTree": [
       { "name": "blabla",
-        "path": "ENU/About_Ivanti_Neurons_for_MDM.md",
+        "path": "About_Ivanti_Neurons_for_MDM.md",
         "children": [
           {
             "name": "blabla2",
-            "path": "ENU/test/Access.md",
+            "path": "test/Access.md",
             "children": []
           }]
       }
