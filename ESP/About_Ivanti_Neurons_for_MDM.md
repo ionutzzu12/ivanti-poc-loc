@@ -1,10 +1,6 @@
----
-title: Acerca de Ivanti Neurons for MDM
-createdAt: 2026-02-19T13:20:03.821Z
-updatedAt: 2026-02-19T13:20:03.821Z
----
+# Acerca de Ivanti Neurons for MDM
 
-Como método moderno para la seguridad de dispositivos móviles, Ivanti Neurons for MDM proporciona soluciones de Administración unificada de extremos (UEM) en una infraestructura sumamente escalable, segura y fácil de actualizar que es compatible con millones de dispositivos en el mundo.
+Como método moderno para la seguridad de dispositivos móviles, Ivanti Neurons for MDM proporciona soluciones de Administración unificada de extremos (UEM) en una infraestructura sumamente escalable, segura y fácil de actualizar que es compatible con millones de dispositivos en el mundo.a
 
 Actualizaciones instantáneas: obtenga actualizaciones automáticas de software y seguridad, y acceso a nuevas funciones en el momento en que estén disponibles.
 
