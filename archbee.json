@@ -1,28 +1,245 @@
 {
   "$schema": "https://api.archbee.com/git-config-schema",
-  "docsPath": "./ENU",
+  "docsPath": "ENU/",
   "structure": {
     "assets": "assets",
     "docsTree": [
-      { "name": "blabla",
-        "path": "About_Ivanti_Neurons_for_MDM.md",
+      {
+        "categoryName": "Table of Contents",
+        "isCategory": true,
         "children": [
           {
-            "categoryName": "CA",
-            "isCategory": true,
+            "categoryName": "Overview",
+            "isCategory": false,
+            "path": "Table of Contents/overview.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "Getting Started with Self Service portal",
+            "isCategory": false,
+            "path": "Table of Contents/getting-started-with-self-service-portal.mdx",
             "children": [
               {
-                "name": "blabla2",
-                "path": "test/Access.md",
+                "categoryName": "Navigating the Self Service portal",
+                "isCategory": false,
+                "path": "Table of Contents/Getting Started with Self Service portal/navigating-the-self-service-portal.mdx",
                 "children": []
-              }]
+              }
+            ]
+          },
+          {
+            "categoryName": "How do I?",
+            "isCategory": false,
+            "path": "Table of Contents/how-do-i.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "Using the workspaces",
+            "isCategory": false,
+            "path": "Table of Contents/using-the-workspaces.mdx",
+            "children": [
+              {
+                "categoryName": "My Items",
+                "isCategory": false,
+                "path": "Table of Contents/Using the workspaces/my-items.mdx",
+                "children": []
+              },
+              {
+                "categoryName": "Service Requests and Incidents",
+                "isCategory": false,
+                "path": "Table of Contents/Using the workspaces/service-requests-and-incidents.mdx",
+                "children": []
+              },
+              {
+                "categoryName": "Knowledge Center",
+                "isCategory": false,
+                "path": "Table of Contents/Using the workspaces/knowledge-center.mdx",
+                "children": []
+              },
+              {
+                "categoryName": "Announcements, FAQs, and Alerts",
+                "isCategory": false,
+                "path": "Table of Contents/Using the workspaces/announcements-faqs-and-alerts.mdx",
+                "children": []
+              },
+              {
+                "categoryName": "Social Board messages",
+                "isCategory": false,
+                "path": "Table of Contents/Using the workspaces/social-board-messages.mdx",
+                "children": []
+              },
+              {
+                "categoryName": "Chat Zone",
+                "isCategory": false,
+                "path": "ENU/Table of Contents/using-the-workspaces/chat-zone.mdx",
+                "children": []
+              },
+              {
+                "categoryName": "Working with Favorites",
+                "isCategory": false,
+                "path": "ENU/Table of Contents/using-the-workspaces/working-with-favorites.mdx",
+                "children": []
+              }
+            ]
+          },
+          {
+            "categoryName": "Ivanti Neurons for Facilities - Self Service User",
+            "isCategory": false,
+            "path": "Table of Contents/ivanti-neurons-for-facilities-self-service-user.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "Ivanti Neurons for GRC - Self Service User",
+            "isCategory": false,
+            "path": "Table of Contents/ivanti-neurons-for-grc-self-service-user.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "Enterprise Self Service Welcome Page",
+            "isCategory": false,
+            "path": "Table of Contents/enterprise-self-service-welcome-page.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "Human Resources - Enterprise Landing Page",
+            "isCategory": false,
+            "path": "Table of Contents/human-resources-enterprise-landing-page.mdx",
+            "children": [
+              {
+                "categoryName": "Working with HR Enterprise Landing Page",
+                "isCategory": false,
+                "path": "ENU/Table of Contents/human-resources-enterprise-landing-page/working-with-hr-enterprise-landing-page.mdx",
+                "children": []
+              }
+            ]
+          },
+          {
+            "categoryName": "Self Service Mobile Portal",
+            "isCategory": false,
+            "path": "Table of Contents/self-service-mobile-portal.mdx",
+            "children": [
+              {
+                "categoryName": "Reporting Incidents and Submitting Requests",
+                "isCategory": false,
+                "path": "Table of Contents/Self Service Mobile Portal/reporting-incidents-and-submitting-requests.mdx",
+                "children": []
+              },
+              {
+                "categoryName": "Chat with Support",
+                "isCategory": false,
+                "path": "ENU/Table of Contents/self-service-mobile-portal/chat-with-support.mdx",
+                "children": []
+              },
+              {
+                "categoryName": "Knowledge Base",
+                "isCategory": false,
+                "path": "Table of Contents/Self Service Mobile Portal/knowledge-base.mdx",
+                "children": []
+              }
+            ]
+          },
+          {
+            "categoryName": "Using Microsoft Teams Bot",
+            "isCategory": false,
+            "path": "Table of Contents/using-microsoft-teams-bot.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "More Information",
+            "isCategory": false,
+            "path": "Table of Contents/more-information.mdx",
+            "children": []
           }
         ]
+      },
+      {
+        "isCategory": false,
+        "path": "index-csh.mdx",
+        "children": []
+      },
+      {
+        "isCategory": false,
+        "path": "index.mdx",
+        "children": []
+      },
+      {
+        "isCategory": false,
+        "path": "your-search-for-returned-results.mdx",
+        "children": []
+      },
+      {
+        "isCategory": false,
+        "path": "chat-with-support-v3.mdx",
+        "children": []
+      },
+      {
+        "isCategory": false,
+        "path": "copyright-contents-print.mdx",
+        "children": []
+      },
+      {
+        "isCategory": false,
+        "path": "navigating-self-service-management-portal.mdx",
+        "children": []
+      },
+      {
+        "isCategory": false,
+        "path": "announcements.mdx",
+        "children": []
+      },
+      {
+        "isCategory": false,
+        "path": "logging-in-to-the-self-service-management-portal.mdx",
+        "children": []
+      },
+      {
+        "isCategory": false,
+        "path": "alerts.mdx",
+        "children": []
+      },
+      {
+        "isCategory": false,
+        "path": "service-catalog.mdx",
+        "children": []
+      },
+      {
+        "isCategory": false,
+        "path": "self-service-management-portal-v3.mdx",
+        "children": []
+      },
+      {
+        "isCategory": false,
+        "path": "knowledge.mdx",
+        "children": []
+      },
+      {
+        "isCategory": false,
+        "path": "NIzC-my-items.mdx",
+        "children": []
+      },
+      {
+        "isCategory": false,
+        "path": "external-offerings.mdx",
+        "children": []
+      },
+      {
+        "isCategory": false,
+        "path": "faq.mdx",
+        "children": []
+      },
+      {
+        "isCategory": false,
+        "path": "table-of-contents.mdx",
+        "children": []
       }
     ]
   },
   "sites": [
-    {"docsPath": "./ENU"},
-    {"docsPath": "./ESP"}
+    {
+      "docsPath": "./ENU"
+    },
+    {
+      "docsPath": "./ESP"
+    }
   ]
 }
