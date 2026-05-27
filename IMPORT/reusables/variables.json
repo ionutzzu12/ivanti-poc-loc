@@ -1,0 +1,58 @@
+{
+  "FRS_VARS_Self.Service_Catalog": {
+    "contentVariableId": "2Kkm8g-wzb-IT8yp9wmr4",
+    "name": "FRS_VARS_Self.Service_Catalog",
+    "content": "Service Catalog",
+    "type": "variable",
+    "scope": "global"
+  },
+  "FRS_VARS_Self.Neurons_ITSM_-_Administrator": {
+    "contentVariableId": "8Se_QK6N__TevDtxkMwyS",
+    "name": "FRS_VARS_Self.Neurons_ITSM_-_Administrator",
+    "content": "Administrator",
+    "type": "variable",
+    "scope": "global"
+  },
+  "FRS_VARS_Self.Self_Service_Mobile_portal": {
+    "contentVariableId": "kUBNe06tcrZuchpTbutRY",
+    "name": "FRS_VARS_Self.Self_Service_Mobile_portal",
+    "content": "Self Service Mobile",
+    "type": "variable",
+    "scope": "global"
+  },
+  "Primary.Company": {
+    "contentVariableId": "w0pgzqFbi_FGW0AJHU5Lt",
+    "name": "Primary.Company",
+    "content": "Ivanti",
+    "type": "variable",
+    "scope": "global"
+  },
+  "FRS_VARS_Self.Neurons_for_Facilities": {
+    "contentVariableId": "B4yEFkiy3AlJsg_0iR-0p",
+    "name": "FRS_VARS_Self.Neurons_for_Facilities",
+    "content": "Neurons for Facilities",
+    "type": "variable",
+    "scope": "global"
+  },
+  "FRS_VARS_Self.Neurons_for_GRC": {
+    "contentVariableId": "-BxtXMb7j2dqMsd8LrQrB",
+    "name": "FRS_VARS_Self.Neurons_for_GRC",
+    "content": "Neurons for GRC",
+    "type": "variable",
+    "scope": "global"
+  },
+  "FRS_VARS_Self.Self_Service_Portal": {
+    "contentVariableId": "ddEWhhcMQjGpz_TVr39wV",
+    "name": "FRS_VARS_Self.Self_Service_Portal",
+    "content": "Self Service",
+    "type": "variable",
+    "scope": "global"
+  },
+  "FRS_VARS_Self.Request_Offering": {
+    "contentVariableId": "dTbKOnmrrr7fuEZNNGA74",
+    "name": "FRS_VARS_Self.Request_Offering",
+    "content": "Request Offering",
+    "type": "variable",
+    "scope": "global"
+  }
+}
