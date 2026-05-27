@@ -22,6 +22,7 @@
     ]
   },
   "sites": [
+    {"docsPath": "./IMPORT"},
     {"docsPath": "./ENU"},
     {"docsPath": "./ESP"}
   ]
