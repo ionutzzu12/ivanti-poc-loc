@@ -36,7 +36,7 @@
           {
             "categoryName": "My Items",
             "isCategory": false,
-            "path": "Using the workspaces/ZEoQ-my-items.mdx",
+            "path": "IMPORT/using-the-workspaces/1M9b-my-items.mdx",
             "children": []
           },
           {
@@ -48,25 +48,25 @@
           {
             "categoryName": "Knowledge Center",
             "isCategory": false,
-            "path": "Using the workspaces/knowledge-center.mdx",
+            "path": "IMPORT/using-the-workspaces/knowledge-center.mdx",
             "children": []
           },
           {
             "categoryName": "Announcements, FAQs, and Alerts",
             "isCategory": false,
-            "path": "Using the workspaces/announcements-faqs-and-alerts.mdx",
+            "path": "IMPORT/using-the-workspaces/announcements-faqs-and-alerts.mdx",
             "children": []
           },
           {
             "categoryName": "Social Board messages",
             "isCategory": false,
-            "path": "Using the workspaces/social-board-messages.mdx",
+            "path": "IMPORT/using-the-workspaces/social-board-messages.mdx",
             "children": []
           },
           {
             "categoryName": "Chat Zone",
             "isCategory": false,
-            "path": "Using the workspaces/chat-zone.mdx",
+            "path": "IMPORT/using-the-workspaces/chat-zone.mdx",
             "children": []
           },
           {
@@ -153,12 +153,12 @@
           {
             "categoryName": "Service Catalog",
             "isCategory": false,
-            "path": "IMPORT/self-service-management-portal-v3/service-catalog.mdx",
+            "path": "Self Service Management Portal V3/service-catalog.mdx",
             "children": [
               {
                 "categoryName": "External Offerings",
                 "isCategory": false,
-                "path": "Self Service Management Portal V3/Service Catalog/external-offerings.mdx",
+                "path": "IMPORT/Self Service Management Portal V3/service-catalog/external-offerings.mdx",
                 "children": []
               }
             ]
@@ -178,13 +178,13 @@
           {
             "categoryName": "Knowledge",
             "isCategory": false,
-            "path": "Self Service Management Portal V3/knowledge.mdx",
+            "path": "IMPORT/self-service-management-portal-v3/knowledge.mdx",
             "children": []
           },
           {
             "categoryName": "Alerts",
             "isCategory": false,
-            "path": "Self Service Management Portal V3/alerts.mdx",
+            "path": "IMPORT/self-service-management-portal-v3/alerts.mdx",
             "children": []
           },
           {
@@ -214,29 +214,10 @@
         "children": []
       },
       {
-        "isCategory": false,
-        "path": "index-csh.mdx",
-        "children": []
-      },
-      {
-        "isCategory": false,
-        "path": "index.mdx",
-        "children": []
-      },
-      {
-        "isCategory": false,
-        "path": "your-search-for-returned-results.mdx",
-        "children": []
-      },
-      {
-        "isCategory": false,
-        "path": "copyright-contents-print.mdx",
-        "children": []
-      },
-      {
-        "isCategory": false,
-        "path": "summary.mdx",
-        "children": []
+        "categoryName": "Shadow Docs",
+        "isCategory": true,
+        "children": [],
+        "isShadowDocs": true
       }
     ]
   },
