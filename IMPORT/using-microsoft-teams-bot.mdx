@@ -1,0 +1,141 @@
+---
+title: Using Microsoft Teams Bot
+docTags: 
+createdAt: Wed May 27 2026 09:55:31 GMT+0300 (Eastern European Summer Time)
+---
+
+**Role**: Self Service Users.
+
+**Minimum Version**: Neurons for ITSM 2021.1.
+
+***Prerequisites:***
+
+- Install Microsoft Teams on your computer and set up your client account.
+- Add the Teams app specific to your organization to your Teams client account.
+
+<Paragraph indent="1">
+  a. Log in to your Teams client account.
+</Paragraph>
+
+<Paragraph indent="1">
+  b. Click **Apps** > select the Teams app created for your organization > **Add to a chat**.
+</Paragraph>
+
+The Teams app for your organization is now added to your chat contacts. This will allow you to message Service Desk Analysts.
+
+<Paragraph indent="1">
+  *Sample Image of Teams app build for Ivanti*
+</Paragraph>
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/lCtn0BignnxNd1ttSvuHx_msteams-app-for-ivanti.png" position="flex-start" size="40" indent="1" initialPath="../Resources/images/MSTeams-App-for-Ivanti.png" githubPath="self/Content/Resources/images/MSTeams-App-for-Ivanti.png"></Image>
+
+<Paragraph indent="1">
+  *Sample Image of adding Teams app built for Ivanti to Teams chat*
+</Paragraph>
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/H4mBxexWfts2xg3ZsgNI3_adding-teams-app-to-chat.png" position="flex-start" size="40" indent="1" initialPath="../Resources/images/Adding-Teams-App-To-Chat.png" githubPath="self/Content/Resources/images/Adding-Teams-App-To-Chat.png"></Image>
+
+<hint type="info">
+  If you can't find your organization's Teams app or encounter issues adding it, contact your organization's administrator.
+</hint>
+
+<ExpandableHeading>
+  ## Working with the Microsoft Teams Bot
+
+  After the MS Teams Bot is configured and published in your organization, it will appear in the Teams chat with your organization name.
+
+  1. Log in to your Microsoft Teams client account.
+  2. Click the Teams app for your organization that you added to your chat in the :Link[Prerequisites:]{label="Prerequisites:" overridedLabel="Prerequisites:" spaceId docId="QtPJ9riwVSl4jSgRE48wv" version="v2" docAnchorId="#Prerequisite" loadingMethod="dynamic" newTab="false"} section.
+  3. To start a conversation, say 'Hi'. The following page will appear.
+
+  <Paragraph indent="1">
+    *Image of the Ivanti Service Manager Bot Page*
+  </Paragraph>
+
+
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/9nuZ8YIzIZEj8FfoTe7kH_image-2.png" position="flex-start" size="40" indent="1" initialPath="../Resources/images/image (2).png" githubPath="self/Content/Resources/images/image (2).png"></Image>
+
+  4. You can perform the following actions:
+
+  - **Create a Ticket**: Allows you to create an incident. The bot creates an incident after asking additional questions and displays the incident ID. The incident is then routed to the Support/Service Desk team to address it.
+  - **Create a Service Request**: Allows you to create a service request. The available templates are configured by an administrator.
+
+  Ensure the **Enable for Teams Bot** checkbox is selected in the ITSM portal for the feature to be visible on the Teams bot.
+
+  - **Check my Ticket Status**: Lists the status of all incidents and service requests you have created.
+  - **Chat with an Analyst**: Opens a chat channel with an available analyst to resolve your issue.
+    - If an Analyst does not pick up your chat, you will receive a message saying "Please stand by, while we connect you to another analyst". You can wait to be connected.
+    - If no Analyst is online, you will get the message - "All analysts are offline". You can continue waiting till an analyst is online or exit. The maximum wait time to connect you to an Analyst is 5 minutes after which the following message is displayed - "Sorry, we are unable to connect you at this time." Click **Yes** to continue using the bot or **No** to exit.
+  - **Close Chat Conversation**: Ends chat conversation with the chat analyst.
+  - **Help**: Displays help information about all commands.
+
+  <hint type="info">
+    * If you send a text message instead of selecting one of the given options, the following message is displayed - "Invalid selection. Please select one of the available option."
+    * Whenever the Bot displays options, select from the given options. Else, an invalid message is displayed prompting you to select only from the options displayed.
+  </hint>
+</ExpandableHeading>
+
+**Feedback flow and new commands**
+
+The MS Teams Bot experience provides improved clarity, usability, and end-user engagement. After you configure and publish it in your organization, the bot appears in your Teams chat under your organization’s name and supports a streamlined conversation flow.
+
+The interaction includes the following steps:
+
+- **Review suggested articles before submitting a ticket** - The Bot recommends the list of relevant KB articles and FAQs before creating a support ticket. Click **View More** on a KB article to open the full article in a pop-up window within Microsoft Teams. If you find your answer through the knowledge articles or FAQs, click **Resolve** to close the issue.
+
+<Paragraph indent="1">
+  *KB Articles and FAQs to help resolve issues*
+</Paragraph>
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/q5uGL-QyOl_dK-suQ9CVs_kb-article.png" position="flex-start" size="40" indent="1" initialPath="../Resources/images/KB Article..png" githubPath="self/Content/Resources/images/KB Article..png"></Image>
+
+<Paragraph indent="1">
+  *KB Articles in pop-up screen*
+</Paragraph>
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/jeKeZ2a-rN5oV5UlFRL14_kb-article1.png" position="flex-start" size="40" indent="1" initialPath="../Resources/images/KB Article1.png" githubPath="self/Content/Resources/images/KB Article1.png"></Image>
+
+<Paragraph indent="1">
+  Click **No** to proceed with ticket creation if none of the suggestions help.
+</Paragraph>
+
+- **Submit a ticket, and track its status** - After you submit a ticket, the bot confirms it with a ticket number. You can check the current status and track the progress from the progress bar. If additional action is required, you can continue from that point.
+
+<Paragraph indent="1">
+  *Submitting ticket and tracking the status*
+</Paragraph>
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/VQq6pUSizl6eiuWHTG080_using-bots.png" position="flex-start" size="40" indent="1" initialPath="../Resources/images/using bots.png" githubPath="self/Content/Resources/images/using bots.png"></Image>
+
+- **Provide feedback after journey completion** - After the support interaction, rate your experience and optionally add comments. Your feedback helps improve future support.
+
+<Paragraph indent="1">
+  *Feedback after Journey completion*
+</Paragraph>
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/RU09G5WI2Ca5zK088Ro9c_image14.png" position="flex-start" size="40" indent="1" initialPath="../Resources/images/image14.png" githubPath="self/Content/Resources/images/image14.png"></Image>
+
+**Language Pack Support**
+
+The chatbot supports multiple [language packs](<https://help.ivanti.com/ht/help/en_US/ISM/2026/admin-user/Content/Configure/Localization/Setting Up Languages.htm>). When you select a supported language, the chatbot displays localized content for that language. If a selected language is not supported, the chatbot defaults to English.
+
+To change the language in Microsoft Teams:
+
+1. Click the ellipsis button :inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/gNw_thnxzk1OszuotNwCp_image3023x20.png" alt caption} (Settings and More options) next to the chatbot.
+2. Select **Settings**.
+3. In the **General** section, scroll down to **Language**setting > Select **Choose Teams app language**.
+4. Choose your preferred language.
+5. Click **Save and Restart&#x20;**.
+
+<Paragraph indent="1">
+  *Changing the Teams App Language in Settings*
+</Paragraph>
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/cjUyJgjnI2ZQSao1BR2Mt_image33.png" position="flex-start" size="40" indent="1" initialPath="../Resources/images/image33.png" githubPath="self/Content/Resources/images/image33.png"></Image>
+
+<Paragraph indent="1">
+  The chatbot will adapt to the selected language supported. Otherwise, it will continue to respond in English.
+</Paragraph>
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/aacC_uTJLwbruqZFlwDHK_image-7.png" position="flex-start" size="40" indent="1" initialPath="../Resources/images/image (7).png" githubPath="self/Content/Resources/images/image (7).png"></Image>

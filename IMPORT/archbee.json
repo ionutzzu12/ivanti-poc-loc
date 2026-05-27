@@ -1,5 +1,244 @@
 {
-      "docsPath": "./IMPORT",
-      "structure": { "assets": "assets/" },
-      "shadowDocs": []
-    }
+  "docsPath": "IMPORT/",
+  "structure": {
+    "assets": "assets/",
+    "docsTree": [
+      {
+        "categoryName": "Overview",
+        "isCategory": false,
+        "path": "overview.mdx",
+        "children": []
+      },
+      {
+        "categoryName": "Getting Started with Self Service portal",
+        "isCategory": false,
+        "path": "getting-started-with-self-service-portal.mdx",
+        "children": [
+          {
+            "categoryName": "Navigating the Self Service portal",
+            "isCategory": false,
+            "path": "Getting Started with Self Service portal/navigating-the-self-service-portal.mdx",
+            "children": []
+          }
+        ]
+      },
+      {
+        "categoryName": "How do I?",
+        "isCategory": false,
+        "path": "how-do-i.mdx",
+        "children": []
+      },
+      {
+        "categoryName": "Using the workspaces",
+        "isCategory": false,
+        "path": "using-the-workspaces.mdx",
+        "children": [
+          {
+            "categoryName": "My Items",
+            "isCategory": false,
+            "path": "Using the workspaces/ZEoQ-my-items.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "Service Requests and Incidents",
+            "isCategory": false,
+            "path": "IMPORT/using-the-workspaces/service-requests-and-incidents.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "Knowledge Center",
+            "isCategory": false,
+            "path": "Using the workspaces/knowledge-center.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "Announcements, FAQs, and Alerts",
+            "isCategory": false,
+            "path": "Using the workspaces/announcements-faqs-and-alerts.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "Social Board messages",
+            "isCategory": false,
+            "path": "Using the workspaces/social-board-messages.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "Chat Zone",
+            "isCategory": false,
+            "path": "Using the workspaces/chat-zone.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "Working with Favorites",
+            "isCategory": false,
+            "path": "IMPORT/using-the-workspaces/working-with-favorites.mdx",
+            "children": []
+          }
+        ]
+      },
+      {
+        "categoryName": "Ivanti Neurons for Facilities - Self Service User",
+        "isCategory": false,
+        "path": "ivanti-neurons-for-facilities-self-service-user.mdx",
+        "children": []
+      },
+      {
+        "categoryName": "Ivanti Neurons for GRC - Self Service User",
+        "isCategory": false,
+        "path": "ivanti-neurons-for-grc-self-service-user.mdx",
+        "children": []
+      },
+      {
+        "categoryName": "Enterprise Self Service Welcome Page",
+        "isCategory": false,
+        "path": "enterprise-self-service-welcome-page.mdx",
+        "children": []
+      },
+      {
+        "categoryName": "Human Resources - Enterprise Landing Page",
+        "isCategory": false,
+        "path": "human-resources-enterprise-landing-page.mdx",
+        "children": [
+          {
+            "categoryName": "Working with HR Enterprise Landing Page",
+            "isCategory": false,
+            "path": "Human Resources - Enterprise Landing Page/working-with-hr-enterprise-landing-page.mdx",
+            "children": []
+          }
+        ]
+      },
+      {
+        "categoryName": "Self Service Mobile Portal",
+        "isCategory": false,
+        "path": "self-service-mobile-portal.mdx",
+        "children": [
+          {
+            "categoryName": "Reporting Incidents and Submitting Requests",
+            "isCategory": false,
+            "path": "IMPORT/self-service-mobile-portal/reporting-incidents-and-submitting-requests.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "Chat with Support",
+            "isCategory": false,
+            "path": "IMPORT/self-service-mobile-portal/chat-with-support.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "Knowledge Base",
+            "isCategory": false,
+            "path": "IMPORT/self-service-mobile-portal/knowledge-base.mdx",
+            "children": []
+          }
+        ]
+      },
+      {
+        "categoryName": "Self Service Management Portal V3",
+        "isCategory": false,
+        "path": "self-service-management-portal-v3.mdx",
+        "children": [
+          {
+            "categoryName": "Logging in to the Self Service Management Portal",
+            "isCategory": false,
+            "path": "Self Service Management Portal V3/logging-in-to-the-self-service-management-portal.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "Navigating Self Service Management Portal",
+            "isCategory": false,
+            "path": "Self Service Management Portal V3/navigating-self-service-management-portal.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "Service Catalog",
+            "isCategory": false,
+            "path": "IMPORT/self-service-management-portal-v3/service-catalog.mdx",
+            "children": [
+              {
+                "categoryName": "External Offerings",
+                "isCategory": false,
+                "path": "Self Service Management Portal V3/Service Catalog/external-offerings.mdx",
+                "children": []
+              }
+            ]
+          },
+          {
+            "categoryName": "My Items",
+            "isCategory": false,
+            "path": "Self Service Management Portal V3/my-items.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "Announcements",
+            "isCategory": false,
+            "path": "Self Service Management Portal V3/announcements.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "Knowledge",
+            "isCategory": false,
+            "path": "Self Service Management Portal V3/knowledge.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "Alerts",
+            "isCategory": false,
+            "path": "Self Service Management Portal V3/alerts.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "Chat with Support v3",
+            "isCategory": false,
+            "path": "Self Service Management Portal V3/chat-with-support-v3.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "FAQ",
+            "isCategory": false,
+            "path": "Self Service Management Portal V3/faq.mdx",
+            "children": []
+          }
+        ]
+      },
+      {
+        "categoryName": "Using Microsoft Teams Bot",
+        "isCategory": false,
+        "path": "using-microsoft-teams-bot.mdx",
+        "children": []
+      },
+      {
+        "categoryName": "More Information",
+        "isCategory": false,
+        "path": "more-information.mdx",
+        "children": []
+      },
+      {
+        "isCategory": false,
+        "path": "index-csh.mdx",
+        "children": []
+      },
+      {
+        "isCategory": false,
+        "path": "index.mdx",
+        "children": []
+      },
+      {
+        "isCategory": false,
+        "path": "your-search-for-returned-results.mdx",
+        "children": []
+      },
+      {
+        "isCategory": false,
+        "path": "copyright-contents-print.mdx",
+        "children": []
+      },
+      {
+        "isCategory": false,
+        "path": "summary.mdx",
+        "children": []
+      }
+    ]
+  },
+  "shadowDocs": []
+}
