@@ -1,5 +1,5 @@
 {
-      "docsPath": "docs/",
+      "docsPath": "./IMPORT",
       "structure": { "assets": "assets/" },
-      "shadowDocs": [],
+      "shadowDocs": []
     }
