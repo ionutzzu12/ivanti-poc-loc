@@ -1,0 +1,23 @@
+---
+title: Neurons for ITSM Deployment Overview
+docTags: 
+createdAt: Fri Jun 05 2026 13:49:30 GMT+0300 (Eastern European Summer Time)
+---
+
+- :Link[Hardware Considerations]{label="Hardware Considerations" overridedLabel="Hardware Considerations" spaceId docId="OHZLgs1JasDVAds7fQdRo" version="v2" docAnchorId="#About" loadingMethod="dynamic" newTab="false" href="Deployment_Overview.mdx"}
+- [Demonstration or Proof-of-Concept Deployment](Deployment_Demo_POC.mdx)
+- [Minimum Production Deployment](Deployment_Min_Prod.mdx)
+- [Enterprise Production Deployment](Deployment_Enter_Prod.mdx)
+- [Security Enterprise Production Deployment](Deployment_Enter_Prod_Secure.mdx)
+- [Database Deployment Options](Deploy-DB-options.mdx)
+- [Operations Console Deployment Options](Deploy-OpsConsole-options.mdx)
+- [Reporting Services Deployment Options](Deploy-Reporting-options.mdx)
+- [Voice Deployment Options](Multisrvr_Voice.mdx)
+
+## Hardware Considerations
+
+The following factors drive the hardware requirements for a new \{\{Primary.Product}} deployment:
+
+\{\{Primary.Product}} supports separate landscapes: development (also called staging), test (also called UAT), and production. You can run these landscapes on the same server or isolate them on separate servers.If you choose to run them on separate servers, you must provide additional hardware. Except for the demonstration or proof-of-concept deployment, we do not recommend putting all of the landscapes on one server.
+
+- You can adjust the amount of hardware used after you deploy your system, after you have collected usage data. The \{\{Primary.Product}} software is horizontally and vertically scalable, allowing you to add more hardware to increase performance without license changes.

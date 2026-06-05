@@ -1,0 +1,111 @@
+---
+title: Working With Tenants
+docTags: 
+createdAt: Fri Jun 05 2026 13:49:31 GMT+0300 (Eastern European Summer Time)
+---
+
+## About the Tenants Workspace
+
+<hint type="info">
+  The information on this page is populated by the System Configuration Wizard.
+</hint>
+
+Although there is a lot of information in this workspace, you should only do the following tasks from within this workspace:
+
+- Reset the cache for a tenant. See :Link[Resetting the Cache for a Tenant]{label="Resetting the Cache for a Tenant" overridedLabel="Resetting the Cache for a Tenant" spaceId docId="1Myqcc13otWPRE-fK9M9z" version="v2" docAnchorId="#Resetting_the_Cache_for_a_Tenant" loadingMethod="dynamic" newTab="false" href="Work_wTenants.mdx"}.
+- Add a certificate. If you want to use SAML authentication, you must upload a certificate and password so that end users can download it. See :Link[Adding a Certificate to a Tenant]{label="Adding a Certificate to a Tenant" overridedLabel="Adding a Certificate to a Tenant" spaceId docId="1Myqcc13otWPRE-fK9M9z" version="v2" docAnchorId="#1View" loadingMethod="dynamic" newTab="false" href="Work_wTenants.mdx"}.
+- Capture audit files from ISM Discovery, to help with troubleshooting.  See :Link[Capturing Discovery Messages for Debugging]{label="Capturing Discovery Messages for Debugging" overridedLabel="Capturing Discovery Messages for Debugging" spaceId docId="1Myqcc13otWPRE-fK9M9z" version="v2" docAnchorId="#Configur" loadingMethod="dynamic" newTab="false" href="Work_wTenants.mdx"}.
+- Configure how users attach files. See :Link[Configuring Attachment Options]{label="Configuring Attachment Options" overridedLabel="Configuring Attachment Options" spaceId docId="1Myqcc13otWPRE-fK9M9z" version="v2" docAnchorId="#Configur2" loadingMethod="dynamic" newTab="false" href="Work_wTenants.mdx"}.
+- Set metadata to read-only. See :Link[Setting Production Metadata to Read-Only]{label="Setting Production Metadata to Read-Only" overridedLabel="Setting Production Metadata to Read-Only" spaceId docId="1Myqcc13otWPRE-fK9M9z" version="v2" docAnchorId="#Setting" loadingMethod="dynamic" newTab="false" href="Work_wTenants.mdx"}.
+- Set the login URL. See :Link[Setting the Login URL]{label="Setting the Login URL" overridedLabel="Setting the Login URL" spaceId docId="1Myqcc13otWPRE-fK9M9z" version="v2" docAnchorId="#Configur3" loadingMethod="dynamic" newTab="false" href="Work_wTenants.mdx"}.
+
+## Resetting the Cache for a Tenant
+
+\{\{Primary.Product}} caches information about each tenant in the ConfigDB. Because of this, changes to the tenant, such as updating the status, database information, and so on, are not immediately reflected in the corresponding tenant. This can lead to situations where \{\{Primary.Product}} allows a user to log into a tenant, even though the status of the corresponding tenant in the ConfigDB is set to closed.
+
+To manually reset the cache for a specific tenant, do the following:
+
+1. Log in to the ConfigDB.
+2. From the workspace selector bar, select Tenants. The system displays the Tenants workspace.
+3. Highlight the tenant to reset the cache for.
+4. Click Reset Tenant Cache.
+
+## Adding a Certificate to a Tenant
+
+<hint type="info">
+  If your implementation includes multiple tenants, the certificate should be for the domain and not the specific tenant. For example, the certificate for Cloud tenants is for \*.saasit.com, not for a specific tenant such as mytenant.saasit.com.
+</hint>
+
+1. Log in to the ConfigDB.
+2. From the workspace selector bar, select Tenants. The system displays the Tenants workspace.
+3. Double-click the tenant for which to add a certificate.
+4. Click Add Certificate.
+5. Navigate to the certificate location. Highlight it and click Open.
+6. Enter the password for the certificate in the Certificate Password field.
+7. Click Save.
+
+## Capturing Discovery Messages for Debugging
+
+Perform the following procedure if you are using Discovery and you need to capture the audit files sent to the server from the Discovery client agents. After you capture the audit files, you can review them in a debug environment to find out more details about the problem. The logging can be very long, so be careful about using this feature. For more information, see the \{\{Primary.Product}} online help.
+
+8. Log in to the ConfigDB.
+9. From the workspace selector bar, select Tenants. The system displays the Tenants workspace.
+10. Double-click the tenant to configure logging for.
+11. Check Log Failed IM Message.
+12. Click Save.
+
+## Configuring Attachment Options
+
+Perform the following procedure to configure how attachments are saved. You may need to change the format for storing files if users regularly store very large files, such as system log files. After you configure this, when a user saves an attachment to a record, the attachment is stored in the location that you specified here. For information about saving attachments as a file stream, see [https://msdn.microsoft.com/en-us/library/gg471497.aspx](https://msdn.microsoft.com/en-us/library/gg471497.aspx).
+
+We recommend that for system data, such as icons and images, you select Database for the Attachment Save Type field.
+
+1. Log in to the ConfigDB.
+2. From the workspace selector bar, select Tenants. The system displays the Tenants workspace.
+3. Double-click the tenant for which to configure attachment options.
+4. For the Attachment Save Type field, select a type: **Database**, **FILESTREAM**, **File system**, **Amazon S3**, or **Azure Blob**.
+5. For the Attachment Path field, enter the default path where attachments are saved.
+6. Click Save.
+
+## Setting Production Metadata to Read-Only
+
+If a user makes a change to the metadata in the production instance of the tenant, such as when configuring a workflow for a request offering, but does not make the same change in the UAT or staging instance of the tenant and then pushes the data from the UAT or Staging instance of the tenant to the production instance of the tenant, the data becomes corrupt and the workflow fails.
+
+To avoid this, set the metadata on the production instance of the tenant to read-only. Follow these steps:
+
+1. Log in to the ConfigDB.
+2. From the workspace selector bar, select Tenants. The system displays the Tenants workspace.
+3. Double-click the tenant for which to set the production metadata to read-only.
+4. Check **Is Production Metadata Read-only**.
+5. Click Save.
+
+If a user tries to edit the workflow for a request offering, the system displays a message stating that the production metadata is read only and cannot be edited.  See "Working with Request Offerings" in the \{\{Primary.Product}} online help for more information.
+
+## Setting the Login URL
+
+Set the login URL in the following scenarios:
+
+- When configuring \{\{Primary.Product}} Active Directory authentication using Windows Integrated Security (WIS). This feature allows users to access \{\{Primary.Product}} without entering their user name and password. This procedure is only valid for the on-premises version of \{\{Primary.Product}}.
+- When configuring the \{\{Primary.Product}} on-premises URL for mobile users.
+
+Follow these steps:
+
+1. Log in to the ConfigDB.
+2. From the workspace selector bar, select Tenants. The system displays the Tenants workspace.
+3. Double-click the tenant for which to set the login URL.
+4. In the Login Url field, enter the URL where users go to log in.
+5. Click Save.
+
+## Setting the Alternate Login URL (Vanity URL) for an MSP
+
+Besides setting the login URL as described above, you can also specify an alternate login URL, also known as a vanity URL, for a Managed Service Provider (MSP).
+
+Follow these steps:
+
+1. Log in to the ConfigDB.
+2. From the workspace selector bar, select Tenants. The system displays the Tenants workspace.
+3. Double-click the tenant for which to set the alternate login URL (vanity URL).
+4. At the bottom, click the Alternate Login URL tab.
+5. Click New TenantUrlAlias. The system displays the New TenantUrlAlias dialog box.
+6. In the Url field, enter the alternate login URL (vanity URL).
+7. Click Save.

@@ -1,0 +1,37 @@
+---
+title: About Using Combo Boxes Sparingly
+docTags: 
+createdAt: Fri Jun 05 2026 13:49:31 GMT+0300 (Eastern European Summer Time)
+---
+
+- :Link[About Using Combo Boxes]{label="About Using Combo Boxes" overridedLabel="About Using Combo Boxes" spaceId docId="zgCFJoBAh6AoCRGQYZiUp" version="v2" docAnchorId="#About" loadingMethod="dynamic" newTab="false" href="Use_Combo_Boxes_Sparingl.mdx"}
+- :Link[Creating a Pick List]{label="Creating a Pick List" overridedLabel="Creating a Pick List" spaceId docId="zgCFJoBAh6AoCRGQYZiUp" version="v2" docAnchorId="#CreatingPickList" loadingMethod="dynamic" newTab="false" href="Use_Combo_Boxes_Sparingl.mdx"}
+
+### About Using Combo Boxes
+
+Do not use combo boxes for validating business objects that have a large number of rows. The maximum number of rows a combo box can display is 200. If there are more than 200 rows, the system does not return the excess rows. If a business object has more than 200 rows, we recommend using a text box with a Search dialog box.
+
+To effectively validate business objects with more than 200 rows, perform one of the following:
+
+- Change the business object from a combo box to an associated item selector. Access this function from the field control toolbar.
+- Constrain the combo box field to validate using another field to reduce the number of rows returned. For example, constrain the Employee field to be constrained by the Department field, so that when validating the Department field, only employees from the department selected are shown.
+
+### Creating a Pick List
+
+1. From the Configuration Console, click **Build > Pick Lists** to open the Pick Lists workspace. The system displays a list of pick lists.
+2. Click **Add New\...**. The system displays the Add New Validation List page.
+3. Enter information into the fields.
+
+| Field              | Description                                                                         |
+| ------------------ | ----------------------------------------------------------------------------------- |
+| List name          | The name of the pick list to be stored.                                             |
+| Display name       | The name of the pick list to be displayed in Ivanti Service Manager.                |
+| Get list data from | Check Business Object and select a business object from the drop-down list.         |
+| Display field      | The name of the field to display in the pick list.                                  |
+| Value field        | A stored field name. Select from the drop-down list.                                |
+| Sort by field      | The field by which to sort. Select a sorting value, either ascending or descending. |
+
+4. Add constraints to the pick list to restrict the data presented. Click the add new icon to add a constraint formula. This formula is based on the parameter selected in the Get list data from field.
+5. Click Save.
+
+See the Ivanti Service Manager online help for additional information about creating and modifying a pick list and its values.

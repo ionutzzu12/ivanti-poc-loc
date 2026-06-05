@@ -1,0 +1,52 @@
+---
+title: Installing the Reporting Feature
+docTags: 
+createdAt: Fri Jun 05 2026 13:49:30 GMT+0300 (Eastern European Summer Time)
+---
+
+\{\{Primary.Product}} deployments can have multiple reporting tenant instances. To use the reporting feature in a multi-tenant environment, we highly recommend that you install a separate Microsoft SSRS instance for the reporting feature only. For example, a deployment may have one reporting server for the production instance of the tenant and another reporting server for the staging and UAT instances of the tenant. See [Enterprise Production Deployment](Deployment_Enter_Prod.mdx).
+
+## Where to Install the Reporting Feature
+
+Where you install the reporting feature depends on which deployment you have chosen. See \{\{Primary.Product}} [Neurons for ITSM Deployment Overview](Deployment_Overview.mdx).
+
+- For the [Demonstration or Proof-of-Concept Deployment](Deployment_Demo_POC.mdx), you install the reporting feature onto the \{\{Primary.Product}} database server, after you have installed \{\{Primary.Product}}.
+- For the [Minimum Production Deployment ](Deployment_Min_Prod.mdx), you install the reporting feature on the \{\{Primary.Product}} database server.
+- For the [Enterprise Production Deployment](Deployment_Enter_Prod.mdx), you can install the reporting feature on the \{\{Primary.Product}} database servers or on a dedicated reporting server. See [Reporting Services Deployment Options](Deploy-Reporting-options.mdx).
+
+## Installing the Reporting Feature
+
+Before you begin, ensure that you have met all of the prerequisites for installing the \{\{Primary.Product}} reporting feature. See [Installing Neurons for ITSM Reporting Feature](Microsoft_SSRS.mdx). In particular, be sure that Microsoft SSRS is installed and running. See :Link[Checking if Microsoft SSRS is Installed]{label="Checking if Microsoft SSRS is Installed" overridedLabel="Checking if Microsoft SSRS is Installed" spaceId docId="5SJykWeeHtAhgHM4ZioW1" version="v2" docAnchorId="#Checking" loadingMethod="dynamic" newTab="false" githubPath="Microsoft_SSRS.htm#Checking" href="Microsoft_SSRS.mdx"}.
+
+<hint type="info">
+  If you are using SQL 2016 or higher, ensure that you install Microsoft Report Builder manually.
+</hint>
+
+**Prerequisite:**
+
+- Install the prerequisite installer using **Ivanti Service & Asset Manager Prerequisite.exe**.
+
+<Paragraph indent="1">
+  The **Ivanti Service & Asset Manager Prerequisite.exe** installs the essential software that is required for running the system Configuration Wizard tool.
+</Paragraph>
+
+To install the reporting feature, do the following:
+
+1. Access the installation folder on the Software product CD or zip file and run **ReportingServices.exe**. Right-click and select Run as Administrator to ensure proper installation.
+
+<Paragraph indent="1">
+  The installer checks for the prerequisite software components. If any of those components is not installed, the system prompts you to install them now.
+</Paragraph>
+
+2. Select **Install** at the prompt. Installation of the prerequisite software can take several minutes. If you are prompted to restart the system, click **Yes**. The system displays the Welcome dialog box. The installer checks for space and other requirements before displaying the Next button.
+3. Click **Next**. The system displays the License Agreement dialog box.
+4. Select **I accept the terms in the license agreement** and click **Next**. The system displays the Destination Folder dialog box.
+5. Click **Next** to accept the default installation folder, or click **Change...** and select a different folder.
+6. Click Next. The system displays the Ready to Install the Program dialog box.
+7. Click **Install**. The system begins installing the \{\{Primary.Product}} reporting feature and displays a status dialog box showing the installation progress over the next few minutes.
+
+<Paragraph indent="1">
+  When the components are installed, the system automatically launches the System Configuration Wizard.
+</Paragraph>
+
+8. Go to [Configuring the Reporting Feature](Configure_Reporting.mdx) for instructions about using the System Configuration Wizard.

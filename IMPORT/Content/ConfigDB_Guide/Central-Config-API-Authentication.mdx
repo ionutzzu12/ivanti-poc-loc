@@ -1,0 +1,156 @@
+---
+title: Central Config API Authentication
+docTags: 
+createdAt: Fri Jun 05 2026 13:49:31 GMT+0300 (Eastern European Summer Time)
+---
+
+APIs in the Central Config can be accessed only by known users by authenticating the API call. The API Header will pass the API Key which will be authenticated and passed by the Central Config server. This prevents un-authorised users from accessing the APIs.
+
+## Install/upgrade Ivanti Service Manager System Configuration Wizard
+
+On installing or upgrading the Service Manager System Configuration Wizard, the API Key is auto-generated in the Central Config DB. This key is used to to authenticate the API calls to the Central Config Server. However, the following should be monitored while installing/upgrading.
+
+<ExpandableHeading>
+  ## Verify the webconfig file
+
+  Once the installation/upgradation is complete, verify the webconfig file has the following:
+
+  - In the config section:
+
+  <Paragraph indent="1">
+    \<section name="CentralConfigApiKey" type="System.Configuration.NameValueSectionHandler" />
+  </Paragraph>
+
+  - In the new protected section:
+
+  <Paragraph indent="1">
+    \<CentralConfigApiKey> \<add key="CentralConfigApiKey" value="" /> \</CentralConfigApiKey>
+  </Paragraph>
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Verify the appsettings.json file
+
+  Once the installation/upgradation is complete, verify that the appsettings.json file has the following:
+
+  "central-config-api-key": "CAEFXXXX8C847D5XXXX698D8XXXXXX"
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Update for Teams Bot Service
+
+  If you have installed Teams Bot Service, update the **CentralConfigApiKey** value in appsetting file. from C:\inetpub\TeamBotService/appsettings.json. Get the CentralConfigApiKey from the Central Config DB table (Frs\_data\_api\_key).
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Updates if Service Manager System Configuration Wizard and Service Manager Reporting Wizard are installed on different machines
+
+  If the Service Manager System Configuration Wizard and Service Manager Reporting Wizard are installed on different machines, update the Centralconfig api key when installing the Reporting Wizard as shown in the below image. Get the CentralConfigApiKey from the Central Config DB table (Frs\_data\_api\_key).
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/YWqtVDzxvWdKQpsRLcIQX_scwandreportingupdate.png" position="flex-start" size="40" initialPath="Config_Images/SCWAndReportingUpdate.png" githubPath="ITSM-On-Prem-Help/Content/ConfigDB_Guide/Config_Images/SCWAndReportingUpdate.png"></Image>
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Updating the CentralConfigAPIKey
+
+  In case you wish to update/change the CentralConfigAPIKey, do so by following the below steps:
+
+  1. Stop all services that are referencing the centralconfig.
+  2. Log in to Service Manager with Admin credentials and open the Configuration console.
+  3. Select Security Controls > CentralCofigAPIKeyGroup and note down the description .
+  4. Delete the existing CentralConfigAPIKey and recreate a new key inside the CentralConfigAPiKeyGroup as shown in the below image.
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/6NG2Jra2yFjp-j81Dqu_R_createnewapikey.png" position="flex-start" size="40" indent="1" initialPath="Config_Images/CreateNewAPIKey.png" githubPath="ITSM-On-Prem-Help/Content/ConfigDB_Guide/Config_Images/CreateNewAPIKey.png"></Image>
+
+  5. Once the Key is created in the CentralConfig tenants, re-run the System Configuration Wizard to update the webconfig and appconfig files.
+  6. Restart your machine.
+
+  <hint type="info">
+    The CentralConfigAPIKey should be unique, duplicate/multiple keys will break the feature.
+  </hint>
+</ExpandableHeading>
+
+## Disabling the Centralconfig API Key Feature
+
+Once the installation/upgradation is complete, verify the centralConfig appsettings.json file has: property “DisableApiKeyValidation”:”false” which need to be change to “True” as “DisableApiKeyValidation”:”true”.
+
+1. Log in to the application with Admin credentials and open the Configuration console.
+2. Select **Security Controls** > **API Key** and delete the **CentralConfigAPIKey**.
+
+<hint type="info">
+  Ensure you **Delete** and not **De-activate** to disable.
+</hint>
+
+<ExpandableHeading>
+  ## Impacted webconfig file list:
+
+  | AppDomains          | Configuration Files                                                                                  |
+  | ------------------- | ---------------------------------------------------------------------------------------------------- |
+  | AppServer           | Web.config                                                                                           |
+  | WorkFlow            | WorkflowService.exe.config                                                                           |
+  | Escalation          | EscalationService.exe.config                                                                         |
+  | email               | EmailWindowsServiceapp.exe.config                                                                    |
+  | bulkupload          | KMBulkUploadTool.exe.config                                                                          |
+  | integrationserver   | IntegrationServiceHost.exe.config                                                                    |
+  | systemconfigwizard  | ServerConfigurationWizard.exe.config                                                                 |
+  | release tool        | ReleaseTool.exe.config                                                                               |
+  | Frsloggingservice   | FRSLoggingService.exe.config                                                                         |
+  | metric              | HEAT.MetricsServer.exe.config                                                                        |
+  | message queue       | MessageQueueServiceHost.exe.config                                                                   |
+  | License service     | LicenseServerWindowsService.exe.config                                                               |
+  | report provisioning | reportserver\ReportProvisioning.exe.config                                                           |
+  | Neurons             | appsettings                                                                                          |
+  | Teams Bot Service   | appsettings                                                                                          |
+  | DynamicWebServices  | web.config                                                                                           |
+  | OpsConsole          | web.config                                                                                           |
+  | FrsSurvey           | web.config                                                                                           |
+  | FrsSurveyProxy      | web.config                                                                                           |
+  | IM                  | IMServer\IMServices\AssetProcessor\Web.config                                                        |
+  | IM                  | IMServer\IMServices\DiscoProcessor\Web.config                                                        |
+  | IM                  | IMServer\IMServices\DiscoUtils\Web.config                                                            |
+  | IM                  | IMServer\IMServices\IMReadOnlyDataService\Web.config                                                 |
+  | IM                  | IMServer\IMServices\TaskProcessor\Web.config                                                         |
+  | IM                  | IMServer\WebServices\ClientTransportProcessor\Web.config                                             |
+  | reports             | C:\Program Files\Microsoft SQL Server\MSRS12.MSSQLSERVER\Reporting Services \ReportServer\Web.config |
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Impacted appsettings.json file of the appdomain
+
+  | AppDomain                 |
+  | ------------------------- |
+  | CCF                       |
+  | Appserver                 |
+  | EmailService              |
+  | EscalationService         |
+  | FRSSurvey                 |
+  | FRSSurveyProxy            |
+  | InboundWebService         |
+  | IntegrationServer         |
+  | KMImportTool              |
+  | LicenseManager            |
+  | LoggingService            |
+  | MessageQueue              |
+  | MetricsServer             |
+  | OpsConsole                |
+  | ReleaseTool               |
+  | SystemConfigurationWizard |
+  | WorkflowService           |
+  | Reportserver              |
+  | IMServer - IMServices     |
+  | AssetProcessor            |
+  | DiscoProcessor            |
+  | DiscoUtils                |
+  | IMReadOnlyDataService     |
+  | IvantiCloudDataProcessor  |
+  | TaskProcessor             |
+  | WebServices - AgentTaskWs |
+</ExpandableHeading>
+
+## Custom Installation of SCW
+
+When customers try to install the Configuration Server in one machine and other components in another machine, user has to copy the Central Config API Key from Configuration Server and update the key in the **Central Configuration Settings** page as show in the following image.
+
+*Sample image of Custom Installation of SCW*
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/5S7R5zTrVcdrlZ1CiszDt_custominstallationofscw.png" position="flex-start" size="40" initialPath="Config_Images/CustomInstallationOfSCW.png" githubPath="ITSM-On-Prem-Help/Content/ConfigDB_Guide/Config_Images/CustomInstallationOfSCW.png"></Image>

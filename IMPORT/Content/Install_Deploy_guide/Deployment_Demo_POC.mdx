@@ -1,0 +1,40 @@
+---
+title: Demonstration or Proof-of-Concept Deployment
+docTags: 
+createdAt: Fri Jun 05 2026 13:49:30 GMT+0300 (Eastern European Summer Time)
+---
+
+- :Link[About the Demonstration or Proof-of-Concept Deployment]{label="About the Demonstration or Proof-of-Concept Deployment" overridedLabel="About the Demonstration or Proof-of-Concept Deployment" spaceId docId="IIhf7YMCmXD2alAx6WlYN" version="v2" docAnchorId="#About" loadingMethod="dynamic" newTab="false" href="Deployment_Demo_POC.mdx"}
+- :Link[Hardware Requirements for the Demonstration or Proof-of-Concept Deployment]{label="Hardware Requirements for the Demonstration or Proof-of-Concept Deployment" overridedLabel="Hardware Requirements for the Demonstration or Proof-of-Concept Deployment" spaceId docId="IIhf7YMCmXD2alAx6WlYN" version="v2" docAnchorId="#Hardware_Requirements" loadingMethod="dynamic" newTab="false" href="Deployment_Demo_POC.mdx"}
+- :Link[About Installing the Neurons for ITSM Components for the Demonstration or Proof-of-Concept Deployment]{label="About Installing the Neurons for ITSM Components for the Demonstration or Proof-of-Concept Deployment" overridedLabel="About Installing the Neurons for ITSM Components for the Demonstration or Proof-of-Concept Deployment" spaceId docId="IIhf7YMCmXD2alAx6WlYN" version="v2" docAnchorId="#HEAT_SM_Component_Installation" loadingMethod="dynamic" newTab="false" href="Deployment_Demo_POC.mdx"}
+
+### About the Demonstration or Proof-of-Concept Deployment
+
+<hint type="info">
+  This deployment is only recommended for demonstration purposes. Do not use this deployment for any production environment.
+</hint>
+
+You can run the entire \{\{Primary.Product}} system on a single server for the purpose of a demonstration or a proof-of-concept system.
+
+Install \{\{Primary.Product}}, with all options enabled, onto a single server that has Microsoft SQL Server loaded locally. Most users install this deployment in a virtual environment.
+
+*Example of&#x20;*\{\{Primary.Product}}*&#xA0;and Databases on a Single Server*
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/u2MMtSr_ld8pCUfPv9dDI_demodeployment.svg" position="flex-start" size="40" initialPath="Install_Deploy_Images/demo_deployment.svg" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Install_Deploy_Images/demo_deployment.svg"></Image>
+
+### Hardware Requirements for the Demonstration or Proof-of-Concept Deployment
+
+- 1 server, either virtual or physical
+- 1 CPU
+- 4 GB memory
+- 40 GB hard drive
+
+### About Installing the Neurons for ITSM Components for the Demonstration or Proof-of-Concept Deployment
+
+The below diagram shows the recommended locations of the various \{\{Primary.Product}} software components in this deployment.
+
+\{\{Primary.Product}}*&#x20;Components and Databases on a Single Server*
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/zUTEOTSpou0Aj_0vJLU5V_demodeploymentcomponents.svg" position="flex-start" size="40" initialPath="Install_Deploy_Images/demo_deployment_components.svg" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Install_Deploy_Images/demo_deployment_components.svg"></Image>
+
+If you plan to include the \{\{Primary.Product}} reporting feature in your deployment, you must install the Microsoft SQL Server Reporting Services (SSRS) component of Microsoft SQL Server. See [Installing Neurons for ITSM Reporting Feature](Microsoft_SSRS.mdx).

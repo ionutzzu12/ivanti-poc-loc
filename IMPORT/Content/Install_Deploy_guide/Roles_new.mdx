@@ -1,0 +1,103 @@
+---
+title: About Roles
+docTags: 
+createdAt: Fri Jun 05 2026 13:49:30 GMT+0300 (Eastern European Summer Time)
+---
+
+- :Link[Administrator Account Permissions]{label="Administrator Account Permissions" overridedLabel="Administrator Account Permissions" spaceId docId="DviPiw_fZv57nQaFr_8cL" version="v2" docAnchorId="#Administ" loadingMethod="dynamic" newTab="false" href="Roles_new.mdx"}
+- :Link[Database Access Rights Needed for Neurons for ITSM]{label="Database Access Rights Needed for Neurons for ITSM" overridedLabel="Database Access Rights Needed for Neurons for ITSM" spaceId docId="DviPiw_fZv57nQaFr_8cL" version="v2" docAnchorId="#Roles" loadingMethod="dynamic" newTab="false" href="Roles_new.mdx"}
+- :Link[Database Access Rights Needed for the Reporting Feature]{label="Database Access Rights Needed for the Reporting Feature" overridedLabel="Database Access Rights Needed for the Reporting Feature" spaceId docId="DviPiw_fZv57nQaFr_8cL" version="v2" docAnchorId="#Roles2" loadingMethod="dynamic" newTab="false" href="Roles_new.mdx"}
+
+## Administrator Account Permissions
+
+Use your account that has local administrator permissions to install \{\{Primary.Product}}, including all optional components. This administrator account must have permission to create and modify folders, files, and registry keys.
+
+## Database Access Rights Needed for Neurons for ITSM
+
+The following are the minimum access rights required for the account of the user running the System Configuration Wizard:
+
+| Role   | Access Right                                                                                                                                                             |
+| ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Server | public                                                                                                                                                                   |
+|        | dbcreator                                                                                                                                                                |
+|        | securityadmin<br /><br />NOTE: This role is only needed temporarily, to assign the db\_owner role to the configuration database and the \{\{Primary.Product}} databases. |
+
+If you do not want to give this permission to the user running the System Configuration Wizard, you must go into the Microsoft SQL Server Management Studio and manually assign the service account as the db\_owner for the configuration database and the \{\{Primary.Product}} databases.
+
+## Database Access Rights Needed for the Reporting Feature
+
+The following are the minimum access rights used in Microsoft SQL Server Management Studio for \{\{Primary.Product}} when also using the reporting feature:
+
+<table isTableHeaderOn="true">
+  <tr>
+    <td>
+      Role
+    </td>
+    <td>
+      Access Right
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Server
+    </td>
+    <td>
+      public
+    </td>
+  </tr>
+  <tr>
+    <td>
+    </td>
+    <td>
+      dbcreator
+    </td>
+  </tr>
+  <tr>
+    <td>
+    </td>
+    <td>
+      securityadmin \*
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Database
+    </td>
+    <td>
+      db\_owner of master
+    </td>
+  </tr>
+  <tr>
+    <td>
+    </td>
+    <td>
+      db\_owner of msdb
+    </td>
+  </tr>
+  <tr>
+    <td>
+      \* The securityadmin role, and the db\_owner of the master Microsoft database, are only needed if you set up Microsoft SSRS and create a new report server database. If you have already configured Microsoft SSRS and do not make any changes to it, you do not need this role.
+      The securityadmin role creates the following Microsoft SSRS-related roles in the master, msdb, report server, and report server temporary databases:
+      - RSExecRole
+      - SQLAgentOperatorRole
+      - SQLAgentReaderRole
+      - SQLAgentUserRole
+    </td>
+    <td>
+    </td>
+  </tr>
+</table>
+
+The service account for Microsoft SSRS requires:
+
+| Database                | Role                 |
+| ----------------------- | -------------------- |
+| MSDB                    | RSExecRole           |
+|                         | SQLAgentOperatorRole |
+|                         | SQLAgentReaderRole   |
+|                         | SQLAgentUserRole     |
+| Master                  | RSExecRole           |
+| Report server           | RSExecRole           |
+|                         | db\_owner            |
+| Report server temporary | RSExecRole           |
+|                         | db\_owner            |

@@ -1,0 +1,160 @@
+---
+title: Planning and Scheduling Maintenance
+docTags: 
+createdAt: Fri Jun 05 2026 13:49:31 GMT+0300 (Eastern European Summer Time)
+---
+
+Create and follow a regular maintenance plan. Performing regular, ongoing maintenance is crucial to ensuring optimal system performance. At a minimum, a maintenance plan should include the following:
+
+- A schedule for deleting records and tables. See [Deleting Inactive Tables and Records](Archiving_tables.mdx).
+- Running a tuning advisor tool to determine index tuning actions and then performing those actions. See [Database Tuning](Database_tuning.mdx).
+- Scanning for duplicate indexes and then removing the duplicates. See :Link[Checking for Duplicate Indexes]{label="Checking for Duplicate Indexes" overridedLabel="Checking for Duplicate Indexes" spaceId docId="TYkEMyGMRFSnUc_1wK4eX" version="v2" docAnchorId="#Check3" loadingMethod="dynamic" newTab="false" githubPath="Database_tuning.htm#Check3" href="Database_tuning.mdx"}.
+- Configuring database auto-growth. See :Link[Setting the Value for the Database Auto-Growth Parameter]{label="Setting the Value for the Database Auto-Growth Parameter" overridedLabel="Setting the Value for the Database Auto-Growth Parameter" spaceId docId="TYkEMyGMRFSnUc_1wK4eX" version="v2" docAnchorId="#Configur" loadingMethod="dynamic" newTab="false" githubPath="Database_tuning.htm#Configur" href="Database_tuning.mdx"}.
+
+Depending on your system requirements, it is likely that you will perform additional activities as part of a maintenance plan.
+
+The following is an example maintenance plan:
+
+<table isTableHeaderOn="true">
+  <tr>
+    <td>
+      Month
+    </td>
+    <td>
+      Maintenance Task
+    </td>
+  </tr>
+  <tr>
+    <td>
+      January
+    </td>
+    <td>
+      - Evaluate the current archival plan and modify it as necessary.
+      - Record performance metrics to establish a baseline.
+      - Run the Microsoft SQL tuning advisor to determine recommended index changes.
+      - Apply recommended index changes.
+      - Scan for and delete duplicate indexes.
+      - Check for license renewal requirements.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      February
+    </td>
+    <td>
+      - Evaluate the current archival plan and modify it as necessary.
+      - Troubleshoot errors reported in the event log and message queuing.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      March
+    </td>
+    <td>
+      - Evaluate the current archival plan and modify it as necessary.
+      - Audit log level and location settings.
+      - Review database auto-growth and if necessary reset it to an appropriate static value.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      April
+    </td>
+    <td>
+      - Evaluate the current archival plan and modify it as necessary.
+      - Run the Microsoft SQL tuning advisor to determine recommended index changes.
+      - Apply recommended index changes.
+      - Scan for and delete duplicate indexes.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      May
+    </td>
+    <td>
+      - Evaluate the current archival plan and modify it as necessary.
+      - Troubleshoot errors reported in the event log and message queuing.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      June
+    </td>
+    <td>
+      - Evaluate the current archival plan and modify it as necessary.
+      - Record performance metrics and compare them with the recorded baseline.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      July
+    </td>
+    <td>
+      - Evaluate the current archival plan and modify it as necessary.
+      - Run the Microsoft SQL tuning advisor to determine recommended index changes.
+      - Apply recommended index changes.
+      - Scan for and delete duplicate indexes.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      August
+    </td>
+    <td>
+      - Evaluate the current archival plan and modify it as necessary.
+      - Troubleshoot errors reported in the event log and message queuing.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      September
+    </td>
+    <td>
+      - Evaluate the current archival plan and modify it as necessary.
+      - Review database auto-growth and if necessary reset it to an appropriate static value.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      October
+    </td>
+    <td>
+      - Evaluate the current archival plan and modify it as necessary.
+      - Run the Microsoft SQL tuning advisor to determine recommended index changes.
+      - Apply recommended index changes.
+      - Scan for and delete duplicate indexes.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      November
+    </td>
+    <td>
+      - Evaluate the current archival plan and modify it as necessary.
+      - Troubleshoot errors reported in the event log and message queuing.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      December
+    </td>
+    <td>
+      - Evaluate the current archival plan and modify it as necessary.
+      - Record performance metrics and compare them with the recorded baseline.
+      - Update infrastructure design plans and other documents.
+      - Update system growth expectations.
+    </td>
+  </tr>
+</table>
+
+## About Reviewing, Closing, and Deleting Records
+
+It is not uncommon for systems to have hundreds of thousands of active incident records that no longer need to be open and active. For example, if an incident has not been modified for several months, it can probably be closed.
+
+Dashboard parts and saved searches may query these inactive records daily. Closing records that are older than a specified age (for example, three months) prevents them from being queried by dashboard parts and saved searches, which can significantly improve dashboard and search loading performance. Deleting closed records can also reduce the load on database server infrastructure. Additionally, deleting workflow history and instance tables prevents the workflow engine from having to query them.
+
+We highly recommend that you implement a regularly occurring process to identify records that can be closed and deleted.
+
+You can use service level agreements to automatically trigger a notification when an active record has been open for a specified amount of time. To do this, assign a default service level agreement to all services that do not have an active one. In the service level agreement, set the escalation to notify the owner when an active incident record has been open and active for a certain number of days.
+
+Deleting closed and inactive records can reduce the load on database sever infrastructure. See [Deleting Inactive Tables and Records](Archiving_tables.mdx).

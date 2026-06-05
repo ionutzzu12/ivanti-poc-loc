@@ -1,0 +1,297 @@
+---
+title: Optional SSL Configuration
+docTags: 
+createdAt: Fri Jun 05 2026 13:49:30 GMT+0300 (Eastern European Summer Time)
+---
+
+<hint type="info">
+  The Metrics Server is not compatible with SSL if your \{\{Primary.Product}} system has Windows authentication set up.
+</hint>
+
+You can configure \{\{Primary.Product}} for SSL. This configuration is optional. There are three scenarios:
+
+- The \{\{Primary.Product}} application database and the configuration database both use SSL. See :Link[Configuring SSL for the Configuration and Application Databases]{label="Configuring SSL for the Configuration and Application Databases" overridedLabel="Configuring SSL for the Configuration and Application Databases" spaceId docId="7jMjfA-KPBueRZn9NgoLH" version="v2" docAnchorId="#h3_Configuring_SSL_for_the_HEAT_Application_Database_and_the_HEAT_Configuration_Database" loadingMethod="dynamic" newTab="false" href="SSL_Config.mdx"}.
+- The \{\{Primary.Product}} application database uses SSL but the configuration database does not use SSL. See :Link[Configuring SSL for the Application Database Only]{label="Configuring SSL for the Application Database Only" overridedLabel="Configuring SSL for the Application Database Only" spaceId docId="7jMjfA-KPBueRZn9NgoLH" version="v2" docAnchorId="#h3_Configuring_SSL_for_the_HEAT_Application_Database_Only" loadingMethod="dynamic" newTab="false" href="SSL_Config.mdx"}.
+- Neither the \{\{Primary.Product}} application database nor the configuration database uses SSL. In this scenario, do not check SSL on any of the pages of the System Configuration Wizard.
+
+<hint type="info">
+  For all fields in the System Configuration Wizard that ask for a server location, when using SSL, you must enter a fully-qualified domain name (FQDN). This is because SSL needs a certificate and the certificate authority requires an FQDN.
+</hint>
+
+## Configuring SSL for the Configuration and Application Databases
+
+To configure both your \{\{Primary.Product}} application database and the configuration database to use SSL, follow all of the steps in all of these sections:
+
+- :Link[Before You Begin]{label="Before You Begin" overridedLabel="Before You Begin" spaceId docId="7jMjfA-KPBueRZn9NgoLH" version="v2" docAnchorId="#h4_Before_You_Begin" loadingMethod="dynamic" newTab="false" href="SSL_Config.mdx"}
+- :Link[Configuring SSL in Microsoft IIS Manager]{label="Configuring SSL in Microsoft IIS Manager" overridedLabel="Configuring SSL in Microsoft IIS Manager" spaceId docId="7jMjfA-KPBueRZn9NgoLH" version="v2" docAnchorId="#h4_Configuring_SSL_in_Microsoft_IIS_Manager" loadingMethod="dynamic" newTab="false" href="SSL_Config.mdx"}
+- :Link[Configuring SSL in the System Configuration Wizard]{label="Configuring SSL in the System Configuration Wizard" overridedLabel="Configuring SSL in the System Configuration Wizard" spaceId docId="7jMjfA-KPBueRZn9NgoLH" version="v2" docAnchorId="#h4_Configuring_SSL_in_the_System_Configuration_Wizard" loadingMethod="dynamic" newTab="false" href="SSL_Config.mdx"}
+
+### Before You Begin
+
+- Ensure that https:\\\localhost:443 displays the Microsoft IIS Manager welcome page.
+- Ensure that your system has a valid certificate.
+
+### Configuring SSL in Microsoft IIS Manager
+
+1. In Microsoft IIS Manager, navigate to Sites > Default Web Site and select SSL Settings.
+2. On the SSL Settings page, check Require SSL and under client certificates, select Ignore.
+3. Navigate to Sites > HEAT and select SSL Settings.
+4. On the SSL Settings page, check Require SSL and under client certificates, select Ignore.
+5. Navigate to Sites > CentralConfig and select SSL Settings.
+6. On the SSL Settings page, check Require SSL and under client certificates, select Ignore.
+7. Navigate to Sites > FRSSurveyProxy and select SSL Settings.  
+8. On the SSL Settings page, check Require SSL and under client certificates, select Ignore.
+9. Add an SSL port by doing the following:
+
+<Paragraph indent="1">
+  a. Navigate to **Sites > Default Web Site**, right click, and select Edit Bindings....
+</Paragraph>
+
+<Paragraph indent="1">
+  b. Click Add....
+</Paragraph>
+
+<Paragraph indent="1">
+  c. In the Add Site Binding dialog box, for the Type field, select HTTPS and in the SSL certificate field, select the certificate that you received from the certificate authority. The system automatically enters 443 for the port.
+</Paragraph>
+
+<Paragraph indent="1">
+  d. In the IP Address field, enter a fully-qualified domain name.
+</Paragraph>
+
+<Paragraph indent="1">
+  e. Click OK.
+</Paragraph>
+
+10. Verify that you can access https\://fully\_qualified\_domain\_name.
+
+### Configuring SSL in the System Configuration Wizard
+
+1. In the System Configuration Wizard, on the Configuration Application page, ensure that the value in the Configuration Server Domain Name field uses a fully-qualified domain name. Do not use a machine name.
+
+<Paragraph indent="1">
+  *Configuration Application Page*
+</Paragraph>
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/OZ7Gp7VU_d-oBc4-lfZU4_configserverssl.png" position="flex-start" size="40" indent="1" initialPath="../Resources/Images/ConfigServerSSL.png" githubPath="ITSM-On-Prem-Help/Content/Resources/Images/ConfigServerSSL.png"></Image>
+
+2. On the bottom of the \{\{Primary.Product}} Application page, ensure that you check Use domain name to access Application and enter a fully-qualified domain name for the \{\{Primary.Product}} application server.  Do not use a machine name.
+
+<Paragraph indent="1">
+  \{\{Primary.Product}}*&#x20;Application Page*
+</Paragraph>
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/r605CmQBJCiFpaSeus6PP_configureapplicationsettings2.png" position="flex-start" size="40" indent="1" initialPath="Install_Deploy_Images/configure_application_settings2.png" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Install_Deploy_Images/configure_application_settings2.png"></Image>
+
+3. On the Application Server Settings page, do the following:
+   - Ensure that you enter the fully-qualified domain name in the Configuration Server Location field.
+   - Check Use SSL.
+   - Enter the fully-qualified domain name in the Host Name field.
+
+<Paragraph indent="1">
+  *Application Server Settings Page.*
+</Paragraph>
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/bg6fnFh9rWjxYSpK9MtxX_applicationserversettings2.png" position="flex-start" size="40" indent="1" initialPath="Install_Deploy_Images/application_server_settings2.png" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Install_Deploy_Images/application_server_settings2.png"></Image>
+
+4. On the Other Feature Settings page, for the \{\{Primary.Product}} application server, check Use SSL.
+
+<Paragraph indent="1">
+  *Other Feature Settings Page*
+</Paragraph>
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/IPDghjoX3tZ-6aGJDR7W2_otherfeaturesettings2.png" position="flex-start" size="40" indent="1" initialPath="Install_Deploy_Images/other_feature_settings2.png" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Install_Deploy_Images/other_feature_settings2.png"></Image>
+
+5. On the Metrics Server page, check Use SSL.
+
+<Paragraph indent="1">
+  *Metrics Server Page*
+</Paragraph>
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/vJfukz5pruoUw-4OPaHJr_metrics-ssl.png" position="flex-start" size="40" indent="1" initialPath="Install_Deploy_Images/Metrics-SSL.png" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Install_Deploy_Images/Metrics-SSL.png"></Image>
+
+### Configuring SSL for the Application Database Only
+
+To configure your \{\{Primary.Product}} application database to use SSL but not the configuration database, follow all of the steps in all three sections:
+
+- :Link[Before You Begin]{label="Before You Begin" overridedLabel="Before You Begin" spaceId docId="7jMjfA-KPBueRZn9NgoLH" version="v2" docAnchorId="#h4_Before_You_Begin2" loadingMethod="dynamic" newTab="false" href="SSL_Config.mdx"}
+- :Link[Configuring SSL in Microsoft IIS Manager]{label="Configuring SSL in Microsoft IIS Manager" overridedLabel="Configuring SSL in Microsoft IIS Manager" spaceId docId="7jMjfA-KPBueRZn9NgoLH" version="v2" docAnchorId="#h4_Configuring_SSL_in_Microsoft_IIS_Manager2" loadingMethod="dynamic" newTab="false" href="SSL_Config.mdx"}
+- :Link[Configuring SSL in the System Configuration Wizard]{label="Configuring SSL in the System Configuration Wizard" overridedLabel="Configuring SSL in the System Configuration Wizard" spaceId docId="7jMjfA-KPBueRZn9NgoLH" version="v2" docAnchorId="#h4_Configuring_SSL_in_the_System_Configuration_Wizard2" loadingMethod="dynamic" newTab="false" href="SSL_Config.mdx"}
+
+### Before You Begin
+
+- Ensure that https:\\\localhost:443 displays the Microsoft IIS Manager welcome page.
+- Ensure that your system has a valid certificate.
+
+### Configuring SSL in Microsoft IIS Manager
+
+1. In Microsoft IIS Manager, navigate to Sites > Default Web Site and select SSL Settings
+2. On the SSL Settings page, ensure that Require SSL is not checked. Under client certificates, select Ignore.
+3. Navigate to Sites > HEAT and select SSL Settings.
+4. On the SSL Settings page, check Require SSL and under client certificates, select Ignore.
+5. Navigate to Sites > CentralConfig and select SSL Settings.
+6. On the SSL Settings page, ensure that Require SSL is not checked. Under client certificates, select Ignore.
+7. Navigate to Sites > FRSSurveyProxy and select SSL Settings.
+8. On the SSL Settings page, check Require SSL and under client certificates, select Ignore.
+9. Add an SSL port by doing the following:
+
+<Paragraph indent="1">
+  a. Navigate to **Sites > Default Web Site**, right click, and select Edit Bindings....
+</Paragraph>
+
+<Paragraph indent="1">
+  b. Click Add....
+</Paragraph>
+
+<Paragraph indent="1">
+  c. In the Add Site Binding dialog box, for the Type field, select HTTPS and in the SSL certificate field, select the certificate that you received from the certificate authority. The system automatically enters 443 for the port.
+</Paragraph>
+
+<Paragraph indent="1">
+  d. In the SSL certificate field, enter a fully-qualified domain name.
+</Paragraph>
+
+<Paragraph indent="1">
+  e. Click OK.
+</Paragraph>
+
+10. Double-click **Configuration Editor**.
+
+<Paragraph indent="1">
+  The **Configuration Editor** dialog box opens.
+</Paragraph>
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/WezHt5iZHWdJOvbepd8Zr_configuration-editor.png" position="flex-start" size="40" indent="1" initialPath="../ConfigDB_Guide/Config_Images/Configuration-Editor.png" githubPath="ITSM-On-Prem-Help/Content/ConfigDB_Guide/Config_Images/Configuration-Editor.png"></Image>
+
+11. Select **System.webServer** and then select **serverRuntime**.
+12. Modify the **uploadReadAheadSize** value to 2147483647.
+13. Click **Apply**.
+14. Verify if you can access https\://local\_host.
+
+### Configuring SSL in the System Configuration Wizard
+
+1. In the System Configuration Wizard, on the \{\{Primary.Product}} Application page, ensure that the \{\{Primary.Product}} application database uses a fully-qualified domain name and not a machine name.
+
+<Paragraph indent="1">
+  \{\{Primary.Product}}*&#x20;Application Page*
+</Paragraph>
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/fkFr3-290Zzh-rrvcbW3d_servicemanagerapplication.png" position="flex-start" size="40" indent="1" initialPath="Install_Deploy_Images/service_manager_application.png" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Install_Deploy_Images/service_manager_application.png"></Image>
+
+2. On the Application Server Settings page, do the following:
+   - Ensure that Use SSL is not checked.
+   - Ensure that you enter the fully-qualified domain name in the Configuration Server Location field.
+   - Ensure that you enter the host name, and not the fully-qualified domain name, in the Host Name field.
+
+<Paragraph indent="2">
+  *Application Server Settings Page*
+</Paragraph>
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/bg6fnFh9rWjxYSpK9MtxX_applicationserversettings2.png" position="flex-start" size="40" indent="2" initialPath="Install_Deploy_Images/application_server_settings2.png" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Install_Deploy_Images/application_server_settings2.png"></Image>
+
+3. On the Other Feature Settings page, check Use SSL.
+
+<hint type="info" indent="1">
+  This is the only place in the System Configuration Wizard where you check Use SSL. Do not check Use SSL on any other page.
+</hint>
+
+<Paragraph indent="1">
+  *Other Feature Settings Page*
+</Paragraph>
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/IPDghjoX3tZ-6aGJDR7W2_otherfeaturesettings2.png" position="flex-start" size="40" indent="1" initialPath="Install_Deploy_Images/other_feature_settings2.png" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Install_Deploy_Images/other_feature_settings2.png"></Image>
+
+<Paragraph indent="1">
+  ## Configuring SSL for Integration Service
+</Paragraph>
+
+<Paragraph indent="1">
+  Ivanti Integration Service by default configured to work on non-SSL port irrespective of the “SSL” check box is selected in System Config Wizard (SCW).
+</Paragraph>
+
+<Paragraph indent="1">
+  \<That SCW checkbox tells other parts of the product that the integration service is SSL (or not), so it needs to be checked, and the manual edit of the JSON file is also needed.>
+</Paragraph>
+
+<Paragraph listStyleType="decimal" indent="2">
+  To make Integration Service work on SSL port, following steps to be performed on each server where Ivanti Integration Service is running.
+</Paragraph>
+
+<Paragraph listStyleType="decimal" listStart="2" listRestartPolite="2" indent="2">
+  Stop the Ivanti integration service.
+</Paragraph>
+
+<Paragraph listStyleType="decimal" listStart="3" listRestartPolite="3" indent="2">
+  Add the following entries at the end of appsettings.json of Integration Service.
+</Paragraph>
+
+<Paragraph indent="2">
+  The Default Path for Integration Service is “C:\Program Files\HEAT Software\HEAT\IntegrationServer\appsettings.json”
+</Paragraph>
+
+<Paragraph indent="2">
+  [Copy](javascript\:void\(0\);)
+</Paragraph>
+
+<Paragraph indent="2">
+  ```javascript
+  "Kestrel": { 
+     "Endpoints": {
+      "HttpsInlineCertFile": {
+         "Url": "https://<IntegrationURL>:1213",
+               "Certificate": {
+            "Subject": "<SystemCertificate>",
+            "Location": "LocalMachine",
+            "AllowInvalid": true
+          } 
+         } 
+        } 
+       }
+  ```
+</Paragraph>
+
+<hint type="info" indent="1">
+  Th&#x65;**&#x20;IntegrationURL** should be replaced with the actual integration URL configured in SCW\.And a trusted certificate is available in your local Computer > Personal certificate store.\<Ensure the value in the **appsettingss.json** file is the "Issued To" string.>
+</hint>
+
+<Paragraph indent="1">
+  Ivanti recommends that there is only one If there is more than one cert here with the same Name, the OS will choose one so it is best practice to ensure only one cert is present with the same name as configured in the json file
+</Paragraph>
+
+<hint type="info" indent="1">
+  **SystemCertificate&#x20;**&#x73;hould be replaced with the installed certificate name on server machine where the Integration Service is running.
+</hint>
+
+<Paragraph listStyleType="decimal" listStart="4" listRestartPolite="4" indent="2">
+  Start the Integration Service.
+</Paragraph>
+
+<Paragraph listStyleType="decimal" listStart="5" listRestartPolite="5" indent="2">
+  Verify that https\://\<IntegrationURL>:1213/IntegrationService.svc is the correct URL.
+</Paragraph>
+
+<Paragraph listStyleType="decimal" listStart="6" listRestartPolite="6" indent="2">
+  Open the Web.Config of HEAT application located in “C:\Program Files\HEAT Software\HEAT\AppServer” and update the IntegrationURL with right value for the following binding.
+</Paragraph>
+
+<Paragraph indent="2">
+  \<endpoint address="https\://\< IntegrationURL >:1213/IntegrationService.svc"
+</Paragraph>
+
+<Paragraph indent="2">
+  binding="wsHttpBinding" bindingConfiguration="wsLargeDataBinding"
+</Paragraph>
+
+<Paragraph indent="2">
+  contract="IntegrationService.IIntegrationService" name="IntegrationServiceEndpoint">
+</Paragraph>
+
+<Paragraph listStyleType="decimal" listStart="7" listRestartPolite="7" indent="2">
+  Open the appsettings.json of HEAT application located in “C:\Program Files\HEAT Software\HEAT\AppServer” and update the IntegrationURL with the right value for the following binding:
+</Paragraph>
+
+<Paragraph indent="2">
+  "IntegrationServiceUri": https\://\< IntegrationURL >:1213
+</Paragraph>
+
+8. Reset the IIS.

@@ -1,0 +1,183 @@
+---
+title: Starting the Data Migration
+docTags: 
+createdAt: Fri Jun 05 2026 13:49:31 GMT+0300 (Eastern European Summer Time)
+---
+
+- :Link[Starting the Tenant Instance Migration]{label="Starting the Tenant Instance Migration" overridedLabel="Starting the Tenant Instance Migration" spaceId docId="kxdBsaHYdzf3E_JvNX_Kv" version="v2" docAnchorId="#About" loadingMethod="dynamic" newTab="false" href="Starting_Migration.mdx"}
+- :Link[Creating the First Staging or UAT Instance of the Tenant from the Production Instance of the Tenant]{label="Creating the First Staging or UAT Instance of the Tenant from the Production Instance of the Tenant" overridedLabel="Creating the First Staging or UAT Instance of the Tenant from the Production Instance of the Tenant" spaceId docId="kxdBsaHYdzf3E_JvNX_Kv" version="v2" docAnchorId="#Moving" loadingMethod="dynamic" newTab="false" href="Starting_Migration.mdx"}
+
+## Starting the Tenant Instance Migration
+
+Perform the following steps to start migrating data from the one tenant instance to another. These steps apply for each of the four migration methods. (See :Link[The Four Ways to Migrate Data]{label="The Four Ways to Migrate Data" overridedLabel="The Four Ways to Migrate Data" spaceId docId="nnlG7pdbdUpnH_QlL9PjG" version="v2" docAnchorId="#The" loadingMethod="dynamic" newTab="false" githubPath="Migration_Process.htm#The" href="Migration_Process.mdx"} for information about the different migration methods.)
+
+1. Log in to the Operations Console and click the Tenants tab.
+2. Navigate to the tenant instance to perform the migration for and click **Manage Migration**.
+
+If the tenant instance is not assigned to a landscape, the system prompts you to assign the tenant instance to a landscape to prepare it for migration. See :Link[Assigning a Tenant to a Landscape]{label="Assigning a Tenant to a Landscape" overridedLabel="Assigning a Tenant to a Landscape" spaceId docId="kxdBsaHYdzf3E_JvNX_Kv" version="v2" docAnchorId="#FIG-Assign" loadingMethod="dynamic" newTab="false" href="Starting_Migration.mdx"}. (If you do not see this screen, your tenant instance is ready for migration. Go to step 5.)
+
+*Assigning a Tenant to a Landscape*
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/XeRmvBfUp6f_oUyCoRsp2_assigntenant.png" position="flex-start" size="40" initialPath="ops_Images/Assign_Tenant.png" githubPath="ITSM-On-Prem-Help/Content/ops_console_ug/ops_Images/Assign_Tenant.png"></Image>
+
+For example, if you click Manage Migration in the screen shown in :Link[Database Pattern Screen 1]{label="Database Pattern Screen 1" overridedLabel="Database Pattern Screen 1" spaceId docId="kxdBsaHYdzf3E_JvNX_Kv" version="v2" docAnchorId="#FIGPattern1" loadingMethod="dynamic" newTab="false" href="Starting_Migration.mdx"}, the system displays the screen in :Link[Database Pattern Screen 2]{label="Database Pattern Screen 2" overridedLabel="Database Pattern Screen 2" spaceId docId="kxdBsaHYdzf3E_JvNX_Kv" version="v2" docAnchorId="#FIGPattern2" loadingMethod="dynamic" newTab="false" href="Starting_Migration.mdx"}.
+
+*Database Pattern Screen 1*
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/jwkzAc6KTdqjCMwNbw8XA_pattern1.png" position="flex-start" size="40" initialPath="ops_Images/Pattern1.png" githubPath="ITSM-On-Prem-Help/Content/ops_console_ug/ops_Images/Pattern1.png"></Image>
+
+*Database Pattern Screen 2*
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/_czO_OvBydoQS7q3OrTZy_pattern2.png" position="flex-start" size="40" initialPath="ops_Images/Pattern2.png" githubPath="ITSM-On-Prem-Help/Content/ops_console_ug/ops_Images/Pattern2.png"></Image>
+
+These screens are based on the landscape information, shown in :Link[Database Pattern Screen 3]{label="Database Pattern Screen 3" overridedLabel="Database Pattern Screen 3" spaceId docId="kxdBsaHYdzf3E_JvNX_Kv" version="v2" docAnchorId="#FIGPattern3" loadingMethod="dynamic" newTab="false" href="Starting_Migration.mdx"}.
+
+*Database Pattern Screen 3*
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/qk5d6w70plBFVJj3I6TbS_pattern3.png" position="flex-start" size="40" initialPath="ops_Images/Pattern3.png" githubPath="ITSM-On-Prem-Help/Content/ops_console_ug/ops_Images/Pattern3.png"></Image>
+
+There is only one landscape with the pattern frs-dev-\{\{tenantName}}.saasitdev.com and that is the production landscape. Therefore, on the bottom of :Link[Database Pattern Screen 2]{label="Database Pattern Screen 2" overridedLabel="Database Pattern Screen 2" spaceId docId="kxdBsaHYdzf3E_JvNX_Kv" version="v2" docAnchorId="#FIGPattern2" loadingMethod="dynamic" newTab="false" href="Starting_Migration.mdx"}, you can assign that tenant instance to that landscape. In the middle part of :Link[Database Pattern Screen 2]{label="Database Pattern Screen 2" overridedLabel="Database Pattern Screen 2" spaceId docId="kxdBsaHYdzf3E_JvNX_Kv" version="v2" docAnchorId="#FIGPattern2" loadingMethod="dynamic" newTab="false" href="Starting_Migration.mdx"} are the other available landscapes but these do not have the same pattern.
+
+3. Select a landscape from the Landscape drop-down list.
+
+If you do not want to assign it to any of the landscapes in the Landscape drop-down list, you can click Cancel and go to the Edit Landscape screen to edit the landscape database pattern. See :Link[Editing a Landscape]{label="Editing a Landscape" overridedLabel="Editing a Landscape" spaceId docId="8eKoisZQmWu1O91nuONnS" version="v2" docAnchorId="#Editing" loadingMethod="dynamic" newTab="false" githubPath="OpsConsole_Landscapes.htm#Editing" href="OpsConsole_Landscapes.mdx"}.
+
+4. Click Assign. The system displays the Migration Configuration screen, showing all of the tenants and tenant instances and available migration paths in the landscape. See :Link[Migration Dashboard]{label="Migration Dashboard" overridedLabel="Migration Dashboard" spaceId docId="kxdBsaHYdzf3E_JvNX_Kv" version="v2" docAnchorId="#FIG_Console" loadingMethod="dynamic" newTab="false" href="Starting_Migration.mdx"}.
+
+*Migration Dashboard*
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/q91Uazq4J-0r6P4Qwj0OB_oc-migrationdashboardnew.png" position="flex-start" size="40" initialPath="ops_Images/OC-MigrationDashboardNEW.png" githubPath="ITSM-On-Prem-Help/Content/ops_console_ug/ops_Images/OC-MigrationDashboardNEW.png"></Image>
+
+Things to note in :Link[Migration Dashboard]{label="Migration Dashboard" overridedLabel="Migration Dashboard" spaceId docId="kxdBsaHYdzf3E_JvNX_Kv" version="v2" docAnchorId="#FIG_Console" loadingMethod="dynamic" newTab="false" href="Starting_Migration.mdx"}:
+
+<Paragraph listStyleType="disc" indent="2">
+  The display box for each tenant instance (production, staging, and UAT in this example) contains status information that is updated whenever a tenant instance is updated.
+</Paragraph>
+
+<Paragraph listStyleType="disc" indent="2">
+  Arrows show all possible migration paths. If an arrow contains a Push or Apply Package link, the path is available to use based on the current status of all tenant instances in the landscape. Depending on the status of the tenant instance, some migrations paths might not be available.
+</Paragraph>
+
+<Paragraph listStyleType="disc" indent="2">
+  A migration history log is displayed at the bottom of the migration dashboard. If no migrations have taken place yet, "No Events Found" displays there as shown in :Link[Migration Dashboard]{label="Migration Dashboard" overridedLabel="Migration Dashboard" spaceId docId="kxdBsaHYdzf3E_JvNX_Kv" version="v2" docAnchorId="#FIG_Console" loadingMethod="dynamic" newTab="false" href="Starting_Migration.mdx"}.
+</Paragraph>
+
+<Paragraph listStyleType="disc" indent="2">
+  To enable the Ivanti Service Manager development project to migrate data, click Enable. See [Migrating Data using Heat Development Project](Project.mdx).
+</Paragraph>
+
+5. To start the migration, click either **Push** or Apply Package in the arrow representing the migration path to use. The system displays the Copy source\_tenant\_instance to target\_tenant\_instance (for example, Copy Production to Staging) dialog box.
+6. The remaining steps in the migration procedure differ depending on which migration method you use and whether this is the first migration for this migration path. If this is the first migration, the system *creates* the first configuration on the target tenant instance. If a migration has already been performed and this is a subsequent migration, the result is an *update* of the configuration on the target tenant instance.
+   - If this is the first migration, go to :Link[Creating the First Staging or UAT Instance of the Tenant from the Production Instance of the Tenant]{label="Creating the First Staging or UAT Instance of the Tenant from the Production Instance of the Tenant" overridedLabel="Creating the First Staging or UAT Instance of the Tenant from the Production Instance of the Tenant" spaceId docId="kxdBsaHYdzf3E_JvNX_Kv" version="v2" docAnchorId="#Moving" loadingMethod="dynamic" newTab="false" href="Starting_Migration.mdx"}. Follow this process for each of the four migration methods. (See :Link[The Four Ways to Migrate Data]{label="The Four Ways to Migrate Data" overridedLabel="The Four Ways to Migrate Data" spaceId docId="nnlG7pdbdUpnH_QlL9PjG" version="v2" docAnchorId="#The" loadingMethod="dynamic" newTab="false" githubPath="Migration_Process.htm#The" href="Migration_Process.mdx"} for information about the different migration methods.)
+   - If this is not the first migration and you are enabling the Ivanti Service Manager development project and either using the push link or applying a package, go to [Migrating Data using Heat Development Project](Project.mdx).
+   - If this is not the first migration and you are disabling the Ivanti Service Manager development project and using either Simple Mode or Advanced Mode, go to Starting the Data Migration. We do not recommend disabling the Ivanti Service Manager development project and using either Simple Mode or Advanced Mode.
+
+## Creating the First Staging or UAT Instance of the Tenant from the Production Instance of the Tenant
+
+This process applies for each of the four migration methods. (See :Link[The Four Ways to Migrate Data]{label="The Four Ways to Migrate Data" overridedLabel="The Four Ways to Migrate Data" spaceId docId="nnlG7pdbdUpnH_QlL9PjG" version="v2" docAnchorId="#The" loadingMethod="dynamic" newTab="false" githubPath="Migration_Process.htm#The" href="Migration_Process.mdx"} for information about the different migration methods.)
+
+At the beginning of the migration process, you migrate the data from the production instance of the tenant to the staging instance of the tenant. When you migrate the data from the staging instance of the tenant to the UAT instance of the tenant, you must also migrate data from the production instance of the tenant to the UAT instance of the tenant. That way, the UAT instance of the tenant has the latest data from both the staging and production instances of the tenant.
+
+Follow these steps to create the first staging or UAT instance of the tenant from the production instance of the tenant. You also follow these same steps if you want to refresh a staging or UAT instance of the tenant from the production instance of the tenant.
+
+| Perform steps 1 to 4 in :Link[Starting the Tenant Instance Migration]{label="Starting the Tenant Instance Migration" overridedLabel="Starting the Tenant Instance Migration" spaceId docId="kxdBsaHYdzf3E_JvNX_Kv" version="v2" docAnchorId="#About" loadingMethod="dynamic" newTab="false" href="Starting_Migration.mdx"} before you perform the steps in this section. |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+
+When you migrate data from the production instance of the tenant to either the staging or UAT instance of the tenant for the first time, the system creates the first configuration on the staging or UAT instance of the tenant and you see a Copy Production to Staging (or Copy Production to UAT) dialog box similar to :Link[Copy Dialog Box (Creating a Tenant Instance Configuration from the Production Tenant Instance)]{label="Copy Dialog Box (Creating a Tenant Instance Configuration from the Production Tenant Instance)" overridedLabel="Copy Dialog Box (Creating a Tenant Instance Configuration from the Production Tenant Instance)" spaceId docId="kxdBsaHYdzf3E_JvNX_Kv" version="v2" docAnchorId="#first" loadingMethod="dynamic" newTab="false" href="Starting_Migration.mdx"}.
+
+*Copy Dialog Box (Creating a Tenant Instance Configuration from the Production Tenant Instance)*
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/YmZsnxky_YaBI6IRfXVJ2_image-test.png" position="flex-start" size="40" initialPath="ops_Images/image-test.png" githubPath="ITSM-On-Prem-Help/Content/ops_console_ug/ops_Images/image-test.png"></Image>
+
+1. Enter the following information in the Copy dialog box:
+
+<table isTableHeaderOn="true">
+  <tr>
+    <td>
+      You cannot enter data for the following:
+      - In the Operation field, **Create** is the only option available. (This is because the system *creates* the first populated iteration of the target tenant instance.)
+      - For the **Target Landscape**, the system automatically populates this field based on where the Push arrow is pointing. For example, in :Link[Migration Dashboard]{label="Migration Dashboard" overridedLabel="Migration Dashboard" spaceId docId="kxdBsaHYdzf3E_JvNX_Kv" version="v2" docAnchorId="#FIG_Console" loadingMethod="dynamic" newTab="false" href="Starting_Migration.mdx"}, if you click Push in the arrow between the production instance of the tenant and the staging instance of the tenant, the system automatically enters the staging tenant instance into this field.
+    </td>
+  </tr>
+</table>
+
+<Paragraph listStyleType="disc" indent="2">
+  Select a backup option in the Target DB Option field. Because this is the first time that you are creating the staging or UAT instance of the tenant, there is no backup, so you must select to use a live backup. See :Link[Backup Types]{label="Backup Types" overridedLabel="Backup Types" spaceId docId="N5-aUJp0BHseE-cskrxZB" version="v2" docAnchorId="#Backup" loadingMethod="dynamic" newTab="false" githubPath="Terminology.htm#Backup" href="Terminology.mdx"} for information about the options.
+</Paragraph>
+
+<Paragraph listStyleType="disc" indent="2">
+  In the Target DB Server field, if the target landscape contains more than one database server, select the server that hosts the Configuration Database.
+</Paragraph>
+
+<Paragraph listStyleType="disc" indent="2">
+  Check **Keep existing users enabled in the target tenant** to keep all the users, and not just the administrators, active.
+</Paragraph>
+
+<Paragraph listStyleType="disc" indent="2">
+  Check Delete audit, log, change log and history data to delete the data in these tables:
+</Paragraph>
+
+<Paragraph listStyleType="disc" indent="3">
+  Logs
+</Paragraph>
+
+<Paragraph listStyleType="disc" indent="3">
+  Frs\_ops\_logon\_history
+</Paragraph>
+
+<Paragraph listStyleType="disc" indent="3">
+  Frs\_ops\_gbu\_pipeline\_history
+</Paragraph>
+
+<Paragraph listStyleType="disc" indent="3">
+  Frs\_ops\_metadata\_history
+</Paragraph>
+
+<Paragraph listStyleType="disc" indent="3">
+  Frs\_ops\_upload\_cache
+</Paragraph>
+
+<Paragraph listStyleType="disc" indent="3">
+  Journal
+</Paragraph>
+
+<Paragraph listStyleType="disc" indent="3">
+  LDAPImportLog
+</Paragraph>
+
+<Paragraph listStyleType="disc" indent="3">
+  Frs\_ops\_package\_item
+</Paragraph>
+
+<Paragraph listStyleType="disc" indent="3">
+  Frs\_ops\_package
+</Paragraph>
+
+<Paragraph listStyleType="disc" indent="3">
+  All audit tables, with the name Audit\_table
+</Paragraph>
+
+<Paragraph listStyleType="disc" indent="2">
+  Check **Scrub email address in users** to ensure that you do not accidentally email users repeatedly during configuration testing on the target tenant instance. If you check this option, the system changes all email fields containing customer email to use the @it.com domain instead of the company domain. This change applies to the user's primary email, contact email, manager email, and team email.
+</Paragraph>
+
+<Paragraph listStyleType="disc" indent="2">
+  Check **Scrub email address in other places** to scrub email accounts saved in transactional data (such as in incidents, service requests, workflow tasks, and so on).
+</Paragraph>
+
+<Paragraph listStyleType="disc" indent="2">
+  Check **Trim data to keep last 90 days only** to only copy transactional data that was created or modified within the last 90 days. If you are updating the database from a copy of your existing customer database, most records are likely to be current within 90 days.
+</Paragraph>
+
+<hint type="info" indent="1">
+  Do not check this option if you are creating the database from the sample ("out of the box") database, because the records are likely to be older than 90 days in the sample database.
+</hint>
+
+<Paragraph listStyleType="disc" indent="2">
+  Check **Shrink database after scrubbing and trimming** to truncate unnecessary data when the tenant instance is created from a backup. This is performed as a background task. If the database is very large, this task can take a long time or could abort. The Operations Console does not report any status on this task. If your database is very large, we recommend that you consider shrinking it outside of the Operations Console instead of in this procedure.
+</Paragraph>
+
+2. Click **Execute**. In the confirmation dialog box, click OK.
+3. If there are any error or warning messages, the system displays them.  Click OK.
+
+The system migrates the data from the production instance of the tenant to the staging or UAT instance of the tenant, and configures the staging or UAT instance of the tenant for the first time.

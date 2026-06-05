@@ -1,0 +1,55 @@
+---
+title: Voice Deployment Options
+docTags: 
+createdAt: Fri Jun 05 2026 13:49:30 GMT+0300 (Eastern European Summer Time)
+---
+
+- :Link[About Ivanti Voice]{label="About Ivanti Voice" overridedLabel="About Ivanti Voice" spaceId docId="T7Nyo4D-i3iKxIkRzIJB5" version="v2" docAnchorId="#About2" loadingMethod="dynamic" newTab="false" href="Multisrvr_Voice.mdx"}
+- :Link[About this Deployment]{label="About this Deployment" overridedLabel="About this Deployment" spaceId docId="T7Nyo4D-i3iKxIkRzIJB5" version="v2" docAnchorId="#About" loadingMethod="dynamic" newTab="false" href="Multisrvr_Voice.mdx"}
+- :Link[Installing and Configuring Ivanti Voice]{label="Installing and Configuring Ivanti Voice" overridedLabel="Installing and Configuring Ivanti Voice" spaceId docId="T7Nyo4D-i3iKxIkRzIJB5" version="v2" docAnchorId="#Installi2" loadingMethod="dynamic" newTab="false" href="Multisrvr_Voice.mdx"}
+- :Link[Integrating Ivanti Voice with Neurons for ITSM]{label="Integrating Ivanti Voice with Neurons for ITSM" overridedLabel="Integrating Ivanti Voice with Neurons for ITSM" spaceId docId="T7Nyo4D-i3iKxIkRzIJB5" version="v2" docAnchorId="#Integrat" loadingMethod="dynamic" newTab="false" href="Multisrvr_Voice.mdx"}
+
+## About Ivanti Voice
+
+Ivanti Voice is the telephony application that integrates automated call routing and management and computer telephone integration to Ivanti Software applications such as \{\{Primary.Product}}. Ivanti Voice uses the next-generation, standards‑based IP communication transport, called Session Initiation Protocol (SIP). \{\{Primary.Product}} and Voice are typically installed and maintained on separate servers..
+
+## About this Deployment
+
+- :Link[Agent Login Sequence]{label="Agent Login Sequence" overridedLabel="Agent Login Sequence" spaceId docId="T7Nyo4D-i3iKxIkRzIJB5" version="v2" docAnchorId="#h4_Agent_Login_Sequence" loadingMethod="dynamic" newTab="false" href="Multisrvr_Voice.mdx"}
+- :Link[Incoming Call Sequence]{label="Incoming Call Sequence" overridedLabel="Incoming Call Sequence" spaceId docId="T7Nyo4D-i3iKxIkRzIJB5" version="v2" docAnchorId="#h4_Incoming_Call_Sequence" loadingMethod="dynamic" newTab="false" href="Multisrvr_Voice.mdx"}
+
+### Agent Login Sequence
+
+:Link[Agent Login Sequence]{label="Agent Login Sequence" overridedLabel="Agent Login Sequence" spaceId docId="T7Nyo4D-i3iKxIkRzIJB5" version="v2" docAnchorId="#Fig_Agent_Login_Sequence" loadingMethod="dynamic" newTab="false" href="Multisrvr_Voice.mdx"} shows the Voice agent login sequence.
+
+*Agent Login Sequence*
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/8lVkNgS1R1v9SnjfkHKYi_voicediagram.png" position="flex-start" size="40" initialPath="Install_Deploy_Images/voice_diagram.png" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Install_Deploy_Images/voice_diagram.png"></Image>
+
+1. The agent logs into a secure (HTTPS) connection.
+2. The system verifies the Voice server IP address or domain name.
+3. The system obtains the session key from the Ivanti Voice server IP address or domain name.
+4. The system verifies the session key (TCP 5743).
+5. The system makes the phone connection (SIP UDP 5060).
+6. The system validates the session key (HTTPS).
+
+### Incoming Call Sequence
+
+:Link[Incoming Call Sequence]{label="Incoming Call Sequence" overridedLabel="Incoming Call Sequence" spaceId docId="T7Nyo4D-i3iKxIkRzIJB5" version="v2" docAnchorId="#Fig_Incoming_Call_Sequence" loadingMethod="dynamic" newTab="false" href="Multisrvr_Voice.mdx"} shows the sequence of events for Ivanti Voice incoming calls.
+
+*Incoming Call Sequence*
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/4l1uPrvY2lstWPLs0G_pM_voicediagramagent.png" position="flex-start" size="40" initialPath="Install_Deploy_Images/voice_diagram_agent.png" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Install_Deploy_Images/voice_diagram_agent.png"></Image>
+
+1. The system receives a call (SIP UDP 500).
+2. The IVR searches and updates the record (HTTPS).
+3. The call is forwarded to the agent (SIP UDP 5060, RTP UDP, TCP 5743).
+4. The record appears to the agent (HTTPS).
+
+### Installing and Configuring Ivanti Voice
+
+For information about installing and configuring Ivanti Voice, see the IP Communications Management Administrator Guide.
+
+### Integrating Ivanti Voice with Neurons for ITSM
+
+For complete information about integrating Voice with \{\{Primary.Product}}, see Working with Voice in the \{\{Primary.Product}} online help.

@@ -1,0 +1,554 @@
+---
+title: Appendix C: Using the ISM Development Project to Migrate Data
+docTags: 
+createdAt: Fri Jun 05 2026 13:49:31 GMT+0300 (Eastern European Summer Time)
+---
+
+<hint type="info">
+  The information in this appendix is copied directly from the Ivanti Service Manager online help. It describes how to use the Ivanti Service Manager Configuration Console to create packages, which can be used when migrating data. The online help contains additional information about the Ivanti Service Manager development project, such as cautions and limitations about the using the Ivanti Service Manager development project, terminology, information about logs and validation, and examples.You perform these tasks in the Ivanti Service Manager Configuration Console and not in the Operations Console.
+</hint>
+
+This appendix contains the following sections:
+
+- Create a project. See :Link[Creating a Project]{label="Creating a Project" overridedLabel="Creating a Project" spaceId docId="09HNL1mmV8N-c_aWcP1z_" version="v2" docAnchorId="#Creating" loadingMethod="dynamic" newTab="false" href="ProjectOLH.mdx"}.
+- Optional. View the project. See :Link[Viewing a Project]{label="Viewing a Project" overridedLabel="Viewing a Project" spaceId docId="09HNL1mmV8N-c_aWcP1z_" version="v2" docAnchorId="#Viewing" loadingMethod="dynamic" newTab="false" href="ProjectOLH.mdx"}.
+- Make changes to Ivanti Service Manager. See :Link[Creating a Transaction Set]{label="Creating a Transaction Set" overridedLabel="Creating a Transaction Set" spaceId docId="09HNL1mmV8N-c_aWcP1z_" version="v2" docAnchorId="#Making" loadingMethod="dynamic" newTab="false" href="ProjectOLH.mdx"}.
+- Optional. View the transactions sets. See :Link[Viewing Transaction Sets]{label="Viewing Transaction Sets" overridedLabel="Viewing Transaction Sets" spaceId docId="09HNL1mmV8N-c_aWcP1z_" version="v2" docAnchorId="#Viewing2" loadingMethod="dynamic" newTab="false" href="ProjectOLH.mdx"}.
+- Create a package. See :Link[Creating a Package]{label="Creating a Package" overridedLabel="Creating a Package" spaceId docId="09HNL1mmV8N-c_aWcP1z_" version="v2" docAnchorId="#Creating2" loadingMethod="dynamic" newTab="false" href="ProjectOLH.mdx"}.
+- Optional. View the package. See :Link[Viewing a Package]{label="Viewing a Package" overridedLabel="Viewing a Package" spaceId docId="09HNL1mmV8N-c_aWcP1z_" version="v2" docAnchorId="#Viewing3" loadingMethod="dynamic" newTab="false" href="ProjectOLH.mdx"}.
+- Assign transaction sets to a package. See :Link[Assigning Transaction Sets to a Package]{label="Assigning Transaction Sets to a Package" overridedLabel="Assigning Transaction Sets to a Package" spaceId docId="09HNL1mmV8N-c_aWcP1z_" version="v2" docAnchorId="#Assignin" loadingMethod="dynamic" newTab="false" href="ProjectOLH.mdx"}.
+- Add an aspect to a package. See :Link[Adding an Aspect to a Package]{label="Adding an Aspect to a Package" overridedLabel="Adding an Aspect to a Package" spaceId docId="09HNL1mmV8N-c_aWcP1z_" version="v2" docAnchorId="#Adding" loadingMethod="dynamic" newTab="false" href="ProjectOLH.mdx"}.
+- Map a package. See :Link[Adding Packages to a Master Package (Mapping)]{label="Adding Packages to a Master Package (Mapping)" overridedLabel="Adding Packages to a Master Package (Mapping)" spaceId docId="09HNL1mmV8N-c_aWcP1z_" version="v2" docAnchorId="#Adding2" loadingMethod="dynamic" newTab="false" href="ProjectOLH.mdx"}.
+- Close the package. See :Link[Closing a Package]{label="Closing a Package" overridedLabel="Closing a Package" spaceId docId="09HNL1mmV8N-c_aWcP1z_" version="v2" docAnchorId="#Closing" loadingMethod="dynamic" newTab="false" href="ProjectOLH.mdx"}.
+- Optional. Export a package to another system. See :Link[About Exporting a Package]{label="About Exporting a Package" overridedLabel="About Exporting a Package" spaceId docId="09HNL1mmV8N-c_aWcP1z_" version="v2" docAnchorId="#Exportin" loadingMethod="dynamic" newTab="false" href="ProjectOLH.mdx"}.
+- Optional. Import a package from another system. See :Link[Importing a Package]{label="Importing a Package" overridedLabel="Importing a Package" spaceId docId="09HNL1mmV8N-c_aWcP1z_" version="v2" docAnchorId="#Importingpackage" loadingMethod="dynamic" newTab="false" href="ProjectOLH.mdx"}. If you get errors, see :Link[Troubleshooting Package Import Errors]{label="Troubleshooting Package Import Errors" overridedLabel="Troubleshooting Package Import Errors" spaceId docId="09HNL1mmV8N-c_aWcP1z_" version="v2" docAnchorId="#TroubleshootingPackage" loadingMethod="dynamic" newTab="false" href="ProjectOLH.mdx"}.
+- Optional. Save the package as a file. See :Link[Saving a Package as a File]{label="Saving a Package as a File" overridedLabel="Saving a Package as a File" spaceId docId="09HNL1mmV8N-c_aWcP1z_" version="v2" docAnchorId="#Saving" loadingMethod="dynamic" newTab="false" href="ProjectOLH.mdx"}.
+- Optional. Delete a package. See :Link[Deleting a Package]{label="Deleting a Package" overridedLabel="Deleting a Package" spaceId docId="09HNL1mmV8N-c_aWcP1z_" version="v2" docAnchorId="#Deleting" loadingMethod="dynamic" newTab="false" href="ProjectOLH.mdx"}.
+
+After performing all of these steps, you can migrate the data to the target system.
+
+For information about the packages that have been migrated, see the "Viewing the Patch Log" topic in the Ivanti Service Manager online help.
+
+## Creating a Project
+
+You must create a project before you make any configuration changes. If you do not make any projects, all changes are logged to the default project. Use projects to organize the changes made to Ivanti Service Manager. After you create a project and before you make any configuration changes, always select your project from the Project drop-down list on the top right.
+
+Follow these steps, on the system (such as staging) on which to make changes, to create a project:
+
+1. Log in to Ivanti Service Manager using your named account and not as an administrator. See the Ivanti Service Manager topic called "About Using Your Named Account to Log In" for information about why you must use your named account to log in.
+2. Click Configure Application to go to the Configuration Console.
+3. Click Build > HEAT Development Project > Projects. The system displays the Projects workspace.
+4. Click New Record. The system displays a blank project page.
+5. Enter a name and description for the project and click Save.
+6. Click Refresh. You can now see the new project name under the Project drop-down menu in the top right section of the toolbar (next to the Help link).
+
+## Viewing a Project
+
+1. From the Configuration Console, click Build > HEAT Development Project > Projects to display the Projects workspace. The system displays a list of all the projects.
+2. Double click a project name to see details of the project.
+3. Click the Transaction Set tab to see a list of the transaction sets in this project. See :Link[Viewing Transaction Sets]{label="Viewing Transaction Sets" overridedLabel="Viewing Transaction Sets" spaceId docId="09HNL1mmV8N-c_aWcP1z_" version="v2" docAnchorId="#Viewing2" loadingMethod="dynamic" newTab="false" href="ProjectOLH.mdx"}.
+4. Click the Transaction Detail tab to see the details of each transaction set. See :Link[Viewing Transaction Sets]{label="Viewing Transaction Sets" overridedLabel="Viewing Transaction Sets" spaceId docId="09HNL1mmV8N-c_aWcP1z_" version="v2" docAnchorId="#Viewing2" loadingMethod="dynamic" newTab="false" href="ProjectOLH.mdx"}.
+5. View the activity history by clicking the Activity History tab, any attachments by clicking the Attachment tab, or the audit history by clicking the Audit History tab.
+
+## Creating a Transaction Set
+
+Every time you add, delete, or modify the Ivanti Service Manager configuration, the system records the changes.  These recorded changes are called a transaction set. For example, every time that you save changes for a business object, the system records the changes in a transaction set. The system tracks every change and assigns each change a sequential number.
+
+1. From the Configuration Console, click Build > HEAT Development Project > Projects to display the Projects workspace. The system displays a list of all the projects.
+2. From the Project drop-down menu in the toolbar, select the project to which the changes you are going to make will belong.
+3. Make changes to Ivanti Service Manager as normal. For example, you can create a new business object, form, or list.
+
+<hint type="info">
+  - In certain cases, when you make changes to Ivanti Service Manager, you must enter your username and password. When you create and later export the transaction set as part of a package, the package file exposes the user name and password.
+  - To avoid exposing this potentially sensitive information, we recommend using a global constant for the username and password when setting up an integration connection, rather than entering actual values. For more information, see the "Using Global Constants to Hide Login ID and Password Information" topic in the Ivanti Service Manager documentation. For example of using a global constant in this situation, see the "Viewing, Cloning, and Deleting Web Service Connections" topic in the Ivanti Service Manager documentation.
+  - If you do not use a global constant for the user name and password, the system removes that information from the transaction set.
+</hint>
+
+## Viewing Transaction Sets
+
+From the Transaction Sets page, you can view the relevant changes that are linked to a transaction set. You can search by transaction set ID. Use the transaction set ID when creating a package.
+
+1. From the Configuration Console, click Build > HEAT Development Project > Transaction Sets to open the Transaction Sets workspace. The system displays a list of all the transaction sets.
+
+The system displays the following information:
+
+| Field        | Description                                                                                                                                                                              |
+| ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ID           | The ID for this transaction set.                                                                                                                                                         |
+| Created On   | The date when the transaction set was created.                                                                                                                                           |
+| User ID      | The ID of the user who created the transaction set.                                                                                                                                      |
+| Session ID   | The ID of the session when the transaction set was created.                                                                                                                              |
+| DB Revision  | The database revision.                                                                                                                                                                   |
+| Source       | Specifies where the transaction was made. AdminUI means that the change was made in the Configuration Console, and a tenant URL means that the change was made from a package migration. |
+| Project Name | The name of the Ivanti Service Manager development project to which this transaction set is attached.                                                                                    |
+
+2. Double click a transaction set and click the Transaction Detail tab to see the following information:
+
+<table isTableHeaderOn="true">
+  <tr>
+    <td>
+      Field
+    </td>
+    <td>
+      Description
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Project Name
+    </td>
+    <td>
+      The name of the Ivanti Service Manager development project to which this transaction set is attached.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Transaction Set ID
+    </td>
+    <td>
+      A sequential number linked to the change. A transaction set may contain zero or more changes. (A zero change indicates the change was aborted, and was not recorded.)
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Detail ID
+    </td>
+    <td>
+      A sequential number linked to the change. A detail may contain zero or more changes. (A zero change indicates the change was aborted, and was not recorded.)
+    </td>
+  </tr>
+  <tr>
+    <td>
+      User ID
+    </td>
+    <td>
+      The ID of the user who created the transaction set.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Operation Date Time
+    </td>
+    <td>
+      The date and time when the change was recorded.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Operation Type
+    </td>
+    <td>
+      The type of operation. Can be **C** for new record, **U** for modification, or **D** for deleted.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Object Type
+    </td>
+    <td>
+      The type for which the change applies. The values can be **BusinessObject&#x20;**&#x66;or a business object change, **Form** for a form change, or a business object name such as **AccountStatus#** for change in its data, etc.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Business Object
+    </td>
+    <td>
+      The name of the business object to which the change is linked, if any.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Entity Name
+    </td>
+    <td>
+      The key for the business object record itself. In some cases, it is the GUID and in other case, it is a name, such as a business object name, a form name, or a role name.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Source ID
+    </td>
+    <td>
+      The key for the business object record itself. In some cases, it is the GUID and in other case, it is a name, such as a business object name, a form name, or a role name.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      To Publish
+    </td>
+    <td>
+      Specifies if this transaction set can be published:
+      - **Y**: The change is packaged.
+      - **N**: This change is a side effect of another change that is published.
+    </td>
+  </tr>
+</table>
+
+## Creating a Package
+
+Follow these steps, on the system (such as staging) on which you have made changes, to create a package:
+
+1. From the Configuration Console, click Build > HEAT Development Package > Packages. The system displays the Packages workspace.
+2. Click New Record. The system displays a blank package page.
+3. Enter a descriptive name for the package. The name must be unique across the system.
+4. From the Type drop-down list, select if this is an incremental or master package. You cannot edit the type after you save create the package.
+   - An incremental package is a single change. It can contain a set of metadata changes and can be imported and exported. There are two types of incremental packages: the first type is exported from the tracked changes in the data and metadata. Every data and metadata change is tracked with a sequence number, which specified the import order. The second type is a result of comparing the full metadata from two tenant instances (such as UAT and staging). There is no sequence associated with these changes. This content comes from the traditional Operations Console migration.
+   - A master package contains one or more incremental, master, or file packages. The packages in the master package are called sub-packages. For example, you may want to create a master package with several incremental packages (sub-packages) in it.
+5. In Ivanti Service Manager Release \{\{Primary.Year-2025}}, the Predicate field is for internal use only. Do not enter anything here.
+6. Enter a description.
+7. Click Save.
+8. Click **Refresh** to see the Close Package, Save As File, and Export Package icons on the top and the tabs at the bottom.
+
+## Viewing a Package
+
+1. From the Configuration Console, click Build > HEAT Development Package > Packages to open the Packages workspace. The system lists the Ivanti Service Manager development packages.
+2. Double click a package to view its details.
+
+The system displays the following tabs:
+
+<Paragraph listStyleType="disc" indent="2">
+  Transaction Set tab (for incremental packages only). See :Link[Viewing Transaction Sets]{label="Viewing Transaction Sets" overridedLabel="Viewing Transaction Sets" spaceId docId="09HNL1mmV8N-c_aWcP1z_" version="v2" docAnchorId="#Viewing2" loadingMethod="dynamic" newTab="false" href="ProjectOLH.mdx"}.
+</Paragraph>
+
+<Paragraph listStyleType="disc" indent="2">
+  Transaction Detail tab (for incremental packages only). See :Link[Viewing Transaction Sets]{label="Viewing Transaction Sets" overridedLabel="Viewing Transaction Sets" spaceId docId="09HNL1mmV8N-c_aWcP1z_" version="v2" docAnchorId="#Viewing2" loadingMethod="dynamic" newTab="false" href="ProjectOLH.mdx"}.
+</Paragraph>
+
+<Paragraph listStyleType="disc" indent="2">
+  Package Mapping tab (for master packages only). See :Link[Adding Packages to a Master Package (Mapping)]{label="Adding Packages to a Master Package (Mapping)" overridedLabel="Adding Packages to a Master Package (Mapping)" spaceId docId="09HNL1mmV8N-c_aWcP1z_" version="v2" docAnchorId="#Adding2" loadingMethod="dynamic" newTab="false" href="ProjectOLH.mdx"}.
+</Paragraph>
+
+<Paragraph listStyleType="disc" indent="2">
+  Package Aspect tab. See :Link[Adding an Aspect to a Package]{label="Adding an Aspect to a Package" overridedLabel="Adding an Aspect to a Package" spaceId docId="09HNL1mmV8N-c_aWcP1z_" version="v2" docAnchorId="#Adding" loadingMethod="dynamic" newTab="false" href="ProjectOLH.mdx"}.
+</Paragraph>
+
+<Paragraph listStyleType="disc" indent="2">
+  Activity History tab. See the "About Activity History" topic in the Ivanti Service Manager online help.
+</Paragraph>
+
+<Paragraph listStyleType="disc" indent="2">
+  Attachment tab. See the "Adding an Attachment" topic in the Ivanti Service Manager online help.
+</Paragraph>
+
+<Paragraph listStyleType="disc" indent="2">
+  Audit History tab. See the "About Accessing the Audit History" topic in the Ivanti Service Manager online help.
+</Paragraph>
+
+## Assigning Transaction Sets to a Package
+
+You must create an incremental type package before you can assign transaction sets to it.  See :Link[Creating a Package]{label="Creating a Package" overridedLabel="Creating a Package" spaceId docId="09HNL1mmV8N-c_aWcP1z_" version="v2" docAnchorId="#Creating2" loadingMethod="dynamic" newTab="false" href="ProjectOLH.mdx"}.
+
+Follow these steps, on the system (such as staging) on which you have made changes, to assign transaction sets to a package:
+
+1. From the Configuration Console, click Build > HEAT Development Project > Transaction Sets to open the Transaction Set workspace.
+2. Select the transaction sets to include in the package.
+3. Click Assign To Package.
+4. Use the drop-down menu to select the name of the package to which to assign the transaction sets and click OK.
+
+<hint type="info">
+  You can also assign a transaction set to a package by clicking Build > HEAT Development Package > Packages to open the Packages workspace, clicking the Transaction Set tab, and clicking Add Change Set.
+</hint>
+
+5. To check that the transactions set are in the package, do the following:
+
+<Paragraph indent="1">
+  a. Click Build > HEAT Development Package > Packages. The system displays the Packages workspace.
+</Paragraph>
+
+<Paragraph indent="1">
+  b. Open the package. (If you do not see it, click Refresh.) The system opens the package.
+</Paragraph>
+
+<Paragraph indent="1">
+  c. Click the Transaction Set tab to view all of the transaction sets.
+</Paragraph>
+
+6. To remove a transaction set from a package, do the following:
+
+<Paragraph indent="1">
+  a. Click Build > HEAT Development Package > Packages. The system displays the Packages workspace.
+</Paragraph>
+
+<Paragraph indent="1">
+  b. Open the package. (If you do not see it, click Refresh.) The system opens the package.
+</Paragraph>
+
+<Paragraph indent="1">
+  c. Click the Transaction Set tab to view all of the transaction sets.
+</Paragraph>
+
+<Paragraph indent="1">
+  d. Highlight the transaction set.
+</Paragraph>
+
+<Paragraph indent="1">
+  e. Click **Remove From Package**.
+</Paragraph>
+
+7. To add a transaction set to another package, do the following:
+
+<Paragraph indent="1">
+  a. Click Build > HEAT Development Package > Packages. The system displays the Packages workspace.
+</Paragraph>
+
+<Paragraph indent="1">
+  b. Open the package. (If you do not see it, click Refresh.) The system opens the package.
+</Paragraph>
+
+<Paragraph indent="1">
+  c. Click the Transaction Set tab to view all of the transaction sets.
+</Paragraph>
+
+<Paragraph indent="1">
+  d. Highlight the transaction set to add to the package.
+</Paragraph>
+
+<Paragraph indent="1">
+  e. Click **Assign To Package**.
+</Paragraph>
+
+<Paragraph indent="1">
+  f. Select a package name from the drop-down list and click **OK**.
+</Paragraph>
+
+## Adding an Aspect to a Package
+
+You can only add aspects to a package if it is open. When you created the package, the system copied the aspects from the original package. You can remove the original aspects and add new ones.
+
+1. From the Configuration Console, click Build > HEAT Development Project > Transaction Sets to open the Transaction Sets workspace.
+2. Assign one or more transaction sets to a package.
+3. Click the Package Aspect tab.
+
+A package can have zero or more aspects. When the package is imported into target tenant instance, these aspects are entered into or removed from the target tenant instance to flag the aspect presence.
+
+4. View the following information on the Package Aspect tab:
+
+| Field        | Description                                                                                                                                                                                             |
+| ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| To Uninstall | Specifies if the aspect should be removed.                                                                                                                                                              |
+| Version      | Numeric whole number for this aspect version. The version number for an aspect grows in its development life.                                                                                           |
+| ID           | A unique name for the aspect.                                                                                                                                                                           |
+| Vendor Name  | The name of the vendor who provides the aspect. An example is (such as feature/component), Ivanti Software.                                                                                             |
+| Vendor ID    | A unique ID that identifies the aspect provider. Currently, the system uses "Ivantisoftware" for aspects provided by Ivanti Software. In future releases, other providers will have a unique vendor ID. |
+| Created By   | The ID of the administrator who added the aspect.                                                                                                                                                       |
+| Created On   | The date and time when the aspect was created.                                                                                                                                                          |
+| Modified By  | The ID of the administrator who modified the aspect.                                                                                                                                                    |
+| Modified On  | The date and time when the aspect was modified.                                                                                                                                                         |
+
+5. Click **New Package Aspect**. The system displays the New Package Aspect dialog box.
+6. Check **Is Uninstalled** if this package aspect is uninstalled.
+7. Enter the following information:
+   - **Version number**: Any number.
+   - **ID**: Any text.
+   - **Vendor ID**: Any text.
+8. Click **Save**.
+
+## Adding Packages to a Master Package (Mapping)
+
+If you have a master package, you can add incremental or other master packages to it. In this way, the master package contains many changes. This eliminates the need to export incremental packages one at a time.
+
+1. From the Configuration Console, click Build > HEAT Development Package > Packages to open the Packages workspace.
+2. Open a master package.
+3. Click the Package Mapping tab.
+4. Click Assign Package. The system displays the New Master Package Mapping form.
+5. In the Sub Package field, click the search icon to display a list of packages that can be mapped.
+6. Select a sub-package and click **Use Selected HEAT Release Package**.
+7. Enter a value into the Relative Order field. This determines the relative order of this sub-package compared to other sub-packages in the master package. The system applies the sub-packages to the tenant in this order (when you export and import the package).
+8. Click **Save**.
+9. Repeat steps 4 through 8 to add additional sub-packages to the master package.
+
+## Closing a Package
+
+You must close a package before you can use the Operations Console to migrate it from staging to production. Closing a package means that you cannot do any more work on it, such as adding or removing packages, adding or removing predicates, changing aspects, and so on. You do not have to close a package to export it.
+
+We recommend that you only close a package after you have completed testing on it and you are ready to migrate it from either staging or UAT to production. After you close a package, you cannot reopen it.
+
+When a package is closed, the system does not display the Add Change Set and Remove From Package buttons on the Transaction Set tab, nor does it display the New Package Aspect and Delete buttons on the Package Aspect tab.
+
+Follow these steps to close a package.
+
+1. From the Configuration Console, click Build > HEAT Development Package > Packages. The system displays the Packages workspace.
+2. Highlight the name of the package to close.
+3. Click Close Package.
+4. At the confirmation prompt, click OK.
+
+## About Exporting a Package
+
+You can export a package of any type as an XML file and send it to another system, even if the package is empty. You can export any open or closed package. You can use any text editor to view the exported package.
+
+- :Link[About Compacting Export Data]{label="About Compacting Export Data" overridedLabel="About Compacting Export Data" spaceId docId="09HNL1mmV8N-c_aWcP1z_" version="v2" docAnchorId="#About" loadingMethod="dynamic" newTab="false" href="ProjectOLH.mdx"}
+- :Link[Exporting a Package]{label="Exporting a Package" overridedLabel="Exporting a Package" spaceId docId="09HNL1mmV8N-c_aWcP1z_" version="v2" docAnchorId="#Exportin2" loadingMethod="dynamic" newTab="false" href="ProjectOLH.mdx"}
+
+### About Compacting Export Data
+
+<hint type="info">
+  Compacting export data is a beta feature. Use it with caution.
+</hint>
+
+Starting in HEAT Service Management Release 2016.1, you can compact the transaction sets for a package when you export it. If you make multiple changes to one business object consecutively, compacting combines the individual changes into one compact change. When you import the package, the system only implements the one compacted change instead of the individual changes, which speeds up the process of importing a package.
+
+For example, if you changed a quick action 12 times consecutively, then without compacting, the package would have 12 transaction sets. With compacting, there is only one transaction set.
+
+There are a few caveats to this:
+
+- The system only compacts changes to metadata.
+- The system does not combine creating a business object and changing a business object into one compact package. The system only compacts changes to a business object and in this instance, changing a business object does not include creating it.
+- The system only compacts changes to the same business object of the same metadata type.  If you change two business objects, the system does not compact these two changes together.
+
+### Exporting a Package
+
+1. From the Configuration Console, click Build > HEAT Development Package > Packages to open the Packages workspace.
+2. Highlight the name of the package to export.
+3. Click **Export Package**. The system gives you the option of compacting the transaction sets. This is a beta feature.
+4. Click Yes to compact the export data or No to not compact the export data. The system exports the package.
+
+## Importing a Package
+
+<hint type="danger">
+  - You should never import a package into the production environment from the Configuration Console if you have the Operations Console in place, as this could cause system instability.
+  - We recommend that you always back up your database before importing a package.
+  - Importing a package is an irreversible operation and cannot be undone.
+</hint>
+
+You can import a package that has been previously exported. For master packages, the system imports the subpackages in the given relative order. The system imports the package if its predicate evaluates to true. If the predicate evaluates to false or an error, the system does not import the package or its subpackages. After importing the package, the system uses the package aspects to update the tenant.
+
+Starting in HEAT Service Management Release 2016.1, the system scans the import package and assigns one of three impact levels (high, medium, and low) to each package.
+
+<table isTableHeaderOn="true">
+  <tr>
+    <td>
+      Impact Level
+    </td>
+    <td>
+      Definition
+    </td>
+  </tr>
+  <tr>
+    <td>
+      High
+    </td>
+    <td>
+      - Contains a database schema change.
+      - Deletes a business object.
+      - Updates a stored property for a field of a business object.
+      - Updates the IsLocalized property for a field of a business object.
+      - Updates the data type, length, or precision for a field of a business object.
+      - Updates a unique property for a field of a business object.
+      - Updates a nullable property for a field of a business object.
+      - Changes the index.
+      - Changes the full-text search index.
+      - Adds or deletes an audit field.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Medium
+    </td>
+    <td>
+      - Contains changes to the metadata for a business object.
+      - Adds a business object.
+      - Changes the metadata of a business object, other than the changes described above.
+      - Changes or overrides a business rule.
+      - Changes or deletes a form, list, layout, quick action, pick list definition, dashboard, chart part, list part, or special part.
+      - Changes or deletes a role.
+      - Changes or deletes branding.
+      - Changes a workflow, counter, view part, global constant, request offering, or report.
+      - Changes the email configuration.
+      - Changes integration settings.
+      - Changes the LDAP configuration or authentication provider.
+      - Changes the password policy.
+      - Changes an escalation schedule.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Low
+    </td>
+    <td>
+      - Does not contain a database schema change or changes to the metadata for a business object, or anything listed above.
+      - Adds a form, list, layout, quick action, pick list definition, dashboard, chart part, list part, special part.
+      - Add a role.
+      - Adds branding.
+    </td>
+  </tr>
+</table>
+
+Unlike in previous releases, starting in HEAT Service Management Release 2016.1, you can sometimes import a package even when the system is in metadata read-only mode.
+
+When the system is in metadata read-only mode, note the following:
+
+- For high impact packages, you can only validate the import package. You cannot import the package.
+- For medium impact packages, you can validate and import the package, but there may be risks with importing the package. We highly recommend that you back up the database first.
+- For low impact packages, you can validate and import the package. We highly recommend that you back up the database first.
+
+Follow these steps to import a package:
+
+1. From the Configuration Console, click Build > HEAT Development Package > Packages to open the Packages workspace.
+2. Click Import Package.
+3. Click **Browse...** to navigate to the import package.
+4. Highlight the file and click **Open**. The system displays a dialog box that lists the file name of the import package.
+5. Check Show Detail to see the details of the changes in the import package and then click Preview Impact to scan the complexity of the import package. Depending on the impact of the import package, the system displays a screen that lists the details of the import package impact.
+
+If you do not check Show Detail, the system only displays the first high or medium level change in the package.
+
+6. Click Close. The system displays the Import Package dialog box stating that you should back up the database before importing the package, and that this action is irreversible.
+7. Do one of the following:
+   - Select Validate to check the integrity of the package without applying it. If there are any errors, you can go back and fix them before importing the package.
+   - Select Validate and apply if no errors to import the package only if there are no errors. Note that the system may import the package even if there are errors on the application side. The system displays a message stating if there are any errors and where they are, either on the application side or on the validation side.
+   - Select Apply without validation. We do not recommend this option. With this option, you assume all responsibility to correct any errors after the import. This imports the package even if there are errors. You should always validate the package and understand the errors first, and then select this option only if you agree to ignore the errors.
+8. Click Execute
+9. At the confirmation prompt, click **Yes**. The system starts the import process.
+
+<hint type="info">
+  If the package contains many changes, the import process can take a long time. Your system may time out or you may accidentally get disconnected from the system due to loss of wifi or VPN. If this happens, log in again. The system continues to import the package and display the importing message. However, the system may not dismiss the importing message, even after the import process has finished. In this case, click Cancel or Refresh to dismiss it.
+</hint>
+
+The system displays a message about the success or failure of the import, including specifying if there are any warnings or errors.
+
+<hint type="info">
+  If there are any errors, you cannot import the package. If you do not understand the impact of the errors, we recommend that you restore your database back to the production environment, as the error may disrupt your production operation.  See :Link[Troubleshooting Package Import Errors]{label="Troubleshooting Package Import Errors" overridedLabel="Troubleshooting Package Import Errors" spaceId docId="09HNL1mmV8N-c_aWcP1z_" version="v2" docAnchorId="#TroubleshootingPackage" loadingMethod="dynamic" newTab="false" href="ProjectOLH.mdx"} or contact Ivanti Software for further information about the errors.
+</hint>
+
+10. Click **Close**.
+11. To view the imported package, do the following:
+
+<Paragraph indent="1">
+  a. Click Build > HEAT Development Project > Projects to open the Projects workspace.
+</Paragraph>
+
+<Paragraph indent="1">
+  b. Under the Name column, double-click the project that you just imported, to open it.
+</Paragraph>
+
+## Troubleshooting Package Import Errors
+
+If you get any errors while importing a package, the package import fails. You must correct the errors before importing the package. If you get any warnings, the import continues; however, we strongly recommend that you correct the warnings before importing the package.
+
+The system displays warnings in orange text and errors in red text.
+
+Try the following for troubleshooting import package warnings and errors:
+
+- If the error message references a sequence number, open the package in a text editor such as Notepad and look for that sequence number. Examine the package for information.
+- From the Configuration Console, click Build > HEAT Development Project > Transaction Sets to open the Transaction Set workspace. Open the transaction set associated with the warning or error. Examine the transaction set for information.
+
+## Saving a Package as a File
+
+You can save an incremental or master package as a file (but you cannot save a package as a file if it is already a file) so that you can have a record of it at a certain time. This is similar to versioning the package. You can export or import packages saved as files. All aspects in the package are copied to the file, but you can edit them after they are copied to the file.
+
+Follow these steps to save a package as a file:
+
+1. From the Configuration Console, click Build > HEAT Development Package > Packages to open the Packages workspace.
+2. Highlight the name of the package to save.
+3. Click **Save As File**.
+4. Enter a new name or description, or leave the default values.
+5. Click **Save**. The system saves the package as a file.
+6. Click **Refresh** to see the new file in the file list.
+
+## Deleting a Package
+
+You can only delete a package if it is open and if it is not being used by another package.
+
+1. From the Configuration Console, click Build > HEAT Development Package > Packages to open the Packages workspace.
+2. Highlight the name of the package to delete.
+3. Click the delete icon.

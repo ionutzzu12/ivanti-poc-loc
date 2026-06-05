@@ -1,0 +1,31 @@
+---
+title: Platform and Application Tuning
+docTags: 
+createdAt: Fri Jun 05 2026 13:49:31 GMT+0300 (Eastern European Summer Time)
+---
+
+This section describes how to configure Ivanti \{\{Primary.Product}} and its platform to optimize performance.
+
+- :Link[About the WAN Environment]{label="About the WAN Environment" overridedLabel="About the WAN Environment" spaceId docId="gXluMxP3n7jmSbYXwjOP5" version="v2" docAnchorId="#Foundati" loadingMethod="dynamic" newTab="false" href="foundation_tuning.mdx"}
+- :Link[Planning and Scheduling Maintenance]{label="Planning and Scheduling Maintenance" overridedLabel="Planning and Scheduling Maintenance" spaceId docId="scoHOO4KKVngdOwHX6ymC" version="v2" docAnchorId="#top" loadingMethod="dynamic" newTab="false" githubPath="Recommendation__Periodic.htm#top" href="Recommendation__Periodic.mdx"}
+- :Link[About Reviewing, Closing, and Deleting Records]{label="About Reviewing, Closing, and Deleting Records" overridedLabel="About Reviewing, Closing, and Deleting Records" spaceId docId="scoHOO4KKVngdOwHX6ymC" version="v2" docAnchorId="#Review," loadingMethod="dynamic" newTab="false" githubPath="Recommendation__Periodic.htm#Review," href="Recommendation__Periodic.mdx"}
+- [Tuning Business Rules and Workflows](tune_rules_workflows.mdx)
+- :Link[Best Practices for Dashboards and Layouts]{label="Best Practices for Dashboards and Layouts" overridedLabel="Best Practices for Dashboards and Layouts" spaceId docId="bp28LUgKlrBAttJrJiShN" version="v2" docAnchorId="#top" loadingMethod="dynamic" newTab="false" githubPath="Dashboards_and_Layouts.htm#top" href="Dashboards_and_Layouts.mdx"}
+- :Link[Improving Back-End Processing]{label="Improving Back-End Processing" overridedLabel="Improving Back-End Processing" spaceId docId="bp28LUgKlrBAttJrJiShN" version="v2" docAnchorId="#Back-End" loadingMethod="dynamic" newTab="false" githubPath="Dashboards_and_Layouts.htm#Back-End" href="Dashboards_and_Layouts.mdx"}
+- :Link[Using Event and Error Log Files for Troubleshooting]{label="Using Event and Error Log Files for Troubleshooting" overridedLabel="Using Event and Error Log Files for Troubleshooting" spaceId docId="bp28LUgKlrBAttJrJiShN" version="v2" docAnchorId="#Use" loadingMethod="dynamic" newTab="false" githubPath="Dashboards_and_Layouts.htm#Use" href="Dashboards_and_Layouts.mdx"}
+- [About Using Combo Boxes Sparingly](Use_Combo_Boxes_Sparingl.mdx)
+- [Evaluating Slow Running Queries](Slow_queries.mdx)
+- :Link[About Data and Log Files]{label="About Data and Log Files" overridedLabel="About Data and Log Files" spaceId docId="kcL-LWxCb6KhSbJ0HVovF" version="v2" docAnchorId="#About" loadingMethod="dynamic" newTab="false" githubPath="Slow_queries.htm#About" href="Slow_queries.mdx"}
+- :Link[About Snapshot Isolation Levels]{label="About Snapshot Isolation Levels" overridedLabel="About Snapshot Isolation Levels" spaceId docId="kcL-LWxCb6KhSbJ0HVovF" version="v2" docAnchorId="#About2" loadingMethod="dynamic" newTab="false" githubPath="Slow_queries.htm#About2" href="Slow_queries.mdx"}
+
+## About the WAN Environment
+
+Applications built on the Ivanti \{\{Primary.Product}} platform are commonly used over a WAN link. Whether deployed in a remote data center or used from branch offices, users expect performance reasonably similar to that of the LAN environment. Following the practices outlined in this guide result in a well performing application over the WAN that closely resembles performance on the local network.
+
+To address poor performance over a WAN, it is important to clearly understand the problem. Though low bandwidth can have an impact, the foremost issue affecting WAN performance is latency, the time it takes data to travel from one endpoint to another. The higher the latency of the WAN link, the longer it takes data to traverse the link. High latency results in delays that can cause users to wait minutes for simple operations to complete.
+
+To combat the higher latency of a WAN environment, Ivanti \{\{Primary.Product}} was designed to make fewer “chunky” calls, rather than frequent smaller “chatty” calls. In other words, instead of retrieving little bits of data in individual requests, the system retrieves larger data sets in a single request. This well-established design principle reduces the overhead of traversing high-latency links, resulting in much improved application performance.
+
+There are certain configurations and features within Ivanti \{\{Primary.Product}} that can affect the behavior of the application, causing it to be more or less chatty, specifically, caching business objects and definitions and using script expressions. This guide covers these areas in detail and provides guidelines for keeping these areas in check.
+
+This section does not describe how to fix network or WAN problems. Rather, this section focuses on ensuring that Ivanti \{\{Primary.Product}} is configured to behave in a manner that produces acceptable performance on a well performing WAN.

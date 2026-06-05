@@ -1,0 +1,180 @@
+---
+title: Configuring the Deployment on the Neurons for ITSM Operations Console
+docTags: 
+createdAt: Fri Jun 05 2026 13:49:30 GMT+0300 (Eastern European Summer Time)
+---
+
+- :Link[Configuring the Neurons for ITSM Operations Console]{label="Configuring the Neurons for ITSM Operations Console" overridedLabel="Configuring the Neurons for ITSM Operations Console" spaceId docId="QdsgBZDV48B-xvgZ2ON1U" version="v2" docAnchorId="#h3_Configuring_HEAT_Operations_Console" loadingMethod="dynamic" newTab="false" href="Install_HEAT_Ops_Console.mdx"}
+- :Link[Creating the Staging and UAT Instances of the Tenants]{label="Creating the Staging and UAT Instances of the Tenants" overridedLabel="Creating the Staging and UAT Instances of the Tenants" spaceId docId="QdsgBZDV48B-xvgZ2ON1U" version="v2" docAnchorId="#h2_Creating_the_Staging_and_UAT_Instances_of_the_Tenants" loadingMethod="dynamic" newTab="false" href="Install_HEAT_Ops_Console.mdx"}
+- :Link[Making Configuration Changes to Tenants]{label="Making Configuration Changes to Tenants" overridedLabel="Making Configuration Changes to Tenants" spaceId docId="QdsgBZDV48B-xvgZ2ON1U" version="v2" docAnchorId="#h3_Making_Configuration_Changes_to_Tenants" loadingMethod="dynamic" newTab="false" href="Install_HEAT_Ops_Console.mdx"}
+
+Perform these steps from the Operations Console, which you installed in the staging/UAT environment.
+
+<hint type="info">
+  This section only contains brief, high-level instructions.For complete information about using the Operations Console, including how to log in, see the Operations Console User Guide for \{\{Primary.Product}}.
+</hint>
+
+## Configuring the Neurons for ITSM Operations Console
+
+To log into the Operations Consoles, do the following:
+
+1. In the Start menu, click the down arrow to see the Apps menu, and then click HEAT Operations Console.
+2. Enter your user name and password and then click Login.
+
+<hint type="info" indent="1">
+  The default user name is admin and the default password is manage.
+</hint>
+
+<Paragraph indent="1">
+  *Operations Console Log In Screen*
+</Paragraph>
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/FuKG4qwjJeOlZd3Nlprgh_opsconsolelogin.png" position="flex-start" size="40" indent="1" initialPath="Install_Deploy_Images/ops_console_login.png" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Install_Deploy_Images/ops_console_login.png"></Image>
+
+3. Use the Operations Console to update the values for the \{\{Primary.Product}} application database by doing the following:
+
+<Paragraph indent="1">
+  a. Click the Landscape tab.
+</Paragraph>
+
+<Paragraph indent="1">
+  b. Click Database Server on the left.
+</Paragraph>
+
+<Paragraph indent="1">
+  c. Click Add Database Server.
+</Paragraph>
+
+<Paragraph indent="1">
+  d. Enter a database login ID and password and set the data and backup locations. See the example values in :Link[Adding a Database Server]{label="Adding a Database Server" overridedLabel="Adding a Database Server" spaceId docId="QdsgBZDV48B-xvgZ2ON1U" version="v2" docAnchorId="#Fig_HEAT_Database_Server" loadingMethod="dynamic" newTab="false" href="Install_HEAT_Ops_Console.mdx"}.
+</Paragraph>
+
+<Paragraph indent="2">
+  *Adding a Database Server*
+</Paragraph>
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/bXIapGnjH4bWM19CSUFFX_editdbserverdeploy2.png" position="flex-start" size="40" indent="2" initialPath="Install_Deploy_Images/EditDBServerDeploy2.png" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Install_Deploy_Images/EditDBServerDeploy2.png"></Image>
+
+<Paragraph indent="1">
+  e. For the data and backup locations, change the application pool identity so that it has read access. See :Link[Changing the Application Pool Identity]{label="Changing the Application Pool Identity" overridedLabel="Changing the Application Pool Identity" spaceId docId="QdsgBZDV48B-xvgZ2ON1U" version="v2" docAnchorId="#FIG_Changing" loadingMethod="dynamic" newTab="false" href="Install_HEAT_Ops_Console.mdx"}.
+</Paragraph>
+
+<Paragraph indent="2">
+  *Changing the Application Pool Identity*
+</Paragraph>
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/Ef_mnXh4JSHsGYrNpJO31_app-reset.png" position="flex-start" size="40" indent="2" initialPath="Install_Deploy_Images/app-reset.png" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Install_Deploy_Images/app-reset.png"></Image>
+
+<Paragraph indent="1">
+  See the Working with Database Servers section of the Operations Console User Guide for \{\{Primary.Product}} for complete details about editing a database server.
+</Paragraph>
+
+4. Delete the \{\{Primary.Product}} application databases on the staging and UAT instances of the tenant, by doing the following:
+
+<Paragraph indent="1">
+  a. Click the Tenants tab.
+</Paragraph>
+
+<Paragraph indent="1">
+  b. Click Expanded View to view all the details about the tenants.
+</Paragraph>
+
+<Paragraph indent="1">
+  c. Find the staging instance of the tenant and click Deactivate.
+</Paragraph>
+
+<Paragraph indent="1">
+  d. Click Deactivate at the confirmation prompt.
+</Paragraph>
+
+<Paragraph indent="1">
+  e. For the staging instance of the tenant, click Delete.
+</Paragraph>
+
+<Paragraph indent="1">
+  f. Check Skip Backup and click Delete at the confirmation prompt.
+</Paragraph>
+
+<Paragraph indent="1">
+  g. Repeat steps c. through f. for the UAT instance of the tenant.
+</Paragraph>
+
+You now have three instances of the configuration database and a production instance of the tenant.
+
+See the Editing a Tenant section of the Operations Console User Guide for \{\{Primary.Product}} for complete details about deleting tenants and tenant instances.
+
+## Creating the Staging and UAT Instances of the Tenants
+
+To create the staging and UAT instances of the tenant, based on the production instance, do the following:
+
+1. Log into the Operations Console.
+2. Click the Tenants tab.
+3. Navigate to the production instance of the tenant and click Manage Migration.
+4. Create the staging instance of the tenant, by doing the following:
+
+<Paragraph indent="1">
+  a. In the migration dashboard, click Push which is located inside the arrow going from the production instance of the tenant to the staging instance of the tenant. See :Link[Creating a Staging Instance of the Tenant]{label="Creating a Staging Instance of the Tenant" overridedLabel="Creating a Staging Instance of the Tenant" spaceId docId="QdsgBZDV48B-xvgZ2ON1U" version="v2" docAnchorId="#Fig_Creating_a_Staging_Instance_of_the_Tenant" loadingMethod="dynamic" newTab="false" href="Install_HEAT_Ops_Console.mdx"}.
+</Paragraph>
+
+<Paragraph indent="2">
+  *Creating a Staging Instance of the Tenant*
+</Paragraph>
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/fquX4G0ygokiw4fsY5RuT_createstag.png" position="flex-start" size="40" indent="2" initialPath="Install_Deploy_Images/CreateStag.png" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Install_Deploy_Images/CreateStag.png"></Image>
+
+<Paragraph indent="2">
+  The system displays the Copy Production to Staging dialog box.
+</Paragraph>
+
+<Paragraph indent="1">
+  b. In the Target DB Option field, select From live MSSQL backup. See :Link[Copy Production Instance of the Tenant to the Staging Instance of the Tenant]{label="Copy Production Instance of the Tenant to the Staging Instance of the Tenant" overridedLabel="Copy Production Instance of the Tenant to the Staging Instance of the Tenant" spaceId docId="QdsgBZDV48B-xvgZ2ON1U" version="v2" docAnchorId="#Fig_Copy_Production_Instance_of_the_Tenant_to_the_Staging_Instance_of_the_Tenant" loadingMethod="dynamic" newTab="false" href="Install_HEAT_Ops_Console.mdx"}.
+</Paragraph>
+
+<Paragraph indent="2">
+  *Copy Production Instance of the Tenant to the Staging Instance of the Tenant*
+</Paragraph>
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/3j4MAVTKyFwrC8p-trG1c_copyprodstag.png" position="flex-start" size="40" indent="2" initialPath="Install_Deploy_Images/CopyProdStag.png" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Install_Deploy_Images/CopyProdStag.png"></Image>
+
+<Paragraph indent="1">
+  c. Click Execute.
+</Paragraph>
+
+5. Create the UAT instance of the tenant:
+
+<Paragraph indent="1">
+  a. In the migration dashboard, click Push which is located inside the arrow going from the production instance of the tenant to the UAT instance of the tenant. See :Link[Creating a Staging Instance of the Tenant]{label="Creating a Staging Instance of the Tenant" overridedLabel="Creating a Staging Instance of the Tenant" spaceId docId="QdsgBZDV48B-xvgZ2ON1U" version="v2" docAnchorId="#Fig_Creating_a_Staging_Instance_of_the_Tenant" loadingMethod="dynamic" newTab="false" href="Install_HEAT_Ops_Console.mdx"}. The system displays the Copy Production to UAT dialog box.
+</Paragraph>
+
+<Paragraph indent="1">
+  b. In the Target DB Option field, select From live MSSQL backup. See :Link[Copy Production Instance of the Tenant to the Staging Instance of the Tenant]{label="Copy Production Instance of the Tenant to the Staging Instance of the Tenant" overridedLabel="Copy Production Instance of the Tenant to the Staging Instance of the Tenant" spaceId docId="QdsgBZDV48B-xvgZ2ON1U" version="v2" docAnchorId="#Fig_Copy_Production_Instance_of_the_Tenant_to_the_Staging_Instance_of_the_Tenant" loadingMethod="dynamic" newTab="false" href="Install_HEAT_Ops_Console.mdx"}.
+</Paragraph>
+
+<Paragraph indent="1">
+  c. Click Execute.
+</Paragraph>
+
+You can now customize \{\{Primary.Product}} and use the Operations Console to push those customizations to the other instances of the tenant.
+
+## Making Configuration Changes to Tenants
+
+1. Log into the Operations Console.
+2. Click the Tenants tab.
+3. Make configuration changes in the staging instance of the tenant.
+4. Push the configuration changes that you made in the staging instance of the tenant to the UAT instance of the tenant by doing the following:
+
+<Paragraph indent="1">
+  a. Click Push which is located inside the arrow going from the staging instance of the tenant to the UAT instance of the tenant. See :Link[Creating a Staging Instance of the Tenant]{label="Creating a Staging Instance of the Tenant" overridedLabel="Creating a Staging Instance of the Tenant" spaceId docId="QdsgBZDV48B-xvgZ2ON1U" version="v2" docAnchorId="#Fig_Creating_a_Staging_Instance_of_the_Tenant" loadingMethod="dynamic" newTab="false" href="Install_HEAT_Ops_Console.mdx"}. The system displays the Copy Staging to UAT dialog box.
+</Paragraph>
+
+<Paragraph indent="1">
+  b. You can use simple mode by leaving Advanced Mode unchecked, or you can use advanced mode by checking Advanced Mode. If you use advanced mode, select Copy Configuration in the Operation field and check your options. See :Link[Copy Production Instance of the Tenant to the Staging Instance of the Tenant]{label="Copy Production Instance of the Tenant to the Staging Instance of the Tenant" overridedLabel="Copy Production Instance of the Tenant to the Staging Instance of the Tenant" spaceId docId="QdsgBZDV48B-xvgZ2ON1U" version="v2" docAnchorId="#Fig_Copy_Production_Instance_of_the_Tenant_to_the_Staging_Instance_of_the_Tenant" loadingMethod="dynamic" newTab="false" href="Install_HEAT_Ops_Console.mdx"}.
+</Paragraph>
+
+<Paragraph indent="1">
+  c. Click Execute.
+</Paragraph>
+
+5. Verify that the configuration changes that you made to the staging instance of the tenant (in step 3) were successfully migrated to the UAT instance of the tenant.
+6. Make additional configuration changes in the staging instance of the tenant as needed.
+7. After you have finished making configuration changes and have verified them, push the configuration changes from the UAT instance of the tenant to the production instance of the tenant.

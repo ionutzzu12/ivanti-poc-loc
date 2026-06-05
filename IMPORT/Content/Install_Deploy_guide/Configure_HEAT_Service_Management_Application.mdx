@@ -1,0 +1,251 @@
+---
+title: Configuring the Neurons for ITSM Application
+docTags: 
+createdAt: Fri Jun 05 2026 13:49:30 GMT+0300 (Eastern European Summer Time)
+---
+
+On this page you will do the following:
+
+- Specify the name and authentication method for the server where the application database resides.
+- Load the demo database on a server other than the server where the application database resides. This option allows you to review the demo database while the application database continues to run in its current configuration.
+- Specify the application name, attachment location, client authorization key, and the type of name to use when accessing the application.
+
+The first time that you see this page, there is no application database, as shown in :Link[Service Manager Application Page: No Database]{label="Service Manager Application Page: No Database" overridedLabel="Service Manager Application Page: No Database" spaceId docId="uPxUs2z50Wu2ZHmNWNf5x" version="v2" docAnchorId="#Fig_HEAT_Service_Management_Application_Page_(HEAT_Application_Database_Does_Not_Exist)" loadingMethod="dynamic" newTab="false" href="Configure_HEAT_Service_Management_Application.mdx"}.
+
+*Service Manager Application Page: No Database*
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/7MFxvrEkBc_ZxNsjlIxkz_configureapplicationsettings1.png" position="flex-start" size="40" initialPath="Install_Deploy_Images/configure_application_settings_1.png" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Install_Deploy_Images/configure_application_settings_1.png"></Image>
+
+1. Enter values into the fields:
+
+<Paragraph indent="1">
+    <table isTableHeaderOn="true">
+      <tr>
+        <td>
+          Parameter
+        </td>
+        <td>
+          Description
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Application Database Server
+        </td>
+        <td>
+          The server where the application database is located. Usually this is the same server where the configuration database is located (specified earlier on the Configuration Application page).
+          Do one of the following:
+          1. Accept the default value.
+          2. Enter the name of the server of the application database.
+          Browse for a server name by clicking the down arrow and selecting \<Browse for more...>. The system displays any Microsoft SQL Server instances in your network. Choose a server and click OK. Do not choose localhost unless you are setting up a :Link[Demonstration or Proof-of-Concept Deployment]{label="Demonstration or Proof-of-Concept Deployment" overridedLabel="Demonstration or Proof-of-Concept Deployment" spaceId docId="IIhf7YMCmXD2alAx6WlYN" version="v2" docAnchorId="#top" loadingMethod="dynamic" newTab="false" githubPath="Deployment_Demo_POC.htm#top" href="Deployment_Demo_POC.mdx"}.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Application Database Name
+        </td>
+        <td>
+          The name of the application database. The default name is IvantiSM. The name that you specify here is used when the application database is created, and later, recreated.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Authentication Method
+        </td>
+        <td>
+          Select one of the following:
+          - Windows Authentication: Uses Microsoft Windows authentication.
+          - SQL Authentication: Uses Microsoft SQL authentication. If you select this option, enter the user name and password below.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          User Name
+        </td>
+        <td>
+          (Only if you selected SQL Authentication) Enter the user name associated with the Microsoft SQL authentication.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Password
+        </td>
+        <td>
+          (Only if you selected SQL Authentication) Enter the password associated with the user name for the Microsoft SQL authentication.
+        </td>
+      </tr>
+    </table>
+</Paragraph>
+
+3. Click Test Connection to test the connection to the application database server. The system displays Connection successful! if the connection is good. You must have a working connection to create a database. You cannot continue with the configuration if this connection does not work.
+4. Depending if there is already an application database, click Load Application Database or Re-Create & Load Application DB. If the application database already exists, the system asks if you want to recreate the database. Click Yes. The system displays the New Database dialog box.
+
+<Paragraph indent="1">
+  *New Database Dialog Box*
+</Paragraph>
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/luGK7rYjIOGyEc38rDmki_newadmindatabase.png" position="flex-start" size="40" indent="1" initialPath="Install_Deploy_Images/NewAdminDatabase.png" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Install_Deploy_Images/NewAdminDatabase.png"></Image>
+
+5. Enter values into the fields:
+
+<Paragraph indent="1">
+  | Parameter                     | Description                                                                                                                                                                                                                               |
+  | ----------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+  | Application Database Name     | The name of the application database. The default name is IvantiSM and cannot be changed.                                                                                                                                                 |
+  | Application Database Location | The location for the application database.  <br />NOTE: If you have customized the existing application database, specify a different location; otherwise, the system overwrites your customization when you load the recreated database. |
+  | Collation                     | The set of rules that describe how to compare and sort strings, such as the order in which letters are sorted and whether case matters.  <br />NOTE: ISM application does not support case sensitive SQL Collation.                       |
+  | Advanced Options              |                                                                                                                                                                                                                                           |
+  | Logical Name                  | The logical name of the application database. This name is stored as a file name, and is a separate entity from the read-only database name that is displayed in Microsoft SQL Server Management Studio.                                  |
+  | File Type                     | The file type, either database records or database logs. These values are read-only.                                                                                                                                                      |
+  | Initial Size (MB)             | The initial file size, in MB, when creating the application database.                                                                                                                                                                     |
+  | Autogrowth                    | Specifies how the database will expand when it reaches its maximum file size. We recommend having at least 1 GB or 10% to start with. Click ... to update the values.                                                                     |
+  | Path                          | The location of the file. Click ... to update the location.                                                                                                                                                                               |
+  | File Name                     | The name of the file.                                                                                                                                                                                                                     |
+</Paragraph>
+
+6. Click OK.
+
+<Paragraph indent="1">
+  The system creates the application database and installs it on the application database server that you specified. The system displays several progress dialog boxes as the system executes various Microsoft SQL scripts that create and load the application database. After the system loads the application database, the system displays Application Database loaded.
+</Paragraph>
+
+7. (Optional) Click **Advanced Options** to open the Landscape Advanced Options dialog box. See the "Adding a Landscape" topic in the *Operations Console User Guide for&#x20;*\{\{Primary.Product}} for more information about these patterns.
+
+<hint type="success">
+  *Landscape Advanced Options Dialog Box*
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/KIkBCXnAHbrF_-f11SMBK_landscap-adv-options.png" position="flex-start" size="40" initialPath="Install_Deploy_Images/landscap-adv-options.png" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Install_Deploy_Images/landscap-adv-options.png"></Image>
+</hint>
+
+8. Click Next. The system refreshes the Application page. See :Link[Application Page: Newly Created Database]{label="Application Page: Newly Created Database" overridedLabel="Application Page: Newly Created Database" spaceId docId="uPxUs2z50Wu2ZHmNWNf5x" version="v2" docAnchorId="#fig_HEAT_Configuration_Application_Page_Newly_Created_Database" loadingMethod="dynamic" newTab="false" href="Configure_HEAT_Service_Management_Application.mdx"}. (If you end up on the next page of the System Configuration Wizard, click Previous to return to the Application page.)
+
+<Paragraph indent="1">
+    <hint type="success">
+      *Application Page: Newly Created Database*
+    </hint>
+</Paragraph>
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/azKoFIQCLJsmrouq7yN4f_servicemanagersettings1.png" position="flex-start" size="40" indent="1" initialPath="Install_Deploy_Images/service_manager_settings_1.png" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Install_Deploy_Images/service_manager_settings_1.png"></Image>
+
+9. \{\{Primary.Product}} comes with optional transaction data that you can use to test and view the analytic metrics, financial, ITFM, and other features.
+10. Enter values into the fields:
+
+<Paragraph indent="1">
+    <table isTableHeaderOn="true">
+      <tr>
+        <td>
+          Parameter
+        </td>
+        <td>
+          Description
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Application Name
+        </td>
+        <td>
+          The name of the application.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Attachment Type
+        </td>
+        <td>
+          The location of the folder on the application database server where any \{\{Primary.Product}} attachments reside.
+          Select one of the following:
+          - Database
+          - FILESTREAM
+          - File System
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Client Auth Key
+        </td>
+        <td>
+          The authentication key that is used when the web services API accesses \{\{Primary.Product}}.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Import Remote Control License File
+        </td>
+        <td>
+          (Optional) If you are going to use the remote control feature, you must have a remote control license.
+          - Contact Ivanti Software to get the license.
+          - To import the remote control license file, click Browse... next to the Import Remote Control License File field.
+          - Browse to the location of the license file and click OK to select it.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          To access the application
+        </td>
+        <td>
+          Select whether to use the application database server machine name or the fully-qualified domain name for access to the application database server:
+          - Use machine name to access Ivanti application: When other \{\{Primary.Product}} components log into the application server, they use the machine name of the server. For example, they use **SERVER-01**. If you choose this option, the system detects the current machine name and uses it automatically; you do not need to specify the machine name.
+          - Use domain name to access \{\{Primary.Company}}application: When other \{\{Primary.Product}} components log into the application server, they use the fully-qualified domain name of the server. For example, they use SERVER-01.company.com. If you plan on using SSL for connecting to the application server (configured later on the Other Feature Settings page), you must enter a fully-qualified domain name here, either for an individual machine or for a load-balanced instance.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Application server domain name
+        </td>
+        <td>
+          (Only if you selected Use domain name to access \{\{Primary.Company}} application) The domain name of the application server.
+        </td>
+      </tr>
+    </table>
+</Paragraph>
+
+11. Click Next to refresh the Application page. (If you end up on the next page of the System Configuration Wizard, click Previous to return to the Application page.)
+12. Create the administrator account for the application database. This login ID and password allows you to access the \{\{Primary.Product}} Service Desk Console and Configuration Console. See [Logging into Neurons for ITSM](Initial_Login_HEATSM.mdx). You only need to create this account once.  If you return to this page in the System Configuration Wizard later, these fields are not displayed.
+
+<Paragraph indent="1">
+  Enter values into the fields:
+</Paragraph>
+
+<Paragraph indent="1">
+  | Parameter        | Description                                                                                                                                                                              |
+  | ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+  | Login ID         | The system automatically displays the login ID of IvantiAdmin. You cannot change this.                                                                                                   |
+  | Password         | The password associated with the administrator.  <br />  <br />Record this password for future reference. If you lose the password, you must recreate and load the application database. |
+  | Confirm Password | Re-enter the password associated with the administrator.                                                                                                                                 |
+  | First Name       | The first name of the administrator.                                                                                                                                                     |
+  | Last Name        | The last name of the administrator.                                                                                                                                                      |
+  | Email Address    | The email address of the administrator.                                                                                                                                                  |
+</Paragraph>
+
+13. If you chose Multiple Server Deployment on the Configuration Application page, your system has multiple tenants. Each tenant must have an administrator account, so that the administrator can access the \{\{Primary.Product}} Service Desk Console and Configuration Console.
+
+<Paragraph indent="1">
+  To create a new administrator account for another tenant instance, do the following:
+</Paragraph>
+
+<Paragraph indent="1">
+  a. In the Application Database Name field at the top of this page, enter the next tenant to get an account.
+</Paragraph>
+
+<Paragraph indent="2">
+  For example, if you named your production tenant IvantiSM, your staging tenant IvantiSM-STG, and your UAT tenant IvantiSM-UAT, then the first time that you are on this page, enter IvantiSM in the Application Database Name field. The second time that you are on this page, enter IvantiSM-STG in the Application Database Name field. The third time that you are on this page, enter IvantiSM-UAT in the Application Database Name field.
+</Paragraph>
+
+<Paragraph indent="1">
+  b. Create the administrator account for the application database for the [Configuring Other Feature Settings](Configure_Other_Features_Settings.mdx) tenant. See step 11 above.
+</Paragraph>
+
+<Paragraph indent="1">
+  c. Click **Next**. The system displays the Application Server Settings page.
+</Paragraph>
+
+<Paragraph indent="1">
+  d. Click Previous to return to the \{\{Primary.Product}} Application page.
+</Paragraph>
+
+<Paragraph indent="1">
+  e. Repeat steps a. through d. for the next tenant.
+</Paragraph>
+
+14. After all of your tenants have an administrator account, click Next [Configuring the Reporting Feature](Configure_Reporting.mdx) to advance to the Application Server Settings page.

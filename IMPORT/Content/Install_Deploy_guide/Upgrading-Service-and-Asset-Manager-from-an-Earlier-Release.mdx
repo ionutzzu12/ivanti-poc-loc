@@ -1,0 +1,266 @@
+---
+title: Upgrading Neurons for ITSM from an Earlier Release
+docTags: 
+createdAt: Fri Jun 05 2026 13:49:31 GMT+0300 (Eastern European Summer Time)
+---
+
+## Landscapes
+
+During the upgrade of \{\{Primary.Product}}, you can upgrade the development (staging) or testing (UAT) landscapes and test them without affecting the production landscape. After you have verified that the development (staging) or testing (UAT) landscape upgrade was successful, go ahead with production landscape upgrade.
+
+## Reporting Feature
+
+You must upgrade both \{\{Primary.Product}} and the reporting feature at the same time. The versions of the software for both \{\{Primary.Product}} and the reporting feature must be the same.
+
+## Licenses
+
+The versions of Ivanti Service Management before the Release 2015.1 used a different licensing structure. When you upgrade to \{\{Primary.Product}} Release version 2015.1, the system automatically uses the licenses that you used in the previous release.
+
+In the System Configuration Wizard, on the Configuration Application page, there are fields to enter the license files. The system populates these fields automatically based on your previous license file. See [Configuring the Configuration Database](Configure_HEAT_Configuration_Database.mdx).
+
+## DSM Integration
+
+If your \{\{Primary.Product}} deployment includes a DSM integration, you must configure and verify your DSM integration for the new release.
+
+<hint type="info">
+  - For Ivanti Service Management releases prior to 2015.2, use the \{\{ISMProduct.DSM\_Integration}} service component available in the \{\{Primary.Product}} installer for \{\{ISMProduct.DSM\_Integration}}.
+  - For Ivanti Service Management releases 2015.2 and later, use the package from the Ivanti App Store for \{\{ISMProduct.DSM\_Integration}}.
+</hint>
+
+After you have upgraded \{\{Primary.Product}}, access the \{\{Primary.Company}} Software App Store and the DSM integration by doing the following:
+
+1. Log into [https://support.heatsoftware.com/.](https://support.heatsoftware.com/)
+2. Go to the \{\{Primary.Company}} Software App Store by selecting App Store from the top menu.
+3. From within the \{\{Primary.Company}} Software App Store, open the DSM integration package.
+4. Download the DSM integration package for Release 2019.1 and the accompanying instructions.
+5. Follow the instructions to configure and verify your DSM integration.
+
+For more information about DSM, see [Working with DSM](https://help.ivanti.com/ht/help/en_US/ISM/2025/admin-user/Content/ServiceDesk/DSM/About-DSM.htm) in the online help.
+
+## About Upgrading from Earlier Releases
+
+<hint type="info">
+  - The upgrade to the N version of Ivanti Service and Asset Manager should always be performed from the N-1 version. For example, upgrading the on-premise version from 2018.1.1 to 2019.1.0 should be done only after the upgrade path of 2018.3.1. Skipping any released version of the application during an upgrade might cause the upgrade to fail or the application to stop working after the upgrade.
+  - 2019.2 is a cloud-only release and has no updates for on-premise customers.
+  - The system upgrade log file under c:\Logs\ReleaseTool will be “ApplyPatchConfigDB2019.3.1.log” for configuration database, which is expected for 2020.1 release.
+</hint>
+
+When upgrading \{\{Primary.Product}}, you must upgrade every release version between your currently installed and the latest available version in a sequential order. For example, if you are on ITSM version 2023.1 and want to install the latest version \{\{Primary.Version-2025.3}}, you need to install all the versions between 2023.1 and \{\{Primary.Version-2025.3}} in a sequential order. Refer to the below table for information on all ITSM versions.
+
+| Upgrade From Release | Details                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Install Release |
+| -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
+| 2013.1.x             | The current Ivanti Service Management version and the Inventory Management component, if present. See :Link[Uninstalling the Inventory Management Component]{label="Uninstalling the Inventory Management Component" overridedLabel="Uninstalling the Inventory Management Component" spaceId docId="a7Eq_Jn86oysp9kOeIAEn" version="v2" docAnchorId="#h3_Uninstalling_HEAT_Inventory_Management" loadingMethod="dynamic" newTab="false" href="Upgrading-Service-and-Asset-Manager-from-an-Earlier-Release.mdx"}. | 2013.2.2        |
+| 2013.2.x             |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | 2014.1.1        |
+| 2014.1.x             |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | 2014.2.1        |
+| 2014.2.x             |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | 2014.3.1        |
+| 2014.3.x             |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | 2015.1          |
+| 2015.1.x             | Nothing.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | 2015.2          |
+| 2015.2.x             |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | 2016.1          |
+| 2016.1.x             |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | 2016.2          |
+| 2016.2.x             |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | 2017.2          |
+| 2017.2.x             |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | 2017.3.x        |
+| 2017.3.x             |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | 2018.1.x        |
+| 2018.1.x             |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | 2018.3.x        |
+| 2018.3.x             |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | 2019.1.x        |
+| 2019.1.x             |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | 2019.3.x        |
+| 2019.3.x             |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | 2020.1.x        |
+| 2020.1.x             | Important steps to be performed. :Link[Click here]{label="Click here" overridedLabel="Click here" spaceId docId="a7Eq_Jn86oysp9kOeIAEn" version="v2" docAnchorId="#UpgradingfROM2020.1tO2020.2" loadingMethod="dynamic" newTab="false" href="Upgrading-Service-and-Asset-Manager-from-an-Earlier-Release.mdx"} to view the steps.                                                                                                                                                                                 | 2020.2.x        |
+| 2020.2.x             | Nothing                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | 2020.3.x        |
+| 2020.3.x             |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | 2020.4.x        |
+| 2020.4.x             |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | 2021.1.x        |
+| 2021.1.x             |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | 2021.2.x        |
+| 2021.2.x             |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | 2021.3.x        |
+| 2021.3.x             |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | 2021.4.x        |
+| 2021.4.x             |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | 2022.1.x        |
+| 2022.1.x             |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | 2022.2.x        |
+| 2022.2.x             | Install the patch - [HotFix\_BUG\_997037\_994439-OnPrem.zip](https://forums.ivanti.com/s/article/Ivanti-Neurons-for-ITxM-v2022-3-Download) (install this patch after upgrading to 2022.3 and on fresh installation).                                                                                                                                                                                                                                                                                              | 2022.3.x        |
+| 2022.3.x             | :Link[Click here for details.]{label="Click here for details." overridedLabel="Click here for details." spaceId docId="a7Eq_Jn86oysp9kOeIAEn" version="v2" docAnchorId="#Install2022.3" loadingMethod="dynamic" newTab="false" href="Upgrading-Service-and-Asset-Manager-from-an-Earlier-Release.mdx"}                                                                                                                                                                                                            | 2022.4.x        |
+| 2022.4.x             |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | 2023.1.x        |
+| 2023.1.x             |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | 2023.2.x        |
+| 2023.2.x             |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | 2023.3.x        |
+| 2023.3.x             | Refer to [Installing Neurons for ITSM](Install_HEAT_Recommended.mdx)                                                                                                                                                                                                                                                                                                                                                                                                                                              | 2023.4.x        |
+| 2023.4.x             |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | 2024.2.x        |
+| 2024.2.x             |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | 2024.3.x        |
+| 2024.3.x             |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | 2025.2.x        |
+| 2025.2.x             |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | 2025.3.x        |
+| 2025.3.x             | Refer to [Finishing the System Configuration](Finish-Sys-Config.mdx)                                                                                                                                                                                                                                                                                                                                                                                                                                              | 2025.4.x        |
+| 2025.4.x             |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | 2026.1.x        |
+
+<hint type="info">
+  - Installing upgrade versions in a sequential manner is mandatory. You cannot skip any version and install a higher version. For example, if you are on version 2023.2, you cannot directly install 2025.2. You have to install every version that is released in the sequence. However, the cache re-build is required only after installing the final version that you use to access the ITSM application.
+  - Installing the Additional App Domain provided with the package is mandatory. To install, follow the instructions given in the :Link[Additional App Domain Deployment (Up to version 2025.3)]{label="Additional App Domain Deployment (Up to version 2025.3)" overridedLabel="Additional App Domain Deployment (Up to version 2025.3)" spaceId docId="5mqDHQo3w7qG8KsA7gvPB" version="v2" docAnchorId="#Additional-App-Domain-Deployment" loadingMethod="dynamic" newTab="false" githubPath="Install_HEAT_Recommended.htm#Additional-App-Domain-Deployment" href="Install_HEAT_Recommended.mdx"}.
+  - The installation process is the same for all hosts in your deployment except for the additional features installation. And this selection is made in :Link[step - 6 Your selection of features from the Setup dialog box depends on the role of the individual host in your deployment plan]{label="step - 6 Your selection of features from the Setup dialog box depends on the role of the individual host in your deployment plan" overridedLabel="step - 6 Your selection of features from the Setup dialog box depends on the role of the individual host in your deployment plan" spaceId docId="5mqDHQo3w7qG8KsA7gvPB" version="v2" docAnchorId="#step_Your_selection_of_features" loadingMethod="dynamic" newTab="false" githubPath="Install_HEAT_Recommended.htm#step_Your_selection_of_features" href="Install_HEAT_Recommended.mdx"}.
+  - After the Additional App Domain powershell script is successfully run, the Cache Rebuild is automatically executed. If the Additional App Domain powershell script is not run in the same machine, then the Cache Rebuild should be executed manually. For instructions on how to execute Cache Rebuild, refer to :Link[Neurons for ITSM Cache Rebuild]{label="Neurons for ITSM Cache Rebuild" overridedLabel="Neurons for ITSM Cache Rebuild" spaceId docId="5mqDHQo3w7qG8KsA7gvPB" version="v2" docAnchorId="#Cache-Rebuild" loadingMethod="dynamic" newTab="false" githubPath="Install_HEAT_Recommended.htm#Cache-Rebuild" href="Install_HEAT_Recommended.mdx"}.
+</hint>
+
+## Upgrading from Ivanti Service Management Release 2017.3.x
+
+If you are upgrading to \{\{Primary.Product}} Version 2018.3, you must first upgrade to \{\{Primary.Product}} Version 2018.1.1. You do not have to uninstall Ivanti Service Management Release 2017.3.x.
+
+If you have a multiple server environment, you must shut off the notifications to the web servers before you upgrade the system. This is because when you make metadata changes as part of the upgrade, the system tries to synchronize them. As the versions are different, the system stops responding or takes a lot of time. See step 2 below.
+
+Perform these steps on the system that hosts the \{\{Primary.Product}} components:
+
+1. Back up the following items:
+   - \{\{Primary.Product}} Configuration Database (ConfigDB)
+   - \{\{Primary.Product}} Application Database
+   - Attachment folder (if used)
+2. (Optional, if your system uses multiple servers) Deactivate the web servers by doing the following:
+
+<Paragraph indent="1">
+  a. Log into the Configuration Database. See the [Configuration Database ](../ConfigDB_Guide/About_ConfigDB.mdx)guide for \{\{Primary.Product}} for information about using the configuration database.
+</Paragraph>
+
+<Paragraph indent="1">
+  b. Open the Web Servers workspace. The system displays a list of web servers.
+</Paragraph>
+
+<Paragraph indent="1">
+  c. Open a web server record.
+</Paragraph>
+
+<Paragraph indent="1">
+  d. Clear the **Server is Active** check box.
+</Paragraph>
+
+<Paragraph indent="1">
+  e. Click **Save**.
+</Paragraph>
+
+<Paragraph indent="1">
+  f. Repeat for all of the web servers.
+</Paragraph>
+
+3. Access the installation folder on the Ivanti product CD or zip file and run *IvantiServiceManager.exe*. Right-click and select **Run as Administrator** to ensure proper installation.
+
+<Paragraph indent="1">
+  The installer checks for the prerequisite software components. If any of those components is not installed, the system prompts you to install them now.
+</Paragraph>
+
+4. Click **Install** at the prompt. Installation of the prerequisite software can take several minutes. If you are prompted to restart the system, click **Yes**.
+5. In the Upgrade Confirmation dialog box, click **Yes**. The system displays the Welcome dialog box. The installer checks for space and other requirements before displaying the Next button.
+6. In the Welcome dialog box, click **Next**. The system displays the License Agreement dialog box.
+7. Choose **I accept the terms in the license agreement** and click **Next**. The system displays the Destination Folder dialog box.
+8. Click **Next** to accept the default installation folder, or click **Change** and select a different folder. The system displays the Setup Type dialog box.
+9. Your selection of features from the Setup Type dialog box depends on the role of the individual host in your deployment plan.
+   - For the [Demonstration or Proof-of-Concept Deployment](Deployment_Demo_POC.mdx), choose **Complete**, click **Next**, and install all components.
+   - For the [Minimum Production Deployment ](Deployment_Min_Prod.mdx), choose **Complete**, click **Next**, and install all components.
+   - For the [Enterprise Production Deployment](Deployment_Enter_Prod.mdx), your choice depends on the role of the host:
+     - Production processing server: Choose **Custom**, click **Next**, and install all components except for the Operations Console.
+     - Staging or UAT processing servers: Choose **Complete**, click **Next**, and install all components.
+     - Web servers: Choose **Custom**, click **Next**, and only install the Ivanti Service Manager application server.
+
+<Paragraph indent="1">
+  For the [Enterprise Production Deployment](Deployment_Enter_Prod.mdx), note the following:
+</Paragraph>
+
+<Paragraph listStyleType="disc" indent="4">
+  If your deployment includes different processing servers for production, staging, and UAT, you must install the License Manager in every one of those landscapes.
+</Paragraph>
+
+<Paragraph listStyleType="disc" indent="4">
+  You can choose **Complete** and install all \{\{Primary.Product}} features on all of your servers, but doing that takes up more disk space than necessary.
+</Paragraph>
+
+<Paragraph indent="1">
+  When installing components, note the following:
+</Paragraph>
+
+<Paragraph listStyleType="disc" indent="4">
+  To not install a component, click the down arrow next to the server icon next to the category name, highlight the component, right click, and select **This feature will not be available**.
+</Paragraph>
+
+<Paragraph listStyleType="disc" indent="4">
+  If your deployment includes DSM, you do not need to install the DSM integration service because that component has been incorporated into Ivanti Service Management since Release 2015.2.
+</Paragraph>
+
+10. Click **Next**. The system displays the Ready to Install the Program dialog box.
+11. Click **Install**. The system begins installing \{\{Primary.Product}} and displays a status dialog box, showing the installation progress of each module over the next few minutes.
+12. Click **OK** if the system displays a dialog box saying that reboot is required after installation.
+13. If the system displays a dialog box saying that some of the files that need to be updated are currently in use, choose **Automatically close and attempt to restart applications** and click **OK**.
+
+<Paragraph indent="1">
+  When the installation is completed, the system displays the System Configuration Wizard.
+</Paragraph>
+
+14. Go through the pages in the wizard making any changes that might be necessary.
+
+<hint type="info" indent="1">
+  If you already have an existing administrator account, you do not need to create a new account. Just enter the information for your existing administrator account.
+</hint>
+
+15. On the Upgrade System page, do not select **Do not create backup prior to upgrade** check box unless you already made a backup.
+16. Notice that the system table version and metadata package version for the configuration database are not the latest versions. See the <File src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/Kh9i13Sc_ARdDSsb6ROSV_uninstallinvmgr.png" label="image" initialPath="Install_Deploy_Images/uninstall_inv_mgr.png" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Install_Deploy_Images/uninstall_inv_mgr.png" />.
+17. Click the top **Upgrade System** button.
+18. When prompted, enter the administrator role credentials for the configuration database and click **OK**.
+19. If your deployment has additional databases to upgrade, repeat steps 15 and 16 until:
+
+<Paragraph indent="1">
+  a. All of your databases have been upgraded:
+</Paragraph>
+
+<Paragraph listStyleType="disc" indent="5">
+  Configuration database
+</Paragraph>
+
+<Paragraph listStyleType="disc" indent="5">
+  Application database (IvantiSM)
+</Paragraph>
+
+<Paragraph indent="1">
+  b. All of your environments have been upgraded:
+</Paragraph>
+
+<Paragraph listStyleType="disc" indent="5">
+  Production
+</Paragraph>
+
+<Paragraph listStyleType="disc" indent="5">
+  Staging
+</Paragraph>
+
+<Paragraph listStyleType="disc" indent="5">
+  UAT
+</Paragraph>
+
+<Paragraph listStyleType="disc" indent="5">
+  Development (optional combination of staging and UAT)
+</Paragraph>
+
+20. Click **Finish**.
+21. Restart the host server.
+22. (Optional) If you also installed the \{\{Primary.Product}} reporting feature, you must upgrade it to the match the release number of your \{\{Primary.Product}} system. Access the installation folder on the Ivanti Software product CD or download folder and run *ReportingService.exe* to upgrade \{\{Primary.Product}} reporting feature.
+23. Log in to the configuration database and activate the web servers that you deactivated in step 2.
+
+## Upgrading from Ivanti Service Management Release 2014.3 or Earlier
+
+- :Link[About Upgrading From Ivanti Service Management Release 2014.3 or Earlier]{label="About Upgrading From Ivanti Service Management Release 2014.3 or Earlier" overridedLabel="About Upgrading From Ivanti Service Management Release 2014.3 or Earlier" spaceId docId="a7Eq_Jn86oysp9kOeIAEn" version="v2" docAnchorId="#About3" loadingMethod="dynamic" newTab="false" href="Upgrading-Service-and-Asset-Manager-from-an-Earlier-Release.mdx"}
+- :Link[Uninstalling the Inventory Management Component]{label="Uninstalling the Inventory Management Component" overridedLabel="Uninstalling the Inventory Management Component" spaceId docId="a7Eq_Jn86oysp9kOeIAEn" version="v2" docAnchorId="#h3_Uninstalling_HEAT_Inventory_Management" loadingMethod="dynamic" newTab="false" href="Upgrading-Service-and-Asset-Manager-from-an-Earlier-Release.mdx"}
+
+### About Upgrading From Ivanti Service Management Release 2014.3 or Earlier
+
+Beginning with Ivanti Service Management Release 2015.1, the Inventory Management component is known as Ivanti HEAT Discovery. As a result, before you can upgrade to the current version of \{\{Primary.Product}}, if you are upgrading from Release 2014.3 or earlier, you must first uninstall the Inventory Management component.
+
+### Uninstalling the Inventory Management Component
+
+Perform the following steps on the system that hosts \{\{Primary.Product}}:
+
+1. Click the arrow at the bottom of the Start menu to view the Apps menu.
+2. Mouse-over the Uninstall Ivanti Service Management icons to find the one for the Inventory Management component.
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/Kh9i13Sc_ARdDSsb6ROSV_uninstallinvmgr.png" position="flex-start" size="40" indent="1" initialPath="Install_Deploy_Images/uninstall_inv_mgr.png" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Install_Deploy_Images/uninstall_inv_mgr.png"></Image>
+
+3. Click **Uninstall Ivanti Service Management**.
+4. In the confirmation dialog box, click **Yes**.
+
+## Upgrading from Ivanti Tryvium 2020.1 Release to 2020.2 Release
+
+Perform the following steps before installing 2020.2 from 2020.1 release.
+
+1. Log in to \{\{Primary.Product}} with the Administrator role.
+2. Open the Configuration console.
+3. Under **Security Controls**, select **Security and Sessions**.
+4. Under **Concurrent Session**, change the value of **Named User**, **Privileged User**, and **Non Privileged User** to *0*.
+5. Save the changes and refresh the page and re-validate the values are changed.
+6. Now you can install 2020.2 \{\{Primary.Product}}.
+7. After installation is complete, you can change the concurrent users values as it was earlier.

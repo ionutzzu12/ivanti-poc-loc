@@ -1,0 +1,352 @@
+---
+title: Configuring the Reporting Feature
+docTags: 
+createdAt: Fri Jun 05 2026 13:49:30 GMT+0300 (Eastern European Summer Time)
+---
+
+If your \{\{Primary.Product}} deployment includes the reporting feature, you need to set up authentication. Authentication is only needed for the reporting feature, and not for deployments that do not use the reporting feature.
+
+- :Link[Authenticating the Application Database]{label="Authenticating the Application Database" overridedLabel="Authenticating the Application Database" spaceId docId="jFxaRoNHCVSCI3OCjXnfx" version="v2" docAnchorId="#HEAT_Application_Database_Authentication" loadingMethod="dynamic" newTab="false" href="Configure_Reporting.mdx"}
+- :Link[Configuring Microsoft SSRS]{label="Configuring Microsoft SSRS" overridedLabel="Configuring Microsoft SSRS" spaceId docId="jFxaRoNHCVSCI3OCjXnfx" version="v2" docAnchorId="#h3_Configuring_Microsoft_SQL_Reporting" loadingMethod="dynamic" newTab="false" href="Configure_Reporting.mdx"}
+- :Link[Configuring the Reporting Feature]{label="Configuring the Reporting Feature" overridedLabel="Configuring the Reporting Feature" spaceId docId="jFxaRoNHCVSCI3OCjXnfx" version="v2" docAnchorId="#h3_Configuring_the_HEAT_Reporting_Feature" loadingMethod="dynamic" newTab="false" href="Configure_Reporting.mdx"}
+
+### Authenticating the Application Database
+
+The wizard walks you through the first-time set up and configuration as shown in the screenshots below.
+
+1. Click **Next**.
+
+<hint type="success">
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/Puj1fv2cmcHUFzpGRP37h_reportingservices1.png" position="flex-start" size="40" initialPath="Install_Deploy_Images/reporting_services_1.png" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Install_Deploy_Images/reporting_services_1.png"></Image>
+</hint>
+
+1. Click **Next** to continue the installation process.
+
+<hint type="success">
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/sF6O6sA3orjoXH4mTMQBJ_reportingservices2.png" position="flex-start" size="40" initialPath="Install_Deploy_Images/reporting_services_2.png" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Install_Deploy_Images/reporting_services_2.png"></Image>
+</hint>
+
+1. Select one of the options, **Service Manager**, **Asset Manager**, or **Service and Asset Manager**.
+
+<hint type="success">
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/w1BrYT67JHRAWU-F4zn3P_reportingservices3.png" position="flex-start" size="40" initialPath="Install_Deploy_Images/reporting_services_3.png" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Install_Deploy_Images/reporting_services_3.png"></Image>
+
+  For more information on Asset Manager, see [Ivanti Asset Manager](https://help.ivanti.com/iv/help/en_US/IAMC/2020/Landing-page.htm).
+</hint>
+
+1. Click **Next**.
+
+<hint type="success">
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/bIb0fD6_3fF_hDUR700cR_reportingservices4.png" position="flex-start" size="40" initialPath="Install_Deploy_Images/reporting_services_4.png" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Install_Deploy_Images/reporting_services_4.png"></Image>
+</hint>
+
+When you configure \{\{Primary.Product}}, you set the authentication for the application database on the \{\{Primary.Product}} Application page of the System Configuration Wizard, as shown in :Link[Ivanti Service Manager Application Settings]{label="Ivanti Service Manager Application Settings" overridedLabel="Ivanti Service Manager Application Settings" spaceId docId="jFxaRoNHCVSCI3OCjXnfx" version="v2" docAnchorId="#fig_HEAT_Application_Database_Authentication" loadingMethod="dynamic" newTab="false" href="Configure_Reporting.mdx"}.
+
+*Ivanti Service Manager Application Settings*
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/9Kk9v-KuBDg-jf6-E4vgn_verify-heat-app-db-settings.png" position="flex-start" size="40" initialPath="Install_Deploy_Images/verify HEAT app db settings.png" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Install_Deploy_Images/verify HEAT app db settings.png"></Image>
+
+You can select either Windows Authentication or SQL Authentication. (When you configure the reporting feature, you have an opportunity to review and change the authentication method, if necessary, on the Microsoft SSRS Configuration page. See :Link[Configuring the Reporting Feature]{label="Configuring the Reporting Feature" overridedLabel="Configuring the Reporting Feature" spaceId docId="jFxaRoNHCVSCI3OCjXnfx" version="v2" docAnchorId="#h3_Configuring_the_HEAT_Reporting_Feature" loadingMethod="dynamic" newTab="false" href="Configure_Reporting.mdx"}.)
+
+- If you select Windows Authentication, you can use the Microsoft SSRS service account, the Microsoft IIS app pool identity account, or any other account, but they must have permission to access the application database and the Microsoft SSRS database.
+- If you select SQL Authentication, you can use a different system account.
+
+We recommend having separate authentication for Microsoft SSRS, the application database, and the Microsoft SSRS database.
+
+### Configuring Microsoft SSRS
+
+*Microsoft SSRS Configuration Page*
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/9LCm6b6NAaXkRVyxPdI-T_micrsoftssrsconfiguration1.png" position="flex-start" size="40" initialPath="Install_Deploy_Images/micrsoft_SSRS_configuration_1.png" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Install_Deploy_Images/micrsoft_SSRS_configuration_1.png"></Image>
+
+1. Enter values into the fields:
+
+<Paragraph indent="1">
+  | Parameter               | Description                                                                                                                                                                  |
+  | ----------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+  | Report Server Host      | The name of the \{\{Primary.Product}} reporting feature server. The default name is the name of the server that you are currently logged into. You cannot change this value. |
+  | Microsoft SSRS Instance | The instance of Microsoft SSRS to use for the Reporting feature.  Select a value from the dropdown list.                                                                     |
+</Paragraph>
+
+2. (Recommended) Click Backup to back up your Microsoft SSRS configuration. (If prompted, enter a password to unlock the backup file, and then click OK.) The system displays the New SSRS Configuration Backup dialog box with information about the backup.
+
+<Paragraph indent="1">
+  *New SSRS Configuration Backup Dialog Box*
+</Paragraph>
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/cf9ndXTjkaBvDnDdhvYp3_rpt-ssrs-backup.png" position="flex-start" size="40" indent="1" initialPath="Install_Deploy_Images/rpt-ssrs-backup.png" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Install_Deploy_Images/rpt-ssrs-backup.png"></Image>
+
+3. To change the location of the backup, click Browse..., select a new location, and click OK.
+4. Click OK to close the dialog box. The system displays the Backup Encryption Key dialog box. (If you do not see this dialog box immediately, the system displays it after you click Next at the bottom of the page when you are done with the configuration on this page of the System Configuration Wizard.)
+5. Do the following:
+   - (Optional) Enter a new file location.
+   - Enter a password.
+   - Confirm the password.
+   - Click OK.
+6. Select a Microsoft SSRS authentication type:
+   - Windows Authentication: Shares the Microsoft SSRS instance with multiple applications, including \{\{Primary.Product}}.
+   - Custom Authentication: Does not share the Microsoft SSRS instance with any other applications. The Microsoft SSRS instance is used for \{\{Primary.Product}} only. With custom authentication, you can have a multi-tenant environment.
+
+If you have multiple instances of Microsoft SSRS, choose each instance carefully before choosing the authentication method to use with that instance.
+
+<Paragraph listStyleType="disc" indent="3">
+  If you plan to share the same Microsoft SSRS instance with other applications besides the reporting feature, you must use Windows authentication.
+</Paragraph>
+
+<Paragraph listStyleType="disc" indent="3">
+  If you plan to create a multiple-tenant environment, you must use custom authentication.
+</Paragraph>
+
+<Paragraph listStyleType="disc" indent="3">
+  If you plan to use a dedicated Microsoft SSRS instance only for the reporting feature, you can use either Microsoft SSRS authentication type.
+</Paragraph>
+
+<hint type="info">
+  - If you select a Microsoft SSRS instance and select Custom Authentication, the System Configuration Wizard overwrites the existing Microsoft SSRS configuration.
+  - If the Microsoft SSRS instance that you selected is shared with another application, the \{\{Primary.Product}} installer deletes the configuration for that application. Before proceeding, ensure that the Microsoft SSRS instance is not in use by another application.
+</hint>
+
+7. Enter values into the fields:
+
+<Paragraph indent="1">
+    <table isTableHeaderOn="true">
+      <tr>
+        <td>
+          Parameter
+        </td>
+        <td>
+          Description
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Service Account
+        </td>
+        <td>
+          Select the service account to use. This can be the same account that is used for the IIS application pool identity and the Windows service, that you entered on the Application Server Settings page. You can select one of the following:
+          - Use built-in account (NOTE: You cannot select this option if you selected Windows Authentication for the Microsoft SSRS authentication type in step 5.)
+          - Use another account
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Use built-in account
+        </td>
+        <td>
+          (Only if you selected Use built-in account) Select the built-in account to use. This can be the same account that is used for the IIS application pool identity and the Windows service, that you entered on the Application Server Settings page. You can select one of the following:
+          - Local System: This account has the most permissions.
+          - Network Service: We recommend that you use this account.
+          - Local Service
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Account
+        </td>
+        <td>
+          (Only if you selected Use another account) The name of the service account. Use the format domain/name.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Password
+        </td>
+        <td>
+          (Only if you selected Use another account) The password associated with the service account.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Web Service Virtual Directory
+        </td>
+        <td>
+          The name of the web service virtual directory. The system automatically fills in this field with the value that you entered in the Web Service Virtual Directory field on the Application Server Settings page. See [Configuring the Application Server Settings](Configure_HEAT_Application_Server_Settings.mdx).
+          The default value for the web service virtual directory is ReportServer + \_SSRS\_instance\_name.
+          Do one of the following:
+          - Accept the default value.
+          - Enter a new value.
+          Click Advanced... to configure multiple identities for the reporting feature web service.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Report Manager Virtual Directory
+        </td>
+        <td>
+          The name of the report manager virtual directory. The default value is Reports + \_SSRS\_instance\_name.
+          Do one of the following:
+          - Accept the default value.
+          - Enter a new value.
+          Click Advanced... to configure multiple identities for the report manager.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Database Server
+        </td>
+        <td>
+          The name of the database server.  The system automatically displays the default Microsoft SQL server name.
+          Do one of the following:
+          - Accept the default value.
+          - Enter the name of the server of the configuration database in this format: machinename\instance.
+          - Browse for a server name by clicking the down arrow and selecting \<Browse for more...>. The system displays any Microsoft SQL Server instances in your network. Choose a server and click OK.
+          NOTES: 
+          - Do not choose localhost unless you are setting up a :Link[Demonstration or Proof-of-Concept Deployment]{label="Demonstration or Proof-of-Concept Deployment" overridedLabel="Demonstration or Proof-of-Concept Deployment" spaceId docId="IIhf7YMCmXD2alAx6WlYN" version="v2" docAnchorId="#top" loadingMethod="dynamic" newTab="false" githubPath="Deployment_Demo_POC.htm#top" href="Deployment_Demo_POC.mdx"}.
+          - To restore the Microsoft SQL server name if you changed the name previously, open Microsoft SQL Server Management Studio. The system displays the Microsoft SQL server name in the Connect to Server dialog box.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Database Name
+        </td>
+        <td>
+          The name of the reporting database. The default name is ReportServer + $SSRS instance name.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Credentials
+        </td>
+        <td>
+          The credentials to use with the reporting feature. Select one of the following:
+          - SQL Server Credentials
+          - Windows Credentials
+          - Service Credentials
+        </td>
+      </tr>
+      <tr>
+        <td>
+          User Name
+        </td>
+        <td>
+          The user name for the credential used with the reporting feature.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Password
+        </td>
+        <td>
+          The password associated with the credential used with the reporting feature.
+        </td>
+      </tr>
+    </table>
+</Paragraph>
+
+<hint type="info" indent="1">
+  We recommend creating passwords using Alphanumeric characters. Special characters are not permitted.
+</hint>
+
+8. Click Test Connection. The system displays Connection successful! if the connection is good.
+9. Enter values into the fields:
+
+<Paragraph indent="1">
+  | Parameter      | Description                                                                                                                                                                   |
+  | -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+  | SMTP Server    | The server that sends out the reports. The system automatically verifies the SMTP server name that you enter. If the name is not valid, the system displays an error message. |
+  | Sender Address | The email address for the account that sends out the reports.                                                                                                                 |
+</Paragraph>
+
+10. Click Next. The system displays the Ivanti Reporting Service Configuration page. See :Link[Configuring the Reporting Feature]{label="Configuring the Reporting Feature" overridedLabel="Configuring the Reporting Feature" spaceId docId="jFxaRoNHCVSCI3OCjXnfx" version="v2" docAnchorId="#h3_Configuring_the_HEAT_Reporting_Feature" loadingMethod="dynamic" newTab="false" href="Configure_Reporting.mdx"}. (If the system displays the Backup Encryption Key dialog box, see step 5.)
+
+### Configuring the Reporting Feature
+
+You configure the reporting feature on the Reporting Service Configuration page. See :Link[Reporting Service Configuration Page]{label="Reporting Service Configuration Page" overridedLabel="Reporting Service Configuration Page" spaceId docId="jFxaRoNHCVSCI3OCjXnfx" version="v2" docAnchorId="#fig_HEAT_Reporting_Service_Configuration_Page" loadingMethod="dynamic" newTab="false" href="Configure_Reporting.mdx"}.
+
+*Reporting Service Configuration Page*
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/pbJSLXRUWg12pHN7ZqIgh_reportingserviceconfiguration.png" position="flex-start" size="40" initialPath="Install_Deploy_Images/reporting_service_configuration.png" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Install_Deploy_Images/reporting_service_configuration.png"></Image>
+
+1. Enter values into the fields:
+
+<Paragraph indent="1">
+  | Parameter            | Description                                                                                                                                                                                                                                                                                                                                                                                                              |
+  | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+  | Configuration Server | The host name of the configuration server. The default value is the name of the server that you are logged into now.  <br />  <br />If the host that you are logged into now is not the configuration server, enter the machine name or fully-qualified domain name of your configuration server.  <br />  <br />If you check Use SSL below, you must enter the fully-qualified domain name of the configuration server. |
+  | Port                 | The port number of the configuration server. The default is 80, or 443 if you check Use SSL.                                                                                                                                                                                                                                                                                                                             |
+  | Use SSL              | Check to use SSL for connections to the configuration server.  <br />  <br />NOTE: We do not recommend enabling SSL on the configuration server until you have fully tested \{\{Primary.Product}} to ensure that it works with SSL. For information on configuring \{\{Primary.Product}} with SSL, see [Optional SSL Configuration](SSL_Config.mdx).                                                                     |
+</Paragraph>
+
+2. Click Test Connection to test the connection to the configuration server. The system displays a success or failure message. Click OK to close the message.
+3. Enter values into the fields:
+
+<Paragraph indent="1">
+    <table isTableHeaderOn="true">
+      <tr>
+        <td>
+          Parameter
+        </td>
+        <td>
+          Description
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Account Type
+        </td>
+        <td>
+          The database account type. Select from one of the following:
+          - SQL Server Credentials
+          - Windows Credentials
+          NOTE: If you selected Custom Authentication in step 6 of :Link[Configuring Microsoft SSRS]{label="Configuring Microsoft SSRS" overridedLabel="Configuring Microsoft SSRS" spaceId docId="jFxaRoNHCVSCI3OCjXnfx" version="v2" docAnchorId="#h3_Configuring_Microsoft_SQL_Reporting" loadingMethod="dynamic" newTab="false" href="Configure_Reporting.mdx"}, this option automatically displays as SQL Server Credentials and you cannot change it.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          User Name
+        </td>
+        <td>
+          The user name for the \{\{Primary.Product}} database read-only account.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Password
+        </td>
+        <td>
+          The password associated with the user name.
+        </td>
+      </tr>
+    </table>
+</Paragraph>
+
+4. Click Test Connection to test the connection to the configuration server. The system displays Connection successful! if the connection is good.
+5. Click Modify to add servers to or remove servers from the list of \{\{Primary.Product}} application servers that are used with the reporting feature.
+
+<hint type="info">
+  If you have multiple domains in your deployment, the reporting server may not be able to connect to the web server. In this case, remove the server from the list and configure reporting manually.
+</hint>
+
+6. Enter values into the fields:
+
+<Paragraph indent="1">
+  | Parameter            | Description                                                                                                                                                                                                                                                                                                                                                                                                                 |
+  | -------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+  | Report User Name     | (Only if you selected Custom Authentication in step 6 of :Link[Configuring Microsoft SSRS]{label="Configuring Microsoft SSRS" overridedLabel="Configuring Microsoft SSRS" spaceId docId="jFxaRoNHCVSCI3OCjXnfx" version="v2" docAnchorId="#h3_Configuring_Microsoft_SQL_Reporting" loadingMethod="dynamic" newTab="false" href="Configure_Reporting.mdx"}) The user name for the user who configures the reporting feature. |
+  | Report User Password | (Only if you selected Custom Authentication in step 6 of :Link[Configuring Microsoft SSRS]{label="Configuring Microsoft SSRS" overridedLabel="Configuring Microsoft SSRS" spaceId docId="jFxaRoNHCVSCI3OCjXnfx" version="v2" docAnchorId="#h3_Configuring_Microsoft_SQL_Reporting" loadingMethod="dynamic" newTab="false" href="Configure_Reporting.mdx"}) The password associated with the user name.                      |
+</Paragraph>
+
+7. To verify that the configuration settings work, do the following:
+
+<Paragraph indent="1">
+  a. Click Reprovision Report Now to update the sample report data to the application. See :Link[Reporting Service Configuration Page]{label="Reporting Service Configuration Page" overridedLabel="Reporting Service Configuration Page" spaceId docId="jFxaRoNHCVSCI3OCjXnfx" version="v2" docAnchorId="#fig_HEAT_Reporting_Service_Configuration_Page" loadingMethod="dynamic" newTab="false" href="Configure_Reporting.mdx"}. If the systems returns an exception such as "Cannot Decrypt the Symmetric Key".
+</Paragraph>
+
+<Paragraph indent="1">
+  b. Log into \{\{Primary.Product}} as a Report Manager.
+</Paragraph>
+
+<Paragraph indent="1">
+  c. Ensure that you can see the sample reports and create one.
+</Paragraph>
+
+8. When you see confirmation that the out-of-the-box reports have been provisioned, that is, the last line of this step changes from OOB Reports (not provisioned yet) to OOB Reports (provisioned on date), click Finish to close the System Configuration Wizard.
+
+The system displays the Completed page of the System Configuration Wizard.
+
+<hint type="info">
+  If the system displays an error message that the system failed to configure reporting for an \{\{Primary.Product}} application server, ensure that you checked Use these settings for Reporting Service on the Application Server Settings page.
+</hint>
+
+9. Restart your system (the host server that you just configured).
+10. After the system restarts, ensure that you can access \{\{Primary.Product}}. Go to http\://server\_name/HEAT and ensure that the reporting feature is functional.

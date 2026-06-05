@@ -1,0 +1,294 @@
+---
+title: Configuring Other Feature Settings
+docTags: 
+createdAt: Fri Jun 05 2026 13:49:30 GMT+0300 (Eastern European Summer Time)
+---
+
+On this page you will do the following:
+
+- Specify the log file and temporary file locations on the configuration server.
+- Specify different servers and ports and whether to use SSL for the other \{\{Primary.Product}} servers.
+- Specify the inbound web server information.
+
+<Paragraph indent="1">
+  *Other Feature Settings Page*
+</Paragraph>
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/BrbacRXB5H5sKKU9ObsQZ_otherfeaturesettings.png" position="flex-start" size="40" indent="1" initialPath="Install_Deploy_Images/other_feature_settings.png" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Install_Deploy_Images/other_feature_settings.png"></Image>
+
+1. Enter values into the fields:
+
+<Paragraph indent="1">
+    <table isTableHeaderOn="true">
+      <tr>
+        <td>
+          Parameter
+        </td>
+        <td>
+          Description
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Configuration Settings
+        </td>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Log File Location
+        </td>
+        <td>
+          The folder on the server that you are logged into now where the log files are located.
+          Do one of the following:
+          1. Accept the default value.
+          2. Enter the name of the folder where the log files are located.
+          3. Browse for a different folder by clicking Browse.... Select a new folder and click OK.
+          You have to provide the path for nlog.config files as well to store the non-configrable files.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Temp Folder Location
+        </td>
+        <td>
+          The folder on the server that you are logged into now where the temporary files are located. The temporary folder is used to cache JavaScript files and to enable integration server and \{\{Primary.Product}} Operations Console features.
+          Do one of the following:
+          1. Accept the default value.
+          2. Enter the name of the folder where the temporary files are located.
+          3. Browse for a different folder by clicking Browse.... Select a new folder and click OK.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Cache Location
+        </td>
+        <td>
+          The folder on the server that you are logged into now where the cached files are located.
+          Do one of the following:
+          1. Accept the default value.
+          2. Enter the name of the folder where the temporary files are located.
+          3. Browse for a different folder by clicking Browse.... Select a new folder and click OK.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Customize Server
+        </td>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Application Server
+        </td>
+        <td>
+          Where the application server is located. The default value is the server that you are logged into now.
+          Do one of the following:
+          1. Accept the default value.
+          2. Enter the name where the application server is located.
+          3. If you use SSL, you must enter a fully-qualified domain name.
+          NOTE: If you choose a different server for the application server and check Use SSL, SSL is only enabled for the application server. It does not enable SSL for the configuration server.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Port
+        </td>
+        <td>
+          The port number of the application server. The default is 80, or 443 if you check Use SSL.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Use SSL
+        </td>
+        <td>
+          Enables SSL encryption to the application server.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Message Queue Server
+        </td>
+        <td>
+          Where the message queue server is located. The default value is the server that you are logged into now.
+          Do one of the following:
+          1. Accept the default value.
+          2. Enter the name where the \{\{Primary.Product}} message queue server is located.
+          If you use SSL, you must enter a fully-qualified domain name.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Port
+        </td>
+        <td>
+          The port number of the message queue server. The default is 7200.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Use SSL
+        </td>
+        <td>
+          Enables SSL encryption to the message queue server.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Integration Server
+        </td>
+        <td>
+          Where the integration server is located. The default value is the server that you are logged into now.
+          Do one of the following:
+          1. Accept the default value.
+          2. Enter the server where the \{\{Primary.Product}} integration server is located.
+          If you use SSL, you must enter a fully-qualified domain name.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Port
+        </td>
+        <td>
+          The port number of the \{\{Primary.Product}} integration server. The default is 80, or 443 if you check Use SSL.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Use SSL
+        </td>
+        <td>
+          Enables SSL encryption to the \{\{Primary.Product}} integration server.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Discovery Application Server
+        </td>
+        <td>
+          Where the Discovery application server is located. The default value is the server that you are logged into now.
+          Do one of the following:
+          - Accept the default value.
+          - Enter the server where the Discovery application server is located.
+          - If you use SSL, you must enter a fully-qualified domain name.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Port
+        </td>
+        <td>
+          The port number of the Discovery application server. The default is 8382, or 443 if you check Use SSL.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Use SSL
+        </td>
+        <td>
+          Enables SSL encryption to the Discovery application server.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Inbound Web Service Settings
+        </td>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Inbound Web Server
+        </td>
+        <td>
+          Where the inbound web server is located. The default value is the server that you are logged into now.
+          Do one of the following:
+          1. Accept the default value.
+          2. Enter the server where the \{\{Primary.Product}} inbound web server is located.
+          If you use SSL, you must enter a fully-qualified domain name.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Port
+        </td>
+        <td>
+          The port number of the \{\{Primary.Product}} inbound web server. The default is 80, or 443 if you check Use SSL.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Use SSL
+        </td>
+        <td>
+          Enables SSL encryption to the \{\{Primary.Product}} inbound web server.
+        </td>
+      </tr>
+    </table>
+</Paragraph>
+
+<Paragraph indent="1">
+  You can set a list of remote hosts to block and a list of remote hosts to trust. By default, the list is empty.
+</Paragraph>
+
+3. To designate a list of blocked servers, do the following:
+
+<Paragraph indent="1">
+  a. Next to the Trusted Host & Remote Host Blocked List field, click Set.
+</Paragraph>
+
+<Paragraph indent="1">
+  b. In the Remote Host Blocked List area, click the plus icon.
+</Paragraph>
+
+<Paragraph indent="1">
+  c. Enter the starting IP address and the ending IP address for the blocked servers.
+</Paragraph>
+
+<Paragraph indent="1">
+  d. If you are blocking web scripts, check Is Web Script.
+</Paragraph>
+
+<Paragraph indent="1">
+  e. Click OK.
+</Paragraph>
+
+4. To designate a list of trusted servers, do the following:
+
+<Paragraph indent="1">
+  a. Next to the Trusted Host & Remote Host Blocked List field, click Set.
+</Paragraph>
+
+<Paragraph indent="1">
+  b. In the Integration Trusted Host List area, click the plus icon.
+</Paragraph>
+
+<Paragraph indent="1">
+  c. Enter a name for the trusted host list.
+</Paragraph>
+
+<Paragraph indent="1">
+  d. Enter the starting IP address and the ending IP address for the trusted servers.
+</Paragraph>
+
+<Paragraph indent="1">
+  e. Click OK.
+</Paragraph>
+
+<Paragraph indent="1">
+  *Edit Integration Trusted Host and Remote Host Blocked List Dialog Box*
+</Paragraph>
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/rDUDIFHFPNe7t3yqUqq_k_remotehost-blockintegrationtrustedhost.png" position="flex-start" size="40" indent="1" initialPath="Install_Deploy_Images/remote_host_ block_integration_trusted_host.png" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Install_Deploy_Images/remote_host_ block_integration_trusted_host.png"></Image>
+
+<hint type="info">
+  To update the list at a later time, run the System Configuration Wizard, advance to the Other Feature Settings page, click Set, and make your changes. When you are done, click OK.
+</hint>
+
+5. To restart the \{\{Primary.Product}} services after you exit the System Configuration Wizard, check Restart services after setting configuration files.
+6. Verify that the \{\{Primary.Product}} services restart after the wizard closes.
+7. If you did not check Restart services after setting configuration files, restart the \{\{Primary.Product}} services manually.
+8. Click Next. The system displays the Metrics Server page.

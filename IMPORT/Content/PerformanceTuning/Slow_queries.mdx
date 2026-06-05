@@ -1,0 +1,75 @@
+---
+title: Evaluating Slow Running Queries
+docTags: 
+createdAt: Fri Jun 05 2026 13:49:31 GMT+0300 (Eastern European Summer Time)
+---
+
+Queries that take a long time to execute can manifest themselves just about anywhere in Ivanti Service Manager. Dashboards, saved searches, and viewing a business object are all areas impacted by slow running queries. With some familiarity with the tools available, tracking down and fixing these problems is a relatively straight forward task.
+
+- :Link[Identifying Problem Queries]{label="Identifying Problem Queries" overridedLabel="Identifying Problem Queries" spaceId docId="kcL-LWxCb6KhSbJ0HVovF" version="v2" docAnchorId="#Identify" loadingMethod="dynamic" newTab="false" href="Slow_queries.mdx"}
+- :Link[Improving Saved Search Query Performance]{label="Improving Saved Search Query Performance" overridedLabel="Improving Saved Search Query Performance" spaceId docId="kcL-LWxCb6KhSbJ0HVovF" version="v2" docAnchorId="#Search" loadingMethod="dynamic" newTab="false" href="Slow_queries.mdx"}
+
+### Identifying Problem Queries
+
+If queries run slowly, use the Microsoft SQL Server profiling tools to find out which queries are the problem. See [Tuning Indexes](Tune_Indexes.mdx) for more information.
+
+### Improving Saved Search Query Performance
+
+Saved searches are used in many places throughout Ivanti Service Manager, especially in dashboards and workspaces. Saved search queries can be complicated because they can involve related data and typically include criteria for more than just a single field. For this reason, dealing with performance problems for a saved search can be a bit more involved. Constructing saved searches in the most efficient way possible can significantly improve performance.
+
+You can create a saved search, modify a saved search, delete a saved search, add a saved search as a favorite, and find saved searches. For more information about using the saved search feature, see the “Using Saved Search” topic in the Ivanti Service Manager online help.
+
+<hint type="info">
+  <font color="#ff0000"></font><font color="#000000"></font>You can use the CONTAIN operator and LIKE (SQL format) operator in your search query, but this can result in slower query performance. The position of the wild card characters in the query determines the performance and index usage. Hence, your search query should have the wild card characters positioned correctly to improve the query performance. 
+</hint>
+
+We recommend the following:
+
+- Using “Begin with”, “Not begin with” and “Not Null” in saved searches by adding Index to fields used in Saved Search. See " About Creating Indexes Using the Configuration Console, Not Third Party Tool " on page 25 for information on how to create indexes using the Ivanti Service Manager database.
+- Minimizing sorting and grouping in grids.
+- Creating index fields for tables frequently used in saved searches to reduce database access time. Use the Microsoft SQL Server profiling tools to find problem queries and to help identify indexes that can improve performance. See the Ivanti Service Manager online help for information about creating indexes.
+
+## About Data and Log Files
+
+Microsoft SQL Server databases generally contain two types of files:
+
+- Data files, which usually use the .mdf extension. These files contain the database data.
+- Log files, which usually use the .ldf file extension. These files contain log data which can be verbose.
+
+As a best practice, we recommend that you use house these files on different volumes.
+
+## About Snapshot Isolation Levels
+
+- :Link[About Snapshot Isolation Levels]{label="About Snapshot Isolation Levels" overridedLabel="About Snapshot Isolation Levels" spaceId docId="kcL-LWxCb6KhSbJ0HVovF" version="v2" docAnchorId="#About3" loadingMethod="dynamic" newTab="false" href="Slow_queries.mdx"}
+- :Link[Using Read Committed Snapshot Isolation (RCSI)]{label="Using Read Committed Snapshot Isolation (RCSI)" overridedLabel="Using Read Committed Snapshot Isolation (RCSI)" spaceId docId="kcL-LWxCb6KhSbJ0HVovF" version="v2" docAnchorId="#Using" loadingMethod="dynamic" newTab="false" href="Slow_queries.mdx"}
+
+### About Snapshot Isolation Levels
+
+Isolation levels control how two or more transactions running simultaneously are isolated from each other in terms of locking and blocking resources. The isolation level determines the level of concurrency and data consistency. Ivanti Service Manager uses the following isolation levels:
+
+- Read committed: This is the default transaction isolation level in Microsoft SQL Server. This isolation level prevents "dirty reads" which occur when a transaction is allowed to read data from a row that was modified by another transaction that has not yet been committed. This level acquires shared locks to prevent other transactions from modifying the data during a read operation by that transaction. A shared lock can be acquired only if there is no exclusive lock (required for data modification) by other transactions; this ensures it reads only committed data.
+- Read committed snapshot isolation (RCSI): An extension of read committed but with increased concurrency. With this level, the system uses the last committed version before the statement starts, regardless of when the transaction starts.
+
+We recommend that you use RCSI if your system meets any of the following criteria:
+
+- It has a high number of transactions.
+- If you encounter a high number of locks in your database.
+- Your system has multiple back-end servers, because there could be multiple workflow, escalation, and other tasks that are triggered after the system creates or updates a record.
+
+Note that using RCSI generally increases the CPU utilization due to the additional processing, but lowers the CPU utilization due to a reduction in locks and deadlocks. The net result is lower CPU utilization and therefore, we recommend using RCSI.
+
+### Using Read Committed Snapshot Isolation (RCSI)
+
+For the Ivanti Service Manager database, ensure that the following two parameters are set to ON:
+
+- Allow Snapshot Isolation
+- Is Read Committed Snapshot On
+
+To set these parameters to on, do the following:
+
+1. Open Microsoft SQL Server Management Studio.
+2. Navigate to and highlight the Ivanti Service Manager database to set the properties for.
+3. Right-click and select Properties.
+4. On the left, select Options.
+5. Under Miscellaneous, set Allow Snapshot Isolation to True and set Is Read Committed Snapshot On to True.
+6. Click OK.

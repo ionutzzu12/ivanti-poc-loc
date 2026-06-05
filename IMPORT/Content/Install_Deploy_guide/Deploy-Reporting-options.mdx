@@ -1,0 +1,64 @@
+---
+title: Reporting Services Deployment Options
+docTags: 
+createdAt: Fri Jun 05 2026 13:49:30 GMT+0300 (Eastern European Summer Time)
+---
+
+Determine your database deployment options first (see [Database Deployment Options](Deploy-DB-options.mdx)), and then your Operations Console deployment options (see \{\{Primary.Product}} [Operations Console Deployment Options](Deploy-OpsConsole-options.mdx)). Then determine your reporting services deployment options.
+
+In all of the reporting services deployment options below, note the following:
+
+<Paragraph listStyleType="disc" indent="2">
+  You can substitute any of the database deployments described in [Database Deployment Options](Deploy-DB-options.mdx) for the database deployments in the figure. For example, for the database engine instance shown in Option R5 below, you could substitute Option D1, Option D2a/b, Option D3, and so on for that database engine instance.
+</Paragraph>
+
+<Paragraph listStyleType="disc" indent="2">
+  You can substitute any of the Operations Console deployments described in \{\{Primary.Product}} [Operations Console Deployment Options](Deploy-OpsConsole-options.mdx) for the Operations Console deployments in the figure. For example, for the single application server shown in Option R5 below, you could substitute Option OC3 for that application server.
+</Paragraph>
+
+- The \{\{Primary.Product}} report database can reside on a separate database instance, or on a database instance on a separate server.
+- The Microsoft SSRS instance can run on the \{\{Primary.Product}} database server, application server, or on a separate server.
+- The reporting feature should be installed on the Microsoft SSRS Server.
+- We recommend using either Option R1 or Option R2.
+
+## Option R1: Multiple Microsoft SSRS Instances on the Same Database Server (Best Practice)
+
+This deployment is the most common and recommended for simplicity and security. The advantage of this deployment is that you have a reporting feature for production that is separate from the development environments.  
+
+*Example of Multiple Microsoft SSRS Instance on One Database Server*
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/I7_uzi59jH-Tg1RSpSZtq_sepprodssrssamedb.svg" position="flex-start" size="40" initialPath="Install_Deploy_Images/SepProdSSRSsameDB.svg" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Install_Deploy_Images/SepProdSSRSsameDB.svg"></Image>
+
+## Option R2: Separate Microsoft SSRS Instances and a Separate Database Server (Best Practice)
+
+Use this deployment to keep the reporting separate between the production and development environments.
+
+*Example of Separate Microsoft SSRS Instances and a Separate Database Server*
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/-r4b37cfAcWKMhiauo-ww_sepssrssepdb.svg" position="flex-start" size="40" initialPath="Install_Deploy_Images/SepSSRSSepDB.svg" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Install_Deploy_Images/SepSSRSSepDB.svg"></Image>
+
+## Option R3: Separate Microsoft SSRS Instances
+
+Use this deployment to keep the reporting separate between the production and staging/UAT environments.
+
+*Example of Separate Microsoft SSRS Instances*
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/e23TUCtOBVUUKufnqx8Ww_sepssrssepprodssrs.png" position="flex-start" size="40" initialPath="Install_Deploy_Images/SepSSRSSepProdSSRS.png" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Install_Deploy_Images/SepSSRSSepProdSSRS.png"></Image>
+
+## Option R4: Multiple Microsoft SSRS Instances on a Separate Report Server
+
+This deployment is recommended if you need to maintain your database in a locked down environment and keep it separate from the development environment. We also recommend this deployment if you already have a server with a Microsoft SSRS instance for other applications.
+
+*Example of a Multiple Microsoft SSRS Instances on a Separate Report Server*
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/WqSZM2h_VtSKqWHNj3T5O_sepprodssrsdiffdb.svg" position="flex-start" size="40" initialPath="Install_Deploy_Images/SepProdSSRSDiffDB.svg" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Install_Deploy_Images/SepProdSSRSDiffDB.svg"></Image>
+
+## Option R5: Single Microsoft SSRS Instance on One Database Server
+
+<hint type="info">
+  We do not recommend using this deployment unless you are setting up a demo environment.
+</hint>
+
+*Example of a Single Microsoft SSRS Instance on One Database Server*
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/McugznV2bFnTLfoUQ1txU_singlessrsonsamedbserver.svg" position="flex-start" size="40" initialPath="Install_Deploy_Images/SingleSSRSonSameDBServer.svg" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Install_Deploy_Images/SingleSSRSonSameDBServer.svg"></Image>

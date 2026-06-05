@@ -1,0 +1,116 @@
+---
+title: Appendix D: Working with Packages from the App Store
+docTags: 
+createdAt: Fri Jun 05 2026 13:49:31 GMT+0300 (Eastern European Summer Time)
+---
+
+- :Link[About the App Store]{label="About the App Store" overridedLabel="About the App Store" spaceId docId="uPCoRYuBejJFvOlrTJHBG" version="v2" docAnchorId="#About2" loadingMethod="dynamic" newTab="false" href="App Store.mdx"}
+- :Link[Accessing the App Store]{label="Accessing the App Store" overridedLabel="Accessing the App Store" spaceId docId="uPCoRYuBejJFvOlrTJHBG" version="v2" docAnchorId="#Accessin" loadingMethod="dynamic" newTab="false" href="App Store.mdx"}
+- :Link[Downloading and Importing an App Store Package]{label="Downloading and Importing an App Store Package" overridedLabel="Downloading and Importing an App Store Package" spaceId docId="uPCoRYuBejJFvOlrTJHBG" version="v2" docAnchorId="#Download" loadingMethod="dynamic" newTab="false" href="App Store.mdx"}
+- :Link[Troubleshooting Problems with App Store Packages]{label="Troubleshooting Problems with App Store Packages" overridedLabel="Troubleshooting Problems with App Store Packages" spaceId docId="uPCoRYuBejJFvOlrTJHBG" version="v2" docAnchorId="#Troubles" loadingMethod="dynamic" newTab="false" href="App Store.mdx"}
+
+## About the App Store
+
+Starting in HEAT Service Management Release 2015.1, we released a new applications store (App Store) where you can download optional software created by both Ivanti Software and other companies. The optional software in the App Store is bundled into packages.
+
+The App Store is a collection of apps that can extend your Ivanti Software applications. Some apps include special packages that you can import into Ivanti Service Manager to modify the behavior of the system; other apps are integrations to other applications.
+
+To create your own app, see the link “How to Develop an App” on the home page of the App Store.
+
+The App Store provides different certification levels for the apps, which help you understand the level of support provided for a given app. Some apps are available on an “as-is” basis as a sample, and are available to use at your own risk. Some apps are supported directly by Ivanti Software and some apps come from certified software partners.
+
+Not all apps have an associated package; some require licensing additional software from partners to enable the functionality. These requirements are described in the app description.
+
+## Accessing the App Store
+
+Follow these steps to access the App Store:
+
+1. Navigate to https\://support.heatsoftware.com.
+2. Do the following:
+
+<Paragraph indent="1">
+  a. Enter your user name and password.
+</Paragraph>
+
+<Paragraph indent="1">
+  b. Press Login.
+</Paragraph>
+
+The system may require you to log in using external authentication. If so, enter your user name and click Sign in with your\_company\_name.
+
+3. If the system prompts you, select the Self Service role and click Submit. The system opens to the Self Service home page.
+4. From the top tool bar, click More... and select App Store. You are now in the App Store.
+
+## Downloading and Importing an App Store Package
+
+1. Access the App Store as described in :Link[Accessing the App Store]{label="Accessing the App Store" overridedLabel="Accessing the App Store" spaceId docId="uPCoRYuBejJFvOlrTJHBG" version="v2" docAnchorId="#Accessin" loadingMethod="dynamic" newTab="false" href="App Store.mdx"}.
+2. Open the app to use. Download the documentation associated with the app, and ensure that you meet all of the prerequisites.
+3. Download the .metadatapatch files associated with the app. These are the actual package files to be imported.
+4. Import the package into the staging instance of your tenant by following the directions in :Link[Importing a Package]{label="Importing a Package" overridedLabel="Importing a Package" spaceId docId="09HNL1mmV8N-c_aWcP1z_" version="v2" docAnchorId="#Importingpackage" loadingMethod="dynamic" newTab="false" githubPath="ProjectOLH.htm#Importingpackage" href="ProjectOLH.mdx"}. This automatically creates a project for this package in your staging system.
+
+<hint type="info">
+  You should always validate any new package before applying it to a production environment, even partner certified or Ivanti Software-supplied packages. Package behavior can vary based on your specific configuration. By doing the validation in staging, any necessary changes can also be applied.
+</hint>
+
+5. Test the package on the staging instance of your tenant.
+6. If you need to make any changes to your system based on your testing, do the following:
+
+<Paragraph indent="1">
+  a. Open the project that the system created when you imported the package. Ensure that this is the active project so that the system adds any changes that you make to this project.
+</Paragraph>
+
+<Paragraph indent="1">
+  b. Make the required changes.
+</Paragraph>
+
+<Paragraph indent="1">
+  c. Create a new package for the changes. See :Link[Creating a Package]{label="Creating a Package" overridedLabel="Creating a Package" spaceId docId="09HNL1mmV8N-c_aWcP1z_" version="v2" docAnchorId="#Creating2" loadingMethod="dynamic" newTab="false" githubPath="ProjectOLH.htm#Creating2" href="ProjectOLH.mdx"}.
+</Paragraph>
+
+<Paragraph indent="1">
+  d. Export the package. See :Link[Exporting a Package]{label="Exporting a Package" overridedLabel="Exporting a Package" spaceId docId="09HNL1mmV8N-c_aWcP1z_" version="v2" docAnchorId="#Exportin2" loadingMethod="dynamic" newTab="false" githubPath="ProjectOLH.htm#Exportin2" href="ProjectOLH.mdx"}.
+</Paragraph>
+
+<hint type="info">
+  If you did not make any changes, you do not need to create a new package as you can just use the one that you imported in step 3.
+</hint>
+
+7. Refresh the UAT instance of your tenant. It is very important that the UAT instance accurately reflects the current state of the production instance of your tenant, to get an accurate UAT assessment.
+8. Import the package into the UAT instance of your tenant by following the directions in :Link[Importing a Package]{label="Importing a Package" overridedLabel="Importing a Package" spaceId docId="09HNL1mmV8N-c_aWcP1z_" version="v2" docAnchorId="#Importingpackage" loadingMethod="dynamic" newTab="false" githubPath="ProjectOLH.htm#Importingpackage" href="ProjectOLH.mdx"}. This automatically creates a project for this package in your UAT system.
+9. Test the package on the UAT instance of your tenant.
+10. If you need to make any changes to your system based on your testing, do the following:
+
+<Paragraph indent="1">
+  a. Open the project that the system created when you imported the package. Ensure that this is the active project so that the system adds any changes that you make to this project.
+</Paragraph>
+
+<Paragraph indent="1">
+  b. Make the required changes.
+</Paragraph>
+
+<Paragraph indent="1">
+  c. Create a new package for the changes. See :Link[Creating a Package]{label="Creating a Package" overridedLabel="Creating a Package" spaceId docId="09HNL1mmV8N-c_aWcP1z_" version="v2" docAnchorId="#Creating2" loadingMethod="dynamic" newTab="false" githubPath="ProjectOLH.htm#Creating2" href="ProjectOLH.mdx"}.
+</Paragraph>
+
+<Paragraph indent="1">
+  d. Export the package. See :Link[Exporting a Package]{label="Exporting a Package" overridedLabel="Exporting a Package" spaceId docId="09HNL1mmV8N-c_aWcP1z_" version="v2" docAnchorId="#Exportin2" loadingMethod="dynamic" newTab="false" githubPath="ProjectOLH.htm#Exportin2" href="ProjectOLH.mdx"}.
+</Paragraph>
+
+<hint type="info">
+  If you did not make any changes, you do not need to create a new package as you can just use the one that you imported in step 7.
+</hint>
+
+11. Close the package when you are satisfied with it and know that you will make no more changes.
+12. Back up the production instance of your tenant.
+13. sample
+14. Import the package. If you have locked the production instance of your tenant, enable the Ivanti Service Manager development package and then push the package. (See :Link[The Four Ways to Migrate Data]{label="The Four Ways to Migrate Data" overridedLabel="The Four Ways to Migrate Data" spaceId docId="nnlG7pdbdUpnH_QlL9PjG" version="v2" docAnchorId="#The" loadingMethod="dynamic" newTab="false" githubPath="Migration_Process.htm#The" href="Migration_Process.mdx"} for a list of the ways to migrate data.)
+15. Import the package into the production instance of your tenant by following the directions in :Link[Importing a Package]{label="Importing a Package" overridedLabel="Importing a Package" spaceId docId="09HNL1mmV8N-c_aWcP1z_" version="v2" docAnchorId="#Importingpackage" loadingMethod="dynamic" newTab="false" githubPath="ProjectOLH.htm#Importingpackage" href="ProjectOLH.mdx"}. The system analyzes the impact of the package.
+16. If the impact is green or yellow, you can import the package directly. We recommend doing this during off hours, so users are not impacted by the change.
+17. If the impact is red, create an incident with Support requesting that they push the package to the production instance of your tenant. After they receive the request, Support moves the package into the production environment.
+
+## Troubleshooting Problems with App Store Packages
+
+- You must import the package into the staging or UAT instance of your tenant. Support cannot import the package for you.
+- You must close the package before you send it to Support.
+- If Support finds any errors while migrating the package, they will send it back to you with the log that contains the error messages. You must fix the errors and then repeat the process of testing the package in the staging instance of your tenant, exporting the package to the UAT instance of your tenant, and requesting a new migration from Support.
+- If there are any problems with the data migration, Support will restore the database from a backup. Report any issues quickly to minimize losing any new transactions because of the restoration from a backup.

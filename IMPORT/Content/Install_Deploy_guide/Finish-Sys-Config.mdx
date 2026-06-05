@@ -1,0 +1,35 @@
+---
+title: Finishing the System Configuration
+docTags: 
+createdAt: Fri Jun 05 2026 13:49:30 GMT+0300 (Eastern European Summer Time)
+---
+
+When you have finished configuring the ISM Discovery web server, do the following:
+
+For up to 2025.3 version
+
+1. Click Finish. The System Configuration Wizard closes and the system displays the Completed page of the install wizard.
+2. Click Finish in the installer page.
+3. Restart the host server that you just configured.
+4. Verify that you can access \{\{Primary.Product}} by navigating to http\://server\_name/HEAT.
+
+For 2025.4 and above version
+
+1. Click Finish. If AppServer Module is present in the environment, it launches the Powershell automatically and runs the **install.ps1** script from C:\Program Files (x86)\HEAT Software\Prerequisite and prompts you to:
+   - **TeamsBot**: Select Yes to install TeamsBot or **no** to skip.
+   - **Additional Services**: Select **Yes** for **ActionService**, **FRSSurvey**, and **FRSSurveyProxy** or **no** to skip.
+   - **CacheRebuild**: Select **Yes** to install or **no** to skip.
+
+<hint type="info" indent="2">
+  Cache rebuild is mandatory while installing for the first time. When re-running the SCW you can skip the Cache rebuild.
+</hint>
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/k5KGCOZlch7-Z61S4CPVV_cacherebuild.png" position="flex-start" size="40" indent="2" initialPath="Install_Deploy_Images/CacheRebuild.png" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Install_Deploy_Images/CacheRebuild.png"></Image>
+
+<Paragraph indent="2">
+  Once the **CacheRebuild** completes it restarts the IIS , closes SCW automatically, and returns to the installer.
+</Paragraph>
+
+2. Click Finish in the installer page.
+3. Restart the host server that you just configured.
+4. Verify that you can access \{\{Primary.Product}} by navigating to http\://server\_name/HEAT.

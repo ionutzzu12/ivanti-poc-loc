@@ -1,0 +1,58 @@
+---
+title: Securing IIS website
+docTags: 
+createdAt: Fri Jun 05 2026 13:49:31 GMT+0300 (Eastern European Summer Time)
+---
+
+Neurons for ITSM on-premises installation allows installing ITSM modules on multiple machines and this requires securing the infrastructure within and outside the intranet. To ensure secure installation, administrators can define and manage rules that allow or deny access of specific IP addresses, range of IP addresses, or domain name(s) to the modules.
+
+## Add access restriction for CentralConfig application
+
+1. Open the Internet Information Services (IIS) of the machine in which the **CentralConfig** is installed.
+2. Select **CentralConfig** web application.
+3. Select the **Features View** tab and select the **IP Address and Domain Restriction** option.
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/HYcJ3ccJxENKKpv8y0nDY_featuresviewinconfigdb.png" position="flex-start" size="40" indent="1" initialPath="Config_Images/FeaturesViewInConfigDB.png" githubPath="ITSM-On-Prem-Help/Content/ConfigDB_Guide/Config_Images/FeaturesViewInConfigDB.png"></Image>
+
+4. Alternatively, if **IP Address and Domain Restriction** is not available,
+
+<Paragraph indent="1">
+  a. Open **Server Manager** by clicking **Start** > **Administrative Tools** > **Server Manager**.
+</Paragraph>
+
+<Paragraph indent="1">
+  b. Select **Role-based or Feature-based**, then select your server and click **Next**.
+</Paragraph>
+
+<Paragraph indent="1">
+  c. Click **Add Role Services** to add the required role.
+</Paragraph>
+
+<Paragraph indent="1">
+  d. From the **Select Role Services**, navigate to **Web Server (IIS)** > **Web Server** > **Security**.
+</Paragraph>
+
+<Paragraph indent="1">
+  e. Select the **IP and Domain Restrictions** checkbox and click **Next**.
+</Paragraph>
+
+<Paragraph indent="1">
+  f. From the **Confirm Installation Selections** page, click **Install to add the IP and Domain Restrictions** role services.
+</Paragraph>
+
+5. Select **IP Addresses and Domain Restrictions** > **Add Allow Entries**.
+6. Add the IP Addresses you want to allow.
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/5R3SAXS_RtfA2G2dtu25y_add-ip-entries.png" position="flex-start" size="40" indent="1" initialPath="Config_Images/Add-IP-Entries.png" githubPath="ITSM-On-Prem-Help/Content/ConfigDB_Guide/Config_Images/Add-IP-Entries.png"></Image>
+
+7. Click **Edit Feature Setting** on the right panel.
+8. Ensure the **Deny** checkbox is selected.
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/m7UTHN9YDXiBY9tHbPEvv_deny-option.png" position="flex-start" size="40" indent="1" initialPath="Config_Images/Deny-option.png" githubPath="ITSM-On-Prem-Help/Content/ConfigDB_Guide/Config_Images/Deny-option.png"></Image>
+
+9. Add the IP Address of Central Config Machine.
+10. Reset IIS.
+
+<hint type="info">
+  Repeat the process to add more IP Addresses if more services are installed on other different machines.
+</hint>

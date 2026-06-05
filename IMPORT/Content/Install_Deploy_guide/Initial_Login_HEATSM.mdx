@@ -1,0 +1,51 @@
+---
+title: Logging into Neurons for ITSM
+docTags: 
+createdAt: Fri Jun 05 2026 13:49:30 GMT+0300 (Eastern European Summer Time)
+---
+
+- :Link[Logging In Using the Standard Login Dialog Box]{label="Logging In Using the Standard Login Dialog Box" overridedLabel="Logging In Using the Standard Login Dialog Box" spaceId docId="5AXHeQ4DnCFIvLk2Q69qq" version="v2" docAnchorId="#h2_Standard_Login_Dialog_Box" loadingMethod="dynamic" newTab="false" href="Initial_Login_HEATSM.mdx"}
+- :Link[Logging In Using the Standard Login Dialog Box with an Application Menu]{label="Logging In Using the Standard Login Dialog Box with an Application Menu" overridedLabel="Logging In Using the Standard Login Dialog Box with an Application Menu" spaceId docId="5AXHeQ4DnCFIvLk2Q69qq" version="v2" docAnchorId="#h2_Login_Dialog_Box_With_Application_Menu" loadingMethod="dynamic" newTab="false" href="Initial_Login_HEATSM.mdx"}
+- :Link[Adding the Application Menu Option to the Standard Login Dialog Box]{label="Adding the Application Menu Option to the Standard Login Dialog Box" overridedLabel="Adding the Application Menu Option to the Standard Login Dialog Box" spaceId docId="5AXHeQ4DnCFIvLk2Q69qq" version="v2" docAnchorId="#h2_Editing_Shortcuts" loadingMethod="dynamic" newTab="false" href="Initial_Login_HEATSM.mdx"}
+
+## Logging In Using the Standard Login Dialog Box
+
+The standard login dialog box enables you to access \{\{Primary.Product}} on the host that you are logged into now. You see this dialog box when you click the any of the following:
+
+- The \{\{Primary.Product}} desktop shortcut
+- The Windows apps menu shortcut
+
+In the dialog box, enter your user name and password, and then click Login.
+
+*Standard Login Dialog Box*
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/yljCHU2YkHq9vzCvxh2ya_heatsmlogindbnomenu.png" position="flex-start" size="40" initialPath="Install_Deploy_Images/HEAT_SM_login_db_no_menu.png" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Install_Deploy_Images/HEAT_SM_login_db_no_menu.png"></Image>
+
+<hint type="info">
+  The default username for \{\{Primary.Product}} is HEATAdmin. You created the password when you configured the application database.
+</hint>
+
+## Logging In Using the Standard Login Dialog Box with an Application Menu
+
+This login dialog box enables you to access the following:
+
+- The \{\{Primary.Product}} system on the host that you are logged into now.
+- Individual tenants, such as staging or UAT, if you have more than one.
+- The configuration database (ConfigDB).
+
+In the dialog box, enter your user name and password, select an application, and click Login.
+
+<hint type="info">
+  - The default username for the configuration database (ConfigDB) is HSWAdmin. You can choose the password when you create the database.
+  - The default username for \{\{Primary.Product}} is HEATAdmin. You can choose the password when you created the application database.
+</hint>
+
+## Adding the Application Menu Option to the Standard Login Dialog Box
+
+To see the login dialog box with the application menu option (only for server-side login), do the following:
+
+1. Go to C:\Program Files\HEAT Software\HEAT\AppServer\\.
+2. Right-click the HEAT.url file, and choose Properties.
+3. Change the host name and port number to localhost. For example, change http\://SERVER2012:80/HEAT to http\://localhost/HEAT.
+4. Click OK.
+5. Open a directory window or a browser window and enter either localhost/HEAT or http\://localhost/HEAT.

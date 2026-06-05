@@ -1,0 +1,44 @@
+---
+title: Verifying Server Roles and Features
+docTags: 
+createdAt: Fri Jun 05 2026 13:49:30 GMT+0300 (Eastern European Summer Time)
+---
+
+You can optionally verify which server roles and features are installed by the \{\{Primary.Product}} installer.
+
+If you install \{\{Primary.Product}} on Windows Server 2012 or Windows Server 2016, verify the Microsoft IIS Release 8.0 configuration. See :Link[Verifying Roles and Features for Windows Server 2012 and 2016]{label="Verifying Roles and Features for Windows Server 2012 and 2016" overridedLabel="Verifying Roles and Features for Windows Server 2012 and 2016" spaceId docId="HTydwsaXymHBGqtPH3W7M" version="v2" docAnchorId="#Verifyin2" loadingMethod="dynamic" newTab="false" href="Server_Roles.mdx"}.
+
+## Verifying Roles and Features for Windows Server 2012 and 2016
+
+1. Go to the Windows apps menu and click **Server Manager**.
+2. Under **configure this local server**, click **Add roles and features**.
+3. On the **Roles** page, verify that these server roles are installed under **Web Server (IIS**) > **Web Server**:
+   - Common HTTP features
+     - Default Document
+     - Directory Browsing
+     - HTTP Errors
+     - Static Content
+   - Health and Diagnostics
+     - HTTP Logging
+   - Performance
+     - Static Content Compression
+     - Dynamic Content Compression
+   - Security
+     - Request Filtering
+   - Application Development
+     - .NET Extensibility
+     - ASP.NET
+     - ISAPI Extensions
+     - ISAPI Filters
+     - Under **Web Server (IIS)** > **Management Tools:**
+     - IIS Management Console
+     - Check the box of any listed server role that is not installed.
+4. On the **Features** page, verify that these features are selected:
+   - NET Framework 4.5
+     - ASP.NET 4.5
+     - WCF Services > HTTP Activation
+   - Windows Process Activation Service
+     - Process Model
+     - Configuration APIs
+     - Check the box of any listed feature that is not installed.
+5. Click **Next** and then click **Install**.

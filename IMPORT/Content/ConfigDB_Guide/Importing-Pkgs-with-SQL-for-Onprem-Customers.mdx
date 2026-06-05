@@ -1,0 +1,22 @@
+---
+title: Importing Packages with SQL
+docTags: 
+createdAt: Fri Jun 05 2026 13:49:31 GMT+0300 (Eastern European Summer Time)
+---
+
+The feature flag **SQLPackageConfig** in the Feature Management section of the Configuration DB is set to True by default from version 2023.2.
+
+When the feature flag is set to True - packages containing SQL queries will fail with warning that the SQL statements failed to run.
+
+**Solution:**
+
+- When importing \{\{Primary.Product}} packages - set the feature flag **SQLPackageConfig** to False to avoid any failures. Once the import is done, ensure to set the feature flag **SQLPackageConfig** back to True.
+- Modify all custom packages which contains SQL queries and remove all references to SQL statements.
+
+## Enabling or Disabling the Feature Flag for on-premise customers
+
+1. Open the Configuration DB.
+2. Navigate to Feature Management.
+3. Search for the feature flag **SQLPackageConfig** and the respective Tenant.
+4. Click on the respective record.
+5. Toggle the status value to enable/disble the feature flag.

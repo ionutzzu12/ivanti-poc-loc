@@ -1,0 +1,247 @@
+---
+title: Configuring Landscapes
+docTags: 
+createdAt: Fri Jun 05 2026 13:49:31 GMT+0300 (Eastern European Summer Time)
+---
+
+For a definition of landscape and common landscape types, see :Link[Landscapes]{label="Landscapes" overridedLabel="Landscapes" spaceId docId="N5-aUJp0BHseE-cskrxZB" version="v2" docAnchorId="#Landscap" loadingMethod="dynamic" newTab="false" githubPath="Terminology.htm#Landscap" href="Terminology.mdx"}.
+
+- :Link[About the Landscape Workspace]{label="About the Landscape Workspace" overridedLabel="About the Landscape Workspace" spaceId docId="8eKoisZQmWu1O91nuONnS" version="v2" docAnchorId="#About" loadingMethod="dynamic" newTab="false" href="OpsConsole_Landscapes.mdx"}
+- :Link[Working with Landscape Groups]{label="Working with Landscape Groups" overridedLabel="Working with Landscape Groups" spaceId docId="8eKoisZQmWu1O91nuONnS" version="v2" docAnchorId="#top" loadingMethod="dynamic" newTab="false" href="OpsConsole_Landscapes.mdx"}
+- :Link[Working with Landscapes]{label="Working with Landscapes" overridedLabel="Working with Landscapes" spaceId docId="8eKoisZQmWu1O91nuONnS" version="v2" docAnchorId="#Adding" loadingMethod="dynamic" newTab="false" href="OpsConsole_Landscapes.mdx"}
+- :Link[Working with Database Servers]{label="Working with Database Servers" overridedLabel="Working with Database Servers" spaceId docId="8eKoisZQmWu1O91nuONnS" version="v2" docAnchorId="#Working" loadingMethod="dynamic" newTab="false" href="OpsConsole_Landscapes.mdx"}
+
+### About the Landscape Workspace
+
+Use the Landscape workspace to perform a variety of landscape management activities, including creating and configuring landscape groups, landscapes, and database servers. You must create a landscape group before you can create a landscape, and you must create a landscape before you can create any tenants.
+
+### Working with Landscape Groups
+
+- :Link[About Landscape Groups]{label="About Landscape Groups" overridedLabel="About Landscape Groups" spaceId docId="8eKoisZQmWu1O91nuONnS" version="v2" docAnchorId="#Landscap" loadingMethod="dynamic" newTab="false" href="OpsConsole_Landscapes.mdx"}
+- :Link[Adding a Landscape Group]{label="Adding a Landscape Group" overridedLabel="Adding a Landscape Group" spaceId docId="8eKoisZQmWu1O91nuONnS" version="v2" docAnchorId="#Adding2" loadingMethod="dynamic" newTab="false" href="OpsConsole_Landscapes.mdx"}
+- :Link[Editing a Landscape Group]{label="Editing a Landscape Group" overridedLabel="Editing a Landscape Group" spaceId docId="8eKoisZQmWu1O91nuONnS" version="v2" docAnchorId="#Editing3" loadingMethod="dynamic" newTab="false" href="OpsConsole_Landscapes.mdx"}
+- :Link[Deleting a Landscape Group]{label="Deleting a Landscape Group" overridedLabel="Deleting a Landscape Group" spaceId docId="8eKoisZQmWu1O91nuONnS" version="v2" docAnchorId="#Deleting3" loadingMethod="dynamic" newTab="false" href="OpsConsole_Landscapes.mdx"}
+
+### About Landscape Groups
+
+A landscape group is a group comprised of different landscapes. The following are examples of landscape groups:
+
+- Independent landscapes group: The production, staging, and UAT landscapes all have different Ivanti Service Manager configuration databases. Each landscape is on a separate server which makes it easier to independently shut down or restart the servers, if needed. However, this option requires more hardware, which means you need additional licenses.
+- Shared landscapes group: The production landscape has its own Ivanti Service Manager configuration database and the staging and UAT landscapes share the same Ivanti Service Manager configuration database. This makes it easier to perform upgrades because you have to upgrade the staging and UAT landscapes at the same time. (All landscapes must use the same release of Ivanti Service Manager in order to migrate data.) This is typically how Ivanti Service Manager Cloud systems are deployed.
+- All-in-one landscape group: The production, staging, and UAT landscapes all share the same Ivanti Service Manager configuration database and servers. This deployment is used mainly by testing and development teams or systems with limited resources.
+
+We recommend using either an independent or shared landscape group. However, there are advantages and disadvantages to each landscape group.  See the Installation and Deployment Guide for Ivanti Service Manager for more information about the different deployment types.
+
+<hint type="info">
+  We highly recommend that you only install the Operations Console in the staging landscape, and not in any other landscape. For migrating data, you only need to install the Operations Console in one landscape; you should not install it in more than one landscape.
+</hint>
+
+### Adding a Landscape Group
+
+You must add a landscape group before you can add any landscapes. To add a landscape group, do the following:
+
+1. Log in to the Operations Console.
+2. Click the Landscape tab. The system displays the Landscape workspace.
+3. Click Landscape Group on the left. The system displays all of the landscape groups in the system.
+4. Click Add Landscape Group. The system displays the Add New Landscape Group page. See :Link[Add New Landscape Group Page]{label="Add New Landscape Group Page" overridedLabel="Add New Landscape Group Page" spaceId docId="8eKoisZQmWu1O91nuONnS" version="v2" docAnchorId="#FIG_OCALG" loadingMethod="dynamic" newTab="false" href="OpsConsole_Landscapes.mdx"}.
+
+*Add New Landscape Group Page*
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/R-if-l_wqvlkeTvT8bhUY_oc-landscape-addgroup.png" position="flex-start" size="40" initialPath="ops_Images/OC-Landscape-AddGroup.png" githubPath="ITSM-On-Prem-Help/Content/ops_console_ug/ops_Images/OC-Landscape-AddGroup.png"></Image>
+
+5. Enter a name for the landscape group.
+6. Choose the default backup type.  You can either select Microsoft SQL or LiteSpeed. Note that LiteSpeed is not supported for Ivanti Service Manager on-premise customers.
+7. If you selected LiteSpeed as the default backup type, you must check LiteSpeed Enabled.  Otherwise, leave it empty.
+
+<hint type="info">
+  Ivanti Service Manager supports using LiteSpeed for Microsoft SQL Server for backing up your Ivanti Service Manager databases. Before you can use LiteSpeed for Microsoft SQL Server, you must purchase it, install it on your system, and configure the Operations Console to support it.
+</hint>
+
+8. Ensure that Two Tier Landscape is not checked. With a two-tier landscape group, the migration path is only between two tenant instances, usually the production instance of the tenant and the staging instance of the tenant. If you do not check th is option, you have a three-tier landscape group. With a three-tier landscape group, there are migration paths between three tenant instances, usually the production instance of the tenant, the staging instance of the tenant, and the UAT instance of the tenant.
+
+<hint type="info">
+  We recommend always using a three-tier landscape group unless you have a demo environment.
+</hint>
+
+9. Click Save.
+
+### Editing a Landscape Group
+
+1. Log in to the Operations Console.
+2. Click the Landscape tab. The system displays the Landscape workspace.
+3. Click Landscape Group on the left. The system displays all of the landscape groups in the system.
+4. Do one of the following:
+   - Click the underlined name of the landscape group. In the resulting dialog box, click Edit.
+   - Click the pencil icon to the right of the landscape group name.
+5. Edit the values.
+6. Click Save.
+
+### Deleting a Landscape Group
+
+1. Log in to the Operations Console.
+2. Click the Landscape tab. The system displays the Landscape workspace.
+3. Click Landscape Group on the left. The system displays all of the landscape groups in the system.
+4. Click the red X to the right of the landscape group name to delete it.
+5. In the resulting dialog box, click OK.
+
+### Working with Landscapes
+
+- :Link[About Landscapes]{label="About Landscapes" overridedLabel="About Landscapes" spaceId docId="8eKoisZQmWu1O91nuONnS" version="v2" docAnchorId="#Landscap2" loadingMethod="dynamic" newTab="false" href="OpsConsole_Landscapes.mdx"}
+- :Link[Adding a Landscape]{label="Adding a Landscape" overridedLabel="Adding a Landscape" spaceId docId="8eKoisZQmWu1O91nuONnS" version="v2" docAnchorId="#Adding3" loadingMethod="dynamic" newTab="false" href="OpsConsole_Landscapes.mdx"}
+- :Link[Editing a Landscape]{label="Editing a Landscape" overridedLabel="Editing a Landscape" spaceId docId="8eKoisZQmWu1O91nuONnS" version="v2" docAnchorId="#Editing" loadingMethod="dynamic" newTab="false" href="OpsConsole_Landscapes.mdx"}
+- :Link[Deleting a Landscape]{label="Deleting a Landscape" overridedLabel="Deleting a Landscape" spaceId docId="8eKoisZQmWu1O91nuONnS" version="v2" docAnchorId="#Deleting" loadingMethod="dynamic" newTab="false" href="OpsConsole_Landscapes.mdx"}
+
+### About Landscapes
+
+A landscape consists of a Ivanti Service Manager configuration database and two Ivanti Service Manager web servers for connecting to the Ivanti Service Manager application server.
+
+After you create a landscape group, you can start creating landscapes to add to it. You can have a maximum of one of the following landscape types in a landscape group:
+
+- Production
+- Staging
+- UAT
+- Development
+- Pilot
+
+### Adding a Landscape
+
+1. Log in to the Operations Console.
+2. Click the Landscape tab. The system displays the Landscape workspace.
+3. Click Landscape on the left. The system displays all of the landscapes in the landscape group.
+4. (Optional) To view the landscapes for a different landscape group, select a different landscape group from the drop-down list and click Go. The system displays all of the landscapes in the landscape group.
+5. Click Add Landscape. The system displays the New Landscape page. See :Link[New Landscape Page]{label="New Landscape Page" overridedLabel="New Landscape Page" spaceId docId="8eKoisZQmWu1O91nuONnS" version="v2" docAnchorId="#FIG_HOCAL" loadingMethod="dynamic" newTab="false" href="OpsConsole_Landscapes.mdx"}.
+
+*New Landscape Page*
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/q6PW4iKW0un-yozmjqx6k_oc-landscapeadd.png" position="flex-start" size="40" initialPath="ops_Images/OC-Landscape_Add.png" githubPath="ITSM-On-Prem-Help/Content/ops_console_ug/ops_Images/OC-Landscape_Add.png"></Image>
+
+5. Select a landscape type from the drop-down list.
+6. Select the landscape group to which this landscape will be attached.
+7. Enter the name of the Ivanti Service Manager configuration database server.
+8. Enter the name of the Ivanti Service Manager configuration database.
+9. Click Test Connectivity to test the connection from the Operations Console to the Ivanti Service Manager configuration database.
+10. If you are using Windows Integrated Security, check Windows Authentication. 
+
+<hint type="info">
+  If you check Window Authentication, the system hides the Database User ID, Database User Password, and Confirm User Password fields.  These fields are only displayed if you do not check Window Authentication, which means that you are using Microsoft SQL authentication.
+</hint>
+
+11. If you did not check Window Authentication, enter values into the Database User ID, Database User Password, and Confirm User Password fields.
+12. Enter a tenant ID pattern. This is the format in which all tenants in this landscape will be named. You can optionally use the \{\{tenantName}} variable as a placeholder for the tenant name. The following are examples:
+    - \{\{tenantName}} for the production instance of the tenant.
+    - \{\{tenantName}}.stg for the staging instance of the tenant.
+    - \{\{tenantName}}.uat for the UAT instance of the tenant.
+
+For example, if the value of the \{\{tenantName}} parameter is demo1, then for the production landscape, the tenant ID is demo1 and the URL is http\://demo1/HEAT; for the staging landscape, the tenant ID is demo1-STG and the URL is http\://demo1-STG/HEAT; and for the UAT landscape, the tenant ID is demo1-UAT and the URL is http\://demo1-UAT/HEAT.
+
+13. Enter a database name pattern. This is the format in which all databases in this landscape will be named. You can optionally use the \{\{dbName}} variable as a placeholder for the database name. The following are examples:
+    - \{\{dbName}} for the production instance of the tenant.
+    - \{\{dbName}}-STG for the staging instance of the tenant.
+    - \{\{dbName}}-UAT for the UAT instance of the tenant.
+
+For example, if the value of the \{\{dbName}} parameter is TRAINING, then the database name for the production landscape is TRAINING; the database name for the staging landscape is TRAINING-STG; and the database name for the UAT landscape is TRAINING-UAT.
+
+14. Enter the URL for the Ivanti Service Manager configuration service, which is the location of the Ivanti Service Manager configuration database. The value must be in the format http\[s]://Central\_ConfigDB\_hostname/CentralConfig/ConfigServiceAPI.asmx. Click Test to ensure that Ivanti Service Manager can contact the URL.
+15. Enter the URL for the multi-instance service. This is the web service URL for connecting to a tenant. The value must be in the format http\[s]://App\_Server\_hostname/HEAT/services/MultiInstanceManager.asmx. Click Test to ensure that Ivanti Service Manager can contact the URL.
+16. Enter the email domain string for your organization.
+17. Check Allow All Backup Options to allow all backup options for tenant and tenant instances that are part of this landscape. See :Link[Backup Types]{label="Backup Types" overridedLabel="Backup Types" spaceId docId="N5-aUJp0BHseE-cskrxZB" version="v2" docAnchorId="#Backup" loadingMethod="dynamic" newTab="false" githubPath="Terminology.htm#Backup" href="Terminology.mdx"} for more information about database backup types.
+18. Click Save.
+
+### Editing a Landscape
+
+1. Log in to the Operations Console.
+2. Click the Landscape tab. The system displays the Landscape workspace.
+3. Click Landscape on the left. The system displays all of the landscapes in the landscape group.
+4. (Optional) To view the landscapes for a different landscape group, select a different landscape group from the drop-down list and click Go. The system displays all of the landscapes in the landscape group.
+5. Do one of the following:
+   - Click the underlined name of the landscape. In the resulting dialog box, click Edit.
+   - Click the pencil icon to the right of the landscape name.
+6. Edit the values.
+7. Click OK.
+
+### Deleting a Landscape
+
+1. Log in to the Operations Console.
+2. Click the Landscape tab. The system displays the Landscape workspace.
+3. Click Landscape on the left. The system displays all of the landscapes in the landscape group.
+4. (Optional) To view the landscapes for a different landscape group, select a different landscape group from the drop-down list and click Go. The system displays all of the landscapes in the landscape group.
+5. Click the red X to the right of the landscape name.
+6. In the resulting dialog box, click OK.
+
+### Working with Database Servers
+
+- :Link[About Database Servers]{label="About Database Servers" overridedLabel="About Database Servers" spaceId docId="8eKoisZQmWu1O91nuONnS" version="v2" docAnchorId="#Database" loadingMethod="dynamic" newTab="false" href="OpsConsole_Landscapes.mdx"}
+- :Link[Adding a Database Server]{label="Adding a Database Server" overridedLabel="Adding a Database Server" spaceId docId="8eKoisZQmWu1O91nuONnS" version="v2" docAnchorId="#Adding4" loadingMethod="dynamic" newTab="false" href="OpsConsole_Landscapes.mdx"}
+- :Link[Editing a Database Server]{label="Editing a Database Server" overridedLabel="Editing a Database Server" spaceId docId="8eKoisZQmWu1O91nuONnS" version="v2" docAnchorId="#Editing2" loadingMethod="dynamic" newTab="false" href="OpsConsole_Landscapes.mdx"}
+- :Link[Deleting a Database Server]{label="Deleting a Database Server" overridedLabel="Deleting a Database Server" spaceId docId="8eKoisZQmWu1O91nuONnS" version="v2" docAnchorId="#Deleting2" loadingMethod="dynamic" newTab="false" href="OpsConsole_Landscapes.mdx"}
+
+### About Database Servers
+
+Each landscape must have one or more Ivanti Service Manager database servers associated with it to host the tenant instance databases. The Ivanti Service Manager database server is controlled by the Ivanti Service Manager configuration database. You must specify the data and backup locations for the database server before you can add a tenant using the Operations Console.
+
+Ivanti Service Manager database servers either use Windows Integrated Security or by Microsoft SQL Server authentication, in which case you must enter a user name and password. You define which authentication model to use when you initially install Ivanti Service Manager using the System Configuration Wizard.
+
+### Adding a Database Server
+
+To add a database server, do the following:
+
+1. Log in to the Operations Console.
+2. Click the Landscape tab. The system displays the Landscape workspace.
+3. Click Database Server on the left. The system displays all of the database servers in the landscape.
+4. (Optional) To view the database servers for a different landscape, select a different landscape from the drop-down list and click Go. The system displays all of the database servers in the landscape.
+5. Click Add Database Server. The system displays the Database Server screen as shown in :Link[Add a Database Server Screen]{label="Add a Database Server Screen" overridedLabel="Add a Database Server Screen" spaceId docId="8eKoisZQmWu1O91nuONnS" version="v2" docAnchorId="#FIG_AddDB" loadingMethod="dynamic" newTab="false" href="OpsConsole_Landscapes.mdx"}.
+
+*Add a Database Server Screen*
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/JayBpCFJDq8LAvDxeKKvr_editdbserverdeploy2.png" position="flex-start" size="40" initialPath="ops_Images/EditDBServerDeploy2.png" githubPath="ITSM-On-Prem-Help/Content/ops_console_ug/ops_Images/EditDBServerDeploy2.png"></Image>
+
+5. Enter a name for the database server. This is usually the host name, IP address, or machine name.  
+6. Enter a database login ID and password. The database login ID must have permission to back up any tenant or tenant instance database; must have permission to restore any tenant or tenant instance database; and must become the database owner of any new databases that are created on the tenant or tenant instance. The database login ID must have read and write access to the data location and backup locations.
+7. Click Test Connectivity to test the connectivity between the Operations Console and the Ivanti Service Manager databases.
+
+<hint type="info">
+  If you are using Windows Integrated Security (as opposed to Microsoft SQL authentication), the Database Login Id, Login Password, and Confirm Password fields are not shown.  These fields are only displayed if you are using Microsoft SQL authentication.
+</hint>
+
+8. Do not check Active, Clustered, or Mirrored. These are internal settings that should not be used.
+9. Enter a location for the database server data. Do not enter a UNC path. Change the application pool identity so that it has read access to the data location.
+10. Enter the location of the transaction log. Do not enter a UNC path. Change the application pool identity so that it has read access to the transaction log location.
+11. Enter a location for the backup data for the database server. This is used for the automatic transfer of the database backup files from the source Microsoft SQL database server to the target Microsoft SQL database server.
+    - If you have more than one database server, each database server must have its own backup data location, but it must be a shared location that is dedicated for Ivanti Service Manager backups. Use a UNC path if you are using a shared location. Do not use the Microsoft SQL Server default backup location if you have more than one database server.
+      - Change the application pool identity so that it has read and write permissions on both the Sharing and Security tabs in the Windows Explorer Properties dialog box for the shared backup location.
+      - The identity (user) that the database server runs must have read and write permissions on both the Sharing and Security tabs in the Windows Explorer Properties dialog box for the shared folder used for the database backup location of the given database server.
+      - Change the application pool identity to an account that has read and write permission to the backup data location.
+    - If all of the landscapes share the same database instance, you can use one backup data location.
+12. To test the backup and restore function, select a database from the drop-down list. Click Test Backup & Restore. This may take some time.
+
+<hint type="info">
+  - The drop-down list is only populated if you successfully tested the connection as shown in step 8 above.
+  - Select a small database, such as the Ivanti Service Manager configuration database, to quickly test the user's permission to back up and restore, to ensure that the backup location is set with the correct permissions, and to ensure that the data location for creating the database is correct.
+</hint>
+
+13. Click Save.
+
+### Editing a Database Server
+
+1. Log in to the Operations Console.
+2. Click the Landscape tab. The system displays the Landscape workspace.
+3. Click Database Server on the left. The system displays all of the database servers in the landscape.
+4. (Optional) To view the database servers for a different landscape, select a different landscape from the drop-down list and click Go. The system displays all of the database servers in the landscape.
+5. Do one of the following:
+   - Click the underlined name of the database server. In the resulting dialog box, click Edit.
+   - Click the pencil icon to the right of the database server name.
+6. Edit the values.
+7. Click Save.
+
+### Deleting a Database Server
+
+<hint type="info">
+  You cannot delete a database server that is in use.
+</hint>
+
+1. Log in to the Operations Console.
+2. Click the Landscape tab. The system displays the Landscape workspace.
+3. Click Database Server on the left. The system displays all of the database servers in the landscape.
+4. (Optional) To view the database servers for a different landscape, select a different landscape from the drop-down list and click Go. The system displays all of the database servers in the landscape.
+5. Click the red X to the right of the database server name.
+6. In the resulting dialog box, click OK.

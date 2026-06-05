@@ -1,0 +1,35 @@
+---
+title: Server and Connection Tuning
+docTags: 
+createdAt: Fri Jun 05 2026 13:49:31 GMT+0300 (Eastern European Summer Time)
+---
+
+This section describes how to configure servers and the connections between them in Ivanti Service Manager to optimize performance.
+
+- :Link[Ensuring that Hardware and Software Prerequisites are Met]{label="Ensuring that Hardware and Software Prerequisites are Met" overridedLabel="Ensuring that Hardware and Software Prerequisites are Met" spaceId docId="wo413gTiPg15PvKieN6NO" version="v2" docAnchorId="#server.connection.tuning_2569612744_1059532" loadingMethod="dynamic" newTab="false" href="server_connection_tuning.mdx"}
+- :Link[Optimizing Network Utilization and Bandwidth]{label="Optimizing Network Utilization and Bandwidth" overridedLabel="Optimizing Network Utilization and Bandwidth" spaceId docId="wo413gTiPg15PvKieN6NO" version="v2" docAnchorId="#server.connection.tuning_2569612744_1060951" loadingMethod="dynamic" newTab="false" href="server_connection_tuning.mdx"}
+- :Link[Deactivating Unused Web Servers in the Ivanti Service Manager Configuration Database]{label="Deactivating Unused Web Servers in the Ivanti Service Manager Configuration Database" overridedLabel="Deactivating Unused Web Servers in the Ivanti Service Manager Configuration Database" spaceId docId="wo413gTiPg15PvKieN6NO" version="v2" docAnchorId="#Removing_Unused_WebServers_in_the_HEATConfigurationDatabase" loadingMethod="dynamic" newTab="false" href="server_connection_tuning.mdx"}
+- [Working with Log Files and Logging Levels](Logging_levels.mdx)
+- [Configuring the Application Pool Recycling Schedule](Configure_the_Applicatio1.mdx)
+
+## Ensuring that Hardware and Software Prerequisites are Met
+
+Hardware and software requirements for Ivanti Service Manager are listed in the *System Requirements and Compatibility Matrix for Ivanti Service Manager*. Verify that all components in your environment meet those requirements.
+
+## Optimizing Network Utilization and Bandwidth
+
+Recommendations for optimal Ivanti Service Manager performance are:
+
+- Latency of 110 ms or less. See :Link[Checking Database Latency and Moving Indexes to a Separate Disk]{label="Checking Database Latency and Moving Indexes to a Separate Disk" overridedLabel="Checking Database Latency and Moving Indexes to a Separate Disk" spaceId docId="TYkEMyGMRFSnUc_1wK4eX" version="v2" docAnchorId="#Check2" loadingMethod="dynamic" newTab="false" githubPath="Database_tuning.htm#Check2" href="Database_tuning.mdx"} for an example Microsoft SQL script that you can execute to check latency.
+- A minimum of 1.5m bits/second in bandwidth between the Ivanti Service Manager application server and remotely located client computers.
+
+## Deactivating Unused Web Servers in the Ivanti Service Manager Configuration Database
+
+To improve performance, deactivate any unused web servers from the Ivanti Service Manager configuration database. Follow these steps:
+
+1. Log into the Ivanti Service Manager configuration database.
+2. Open the Web Servers workspace.
+3. Click List View to see a list of all of the web servers.
+4. Open the web server to deactivate.
+5. Uncheck Server is Active.
+6. Click Save.
