@@ -24,6 +24,9 @@
   "sites": [
     {"docsPath": "./IMPORT"},
     {"docsPath": "./ENU"},
+    {"docsPath": "./DEU"},
+    {"docsPath": "./CHT"},
+    {"docsPath": "./PLK"},
     {"docsPath": "./ESP"}
   ]
 }
