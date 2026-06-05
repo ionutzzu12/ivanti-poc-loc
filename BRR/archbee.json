@@ -1,0 +1,8 @@
+{
+  "$schema": "https://api.archbee.com/git-config-schema",
+  "docsPath": "./BRR",
+  "structure": {
+    "assets": "assets",
+    "docsTree": []
+  }
+}
