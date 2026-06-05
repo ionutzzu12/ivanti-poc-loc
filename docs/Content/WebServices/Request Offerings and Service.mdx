@@ -1,0 +1,21 @@
+---
+title: Request Offerings and Service Requests
+docTags: 
+createdAt: Fri Jun 05 2026 13:49:31 GMT+0300 (Eastern European Summer Time)
+---
+
+Various Web methods have been added to  the FRSHEATIntegration API, to provide access to the Request Offerings available in the Service Catalog, as well as providing the ability to submit and Service Requests, and retrieve them once they are submitted.
+
+The following table summarizes the available Web Methods for this:
+
+| Web Method                        | Description                                                                                      |
+| --------------------------------- | ------------------------------------------------------------------------------------------------ |
+| GetCategories                     | Get the list of available Categories for the Service Catalog                                     |
+| GetCategoryTemplates              | Get the list of Request Offerings in the Service Catalog, which belong to the indicated Category |
+| GetAllTemplates                   | Get the full list of Request Offerings in the Service Catalog                                    |
+| GetSubscriptionId                 | Fetches the Subscription ID, corresponding to the Request Offering for the current user          |
+| GetPackageData                    | Retrieve the details of the indicated Request Offering                                           |
+| UserCanAccessRequestOffering      | Check whether the current user is entitled to access the given Request Offering                  |
+| SubmitRequest                     | Creates and submits the Service Request, on behalf of a given user                               |
+| GetRequestData                    | Retrieves the data for the given Service Request                                                 |
+| FetchServiceReqValidationListData | Fetch the allowable validation list data for the given Service Request parameter                 |

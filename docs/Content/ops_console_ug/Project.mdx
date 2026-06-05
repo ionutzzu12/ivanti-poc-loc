@@ -1,0 +1,147 @@
+---
+title: Migrating Data using Heat Development Project
+docTags: 
+createdAt: Fri Jun 05 2026 13:49:31 GMT+0300 (Eastern European Summer Time)
+---
+
+<hint type="info">
+  This is the recommended method for migrating data.  See :Link[The Four Ways to Migrate Data]{label="The Four Ways to Migrate Data" overridedLabel="The Four Ways to Migrate Data" spaceId docId="nnlG7pdbdUpnH_QlL9PjG" version="v2" docAnchorId="#The" loadingMethod="dynamic" newTab="false" githubPath="Migration_Process.htm#The" href="Migration_Process.mdx"} for a list of the ways to migrate data.For information about using the Ivanti Service Manager development project with packages that have been downloaded from the App Store, see [Appendix D: Working with Packages from the App Store](<App Store.mdx>).
+</hint>
+
+- :Link[About Using the Ivanti Service Manager Development Project to Migrate Data]{label="About Using the Ivanti Service Manager Development Project to Migrate Data" overridedLabel="About Using the Ivanti Service Manager Development Project to Migrate Data" spaceId docId="IGlA0G_T-g62hgi0fJs_Z" version="v2" docAnchorId="#About2" loadingMethod="dynamic" newTab="false" href="Project.mdx"}
+- :Link[Cautions About the Ivanti Service Manager Development Project]{label="Cautions About the Ivanti Service Manager Development Project" overridedLabel="Cautions About the Ivanti Service Manager Development Project" spaceId docId="IGlA0G_T-g62hgi0fJs_Z" version="v2" docAnchorId="#Cautions" loadingMethod="dynamic" newTab="false" href="Project.mdx"}
+- :Link[About the Ivanti Service Manager Development Project]{label="About the Ivanti Service Manager Development Project" overridedLabel="About the Ivanti Service Manager Development Project" spaceId docId="IGlA0G_T-g62hgi0fJs_Z" version="v2" docAnchorId="#About" loadingMethod="dynamic" newTab="false" href="Project.mdx"}
+- :Link[Using the Ivanti Service Manager Development Project to Create a Data Package]{label="Using the Ivanti Service Manager Development Project to Create a Data Package" overridedLabel="Using the Ivanti Service Manager Development Project to Create a Data Package" spaceId docId="IGlA0G_T-g62hgi0fJs_Z" version="v2" docAnchorId="#Using4" loadingMethod="dynamic" newTab="false" href="Project.mdx"}
+- :Link[Using the Ivanti Service Manager Development Project to Migrate a Data Package]{label="Using the Ivanti Service Manager Development Project to Migrate a Data Package" overridedLabel="Using the Ivanti Service Manager Development Project to Migrate a Data Package" spaceId docId="IGlA0G_T-g62hgi0fJs_Z" version="v2" docAnchorId="#Using5" loadingMethod="dynamic" newTab="false" href="Project.mdx"}
+- :Link[About Metadata Read-Only Mode]{label="About Metadata Read-Only Mode" overridedLabel="About Metadata Read-Only Mode" spaceId docId="IGlA0G_T-g62hgi0fJs_Z" version="v2" docAnchorId="#Working" loadingMethod="dynamic" newTab="false" href="Project.mdx"}
+- [Example: Migrating Request Offering Changes By Enabling the Ivanti Service Manager Development Project](<Example Develop.mdx>)
+
+## About Using the Ivanti Service Manager Development Project to Migrate Data
+
+Use the Ivanti Service Manager development project in the Ivanti Service Manager Configuration Console (not within the Operations Console) to create packages to migrate data from one instance of a tenant (such as staging) to another instance of a tenant (such as UAT). In this way, you can pick and choose which data to migrate instead of migrating the entire system. The Ivanti Service Manager development project allows Ivanti Service Manager to maintain a history of changes in metadata, validation data, configuration settings, and a few specific master data business objects. It also allows you to package a unit of integral changes into a package for migration to another tenant instance.
+
+## Cautions About the Ivanti Service Manager Development Project
+
+- The Ivanti Service Manager development project gives you the ability to update the production instance of your tenant with configuration changes made in the staging instance of the tenant. If these changes conflict in some way with your Ivanti Service Manager system, they cannot be undone.
+- We recommend that you enable and use the Ivanti Service Manager development project to migrate data, and that you do not switch between enabling and disabling the Ivanti Service Manager development project. See :Link[The Four Ways to Migrate Data]{label="The Four Ways to Migrate Data" overridedLabel="The Four Ways to Migrate Data" spaceId docId="nnlG7pdbdUpnH_QlL9PjG" version="v2" docAnchorId="#The" loadingMethod="dynamic" newTab="false" githubPath="Migration_Process.htm#The" href="Migration_Process.mdx"} for a list and description of the four different ways that you can migrate data.
+- We recommend that you plan and prepare for moving a package as described in this section. We strongly encourage you to make a complete backup of the target tenant instance and to create a procedure for restoring the backup if need be:
+  - If there is a problem with the UAT instance of your tenant, you can restore it from the production instance of your tenant using the Operations Console, by refreshing the UAT instance of your tenant.
+  - If there is a problem with the production instance of your tenant, you need to restore the production instance of the tenant from the backup as quickly as possible using Microsoft SQL tools, as any transactions that are created in the production instance of the tenant after a backup and before a restore will be lost.
+- Before you enable and use the Ivanti Service Manager development project, check with Support by visiting [Ivanti Support Team](https://www.ivanti.com/support).
+
+## About the Ivanti Service Manager Development Project
+
+- :Link[Limitations]{label="Limitations" overridedLabel="Limitations" spaceId docId="IGlA0G_T-g62hgi0fJs_Z" version="v2" docAnchorId="#Restrict" loadingMethod="dynamic" newTab="false" href="Project.mdx"}
+- :Link[Terminology]{label="Terminology" overridedLabel="Terminology" spaceId docId="IGlA0G_T-g62hgi0fJs_Z" version="v2" docAnchorId="#Terminol" loadingMethod="dynamic" newTab="false" href="Project.mdx"}
+- :Link[About Using Your Named Account to Log In]{label="About Using Your Named Account to Log In" overridedLabel="About Using Your Named Account to Log In" spaceId docId="IGlA0G_T-g62hgi0fJs_Z" version="v2" docAnchorId="#Using3" loadingMethod="dynamic" newTab="false" href="Project.mdx"}
+
+### Limitations
+
+- The Ivanti Service Manager development project has not yet provided a way to validate package dependency. You need to ensure that if you make a change that depends on another change, you migrate both changes.
+- Before handing out a package for migration, determine whether the package is complete and self-contained. The package should contain all dependent changes. Not having all the required changes in the package may cause the system to fail when you migrate the package and you may have to restore the target system from the back-up system.
+- You cannot use the Ivanti Service Manager development project and Simple Mode or Advanced Mode at the same time. (See :Link[The Four Ways to Migrate Data]{label="The Four Ways to Migrate Data" overridedLabel="The Four Ways to Migrate Data" spaceId docId="nnlG7pdbdUpnH_QlL9PjG" version="v2" docAnchorId="#The" loadingMethod="dynamic" newTab="false" githubPath="Migration_Process.htm#The" href="Migration_Process.mdx"} for a list and description of the four different ways that you can migrate data.) To use Simple Mode or Advanced Mode, you must disable the Ivanti Service Manager development project.
+- You cannot use the Ivanti Service Manager development project to migrate certain types of data. For a list of the data that cannot be migrated, see [Items Excluded from Migration](Not_migrated.mdx).
+
+### Terminology
+
+The Ivanti Service Manager development project uses the following terms:
+
+- **Transaction**: An individual change to the database.  
+- **Transaction set**: A group of transactions.  
+- **Project**: A group of transaction sets.
+- **Package**: Contains the transaction sets from multiple projects.
+- **Aspect**: Information about a feature, a component, a patch, or even a configuration. An aspect presence indicates the presence of the feature.
+
+### About Using Your Named Account to Log In
+
+The first time that you log into Ivanti Service Manager as an administrator, the system displays a message stating that you are logging in as an administrator. This is not suitable for making configuration changes. If you make configuration changes while logged in as an administrator, you may not be able to package the changes properly.
+
+We recommend that you no longer use a generic administrator account when you are in the Configuration Console. With the Ivanti Service Manager development project, the Ivanti Service Manager system tracks all the changes made and attributes them to the user who made the changes.  If all users log in using the generic administrator account, there is no way to know who made the changes.  
+
+The system displays a message stating that the Configuration Console is in production metadata read-only mode. If you see this message, click OK and then log out as an administrator and log back in using your named account. See :Link[About Metadata Read-Only Mode]{label="About Metadata Read-Only Mode" overridedLabel="About Metadata Read-Only Mode" spaceId docId="IGlA0G_T-g62hgi0fJs_Z" version="v2" docAnchorId="#Working" loadingMethod="dynamic" newTab="false" href="Project.mdx"}.
+
+## Using the Ivanti Service Manager Development Project to Create a Data Package
+
+See [Appendix C: Using the ISM Development Project to Migrate Data](ProjectOLH.mdx) for complete information about how to use the Ivanti Service Manager Configuration Console to create packages, which can be used when migrating data. You perform those tasks in the Ivanti Service Manager Configuration Console and not in the Operations Console. This is the same information that is found in the Ivanti Service Manager online help and is only copied here for your convenience.
+
+## Using the Ivanti Service Manager Development Project to Migrate a Data Package
+
+- :Link[Enabling the Ivanti Service Manager Development Project]{label="Enabling the Ivanti Service Manager Development Project" overridedLabel="Enabling the Ivanti Service Manager Development Project" spaceId docId="IGlA0G_T-g62hgi0fJs_Z" version="v2" docAnchorId="#Enabling" loadingMethod="dynamic" newTab="false" href="Project.mdx"}
+- :Link[Migrating the Package]{label="Migrating the Package" overridedLabel="Migrating the Package" spaceId docId="IGlA0G_T-g62hgi0fJs_Z" version="v2" docAnchorId="#Migratin" loadingMethod="dynamic" newTab="false" href="Project.mdx"}
+- :Link[Checking the Data Migration]{label="Checking the Data Migration" overridedLabel="Checking the Data Migration" spaceId docId="IGlA0G_T-g62hgi0fJs_Z" version="v2" docAnchorId="#Checking" loadingMethod="dynamic" newTab="false" href="Project.mdx"}
+- :Link[Disabling the Ivanti Service Manager Development Project]{label="Disabling the Ivanti Service Manager Development Project" overridedLabel="Disabling the Ivanti Service Manager Development Project" spaceId docId="IGlA0G_T-g62hgi0fJs_Z" version="v2" docAnchorId="#Disablin" loadingMethod="dynamic" newTab="false" href="Project.mdx"}
+
+### Enabling the Ivanti Service Manager Development Project
+
+To enable the Ivanti Service Manager development project, follow these steps:
+
+1. Log in to the Operations Console and click the Tenants tab.
+2. Navigate to the instance of the tenant for which you will perform the migration and click **Manage Migration**.
+3. If the tenant is not part of a landscape, the system prompts you to add the tenant to a landscape to prepare it for migration. Click **Proceed**. The migration dashboard opens showing all of the tenants and tenant instances and available migration paths in the landscape.
+4. To enable the Ivanti Service Manager development project, click Enable.
+5. Click OK at the confirmation prompt.
+
+The migration dashboard looks like this:
+
+<hint type="info">
+  For customers who have been using HEAT Service Management since Release 2014.2 or earlier, you might not see the Apply Package link, even though you have enabled the Ivanti Service Manager development project. If you do not see the Apply Package link, refresh the staging instance of the tenant by following the process in :Link[Creating the First Staging or UAT Instance of the Tenant from the Production Instance of the Tenant]{label="Creating the First Staging or UAT Instance of the Tenant from the Production Instance of the Tenant" overridedLabel="Creating the First Staging or UAT Instance of the Tenant from the Production Instance of the Tenant" spaceId docId="kxdBsaHYdzf3E_JvNX_Kv" version="v2" docAnchorId="#Moving" loadingMethod="dynamic" newTab="false" githubPath="Starting_Migration.htm#Moving" href="Starting_Migration.mdx"}.  
+</hint>
+
+### Migrating the Package
+
+<hint type="info">
+  - To migrate a package from the staging instance to the production instance of a tenant, the package must be closed. However, the package does not need to be closed if you are migrating from the staging instance to the UAT instance of a tenant. 
+  - The system displays an informational message if you migrate the same package to the same tenant instance more than once.
+</hint>
+
+To migrate a data package, do the following:
+
+1. Log in to the Operations Console and click the Tenants tab.
+2. Navigate to the instance of the tenant for which you will perform the migration and click **Manage Migration**.
+3. To migrate the data package, click Apply Package in the corresponding arrow. The system displays the Applying Package To page.
+4. Enter selections as follows:
+
+<Paragraph indent="1">
+  a. Select the name of the source package from the drop-down menu.
+</Paragraph>
+
+<Paragraph indent="1">
+  b. We highly recommend that you do not check Skip Target Tenant Backup.
+</Paragraph>
+
+<Paragraph indent="1">
+  c. Select Apply without validation to apply the package without first validating it. 
+</Paragraph>
+
+5. Click Execute to migrate the package or click Preview to create an XML file with changes that you can review before you migrate the data.
+6. Click OK at the confirmation prompt.
+
+When the migration is complete, the system displays a message that the package has been applied successfully. When you refresh the staging or UAT instances of the tenant, all transaction sets are cleared.
+
+### Checking the Data Migration
+
+To check that the data migrated successfully, log in to the UAT instance of the tenant and search for the changes.
+
+1. Log in to the Ivanti Service Manager system for the UAT instance of the tenant. The system displays a message stating that the UAT instance of the tenant is locked.  
+2. Search for the changes.
+
+### Disabling the Ivanti Service Manager Development Project
+
+1. Log in to the Operations Console and click the Tenants tab.
+2. Navigate to the instance of the tenant for which you will perform the migration and click **Manage Migration**.
+3. If the tenant is not part of a landscape, the system prompts you to add the tenant to a landscape to prepare it for migration. Click **Proceed**. The migration dashboard opens showing all of the tenants and tenant instances and available migration paths in the landscape.
+4. To disable the Ivanti Service Manager development project, click Disable.
+
+## About Metadata Read-Only Mode
+
+When you use the Operations Console to migrate data, the production and UAT instances of the tenant are always in metadata read-only mode, which is equivalent to being locked. When the system is locked, you cannot make changes to most types of metadata in the Configuration Console. (You can only make changes to the following four items: saved searches, reports, quick actions, and dashboards.) While migrating data, the system temporarily unlocks the metadata on the target system.
+
+You cannot import high-impact packages if your system is in metadata read-only mode.
+
+To put a system into metadata read-only mode, do the following:
+
+1. Log in to the Operations Console.
+2. Click Tenant. The system displays the Tenants workspace.
+3. Find the tenant to edit and click Edit Properties.
+4. Check Metadata Locked.
+5. Click Save.

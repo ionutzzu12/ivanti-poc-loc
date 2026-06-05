@@ -1,0 +1,219 @@
+---
+title: Configuring the Discovery Web Server
+docTags: 
+createdAt: Fri Jun 05 2026 13:49:30 GMT+0300 (Eastern European Summer Time)
+---
+
+Configure the relationship between \{\{Primary.Product}}, the Discovery web server, and the Discovery application server from the Discovery Web Server page of the System Configuration Wizard.
+
+The system displays the Discovery Web Server page. See :Link[Discovery Web Server Page]{label="Discovery Web Server Page" overridedLabel="Discovery Web Server Page" spaceId docId="7L676ojQFnFwSei4j-d2i" version="v2" docAnchorId="#Fig_HEAT_Discovery_Web_Server_Page" loadingMethod="dynamic" newTab="false" href="Configure_HEAT_Discovery_Web_Server.mdx"}.
+
+*Discovery Web Server Page*
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/9z6BpsJ8dqXll3zJZIPc9_discoverywebserver.png" position="flex-start" size="40" initialPath="Install_Deploy_Images/discovery_web_server.png" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Install_Deploy_Images/discovery_web_server.png"></Image>
+
+1. Enter values into the fields:
+
+<Paragraph indent="1">
+    <table isTableHeaderOn="true">
+      <tr>
+        <td>
+          Parameter
+        </td>
+        <td>
+          Description
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Configuration Server
+        </td>
+        <td>
+          The host name or fully-qualified domain name of the configuration server. The default value is the name of the host that you are logged into now.
+          Do one of the following:
+          - Accept the default value.
+          - Enter the name of the server of the configuration server.
+          If you use SSL, you must enter a fully-qualified domain name.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Port
+        </td>
+        <td>
+          The port number of the configuration server. The default is 80, or 443 if you check Use SSL.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Use SSL
+        </td>
+        <td>
+          Enables SSL encryption to the configuration server.
+        </td>
+      </tr>
+    </table>
+</Paragraph>
+
+2. Click Test Connection to verify the connection to the configuration server.
+3. Enter values into the fields:
+
+<Paragraph indent="1">
+    <table isTableHeaderOn="true">
+      <tr>
+        <td>
+          Parameter
+        </td>
+        <td>
+          Description
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Application Server
+        </td>
+        <td>
+          Where the application server is located. The default value is the server that you are logged into now.
+          Do one of the following:
+          - Accept the default value.
+          - Enter the name where the application server is located.
+          If you use SSL, you must enter a fully-qualified domain name.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Port
+        </td>
+        <td>
+          The port number of the application server. The default is 80, or 443 if you check Use SSL.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Use SSL
+        </td>
+        <td>
+          Enables SSL encryption to the application server.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Discovery Application Server
+        </td>
+        <td>
+          Where the Discovery application server is located. The default value is the server that you are logged into now.
+          Do one of the following:
+          - Accept the default value.
+          - Enter the name where the Discovery application server is located.
+          If you use SSL, you must enter a fully-qualified domain name.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Port
+        </td>
+        <td>
+          The port number of the Discovery application server. The default is 8382, or 443 if you check Use SSL.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Use SSL
+        </td>
+        <td>
+          Enables SSL encryption to the Discovery application server.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Discovery Web Server
+        </td>
+        <td>
+          Where the Discovery web server is located. The default value is the server that you are logged into now.
+          Do one of the following:
+          - Accept the default value.
+          - Enter the name where the Discovery web server is located.
+          If you use SSL, you must enter a fully-qualified domain name.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Port
+        </td>
+        <td>
+          The port number of the Discovery web server. The default is 80, or 443 if you check Use SSL.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Use SSL
+        </td>
+        <td>
+          Enables SSL encryption to the Discovery web server.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          MDI Server
+        </td>
+        <td>
+          Where the MDI server is located. (The Mobile Device Inventory \[MDI] service is bundled with Discovery.) The default value is the server that you are logged into now.
+          Do one of the following:
+          - Accept the default value.
+          - Enter the name where the MDI server is located.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Port
+        </td>
+        <td>
+          The port number of the MDI server. The default is 8734.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Message Queue Server
+        </td>
+        <td>
+          Where the message queue server is located. The default value is the server that you are logged into now.
+          Do one of the following:
+          - Accept the default value.
+          - Enter the name where the \{\{Primary.Product}} message queue server is located.
+          If you use SSL, you must enter a fully-qualified domain name.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Port
+        </td>
+        <td>
+          The port number of the \{\{Primary.Product}} message queue server. The default is 7200.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Use SSL
+        </td>
+        <td>
+          Enables SSL encryption to the \{\{Primary.Product}} message queue server.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Log File Location
+        </td>
+        <td>
+          The folder on the server that you are logged into now where the log files are located. The default location for the log files is C:\Logs on the Discovery web server.
+          Do one of the following:
+          - Accept the default value.
+          - Enter the name of the folder where the log files are located.
+          - Browse for a different folder by clicking Browse.... Select a new folder and click OK.
+        </td>
+      </tr>
+    </table>
+</Paragraph>
+
+4. To restart the \{\{Primary.Product}} services after you exit the System Configuration Wizard, check Restart services after setting configuration files.
+5. Verify that the \{\{Primary.Product}} services restart after the wizard closes.
+6. If you did not check Restart services after setting configuration files, restart the \{\{Primary.Product}} services manually.

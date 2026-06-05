@@ -1,0 +1,109 @@
+---
+title: Configuring Manual Load Partitioning
+docTags: 
+createdAt: Fri Jun 05 2026 13:49:31 GMT+0300 (Eastern European Summer Time)
+---
+
+## About Manual Load Partitioning
+
+Use the Service Server workspace to configure the manual load partitioning feature. The manual load partitioning feature allows you to allocate the load between workflow or email service instances based on your knowledge of the tenant load and server capacity.  
+
+When you start up the services, the workflow and email services retrieve the list of assigned tenants. The services only process the tasks for the assigned tenants. The system updates the list of assigned tenants in predefined time intervals. If the list of tenants is empty, the system falls back to the default behavior of processing all of the tenants.
+
+*Email Load Balancing Flowchart*
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/oF139IVotPZPJiJqjzSj4_email-flowchart.png" position="flex-start" size="40" initialPath="Config_Images/email-flowchart.png" githubPath="ITSM-On-Prem-Help/Content/ConfigDB_Guide/Config_Images/email-flowchart.png"></Image>
+
+<hint type="info">
+  For the email service and workflow service, all load partitioning is done manually. Changes are configured in the appsettings.json file at the binary folder. By default EnableLoadPartitioning key remains false in the appsettings.json, enabling it disrupts the whole Workflow Service.
+</hint>
+
+## Assigning Tenants to the Workflow or Email Service
+
+When you configure workflow or email service servers, ensure that at least one server is defined as the "catch all" server.  A "catch all" server manages all of the live tenants, even if it does not have any tenants associated with it. Each host should have at least one "catch all" server.  This server processes workflow and email events for all tenants.
+
+For each server, you must enable either the email service, the workflow service, or both. If you do not enable a service on the server but the service is running, the service gets an empty tenant list and it runs as a "catch all" server.
+
+If a service instance crashes or stops, the system deletes the partition details from the database and no other instance will pick these tenants except for the "catch all" server.
+
+1. Log in to the ConfigDB.
+2. From the workspace selector bar, click More....
+3. Select Service Server. The system displays the Service Server workspace.
+4. Click New Service Server.
+5. Enter the host name in the Host Name field.
+6. If the email service will run on this server, check Is Email Service Enabled.
+7. If the workflow service will run on this server, check Is Workflow Service Enabled.
+8. If the server is a catch all server, check Is Catch All.
+9. If the server is not a catch all server, do the following:
+
+<Paragraph indent="1">
+  a. Click the Tenants tab.
+</Paragraph>
+
+<Paragraph indent="1">
+  b. Click Link.
+</Paragraph>
+
+<Paragraph indent="1">
+  c. Highlight a tenant from the list and click Select.
+</Paragraph>
+
+10. Click Save.
+
+## Viewing the Results of the Manual Load Partitioning
+
+You can view the results of the manual load partitioning in one of two ways:
+
+- Viewing the INFO log for a service. See :Link[Setting the Log Level for the Workflow or Email Service]{label="Setting the Log Level for the Workflow or Email Service" overridedLabel="Setting the Log Level for the Workflow or Email Service" spaceId docId="Exc3Gt1Ac9PK-eZJ2QYcw" version="v2" docAnchorId="#Setting" loadingMethod="dynamic" newTab="false" href="Service Servers.mdx"} and :Link[Viewing the Workflow or Email Manual Load Partitioning]{label="Viewing the Workflow or Email Manual Load Partitioning" overridedLabel="Viewing the Workflow or Email Manual Load Partitioning" spaceId docId="Exc3Gt1Ac9PK-eZJ2QYcw" version="v2" docAnchorId="#Troubles" loadingMethod="dynamic" newTab="false" href="Service Servers.mdx"}.
+- Viewing a report of the load partitioning through Microsoft SQL. See :Link[Viewing a Report of the Manual Load Partitioning]{label="Viewing a Report of the Manual Load Partitioning" overridedLabel="Viewing a Report of the Manual Load Partitioning" spaceId docId="Exc3Gt1Ac9PK-eZJ2QYcw" version="v2" docAnchorId="#Load" loadingMethod="dynamic" newTab="false" href="Service Servers.mdx"}.
+
+### Setting the Log Level for the Workflow or Email Service
+
+To configure the logs, do the following:
+
+1. Log in to the ConfigDB.
+2. Open the Logging Configuration workspace.
+3. Open the WorkflowService service.
+4. Change the value of the Log Level field to INFO.
+5. Open the EmailService service.
+6. Change the value of the Log Level field to INFO.
+7. Click Save.
+
+### Viewing the Workflow or Email Manual Load Partitioning
+
+After you configure the logs, to view the results, do the following:
+
+1. Log into the ConfigDB.
+2. Open the Logs workspace.
+3. Use a saved search to show all logs with a service name of WorkflowService or a service name of EmailService.
+
+<Paragraph indent="1">
+  *Logs Saved Search*
+</Paragraph>
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/zW0GKnI-4Ou8XQ7tL83hM_logssavedsearch.png" position="flex-start" size="40" indent="1" initialPath="../Resources/Images/Logs_Saved_Search.png" githubPath="ITSM-On-Prem-Help/Content/Resources/Images/Logs_Saved_Search.png"></Image>
+
+4. Verify that the tenants listed under the current assigned tenant list match the linked tenants for this server.
+
+### Viewing a Report of the Manual Load Partitioning
+
+The workflow or email service retrieves the assigned tenants and updates the Frs\_ops\_workflow\_heart\_beat and Frs\_ops\_workflow\_partition tables in the ConfigDB.
+
+Before you begin, start the workflow or email service. Keep the current session.
+
+Run the following query in Microsoft SQL on the ConfigDB to see the details of the services that are assigned to each tenant:
+
+SELECT ServiceType, HostName, InstanceNumber, TenantId
+
+FROM Frs\_ops\_workflow\_heart\_beat heartbeat
+
+JOIN Frs\_ops\_workflow\_partition partition
+
+ON heartbeat.ServiceId = partition.ServiceId
+
+The following is an example of the partitioning details:
+
+| Service Type    | Host Name | Instance Number | Tenant ID                       |
+| --------------- | --------- | --------------- | ------------------------------- |
+| Workflow Engine | CA-L02552 | 1               | ConfigDB, ITSM\_7\_Daily\_Build |
+| Email Engine    | CA-L02552 | 1               | ConfigDB, ITSM\_7\_Daily\_Build |

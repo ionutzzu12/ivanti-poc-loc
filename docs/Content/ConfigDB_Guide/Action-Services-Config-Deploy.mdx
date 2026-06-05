@@ -1,0 +1,118 @@
+---
+title: Enabling the Action Service
+docTags: 
+createdAt: Fri Jun 05 2026 13:49:31 GMT+0300 (Eastern European Summer Time)
+---
+
+The Action Service can only be enabled per tenant.
+
+## Configuring Redis for Action Service
+
+To configure Redis for the Action Service, you have to open **appsettings.json** in the Action Service and enter the following:
+
+[Copy](javascript\:void\(0\);)
+
+```javascript
+"RedisConnectionString": "<Redis_Server>:<Port_Number>"
+ 
+"RedisSettings": {
+"ExpirationTimespan": "0.00:15:00",
+"ConnectionString": "<Redis_Server>:<Port_Number>,password=<PasswordOfRedisServer>,abortConnect=false"
+}
+```
+
+For example :
+
+"RedisConnectionString": "host.docker.internal:6379"
+
+"RedisSettings": \{
+
+"ExpirationTimespan": "0.00:15:00",
+
+"ConnectionString": "host.docker.internal:6379,password=Password\@123,abortConnect=false"
+
+}
+
+<hint type="info">
+  A Redis server is required for the Action Service. For more details on installing Redis manually, refer [Setting up Redis](../Install_Deploy_guide/On-premise-Redis-Setup.mdx).
+</hint>
+
+## Enabling Action Service
+
+- Set the **EnableActionService** option in Global Constants as True.
+- Ensure the **ActionServiceUsage** option is Disabled in the Central Config. By default it is **Disabled**.
+- Set the **DisableDirectActionServiceUsage** option as Unconditionally ON in the Central Config.
+
+## Verifying the functioning of Action Service
+
+1. Log in to a \{\{Primary.Product}} tenant.
+2. Navigate to the **Incident** workspace and open an existing Incident.
+3. Open the chrome console > **Network** > **Headers**.
+4. Execute a converted quick action. For example, **OOTB** > **More** > **Form Actions** > **Assigned Incident to Me**.
+5. Verify if the below endpoint is being called.
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/jvqKwx2f-H9-lhd6zxc6p_verifyingactionserviceendpoint.png" position="flex-start" size="40" indent="1" initialPath="Config_Images/VerifyingActionServiceEndpoint.png" githubPath="ITSM-On-Prem-Help/Content/ConfigDB_Guide/Config_Images/VerifyingActionServiceEndpoint.png"></Image>
+
+## Troubleshooting
+
+### Problem
+
+After Upgrading, the Action Service is not working when the installation is using Windows Authentication Option.
+
+### Resolution
+
+1. Check **IIS settings** > **Application Pool** > **HeatActionServicePool**.
+2. Check **Identity Column** to ensure the **Identify Property** has the same value as all other services.
+
+## Feature Management
+
+- **ActionServiceUsage** feature is disabled by default. All non-complex type of actions will be executed within AppServer.
+- **ActionServiceUsage** needs to be set as Unconditionally ON. All non-Deprecated actions will be executed within Action Service.
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/EtnraDA3tRNH6_U7GiNGL_actionservicesfeaturemanagement.png" position="flex-start" size="40" indent="1" initialPath="../Install_Deploy_guide/Install_Deploy_Images/ActionServicesFeatureManagement.png" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Install_Deploy_Images/ActionServicesFeatureManagement.png"></Image>
+
+- **DisableDirectActionServiceUsage** can be set as Unconditionally ON to disable directly calling the Action Service, returning to the old approach of calling the ActionServiceClient through the Save.asmx service.
+- **DisableActionServiceForAEM** can be set Unconditionally ON to prevent Advanced Email Monitoring from being executed via the Action Service. Actions will then be executed via AppServer.
+- **EnableActionServiceForWorkflow** when set to Unconditionally ON executes workflow actions via the Action Service. Otherwise workflow actions will be executed via AppServer.
+
+<hint type="info">
+  Do not use this unless you have issues on CoreVM or local.
+</hint>
+
+| Condition                                                                                                           | Endpoint                         |
+| ------------------------------------------------------------------------------------------------------------------- | -------------------------------- |
+| Feature flag does not exist in .                                                                                    | ActionService/ExecuteAction      |
+| Feature flag exists in ConfigDB but is not used in Feature Management. (Treated as system wide Unconditionally ON). | Services/Save.asmx/ExecuteAction |
+| Feature flag is set as Disabled.                                                                                    | ActionService/ExecuteAction      |
+| Feature flag is set as TrialPeriod                                                                                  | ActionService/ExecuteAction      |
+| Feature flag is set as TrialCompleted                                                                               | Services/Save.asmx/ExecuteAction |
+| Feature flag is set as Unconditionally ON                                                                           | Services/Save.asmx/ExecuteAction |
+
+## On-premise Configuration
+
+ActionServiceUsage Tenant Feature Management should be set to Disabled for OnPremise environment, until the FrameworkActionsRunner has been deployed.
+
+| Services             | Settings                                                      | Notes                                                                                                                                                                                                                                                                                                                                                              |
+| -------------------- | ------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Action Service       | ISM\_RedisConnectionString                                    | Connection String to Redis deployed on the environment. This should be the same as other applications, Example, localhost:6379,abortConnect=false                                                                                                                                                                                                                  |
+|                      | AppServerUri                                                  | URI to AppServer deployed on the environment. This should be the same as other applications. Example, http\://\{\{hostName}}:\{\{portNumber}}/HEAT                                                                                                                                                                                                                 |
+|                      | MessageQueueServiceUri                                        | URI to message queue service deployed on the environment. This should be the same as other applications . Example, http\://\{\{hostName}}:\{\{portNumber}}                                                                                                                                                                                                         |
+|                      | InventoryServiceUri                                           | URI to inventory service uri deployed on the environment. This should be the same as other applications. Example, http\://\{\{hostName}}:\{\{portNumber}}                                                                                                                                                                                                          |
+|                      | ConfigServiceClientUri                                        | URI to CentralConfig deployed on the environment. This should be the same as other applications. Example, http\://\{\{hostName}}:\{\{portNumber}}/CentralConfig                                                                                                                                                                                                    |
+|                      | ConfigServiceClientName                                       | CentralConfig client name. This should be the same as other applications. Example, api/centralconfig                                                                                                                                                                                                                                                               |
+|                      | SaaSAppServerBaseURL                                          | URI for SaaS AppServer Base URL deployed on the environment. This should be the same as other applications. Example, http\://\{\{hostName}}:\{\{portNumber}}/HEAT                                                                                                                                                                                                  |
+|                      | WorkflowServiceUri                                            | URI for the workflow service deployed on the environment. This should be the same as other applications. Example, http\://\{\{hostName}}:\{\{portNumber}}/HEAT                                                                                                                                                                                                     |
+|                      | SaaSBaseURI                                                   | URI for SaaS Base Uri This should be the same as other applications e.g. http\://\{\{hostName}}:\{\{portNumber}}/HEAT                                                                                                                                                                                                                                              |
+|                      | ISimpleSecretStorageStrategy                                  | [Copy](javascript\:void\(0\);)```javascript
+{
+        "LifetimeType": "1",
+        "AssemblyName": "ServiceManager.SimpleStorageStrategy",
+        "ClassName": "ServiceManager.SimpleStorageStrategy.SecretStorage.AppSettingSecretKey",
+        "InterfaceName": "ServiceManager.SimpleStorageStrategy.SecretStorage.ISimpleSecretStorageStrategy"
+}
+```<br />\{ |
+|                      | central-config-api-key                                        | The central config API key used to validate API calls in the config service.                                                                                                                                                                                                                                                                                       |
+| AppServer.Core       | appsettings.json ActionServiceUri web.config ActionServiceUri | http\://\{\{hostName}}:\{\{portNumber}}/ActionService/ActionService<br />/ActionService/ActionService is required to be duplicated. The first part denotes the application name hosted in IIS, the second denotes the endpoint prefix in the service itself.                                                                                                       |
+| Email.Core           | ActionServiceUri                                              | http\://\{\{hostName}}:\{\{portNumber}}/ActionService/ActionService<br />/ActionService/ActionService is required to be duplicated. The first part denotes the application name hosted in IIS, the second denotes the endpoint prefix in the service itself.                                                                                                       |
+| WorkflowService.Core | ActionServiceUri                                              | http\://\{\{hostName}}:\{\{portNumber}}/ActionService/ActionService<br />/ActionService/ActionService is required to be duplicated. The first part denotes the application name hosted in IIS, the second denotes the endpoint prefix in the service itself.                                                                                                       |
+| MetricsService       | ActionServiceUri                                              | http\://\{\{hostName}}:\{\{portNumber}}/ActionService/ActionService<br />/ActionService/ActionService is required to be duplicated. The first part denotes the application name hosted in IIS, the second denotes the endpoint prefix in the service itself.                                                                                                       |

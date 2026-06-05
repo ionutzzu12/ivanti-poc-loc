@@ -1,0 +1,88 @@
+---
+title: Viewing All Logs
+docTags: 
+createdAt: Fri Jun 05 2026 13:49:31 GMT+0300 (Eastern European Summer Time)
+---
+
+If there are any problems with the ConfigDB, such as email issues or workflow errors, they are reported in the logs. Review the logs to determine the underlying issue and to help resolve it.
+
+- :Link[Setting the Log Level]{label="Setting the Log Level" overridedLabel="Setting the Log Level" spaceId docId="uvu3usYacBGNkoHQhu2Cl" version="v2" docAnchorId="#Setting" loadingMethod="dynamic" newTab="false" href="all_logs.mdx"}
+- :Link[Viewing the Logs]{label="Viewing the Logs" overridedLabel="Viewing the Logs" spaceId docId="uvu3usYacBGNkoHQhu2Cl" version="v2" docAnchorId="#Viewing" loadingMethod="dynamic" newTab="false" href="all_logs.mdx"}
+
+## Setting the Log Level
+
+You can set the amount and detail of information in the logs by adjusting the Log Level. You can do this by going to the **Logging Configuration** workspace. See the \{\{Primary.Product}} Online Help.
+
+## Configuring the Logs
+
+All the logs related to the app domain will be stored in the following locations:
+
+### Configurable Logs
+
+- In the step 4 of the System Configuration Wizard, enter the file location in the Log File Location.
+
+<Paragraph indent="1">
+  All the configurable logs pertaining to Configuration Wizard and AppServer will be stored in this location.
+</Paragraph>
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/s-baITlx638lC0tKlrJ_n_configurableloglocation.png" position="flex-start" size="40" indent="1" initialPath="Config_Images/ConfigurableLogLocation.png" githubPath="ITSM-On-Prem-Help/Content/ConfigDB_Guide/Config_Images/ConfigurableLogLocation.png"></Image>
+
+### Non-Configurable Logs
+
+These are logs that depend on the parameters specified in the **nlog.config** file or other AppDomain.
+
+For example, in the **EscalationService appdomain**, go to the path - HEAT Software\HEAT\EscalationService, check the **nlog.config** file where the configuration of logs is done in the target node with the name - **logfile** as shown in the image below:
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/XViqYm2FJ6PMggOEB6AdI_non-configurable-logs-locations.png" position="flex-start" size="40" initialPath="Config_Images/Non-Configurable-Logs-locations.png" githubPath="ITSM-On-Prem-Help/Content/ConfigDB_Guide/Config_Images/Non-Configurable-Logs-locations.png"></Image>
+
+For all other AppDomains listed below, the logs will be available in the following format - **C:\ism\logs\esclationssvc\\****\{\{machinename}}**.
+
+- ActionService
+- CentralConfiguration
+- EmailService
+- EscalationService
+- FRSSurveyProxy
+- FRSSurvey
+- OpsConsole
+- IntegrationServer
+- MessageQueue
+- InboundWebService
+- LoggingService
+- MatricsServer
+- WorkFlowService
+- AssetProcessor
+- DiscoProcessor
+- IMReadOnlyDataService
+- IvantiCloudDataProcessor
+- TaskProcessor
+- WebServices - AgentTaskWs
+
+## Viewing the Logs
+
+Follow these steps to view all of the logs associated with the ConfigDB:
+
+1. Log in to the ConfigDB.
+2. From the workspace selector bar, select **All Logs**. The system displays the **LogsAll** workspace with the following information:
+
+<Paragraph indent="1">
+  | Field             | Description                                                                                                                                              |
+  | ----------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
+  | Log Entry Id      | A unique ID for this log entry.                                                                                                                          |
+  | Log Time          | The time at which the log entry was originally created on the server.                                                                                    |
+  | Log DB Time       | The time when the log was uploaded into the database.                                                                                                    |
+  | Client IP Address | The IP address of the service that generated the log, such as the workflow server.                                                                       |
+  | SubSystem Id      | The subsystem of the service that generated the log. (Each module has predefined subsystems. For example, for the email server, polling is a subsystem.) |
+  | Login Id          | The login ID for the user who experienced the log event.                                                                                                 |
+  | Tenant Id         | The tenant instance that is experiencing the log event.                                                                                                  |
+  | Error Code        | The category of the error. An example is "trigger not found".                                                                                            |
+  | Current Role      | The role assigned to the user if the error is generated by a user. If the error is generated by the system, this field is empty.                         |
+  | Host Name         | The machine that is reporting the error.                                                                                                                 |
+  | Thread Name       | Internal thread ID. Not applicable.                                                                                                                      |
+</Paragraph>
+
+3. Double-click any log entry to view the log details.
+4. To refresh the data, click **Refresh**.
+
+<hint type="info">
+  Non-configurable logs that is logs that depend on the parameters specified in the **nlog.config** file are stored in the following path - HEAT Software\HEAT\EscalationService.
+</hint>

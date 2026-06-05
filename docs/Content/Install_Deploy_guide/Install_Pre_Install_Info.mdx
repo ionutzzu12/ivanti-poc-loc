@@ -1,0 +1,22 @@
+---
+title: Neurons for ITSM Installation Prerequisites
+docTags: 
+createdAt: Fri Jun 05 2026 13:49:30 GMT+0300 (Eastern European Summer Time)
+---
+
+Before you install \{\{Primary.Product}}, do the following:
+
+- Confirm your role. See [About Roles](Roles_new.mdx).
+- Create the needed accounts. See [About the Different Accounts Used in Neurons for ITSM](Diff_Accounts_New.mdx).
+- Meet the system, hardware, and software prerequisites. This information is contained in the System Requirements and Compatibility Matrix for \{\{Primary.Product}}.
+- Configure the ports needed for your deployment. This information is contained in the System Requirements and Compatibility Matrix for \{\{Primary.Product}}.
+- If you are going to deploy \{\{Primary.Product}} as a virtual image, review the requirements at [About Using a Virtual Machine with Neurons for ITSM](Virtual_Machine.mdx).
+- Ensure that the FILESTREAM feature is enabled on the Microsoft SQL Server. See [Enabling Attachment File Streaming](Filestream.mdx).
+- If you are going to deploy the reporting feature, ensure that Microsoft SQL Server Reporting Services (SSRS) is enabled. See [Installing Neurons for ITSM Reporting Feature](Microsoft_SSRS.mdx).
+- Enable full-text search for Microsoft SQL Server. See [Full Text Search ](Full_Text_Search.mdx).
+- (Optional) Verify the server roles and features described in [Verifying Server Roles and Features](Server_Roles.mdx).
+- Determine the directories in which to install the \{\{Primary.Product}} components on the host that you are logged into.
+- Install the following from the installer package:
+  - Prerequisite Installer
+  - System Configuration Wizard (SCW)
+  - Additional App Domain shared in the package - do this post the SCW installation.

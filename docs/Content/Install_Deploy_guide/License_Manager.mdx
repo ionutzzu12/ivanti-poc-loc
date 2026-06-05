@@ -1,0 +1,576 @@
+---
+title: Using the License Manager
+docTags: 
+createdAt: Fri Jun 05 2026 13:49:31 GMT+0300 (Eastern European Summer Time)
+---
+
+- :Link[About the License Manager]{label="About the License Manager" overridedLabel="About the License Manager" spaceId docId="qNC4J1Zd7Yy8ndwagCF0W" version="v2" docAnchorId="#h2_About_the_HEAT_License_Manager" loadingMethod="dynamic" newTab="false" href="License_Manager.mdx"}
+- :Link[Types of Licenses]{label="Types of Licenses" overridedLabel="Types of Licenses" spaceId docId="qNC4J1Zd7Yy8ndwagCF0W" version="v2" docAnchorId="#Types" loadingMethod="dynamic" newTab="false" href="License_Manager.mdx"}
+- :Link[About License Bundles]{label="About License Bundles" overridedLabel="About License Bundles" spaceId docId="qNC4J1Zd7Yy8ndwagCF0W" version="v2" docAnchorId="#About3" loadingMethod="dynamic" newTab="false" href="License_Manager.mdx"}
+- :Link[Using the License Manager]{label="Using the License Manager" overridedLabel="Using the License Manager" spaceId docId="qNC4J1Zd7Yy8ndwagCF0W" version="v2" docAnchorId="#Using" loadingMethod="dynamic" newTab="false" href="License_Manager.mdx"}
+
+## About the License Manager
+
+Use the License Manager to track your license usage.
+
+For the [Demonstration or Proof-of-Concept Deployment](Deployment_Demo_POC.mdx) and [Minimum Production Deployment ](Deployment_Min_Prod.mdx), the License Manager is installed on the \{\{Primary.Product}} server along with the other \{\{Primary.Product}} components.
+
+For the [Enterprise Production Deployment](Deployment_Enter_Prod.mdx), the License Manager is installed on the \{\{Primary.Product}} processing servers along with the other \{\{Primary.Product}} components.
+
+During installation, the System Configuration Wizard enabled you to import one production license, one non-production license, or both, depending on your landscape environment. You can import additional licenses, if needed. See :Link[Importing Licenses]{label="Importing Licenses" overridedLabel="Importing Licenses" spaceId docId="qNC4J1Zd7Yy8ndwagCF0W" version="v2" docAnchorId="#Importin" loadingMethod="dynamic" newTab="false" href="License_Manager.mdx"}.
+
+## Types of Licenses
+
+\{\{Primary.Product}} mainly uses production and non-production licenses:
+
+| License Type   | Description                                                                                                                                                          | Expiration                                                                                                                                                                                                                                         |
+| -------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Production     | Used to access the production landscape of a tenant.                                                                                                                 | Does not expire unless the MAC address is unspecified. In that instance, the license expires after 30 days. If you move the license to a new server with a different MAC address, then you must acquire a new license tied to the new MAC address. |
+| Development    | A non-production license used to access the staging and UAT landscapes.                                                                                              | Expires according to the maintenance agreement between your organization and \{\{Primary.Product}}.                                                                                                                                                |
+| Not For Resale | A non-production license, mainly used by Ivanti Service Manager partners. It can also be used for staging, UAT, or testing if you already have development licenses. | Expires after 30 days if you do not specify the MAC address. After you set the MAC address, it expires according to the maintenance agreement between your organization and \{\{Primary.Product}}.                                                 |
+| Evaluation     | A non-production license used by potential customers. Has the maximum number of named and concurrent user licenses.                                                  | Expires after 30 days. Is not associated with a MAC address.                                                                                                                                                                                       |
+
+There are two types of user licenses, for both production and non-production licenses:
+
+- Concurrent licenses: For any user who is currently logged into the system. This is a shared pool of licenses. The concurrent license that is used is specified by the bundle that is specified for each role.
+- Named user licenses: Specific to a certain user. The user can log in to the system from many places at one time and it is counted as only one license. You specify which users are named users in the employee record, and you can change which employees get a named user license at any time.
+
+## About License Bundles
+
+- :Link[List of License Bundles and Components]{label="List of License Bundles and Components" overridedLabel="List of License Bundles and Components" spaceId docId="qNC4J1Zd7Yy8ndwagCF0W" version="v2" docAnchorId="#h3_License_Bundles_and_Components" loadingMethod="dynamic" newTab="false" href="License_Manager.mdx"}
+- :Link[Assigning a Bundled License to a Role]{label="Assigning a Bundled License to a Role" overridedLabel="Assigning a Bundled License to a Role" spaceId docId="qNC4J1Zd7Yy8ndwagCF0W" version="v2" docAnchorId="#h3_Assigning_a_Bundled_License_to_a_Role" loadingMethod="dynamic" newTab="false" href="License_Manager.mdx"}
+- :Link[License Tracking in Neurons for ITSM]{label="License Tracking in Neurons for ITSM" overridedLabel="License Tracking in Neurons for ITSM" spaceId docId="qNC4J1Zd7Yy8ndwagCF0W" version="v2" docAnchorId="#h3_License_Tracking_in_HEAT" loadingMethod="dynamic" newTab="false" href="License_Manager.mdx"}
+
+\{\{Primary.Product}} has defined several license bundles, which are sets of modules, or user interfaces. Each role is associated with a license bundle.
+
+### List of License Bundles and Components
+
+<table isTableHeaderOn="true">
+  <tr>
+    <td>
+      License Bundle
+    </td>
+    <td>
+      Components
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Help Desk
+    </td>
+    <td>
+      - Dashboards and Reporting
+      - Incident Management
+      - Knowledge Management
+      - Mobile
+      - Self Service
+      - Service Catalog
+      - Survey
+      - Voice Automation (optional add-on)
+      - Workflow Automation
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Service Desk
+    </td>
+    <td>
+      - Dashboards and Reporting
+      - Incident Management
+      - Knowledge Management
+      - Mobile
+      - Self Service
+      - Service Catalog
+      - Survey
+      - Voice Automation (optional add-on)
+      - Workflow Automation
+      - Change Management
+      - CMDB
+      - Configuration Management
+      - Problem Management
+      - Service Level Management
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Service Management
+    </td>
+    <td>
+      - Dashboards and Reporting
+      - Incident Management
+      - Knowledge Management
+      - Mobile
+      - Self Service
+      - Service Catalog
+      - Survey
+      - Voice Automation (optional add-on)
+      - Workflow Automation
+      - Change Management
+      - CMDB
+      - Configuration Management
+      - Problem Management
+      - Service Level Management
+      - Availability Management
+      - Event Management
+      - Financial Management
+      - Portfolio and Project Management
+      - Release Management
+    </td>
+  </tr>
+</table>
+
+The following are considered license add-on modules:
+
+| Add-on Module | Components |
+| ------------- | ---------- |
+| Discovery     | Discovery  |
+| Voice         | Voice      |
+| Mobile        | Mobile     |
+
+### Assigning a Bundled License to a Role
+
+To assign a bundled license to a role, follow the procedure in the "Assigning a Bundled License to a Role" topic in the \{\{Primary.Product}} online help. By default, roles do not have a license bundle associated with them, so you must assign a license bundle to each role manually. If you do not, you may get license violation errors logged in your system even though you have the correct licenses.
+
+<hint type="info">
+  If you have imported licenses but do not see the correct license bundles displayed in the Configuration Console, clear the validation cache.Go to Configure > Cache Management and then click Reset cached validation lists only.See the \{\{Primary.Product}} online help for more information.
+</hint>
+
+### License Tracking in Neurons for ITSM
+
+You cannot use \{\{Primary.Product}} unless you have a license. When you purchased \{\{Primary.Product}}, you also purchased a set number of licenses. If needed, you can purchase additional licenses.
+
+If you consume more seats than you have licenses for, the system does not log you out. It does, however, log an event into a log file. For example, if you have 10 concurrent licenses and try to log in 11 times, the system allows it.
+
+Due to the way that web browsers work, it is very possible for one user to consume more than one license. For example, if a user logs in to \{\{Primary.Product}} using Microsoft Internet Explorer and then opens Google Chrome and logs in again, another license is consumed. If this happens, the system logs a license violation error that you can view in the License Manager in the System Audit Information workspace.
+
+## Using the License Manager
+
+- :Link[Logging Into the License Manager]{label="Logging Into the License Manager" overridedLabel="Logging Into the License Manager" spaceId docId="qNC4J1Zd7Yy8ndwagCF0W" version="v2" docAnchorId="#Logging" loadingMethod="dynamic" newTab="false" href="License_Manager.mdx"}
+- :Link[Configuring Landscape Information]{label="Configuring Landscape Information" overridedLabel="Configuring Landscape Information" spaceId docId="qNC4J1Zd7Yy8ndwagCF0W" version="v2" docAnchorId="#Configur2" loadingMethod="dynamic" newTab="false" href="License_Manager.mdx"}
+- :Link[Importing Licenses]{label="Importing Licenses" overridedLabel="Importing Licenses" spaceId docId="qNC4J1Zd7Yy8ndwagCF0W" version="v2" docAnchorId="#Importin" loadingMethod="dynamic" newTab="false" href="License_Manager.mdx"}
+- :Link[Viewing the Discovery Node Count]{label="Viewing the Discovery Node Count" overridedLabel="Viewing the Discovery Node Count" spaceId docId="qNC4J1Zd7Yy8ndwagCF0W" version="v2" docAnchorId="#Viewing" loadingMethod="dynamic" newTab="false" href="License_Manager.mdx"}
+- :Link[Viewing the Active Licenses]{label="Viewing the Active Licenses" overridedLabel="Viewing the Active Licenses" spaceId docId="qNC4J1Zd7Yy8ndwagCF0W" version="v2" docAnchorId="#Viewing2" loadingMethod="dynamic" newTab="false" href="License_Manager.mdx"}
+- :Link[Configuring the Email Address for Notifications]{label="Configuring the Email Address for Notifications" overridedLabel="Configuring the Email Address for Notifications" spaceId docId="qNC4J1Zd7Yy8ndwagCF0W" version="v2" docAnchorId="#Configur3" loadingMethod="dynamic" newTab="false" href="License_Manager.mdx"}
+- :Link[Configuring the SMTP Settings]{label="Configuring the SMTP Settings" overridedLabel="Configuring the SMTP Settings" spaceId docId="qNC4J1Zd7Yy8ndwagCF0W" version="v2" docAnchorId="#Configur4" loadingMethod="dynamic" newTab="false" href="License_Manager.mdx"}
+- :Link[Working with Scheduled Jobs]{label="Working with Scheduled Jobs" overridedLabel="Working with Scheduled Jobs" spaceId docId="qNC4J1Zd7Yy8ndwagCF0W" version="v2" docAnchorId="#Working" loadingMethod="dynamic" newTab="false" href="License_Manager.mdx"}
+- :Link[Viewing Reports]{label="Viewing Reports" overridedLabel="Viewing Reports" spaceId docId="qNC4J1Zd7Yy8ndwagCF0W" version="v2" docAnchorId="#Viewing3" loadingMethod="dynamic" newTab="false" href="License_Manager.mdx"}
+
+### Logging Into the License Manager
+
+The License Manager uses the same credentials that are used to access the configuration database.
+
+To log into the License Manager, follow these steps:
+
+1. In the Start menu, click the down arrow to see the Apps menu, and then click License Server.
+2. Select a landscape.
+3. Enter your user ID and password. This is the same user ID and password that you use for the configuration database.
+4. Click Continue.
+
+### Configuring Landscape Information
+
+You can create, edit, and delete information about the landscapes to which the License Manager is associated.
+
+1. Log into the License Manager.
+2. Click either Configure Landscapes in the top right corner of the login page or click Configure Landscape Information from any page in the  License Manager. The system opens a new browser window and displays the Enter Landscape Information page.
+
+<Paragraph indent="1">
+  *Enter Landscape Information Page*
+</Paragraph>
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/93Qx2GGRUPzGuFu3MzmSY_enterlandscapeinformationpage.png" position="flex-start" size="40" indent="1" initialPath="Install_Deploy_Images/enter_landscape_information_page.png" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Install_Deploy_Images/enter_landscape_information_page.png"></Image>
+
+3. To allow the Operations Console to use this landscape, check Used by the Operations Console on the line associated with the landscape.
+
+<Paragraph indent="1">
+  The Operations Console can only use one landscape at a time.
+</Paragraph>
+
+4. To edit the information for an existing landscape, do the following:
+
+<Paragraph indent="1">
+  a. Click Edit on the line associated with the landscape. The system displays the Edit Landscape page.
+</Paragraph>
+
+<Paragraph indent="1">
+  b. Make changes as needed.
+</Paragraph>
+
+<Paragraph indent="1">
+  c. Click Save.
+</Paragraph>
+
+5. To delete the landscape information, do the following:
+
+<Paragraph indent="1">
+  a. Click Delete on the line associated with the landscape.
+</Paragraph>
+
+<Paragraph indent="1">
+  b. Click Delete at the confirmation message.
+</Paragraph>
+
+6. When you configured \{\{Primary.Product}} using the System Configuration Wizard, the system automatically created a link to the landscape.
+
+Therefore, in general, you do not need to add a link to a landscape. However, if you do need to add a new link to a landscape, follow these steps:
+
+<Paragraph indent="1">
+  a. Click Create New. The system displays the Create Landscape page.
+</Paragraph>
+
+<Paragraph indent="1">
+  b. In the ConfigService API URL field, enter the URL of the configuration server. 
+</Paragraph>
+
+<Paragraph indent="1">
+  c. Check Used by the Operations Console if the system should use this link to connect with the Operations Console. The Operations Console can only connect to one landscape.
+</Paragraph>
+
+<Paragraph indent="1">
+  d. Click Load Landscape Types and then select a landscape from the drop-down list.
+</Paragraph>
+
+<Paragraph indent="1">
+  e. Click Create.
+</Paragraph>
+
+### Importing Licenses
+
+When you initially configured the License Manager in the System Configuration Wizard, you imported either one production license file, one non-production license file, or both. (See [Configuring Neurons for ITSM ](Server_Config_Procedure.mdx).) 
+
+If your deployment has multiple License Managers, when you import a license, ensure that you are importing it on the server that has the same MAC address as the license file.
+
+For example, say you installed License Managers on the following:
+
+- Application Server 1 with a MAC address of AA🕙23🕙00
+- Application Server 2 with a MAC address of BB🕙23🕙00
+
+Then you ask for and receive a production license for MAC address AA🕙23🕙00. You import the license from the License Manager that is installed on Application Server 1. After you have imported the license, the License Managers on both \{\{Primary.Product}} application servers respect the license. You do not need a second license for the second Application Server.
+
+To import additional license files, follow these steps:
+
+1. Log into the License Manager.
+2. Click Licensing > Import License Files. The system displays the Licensing - Import License Files page.
+
+<Paragraph indent="1">
+  *Import License Files Page*
+</Paragraph>
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/TiskRVGbbVDyZc-qebJlD_importlicensefilespage.png" position="flex-start" size="40" indent="1" initialPath="Install_Deploy_Images/import_license_files_page.png" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Install_Deploy_Images/import_license_files_page.png"></Image>
+
+3. Click Upload License File....
+4. Navigate to and select a license file and click Open.
+
+<Paragraph indent="1">
+  The system adds the license to the system. This page shows the following information:
+</Paragraph>
+
+<Paragraph indent="1">
+  | Field              | Description                                                                                                                                                |
+  | ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
+  | File Name          | The name of the license file that you uploaded.                                                                                                            |
+  | Expiration Date    | The expiration date of the license file.                                                                                                                   |
+  | MAC Address        | The MAC address associated with the license file.                                                                                                          |
+  | Self Service       | Self Service is the bundle name. The number of Self Service licenses contained in the license file. Broken into concurrent and named licenses.             |
+  | Service Catalog    | Service Catalog is the bundle name. The number of Service Catalog licenses contained in the license file. Broken into concurrent and named licenses.       |
+  | Service Management | Service Management is the bundle name. The number of Service Management licenses contained in the license file. Broken into concurrent and named licenses. |
+</Paragraph>
+
+5. Click the delete icon to remove the license file and its associated licenses from the License Manager.
+6. Click the show details icon
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/VGUJGaNw7i0LAT-fWg8uV_showdetailsiconlicensemanager.png" position="flex-start" size="40" indent="1" initialPath="Install_Deploy_Images/show_details_icon_license_manager.png" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Install_Deploy_Images/show_details_icon_license_manager.png"></Image>
+
+<Paragraph indent="1">
+  to display the details. The details contain the following information:
+</Paragraph>
+
+<Paragraph indent="1">
+  | Field               | Description                                                      |
+  | ------------------- | ---------------------------------------------------------------- |
+  | Bundle              | The name of the bundle.                                          |
+  | Name                | The name of the module.                                          |
+  | Named Licenses      | The number of named licenses contained in the license file.      |
+  | Concurrent Licenses | The number of concurrent licenses contained in the license file. |
+  | Expiration Date     | The date when the license expires.                               |
+</Paragraph>
+
+<Paragraph indent="1">
+  If your deployment only has one tenant, the information displayed here is the same as in the List of imported license files section.
+</Paragraph>
+
+<Paragraph indent="1">
+  If your deployment has more than one tenant, this table displays the license distribution across the tenants.
+</Paragraph>
+
+<Paragraph indent="1">
+  | Field              | Description                                                                                                |
+  | ------------------ | ---------------------------------------------------------------------------------------------------------- |
+  | Tenant             | The name of the tenant.                                                                                    |
+  | Self Service       | The number of Self Service licenses allocated per tenant. Broken into concurrent and named licenses.       |
+  | Service Catalog    | The number of Service Catalog licenses allocated per tenant. Broken into concurrent and named licenses.    |
+  | Service Management | The number of Service Management licenses allocated per tenant. Broken into concurrent and named licenses. |
+</Paragraph>
+
+7. To distribute licenses among multiple tenants, click in a cell and change the number of licenses to allocate to a tenant. The total number of licenses across the tenants cannot exceed the total number of licenses. See :Link[Allocating Licenses Across Tenants]{label="Allocating Licenses Across Tenants" overridedLabel="Allocating Licenses Across Tenants" spaceId docId="qNC4J1Zd7Yy8ndwagCF0W" version="v2" docAnchorId="#FIGAllocating" loadingMethod="dynamic" newTab="false" href="License_Manager.mdx"}.
+
+<Paragraph indent="1">
+  *Allocating Licenses Across Tenants*
+</Paragraph>
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/iVU2PuxplZrs5AnkQDTLX_allocatinglicensesacrosstenants.png" position="flex-start" size="40" indent="1" initialPath="Install_Deploy_Images/allocating_licenses_across_tenants.png" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Install_Deploy_Images/allocating_licenses_across_tenants.png"></Image>
+
+### Viewing the Discovery Node Count
+
+This information tracks the trend associated with the Discovery licenses and is based on the Discovery Count scheduled job.
+
+1. Log in to the License Manager.
+2. Click Licensing > Discovery. The system displays the Licensing - Discovery page.
+
+<Paragraph indent="1">
+  This page shows the following information:
+</Paragraph>
+
+<Paragraph indent="1">
+  | Field          | Description                                             |
+  | -------------- | ------------------------------------------------------- |
+  | Tenant Name    | The name of the tenant.                                 |
+  | Last Scan Date | The date and time when the job was run.                 |
+  | Nodes Count    | The number of configuration items found during the job. |
+</Paragraph>
+
+### Viewing the Active Licenses
+
+This page displays the active sessions on \{\{Primary.Product}}. It does not show active sessions on the configuration database.
+
+1. Log in to the License Manager.
+2. Click Licensing > Active Licenses. The system displays the Licensing - Active Licenses page.
+
+<Paragraph indent="1">
+  *Active Licenses Page*
+</Paragraph>
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/w41a9ZnhwPyxaGxfPjPKB_activelicensespage.png" position="flex-start" size="40" indent="1" initialPath="Install_Deploy_Images/active_licenses_page.png" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Install_Deploy_Images/active_licenses_page.png"></Image>
+
+3. Select a tenant from the drop-down list. This page shows the following information:
+
+<Paragraph indent="1">
+  | Field              | Description                                                                                                                                                                                                                                                                                                         |
+  | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+  | Session ID         | The session ID associated with the logged-in user.                                                                                                                                                                                                                                                                  |
+  | User               | The user name of a logged-in user.                                                                                                                                                                                                                                                                                  |
+  | Role               | The role with which the user is logged in.                                                                                                                                                                                                                                                                          |
+  | Bundle Name        | The bundle associated with the license associated with the user. See :Link[About License Bundles]{label="About License Bundles" overridedLabel="About License Bundles" spaceId docId="qNC4J1Zd7Yy8ndwagCF0W" version="v2" docAnchorId="#About3" loadingMethod="dynamic" newTab="false" href="License_Manager.mdx"}. |
+  | Add-On Modules     | Any add-on modules associated with the bundle. See :Link[About License Bundles]{label="About License Bundles" overridedLabel="About License Bundles" spaceId docId="qNC4J1Zd7Yy8ndwagCF0W" version="v2" docAnchorId="#About3" loadingMethod="dynamic" newTab="false" href="License_Manager.mdx"}.                   |
+  | License Taken Time | The time when the system used the license.                                                                                                                                                                                                                                                                          |
+  | License Type       | The license type. Can be named or concurrent.                                                                                                                                                                                                                                                                       |
+</Paragraph>
+
+### Configuring the Email Address for Notifications
+
+1. Log in to the License Manager.
+2. Click Configuration > Email Address. The system displays the Configuration - Email Address page.
+
+<Paragraph indent="1">
+  *Email Address Page*
+</Paragraph>
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/bJEi1B71omikJW9phFqYl_emailaddresspage.png" position="flex-start" size="40" indent="1" initialPath="Install_Deploy_Images/email_address_page.png" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Install_Deploy_Images/email_address_page.png"></Image>
+
+3. Enter the following information:
+
+<Paragraph indent="1">
+  | Field                                                                | Description                                                                                                                                                                                                                                                |
+  | -------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+  | Email address to use when sending emails from the License Server     | The email address to use as the FROM email address for emails sent from the License Manager.                                                                                                                                                               |
+  | Email address to use when sending emails to Ivanti Software          | The email address to use as the TO email address for emails sent from the License Manager to Ivanti Software. The system sends license usage information based on the License Violation Notification to Frs scheduled job.                                 |
+  | Email address to use when sending emails to the system administrator | The email address to use as the TO email address for emails sent from the License Manager to the system administrator of your organization. The system sends license usage information based on the License Violation Notification to Admin scheduled job. |
+</Paragraph>
+
+4. Click Save.
+
+### Configuring the SMTP Settings
+
+Use this page to view and edit the SMTP settings used to send emails. The information on this page comes from the System Configuration Wizard.
+
+1. Log into the License Manager.
+2. Click Configuration > SMTP Setting. The system displays the Configuration - SMTP Setting page.
+
+<Paragraph indent="1">
+  *SMTP Setting Page*
+</Paragraph>
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/su-l1yl-_MJE0GBkQ6sEN_smtpsettingpage.png" position="flex-start" size="40" indent="1" initialPath="Install_Deploy_Images/smtp_setting_page.png" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Install_Deploy_Images/smtp_setting_page.png"></Image>
+
+<Paragraph indent="1">
+  The system displays the following information:
+</Paragraph>
+
+<Paragraph indent="1">
+  | Field   | Description                                                                                                                                                    |
+  | ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+  | Host    | The email server host.                                                                                                                                         |
+  | Port    | The port associated with the email server.                                                                                                                     |
+  | Account | The account associated with this tenant. This is the same as the value in the Username field on the Email Configuration workspace in the Service Desk Console. |
+  | Domain  | The domain associated with the account.                                                                                                                        |
+  | Use SSL | Specifies if this account should use SSL.                                                                                                                      |
+</Paragraph>
+
+3. Select a tenant from the Tenant drop-down list.
+4. Check Use this setting for Email Notifications to use these SMTP settings for emails.
+5. Click Save.
+
+### Working with Scheduled Jobs
+
+The License Manager has several predefined scheduled jobs. These are used to send information to the administrator on a regular basis instead of sending an email every single time there is an event. All violations are listed on the System Audit Information page.
+
+The following are the predefined scheduled jobs that cannot be changed:
+
+- License Capacity Allocation Notification Job: Determines if your licenses are valid and that you actually have the licenses that you are allocating.
+- Named License Violation: Determines if you have more users listed as named users than you have named user licenses.
+- Data Integrity Verification: Determines if the licenses have been modified.
+- Discovery Count: Determines if the licenses for your configuration items are valid.
+
+The following are the predefined scheduled jobs that you can edit:
+
+- License Violation Notification to FRS: Sends an email to Ivanti Software with information about license violations. By default, this job is disabled.
+- License Violation Notification to Admin: Sends an email to your system administrator with information about license violations.
+
+1. Log in to the License Manager.
+2. Click **System Jobs**. The system displays the System Jobs - Scheduled Jobs page.
+
+<Paragraph indent="1">
+  *Scheduled Jobs Page*
+</Paragraph>
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/N43e_ugdqTSk8kI87Eoja_scheduledjobspage.png" position="flex-start" size="40" indent="1" initialPath="Install_Deploy_Images/scheduled_jobs_page.png" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Install_Deploy_Images/scheduled_jobs_page.png"></Image>
+
+<Paragraph indent="1">
+  This page contains the following information:
+</Paragraph>
+
+<Paragraph indent="1">
+  | Field                  | Description                                                      |
+  | ---------------------- | ---------------------------------------------------------------- |
+  | Module                 | The name of the module. Can be either LicenseCore or HeatModule. |
+  | Job                    | The name of the job.                                             |
+  | Enabled                | Specifies if the scheduled job is enabled.                       |
+  | Start Date             | The start date of this scheduled job.                            |
+  | Start Time             | The start time of this scheduled job.                            |
+  | Next Run Date and Time | The next date and time when the scheduled job runs.              |
+  | Recur Every            | The time period for the recurrence. Can be day, hour, or minute. |
+  | Interval               | The interval for the recurrence.                                 |
+</Paragraph>
+
+<Paragraph indent="1">
+  For each entry, the system displays additional information at the bottom of the page:
+</Paragraph>
+
+<Paragraph indent="1">
+  | Field    | Description                                                                      |
+  | -------- | -------------------------------------------------------------------------------- |
+  | Module   | The name of the module. Can be either LicenseCore or HeatModule.                 |
+  | Job      | The name of the job.                                                             |
+  | Run Time | The date and time when the scheduled job was run.                                |
+  | Details  | Details of the job. If the job is not successful, contains detailed information. |
+</Paragraph>
+
+3. To see the job details in a larger format, click the show details icon at the end of the row.
+4. You can edit the details associated with the License Violation Notification To Frs and the License Violation Notification to Admin scheduled jobs.
+
+<Paragraph indent="1">
+  To edit a scheduled job, do the following:
+</Paragraph>
+
+<Paragraph indent="1">
+  a. Click the Edit icon at the end of the row. The system displays a dialog box.
+</Paragraph>
+
+<Paragraph indent="1">
+  b. Enter or change any of the following information:
+</Paragraph>
+
+<Paragraph indent="1">
+  | Field              | Description                                                 |
+  | ------------------ | ----------------------------------------------------------- |
+  | Job                | The name of the scheduled job. You cannot change this name. |
+  | Description        | A description of the scheduled job.                         |
+  | Start Date         | The start date and time.                                    |
+  | Enabled            | Specifies if the scheduled job is enabled.                  |
+  | Next Run Date Time | The next date and time when the scheduled job runs.         |
+  | Recur Every        | Specifies the recurrence for this job.                      |
+</Paragraph>
+
+5. Click Save.
+
+### Viewing Reports
+
+You can view two types of reports in the License Manager:
+
+- System audit information
+- Logs
+
+Follow these steps to view the reports.
+
+1. Log in to the License Manager.
+2. Click Reports.
+3. To view the system audit information, click System Audit Information. The system displays the Reports - System Audit Information page. See :Link[System Audit Information Page]{label="System Audit Information Page" overridedLabel="System Audit Information Page" spaceId docId="qNC4J1Zd7Yy8ndwagCF0W" version="v2" docAnchorId="#Fig_System_Audit_Information_Page" loadingMethod="dynamic" newTab="false" href="License_Manager.mdx"}. Examples of the information on this page include license upgrades and license violations.
+
+<Paragraph indent="1">
+  We recommend that you review the information on this page if you have any problems and then review the information on the Log page. See :Link[Log Page ]{label="Log Page " overridedLabel="Log Page " spaceId docId="qNC4J1Zd7Yy8ndwagCF0W" version="v2" docAnchorId="#Fig_Log_Page" loadingMethod="dynamic" newTab="false" href="License_Manager.mdx"}.
+</Paragraph>
+
+<Paragraph indent="1">
+  *System Audit Information Page*
+</Paragraph>
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/Sj2-2LVAQZs4NrwHeO7qw_systemauditinformationpage.png" position="flex-start" size="40" indent="1" initialPath="Install_Deploy_Images/system_audit_information_page.png" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Install_Deploy_Images/system_audit_information_page.png"></Image>
+
+<Paragraph indent="1">
+  This page contains the following information:
+</Paragraph>
+
+<Paragraph indent="1">
+  | Field                   | Description                                                                              |
+  | ----------------------- | ---------------------------------------------------------------------------------------- |
+  | Tenant Name             | The name of the tenant.                                                                  |
+  | Event Log Date and Time | The date and time of the log event.                                                      |
+  | Subsystem               | The specific area. Can be license violation, license upgrade, or data integrity service. |
+  | Class                   | The type of information. Can be warning, info, debug, fatal, or error.                   |
+  | Title                   | A short description of the event.                                                        |
+  | Details                 | A longer description of the event.                                                       |
+  | Operation Result        | The result of the operation. Can be success or failure.                                  |
+</Paragraph>
+
+<Paragraph indent="1">
+  If you cannot see all of the columns, resize the columns that you can see so that the remaining columns are displayed.
+</Paragraph>
+
+4. Click the show details icon at the end of the row to see the details. If you cannot see the Show Details icon, resize the columns until it is displayed.
+5. To view log information, click Log. The system displays the Reports - Log page. Use this information for troubleshooting.
+
+<Paragraph indent="1">
+  *Log Page*
+</Paragraph>
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/NE9HjL3u4jXuJl1DoMYJX_logpagelicensemanager.png" position="flex-start" size="40" indent="1" initialPath="Install_Deploy_Images/log_page_license_manager.png" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Install_Deploy_Images/log_page_license_manager.png"></Image>
+
+<Paragraph indent="1">
+  This page contains the following information:
+</Paragraph>
+
+<Paragraph indent="1">
+  | Field          | Description                                                                                                                               |
+  | -------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+  | Subsystem      | The name of the subsystem. Can be email notification, import license, license upgrade, named license violation, or configuration service. |
+  | Event Log Time | The time and date of this log event.                                                                                                      |
+  | Details        | Information about this log event.                                                                                                         |
+  | Log Type       | The type of log. Can be info, error, or warning.                                                                                          |
+</Paragraph>
+
+6. To see the log details in a larger format, click the show details icon
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/mmtvFyTx9YzLrvP2Dh2KQ_logpageshowdetails.png" position="flex-start" size="40" indent="1" initialPath="Install_Deploy_Images/log_page_show_details.png" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Install_Deploy_Images/log_page_show_details.png"></Image>
+
+<Paragraph indent="1">
+  at the end of the row.
+</Paragraph>

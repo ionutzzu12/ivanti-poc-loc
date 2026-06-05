@@ -1,0 +1,100 @@
+---
+title: Chat Configuration
+docTags: 
+createdAt: Fri Jun 05 2026 13:49:31 GMT+0300 (Eastern European Summer Time)
+---
+
+The administrator has to configure the following settings for the chat feature to work.
+
+- Global Constant - In the Configuration module, under **Global Constants**, set the **ChatEnabled** field as **True**.
+- User role - To make the chat icon
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/subN_f-45TYr80sKYnoYs_chatgrayicon.png" position="flex-start" size="40" indent="1" initialPath="Install_Deploy_Images/ChatGrayIcon.png" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Install_Deploy_Images/ChatGrayIcon.png"></Image>
+
+<Paragraph indent="1">
+  available for a user, the administrator should enable chat for the user role.
+</Paragraph>
+
+<Paragraph indent="1">
+  To enable the chat feature for a user role:
+</Paragraph>
+
+<Paragraph indent="1">
+  a. Log in to \{\{Primary.Product}} with the Administrator user role.
+</Paragraph>
+
+<Paragraph indent="1">
+  b. From the Configuration console, select **Configure** > **Roles and Permissions**.
+</Paragraph>
+
+<Paragraph indent="1">
+  c. Select the role for which you want to enable the chat feature.
+</Paragraph>
+
+<Paragraph indent="1">
+  d. Ensure the **Overwrite default branding options with the options listed below** check box is selected.
+</Paragraph>
+
+<Paragraph indent="1">
+  e. Select the **Enable Chat as Analyst** check box.
+</Paragraph>
+
+<hint type="info">
+  - If you select the **Overwrite default branding options with the options listed below** check box, all check boxes under **Branding Options** will be disabled. Ensure to select them as needed.
+  - Chat requests to the Service Desk console team get routed using the Round Robin algorithm based on the Service Desk Analyst's login state.
+</hint>
+
+## Configuring Chat
+
+The chat configuration settings are pre-defined, however, you can change the settings as need be.
+
+**Session Configuration Settings**:
+
+- **Concurrent Chat Sessions per Analyst**: Number of chat requests that can be assigned to the Service Desk Analyst at a time.
+- **View User Chat History for last Created Incident(s)**: Number of previous chat sessions' history that should be stored. History is stored only when an Incident is created in the chat session.
+- **First Inactivity Timeout**: Timeout limit when a first warning message is sent to the Self Service Mobile portal user when inactive on a chat session.
+- **Second Inactivity Timeout**: Timeout limit when a second warning message is sent to the Self Service Mobile user when inactive on a chat session.
+- **Session Expiration Timeout**: Timeout limit when the Self Service Mobile portal user is logged out when inactive on a chat session.
+- **Analyst Session Timeout**: Timeout limit when a Service Desk Analyst's status is turned **Offline** when no chat session is assigned.
+- **User Timeout**: Timeout limit when a Self Service Mobile portal user is logged off from a chat session when unable to assign the chat session with the Service Desk Analyst.
+
+**Details**:
+
+- **Online Message Header**: Header displayed to the Self Service Mobile portal user when the Service Desk Analyst staff is online and ready to pick up chat sessions.
+- **Offline Header**: Header displayed to the Self Service Mobile portal when the Service Desk Analyst is offline and not available to pick up chat sessions.
+- **Hop Header**: Header displayed to the Self Service Mobile portal when the Service Desk Analyst staff is offline during non-hours-of-operation.
+- **Join Header**: Header displayed to the to the Self Service Mobile portal when a Service Desk Analyst joins the chat session.
+- **Fail Join Header**: Header text displayed to the to the Service Desk Analyst when unable to assign a Service Desk Analyst to the chat session.
+- **Knowledge Message**: Link to knowledge base displayed to the Service Desk Analyst user when unable to assign a Service Desk Analyst to the chat session.
+- **Warning Header**: First warning header displayed to the Self Service Mobile portal user when inactive on the chat for the set time.
+- **Second Warning Header**: Second warning header displayed to the Self Service Mobile portal user when inactive on the chat for the set time.
+- **Typing**: Typing indicator displayed in the chat window text box.
+- **Send Message Place Holder**: Message displayed in the chat window text box.
+- **Incident Created text**: Message displayed in the chat window when an incident is created from the chat session.
+- **User Disconnected**: Message displayed to the Service Desk Analyst and the Self Service Mobile portal user when the chat session gets disconnected.
+- **Online Message**: Message displayed to the Self Service Mobile portal user when the Service Desk Analyst staff is online.
+- **Offline Message**: Message displayed to the Self Service Mobile portal user when the Service Desk Analyst staff is offline during hours-of-operation.
+- **Hop Message**: Message displayed to the Self Service Mobile portal user when the Service Desk Analyst staff is offline during non-hours-of-operation.
+- **Joining Message**: Message to the Self Service Mobile portal user when trying to assign a Service Desk Analyst to the chat session.
+- **Join Message**: Message displayed to the Self Service Mobile portal user when a Service Desk Analyst joins the chat session.
+- **Fail Join Message**: Message to the Self Service Mobile portal user when unable to assign a Service Desk Analyst to the chat session.
+- **Knowledge Button**: Second line of the knowledge base link message when unable to patch a Service Desk Analyst to the chat session.
+- **First Warning text**: First warning message displayed to the Self Service Mobile portal user when inactive on the chat for the set time.
+- **Second Warning Text**: Second warning message displayed to the Self Service Mobile portal user when inactive on the chat for the set time.
+- **Expired Warning Text**: Message displayed to the Self Service Mobile portal user just before logging off the chat session when the user is inactive on the chat for the set time.
+- **Session Expired Text**: Message displayed to the Self Service Mobile portal user after logging off the chat session when the user was inactive on the chat for the set time.
+- **User Wait Expired Text**: Message displayed to the Self Service Mobile portal user when unable to assign a Service Desk Analyst to the chat session.
+
+When you make changes to the Chat Configuration, it is recommended that you clear cache for the changes to be effective. To do it, open the Configuration console > **Cache Management** > **Reset Chat Objects**.
+
+## Create Incident Quick Action
+
+Service Desk Analyst can create an Incident from the chat session which is based on the **Create Incident** Quick Action added to the **ivnt\_Chat Business Object**. This Quick Action can be customized as needed.
+
+### Customizing the Create Incident Quick Action
+
+1. Log in to \{\{Primary.Product}} with the Administrator user role.
+2. Open the Configuration console.
+3. Under **Build**, click **Business Objects** > search and open **ivnt\_Chat Business Object**.
+4. Click **Create Incident**.
+5. Edit the data as needed and click **Save**.

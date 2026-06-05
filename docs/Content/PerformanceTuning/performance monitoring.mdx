@@ -1,0 +1,145 @@
+---
+title: Performance Monitoring
+docTags: 
+createdAt: Fri Jun 05 2026 13:49:31 GMT+0300 (Eastern European Summer Time)
+---
+
+This section describes how to monitor the performance of Ivanti Service Manager.
+
+- :Link[Monitoring the Performance of Servers]{label="Monitoring the Performance of Servers" overridedLabel="Monitoring the Performance of Servers" spaceId docId="iHXPFOL6fXqo8Dnn6n4gU" version="v2" docAnchorId="#Monitoring_the_Performance_of_Servers" loadingMethod="dynamic" newTab="false" href="performance monitoring.mdx"}
+- :Link[Monitoring the Processing Services]{label="Monitoring the Processing Services" overridedLabel="Monitoring the Processing Services" spaceId docId="iHXPFOL6fXqo8Dnn6n4gU" version="v2" docAnchorId="#Monitor_the_Processing_Services_" loadingMethod="dynamic" newTab="false" href="performance monitoring.mdx"}
+
+## Monitoring the Performance of Servers
+
+If you experience performance issues, such as long delays or timeouts, start diagnostics by monitoring the resources used on your system. The following performance monitors provide metrics that you can use to determine if system resources are over utilized.
+
+- On the Ivanti Service Manager application server, monitor the CPU, memory, IO, and network.
+- On the Ivanti Service Manager database server, monitor the CPU, memory, IO, and network plus database statistics.
+- Also monitor resource utilization. For example, if the average CPU utilization is above 60%, consider adding more CPU on the Ivanti Service Manager application server.
+
+The following are the performance counters on the Ivanti Service Manager application servers. The system samples these counters every five minutes and sends the results:
+
+- Memory:
+  - Available MBytes
+- Paging file:
+  - Percent usage
+- Physical disk:
+  - Average disk reads per second
+  - Average disk writes per second
+  - Disk reads per second
+  - Disk writes per second
+- Processor:
+  - Percent processor time (CPU)
+- System:
+  - Processor queue length
+  - Network utilization total, sent, and received per second
+
+The following are the performance counters on the Ivanti Service Manager database server:
+
+- Memory:
+  - Available MBytes
+- Paging file:
+  - Percent usage
+- Physical disk:
+  - Average disk reads per second
+  - Average disk writes per second
+  - Disk reads per second
+  - Disk writes per second
+- Processor:
+  - Percent of processor time
+- Microsoft SQL Server:
+  - Logins per second
+  - Logouts per second
+  - Lock waits per second
+  - Total latch wait time (ms)
+  - Total latch waits per second
+  - Buffer manager page life expectancy
+  - General statistics – user connections
+  - Memory manager – memory grants pending
+  - Microsoft SQL statistics – batch requests per second
+  - Microsoft SQL statistics – compilations per second
+  - Microsoft SQL statistics – recompilations per second
+- System:
+  - Processor queue length
+  - Average wait time
+  - Number of deadlocks per second
+  - Lock timeouts per second
+
+## Monitoring the Processing Services
+
+- :Link[About Monitoring the Processing Services]{label="About Monitoring the Processing Services" overridedLabel="About Monitoring the Processing Services" spaceId docId="iHXPFOL6fXqo8Dnn6n4gU" version="v2" docAnchorId="#About_Monitoring_the_Processing_Services" loadingMethod="dynamic" newTab="false" href="performance monitoring.mdx"}
+- :Link[Workflow Service]{label="Workflow Service" overridedLabel="Workflow Service" spaceId docId="iHXPFOL6fXqo8Dnn6n4gU" version="v2" docAnchorId="#Workflow_Service" loadingMethod="dynamic" newTab="false" href="performance monitoring.mdx"}
+- :Link[Email Service]{label="Email Service" overridedLabel="Email Service" spaceId docId="iHXPFOL6fXqo8Dnn6n4gU" version="v2" docAnchorId="#Email_Service" loadingMethod="dynamic" newTab="false" href="performance monitoring.mdx"}
+- :Link[Escalation Service]{label="Escalation Service" overridedLabel="Escalation Service" spaceId docId="iHXPFOL6fXqo8Dnn6n4gU" version="v2" docAnchorId="#EscalationService" loadingMethod="dynamic" newTab="false" href="performance monitoring.mdx"}
+- :Link[Message Queue]{label="Message Queue" overridedLabel="Message Queue" spaceId docId="iHXPFOL6fXqo8Dnn6n4gU" version="v2" docAnchorId="#Message_Queue" loadingMethod="dynamic" newTab="false" href="performance monitoring.mdx"}
+
+### About Monitoring the Processing Services
+
+You also should monitor the processing services. The Ivanti Service Manager platform includes built-in performance counters for the Ivanti Service Manager message queue, the email service, the escalation service, and the workflow service.
+
+To manage the processing services more effectively, the system implements counters. These counters are implemented per landscape, rather than per service across multiple landscapes. Each of the counters indicates the output across all servers.
+
+For example, the system monitors the counter called “number of tenants” for all servers in the landscape where the service is running. This provides a holistic view of all of the servers and how the service is distributed and consumed. For example, with the workflow service, it shows how the tenants are partitioned versus the non-partitioned servers that act as a catch-all entity.
+
+### Workflow Service
+
+The workflow service has these monitors:
+
+| Counter                                        | Description                                                                                                                                                                                                                                                                                                                                                          |
+| ---------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Events handled per poll                        | Represents the number of events read and handled, per tenant, per poll. If a tenant does not have any events queued, this is zero.                                                                                                                                                                                                                                   |
+| Events handled per second                      | The number of events read and handled, per tenant, per second.                                                                                                                                                                                                                                                                                                       |
+| Events handled versus read per poll percentage | The number of events handled, versus read, per tenant, per poll percentage.                                                                                                                                                                                                                                                                                          |
+| Events read per poll                           | The number of events read, per tenant, per poll.                                                                                                                                                                                                                                                                                                                     |
+| Events read per second                         | The number of events read, per tenant, per second.                                                                                                                                                                                                                                                                                                                   |
+| Number of busy processor threads               | Based on the configured number of processors of the workflow service on a particular server, in the WorkflowService.exe.config file, the counter shows the number of busy processors available per server. The “number of free processor threads” plus the “number of busy processor threads” should equal the total number of processors in the configuration file. |
+| Number of free processor threads               | Based on the configured number of processors of the workflow service on a particular server, in the WorkflowService.exe.config file, the counter shows the number of free processors available per server. The “number of free processor threads” plus the “number of busy processor threads” should equal the total number of processors in the configuration file. |
+| Number of outstanding web service calls        | The number of outstanding web service calls.                                                                                                                                                                                                                                                                                                                         |
+| Number of tenants                              | The number of tenants assigned to the workflow service, per server. Based on partitioning, the number should indicate the total number of active tenants on the landscape.                                                                                                                                                                                           |
+
+### Email Service
+
+The email service has these monitors:
+
+| Counter                                   | Description                                                                                                                                                                                                                                                                           |
+| ----------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Number of busy mailbox poll threads       | Number of busy (consumed) mailbox polling threads, per server. The “number of free mailbox poll threads” plus the “number of busy mailbox poll threads” should equal the total number of mailbox poll threads as configured in the configuration file.                                |
+| Number of busy message processing threads | Number of busy (consumed) message processing threads available, per server. The “number of free message processing threads” plus the “number of busy message processing threads” should equal the total number of message processing threads as configured in the configuration file. |
+| Number of emails read                     | The number of emails read from customer mailboxes, per tenant.                                                                                                                                                                                                                        |
+| Number of free mailbox poll threads       | Number of free mailbox polling threads available, per server. The “number of free mailbox poll threads” plus the “number of busy mailbox poll threads” should equal the total number of mailbox poll threads as configured in the configuration file.                                 |
+| Number of free message processing threads | Number of free message processing threads available, per server. The “number of free message processing threads” plus the “number of busy message processing threads” should equal the total number of message processing threads as configured in the configuration file.            |
+| Number of messages read                   | The number of email messages read from the database, per tenant.                                                                                                                                                                                                                      |
+| Number of outstanding web service calls   | The number of outstanding web service calls.                                                                                                                                                                                                                                          |
+| Number of polled mailboxes                | The number of mailboxes polled.                                                                                                                                                                                                                                                       |
+| Number of tenants                         | The number of tenants assigned to the email service, per server. Based on partitioning, the number should indicate the total number of active tenants on the landscape.                                                                                                               |
+
+### Escalation Service
+
+The escalation service has these monitors:
+
+| Counter                                        | Description                                                                                                                                                                                                                                                                                                                                                              |
+| ---------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Events handled per poll                        | Represents the number of events read and handled, per tenant, per poll. If a tenant does not have any events queued, this is zero.                                                                                                                                                                                                                                       |
+| Events handled per second                      | The number of events read and handled, per tenant, per second.                                                                                                                                                                                                                                                                                                           |
+| Events handled versus read per poll percentage | The number of events handled, versus read, per tenant, per poll percentage.                                                                                                                                                                                                                                                                                              |
+| Events read per poll                           | The number of events read, per tenant, per poll.                                                                                                                                                                                                                                                                                                                         |
+| Events read per second                         | The number of events read, per tenant, per second.                                                                                                                                                                                                                                                                                                                       |
+| Number of busy processor threads               | Based on the configured number of processors of the escalation service on a particular server, in the EscalationService.exe.config file, the counter shows the number of busy processors available per server. The “number of free processor threads” plus the “number of busy processor threads” should equal the total number of processors in the configuration file. |
+| Number of free processor threads               | Based on the configured number of processors of the escalation service on a particular server, in the EscalationService.exe.config file, the counter shows the number of free processors available per server. The “number of free processor threads” plus the “number of busy processor threads” should equal the total number of processors in the configuration file. |
+| Number of outstanding web service calls        | The number of outstanding web service calls.                                                                                                                                                                                                                                                                                                                             |
+| Number of tenants                              | The number of tenants assigned to the escalation service, per server.                                                                                                                                                                                                                                                                                                    |
+
+### Message Queue
+
+The Ivanti Service Manager message queue has these performance monitors:
+
+| Counter                                 | Description                                                                                                                                                            |
+| --------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Average message processing time         | The average time for a message to be processed by a handler. This does not account for the time that the message spends in the message queue waiting to be dispatched. |
+| Average message size                    | The average size of the messages received.                                                                                                                             |
+| Messages created per second             | The number of messages received, per second.                                                                                                                           |
+| Messages processed per second           | The number of messages processed, per second by all handlers.                                                                                                          |
+| Number of concurrent handlers           | The number of handlers that are busy working on items at any given time.                                                                                               |
+| Number of concurrent messages           | The number of messages that are being processed (dispatched to its handler) at any given time.                                                                         |
+| Number of outstanding web service calls | The number of outstanding web service calls.                                                                                                                           |
+| Number of tenants                       | The number of tenants assigned to the message queue server.                                                                                                            |

@@ -1,0 +1,714 @@
+---
+title: Troubleshooting - Installation and Deployment
+docTags: 
+createdAt: Fri Jun 05 2026 13:49:31 GMT+0300 (Eastern European Summer Time)
+---
+
+If there are problems with your installation or deployment, refer to this topic.
+
+This topic does contain a long list of problems and its solutions which may be difficult to go through, it is recommended you search using relevant keywords to get to the right problem/resolution faster
+
+<ExpandableHeading>
+  Problem 1:
+  Error message "Error upon executing commands: The following error occurred when authenticating with the tenant \<tenantUrl>" is displayed.
+  ------------------------------------------------------------------------------------------------------------------------------------------
+
+  Status: TenantNotFound
+
+  ### Possible Cause
+
+  The tenant specified is invalid.
+
+  ### Solution
+
+  Ensure that the tenant URL and tenant ID are valid.
+</ExpandableHeading>
+
+<ExpandableHeading>
+  Problem 2:
+  Error message "Error upon executing commands: The following error occurred when authenticating with the tenant \<tenantUrl>" is displayed.
+  Status: AccessDenied
+  --------------------
+
+  ### Possible Cause
+
+  Invalid user name or password is provided.
+
+  ### Solution
+
+  Ensure that the user name and password are valid.
+</ExpandableHeading>
+
+<ExpandableHeading>
+  Problem 3:
+  Error message "Error upon executing commands: The following error occurred when authenticating with the tenant APPSERVER" is displayed.
+  Status: InvalidRole
+  -------------------
+
+  ### Possible Cause
+
+  No administrator rights.
+
+  ### Solution
+
+  Ensure administrator credentials exist. See [About Roles](Roles_new.mdx).
+</ExpandableHeading>
+
+<ExpandableHeading>
+  Problem: 4
+  Error message "Error upon executing commands: Could not establish trust relationship for the SSL/TLS secure channel with authority '\<IP\_address>" is displayed.
+  -----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+  ### Possible Cause
+
+  Did not connect to the \{\{Primary.Product}} application server using HTTPS.
+
+  ### Solution
+
+  Configure the \{\{Primary.Product}} application server to use SSL. See [Optional SSL Configuration](SSL_Config.mdx). Enter the URL for the \{\{Primary.Product}} application server that is configured to use SSL.
+</ExpandableHeading>
+
+<ExpandableHeading>
+  Problem 5:
+  Error message "Failed to execute applyPatch: The remote server returned an unexpected response: (400) Bad ". is displayed.
+  --------------------------------------------------------------------------------------------------------------------------
+
+  ### Possible Cause
+
+  The database version is not up to date.
+
+  ### Solution
+
+  If the system table upgrade fails, review the log files and fix any metadata issues. Then upgrade the system table.
+</ExpandableHeading>
+
+<ExpandableHeading>
+  Problem 6:
+  Cannot view the login dialog box. This message is displayed - "Please use the subdomain when accessing the application". For example, https\://yourname.saas.heatsoftware.com.
+  ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+  ### Possible Cause
+
+  The web.config file parameter "RequireTenantIdInURL" value is set to true.
+
+  ### Solution
+
+  <hint type="success">
+    1. Go to C:\Program Files\HEAT Software\HEAT\AppServer\ and open the web.config file.
+    2. Search for the parameter "RequireTenantIdInURL" and change its value to false.
+    3. Save and close the web.config file.
+  </hint>
+</ExpandableHeading>
+
+<ExpandableHeading>
+  Problem 7:
+  After upgrading to the latest version of Neurons for ITSM, the list of tenants in the Operations Console is empty.
+  ------------------------------------------------------------------------------------------------------------------
+
+  ### Possible Cause
+
+  During the upgrade, the system updated the connection strings for the landscape with the incorrect name for the data source.
+
+  ### Solution
+
+  In the Operations Console, edit each landscape to update the data source to the correct database server name. See [Upgrading Neurons for ITSM from an Earlier Release](Upgrading-Service-and-Asset-Manager-from-an-Earlier-Release.mdx) for more information on how to do this.
+</ExpandableHeading>
+
+<ExpandableHeading>
+  Problem 8:
+  Failed to execute applyPatch: The request channel timed out while waiting for a reply after 00:59:59.7741622. Increase the timeout value passed to the call to request or increase the SendTimeout value on the binding. The time allotted to this operation may have been a portion of a longer timeout.
+  ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+  ### Possible Cause
+
+  By default, the upgrade tool is set to wait for one hour for a response from the \{\{Primary.Product}} application server. This message indicates that the \{\{Primary.Product}} application server is still applying the patch or package. The patch can be completed at any time.
+
+  ### Solution
+
+  Check the status of the upgrade tool later by looking at the patch log in the Configuration Database.
+</ExpandableHeading>
+
+<ExpandableHeading>
+  Problem 9:
+  Error message "No database backup location specified in configuration database. Please contact support." is displayed.
+  ----------------------------------------------------------------------------------------------------------------------
+
+  ### Possible Cause
+
+  <Paragraph listStyleType="disc" indent="2">
+    The backup location is not set in the configuration database.
+  </Paragraph>
+
+  <Paragraph listStyleType="disc" indent="2">
+    The backup failed to execute because of permissions issues.
+  </Paragraph>
+
+  ### Solution
+
+  Ensure the backup location is set the correct permissions are set.
+</ExpandableHeading>
+
+<ExpandableHeading>
+  Problem 10:
+  Error message "Error during metadata commit operation: System.Exception: The following errors were encountered when synchronizing the schema...:" is displayed.
+  ---------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+  ### Possible Cause
+
+  This indicates a serious problem in business object metadata and is a synchronization schema error. The system cannot synchronize the database schema change with the business object definition. If you get this error, the system usually stops upgrading the metadata.
+
+  ### Solution
+
+  If this happens in the production environment, restore the database from a backup that was made before the upgrade. Then contact Ivanti support so that they can look into the error.
+</ExpandableHeading>
+
+<ExpandableHeading>
+  Problem 11:
+  Error message "Error during metadata commit operation: DataLayer.SaaSDbException: Invalid object name 'Frs\_ITFM\_Account\_Status'. ---> System.Data.SqlClient.SqlException: Invalid object name 'Frs\_ITFM\_Account\_Status'" is displayed.
+  --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+  ### Possible Cause
+
+  Part of the database is corrupt.
+
+  ### Solution
+
+  Contact Ivanti Software support. They may suggest to restore the database from a backup that was made before the upgrade.
+</ExpandableHeading>
+
+<ExpandableHeading>
+  Problem 12:
+  Error message "Error during metadata commit operation: DataLayer.SaaSDbException: Invalid object name 'Frs\_ITFM\_Account\_Status'. ---> System.Data.SqlClient.SqlException: Invalid object name 'Frs\_ITFM\_Account\_Status'" is displayed.
+  --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+  ### Possible Cause
+
+  Part of the database is corrupt.
+
+  ### Solution
+
+  Contact Ivanti Software support. They may suggest that to restore the database from a backup that was made before the upgrade.
+</ExpandableHeading>
+
+<ExpandableHeading>
+  Problem 13
+  Error message An error occurred when applying patch named \<some\_filename>.sql in package \<some\_package>.MetadataPackage to tenant \<tenantUrl>.
+  Unable to execute SQL due to Invalid column name 'IPCMUrlPort'.:
+  update FRS\_IPCM\_Integration set IPCMUrlPort = 2323 where IPCMUrlPort is null
+  Unable to execute SQL due to Invalid column name 'IPCMUrl'.:
+  update FRS\_IPCM\_Integration set IPCMUrl = 'http\://' + IPCMServerHost + ':' + convert(varchar(6), IPCMUrlPort) where IPCMUrl is null and IPCMServerHost is not null" is displayed.
+  ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+  ### Possible Cause
+
+  An embedded Microsoft SQL statement is corrupt.
+
+  ### Solution
+
+  Review the Microsoft SQL statements.
+</ExpandableHeading>
+
+<ExpandableHeading>
+  Problem 14:
+  Error message Error during metadata update operation. MetadataType: BusinessObject, ID: Frs\_AuthenticationProvider# SaaS.StandardizedMetadata.UpdateKeyNotFoundException: Update key not found: key = Rel2s
+  at SaaS.StandardizedMetadata.MetadataExtensions.Patch(XElement element, XElement differences)
+  at DataLayer.MetadataPatch.ApplyGroupedActions(IMetadataProvider provider, ISessionContext sessionContext, IEnumerable\`1 definitionGroup) in c:\depot\Eng\SaaS\main\Platform\AppServer\MetadataServices\MetadataPatch.cs\:line 1034 is displayed.
+  --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+  ### Possible Cause
+
+  There is a problem updating the metadata and the system did not update the business object.
+
+  ### Solution
+
+  Review the business object to make sure it was updated.
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Problem: 15
+
+  ### Error Message – Form
+
+  Error during metadata update operation. MetadataType: Form, ID: Task.WorkOrder System.Exception: Update key not found: key = Detailsat SaaS.StandardizedMetadata.MetadataExtensions.Patch(XElement element, XElement differences) in c:\depot\Eng\SaaS\main\Platform\StandardizedMetadata\MetadataExtensions.cs\:line 1377at SaaS.StandardizedMetadata.MetadataExtensions.Patch(XElement element, XElement differences) in c:\depot\Eng\SaaS\main\Platform\StandardizedMetadata\MetadataExtensions.cs\:line 1359at DataLayer.MetadataPatch.ApplyGroupedActions(IMetadataProvider provider, ISessionContext sessionContext, IEnumerable\`1 definitionGroup) in c:\depot\Eng\SaaS\main\Platform\AppServer\MetadataServices\MetadataPatch.cs\:line 1016.
+
+  ### Error Message – Dashboard
+
+  Error during metadata update operation. MetadataType: Dashboard, ID: 8e2cce05-c593-4545-bf4d-5f719a9bd5a5 System.Exception: Update key not found: key = OLA Target Compliance ( e94a602f-959e-4cf1-9c07-be4d5eb0da68 )at SaaS.StandardizedMetadata.MetadataExtensions.Patch(XElement element, XElement differences) in c:\depot\Eng\SaaS\main\Platform\StandardizedMetadata\MetadataExtensions.cs\:line 1377at SaaS.StandardizedMetadata.MetadataExtensions.Patch(XElement element, XElement differences) in c:\depot\Eng\SaaS\main\Platform\StandardizedMetadata\MetadataExtensions.cs\:line 1359at DataLayer.MetadataPatch.ApplyGroupedActions(IMetadataProvider provider, ISessionContext sessionContext, IEnumerable\`1 definitionGroup) in c:\depot\Eng\SaaS\main\Platform\AppServer\MetadataServices\MetadataPatch.cs\:line 1016
+
+  ### Error Message – Validation Data
+
+  Error during metadata update operation. MetadataType: ValidationData, ID: Justification# System.Exception: Update key not found: key = Justification#\_culture#pt-BRat SaaS.StandardizedMetadata.MetadataExtensions.Patch(XElement element, XElement differences) in c:\depot\Eng\SaaS\main\Platform\StandardizedMetadata\MetadataExtensions.cs\:line 1377at SaaS.StandardizedMetadata.MetadataExtensions.Patch(XElement element, XElement differences) in c:\depot\Eng\SaaS\main\Platform\StandardizedMetadata\MetadataExtensions.cs\:line 1359at SaaS.StandardizedMetadata.MetadataExtensions.Patch(XElement element, XElement differences) in c:\depot\Eng\SaaS\main\Platform\StandardizedMetadata\MetadataExtensions.cs\:line 1359at DataLayer.MetadataPatch.ApplyGroupedActions(IMetadataProvider provider, ISessionContext sessionContext, IEnumerable\`1 definitionGroup) in c:\depot\Eng\SaaS\main\Platform\AppServer\MetadataServices\MetadataPatch.cs\:line 1016
+
+  ### Error Message – Rule
+
+  Error during metadata update operation. MetadataType: Rule, ID: Incident# System.Collections.Generic.KeyNotFoundException: The given key was not present in the dictionary.at System.Collections.Generic.Dictionary\`2.get\_Item(TKey key)at SaaS.StandardizedMetadata.MetadataExtensions.Patch(XElement element, XElement differences) in c:\depot\Eng\SaaS\main\Platform\StandardizedMetadata\MetadataExtensions.cs\:line 1386at SaaS.StandardizedMetadata.MetadataExtensions.Patch(XElement element, XElement differences) in c:\depot\Eng\SaaS\main\Platform\StandardizedMetadata\MetadataExtensions.cs\:line 1359at DataLayer.MetadataPatch.ApplyGroupedActions(IMetadataProvider provider, ISessionContext sessionContext, IEnumerable\`1 definitionGroup) in c:\depot\Eng\SaaS\main\Platform\AppServer\MetadataServices\MetadataPatch.cs\:line 1016
+
+  ### Possible Cause
+
+  There is a problem updating the metadata.
+
+  ### Solution
+
+  No action.
+</ExpandableHeading>
+
+<ExpandableHeading>
+  Problem 16:
+  Error during metadata delete operation. MetadataType: Workflow, ID: 69d31c7248b54f92bc1bff415cd29e0f System.Exception: Could not deactivate workflow definition RecId: 69d31c7248b54f92bc1bff415cd29e0f ---> System.Exception: Error updating existing active workflow definition to inactive, RecId 69d31c7248b54f92bc1bff415cd29e0f
+  at SaaS.WebUI.WorkflowMetadataServices.WorkflowMetadataUpdate.Delete(MetadataType metadataType, String id) in c:\depot\Eng\SaaS\main\Platform\AppServer\BPE\src\WorkflowMetadataServices.cs\:line 409
+  Error during metadata insert operation. MetadataType: Workflow, ID: 871d9466c4754fa19ffb03de179cd057 System.Exception: Inactive definition exists with the same RecId: Name\:LDAP Sync\_LC\_133k134k135k13k14k15k16k17k18k19k, ObjectType\:ScheduleEntry, Definition RecId 871d9466c4754fa19ffb03de179cd057 at SaaS.WebUI.WorkflowMetadataServices.WorkflowMetadataUpdate.CreateWorkflowDefinition(String name, String objectType, String defRecId, String typeRecId, XElement workflow) at SaaS.WebUI.WorkflowMetadataServices.WorkflowMetadataUpdate.Insert(MetadataType metadataType, XElement workflow) at SaaS.StandardizedMetadata.MetadataProvidersContainer.Insert(MetadataType metadataType, XElement definition) at DataLayer.MetadataPatch.ApplyGroupedActions(IMetadataProvider provider, ISessionContext sessionContext, IEnumerable\`1 definitionGroup)
+  ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+  ### Possible Cause
+
+  There is a problem updating the workflows.
+
+  ### Solution
+
+  No action.
+</ExpandableHeading>
+
+<ExpandableHeading>
+  Problem 17:
+  Discovery cannot detect assets on the network.
+  ----------------------------------------------
+
+  ### Possible Causes
+
+  - Service Center Configuration Manager (SCCM) service is stuck in starting mode.
+  - Using a domain account for running all \{\{Primary.Product}} services but the domain account has insufficient rights.
+
+  ### Solution
+
+  Use the local system account and restart \{\{Primary.Product}}.
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Problem 18: System cannot search.Possible Cause Full-text search is disabled. Solution Enable full-text search. See Full Text Search .
+
+  ### Possible Cause
+
+  Full-text search is disabled.
+
+  ### Solution
+
+  Enable full-text search. See [Full Text Search ](Full_Text_Search.mdx).
+</ExpandableHeading>
+
+<ExpandableHeading>
+  Problem 19:
+  The Neurons for ITSM demo database does not load properly.
+  ----------------------------------------------------------
+
+  ### Possible Cause
+
+  Full-text search is disabled.
+
+  ### Solution
+
+  Enable full-text search. See [Full Text Search ](Full_Text_Search.mdx).
+</ExpandableHeading>
+
+<ExpandableHeading>
+  Problem 20:
+  Web servers do not work correctly.
+  ----------------------------------
+
+  ### Possible Cause
+
+  In multi-server environments, each \{\{Primary.Product}} web server must meet the system requirements.
+
+  ### Solution
+
+  Refer to the System Requirements and Compatibility Matrix for \{\{Primary.Product}} for more information.
+</ExpandableHeading>
+
+<ExpandableHeading>
+  Problem 21:
+  Provision report now returns an exception: Cannot Decrypt the Symmetric Key.
+  ----------------------------------------------------------------------------
+
+  ### Possible Cause
+
+  The \{\{Primary.Product}} reporting server cannot use the symmetric key to access the data from the report server database.
+
+  ### Solution
+
+  1. Click **OK**, but do not close the System Configuration Wizard.
+  2. Start the Reporting Services Configuration Manager and connect to your Microsoft SRSS instance.
+  3. Select **Encryption Keys** from the list in the left panel.
+  4. Click **Delete** and then click **Yes** at the confirmation message.
+  5. Return to the wizard and click **Provision Report Now**.
+</ExpandableHeading>
+
+<ExpandableHeading>
+  Problem 22:
+  Dashboard and report controls (such as charting, pivoting, and copy/paste) and the Service Catalog attachment control do not work.
+  ----------------------------------------------------------------------------------------------------------------------------------
+
+  ### Possible Cause
+
+  Browser does not have, or does not support, Adobe Flash.
+
+  ### Solution
+
+  - Install Adobe Flash. Go to [https://get.adobe.com/flashplayer/](https://get.adobe.com/flashplayer/).
+  - If your current browser does not support Adobe Flash, upgrade the browser.
+</ExpandableHeading>
+
+<ExpandableHeading>
+  Problem 23:
+  Cannot download or edit reports in Chrome.
+  ------------------------------------------
+
+  ### Possible Cause
+
+  The Chrome ClickOnce extension is not installed.
+
+  ### Solution
+
+  Install the ClickOnce extension for Chrome. Navigate to [https://chrome.google.com/webstore/detail/eeifaoomkminpbeebjdmdojbhmagnncl#](https://chrome.google.com/webstore/detail/eeifaoomkminpbeebjdmdojbhmagnncl#) and download the extension.
+</ExpandableHeading>
+
+<ExpandableHeading>
+  Problem 24:
+  Cannot download or edit reports in Firefox.
+  -------------------------------------------
+
+  ### Possible Cause
+
+  The Firefox Microsoft .NET framework assistant extension is not installed.
+
+  ### Solution
+
+  Install the Microsoft .NET framework assistant extension. Navigate to [https://addons.mozilla.org/en-US/firefox/addon/9449](https://addons.mozilla.org/en-US/firefox/addon/9449) to download the extension.
+</ExpandableHeading>
+
+<ExpandableHeading>
+  Problem 25:
+  Cannot download files or run controls in Internet Explorer.
+  -----------------------------------------------------------
+
+  ### Possible Cause
+
+  Scripting is disabled.
+
+  ### Solution
+
+  Set properties in Internet Explorer as follows:
+
+  1. Go to the Tools > Internet Options > Security > Custom level page.
+  2. Set the following options to enable:
+  3. Run ActiveX controls and plug-ins
+  4. File download
+  5. Scripting > Active scripting
+</ExpandableHeading>
+
+<ExpandableHeading>
+  Problem 26:
+  Cannot open websites in Internet Explorer.
+  ------------------------------------------
+
+  ### Possible Cause
+
+  The \{\{Primary.Product}} is not set to be a trusted site.
+
+  ### Solution
+
+  Set properties in Internet Explorer as follows:
+
+  <hint type="success">
+    1. Go to the Tools > Internet Options > Security page.
+    2. Highlight Trusted sites and click Sites.
+    3. Click Add.
+  </hint>
+</ExpandableHeading>
+
+<ExpandableHeading>
+  Problem 27:
+  Logging into a tenant using Internet Explorer fails.
+  ----------------------------------------------------
+
+  Internet Explorer displays this message: You cannot login to the system now. Please contact your administrator. Additional information is available in the logs.
+
+  ### Possible Cause
+
+  Internet Explorer does not accept cookies if the host name of the DNS server or the server NetBIOS names contain an underscore '\_'.
+
+  ### Solution
+
+  <Paragraph listStyleType="disc" indent="2">
+    Change the host name of the DNS server or its NetBIOS names so they no longer contain an underscore '\_'
+  </Paragraph>
+
+  <Paragraph listStyleType="disc" indent="2">
+    Use a Chrome or Firefox browser.
+  </Paragraph>
+</ExpandableHeading>
+
+<ExpandableHeading>
+  Problem 28:
+  Unable to use integrated components, such as Voice.
+  ---------------------------------------------------
+
+  ### Possible Cause
+
+  Using the Microsoft Windows operating system when using integrated components.
+
+  ### Solution
+
+  Change to the Microsoft Windows operating system. Refer to the System Requirements and Compatibility Matrix for \{\{Primary.Product}} for more information.
+</ExpandableHeading>
+
+<ExpandableHeading>
+  Problem 29:
+  When trying to access the Configuration Database, the application redirects the user from http\://localhost/HEAT to https\://localhost on the machine where SSL is not setup.
+  -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+  ### Possible Cause
+
+  <hint type="success">
+    There is a known limitation in the 2018.3.1 release with respect to FedRamp requirements related to the URL redirect configuration.
+  </hint>
+
+  ### Solution
+
+  <hint type="success">
+    To resolve this, there is a need to update an entry in the web.config file. Set the parameter highlighted below to ‘false’ and restart IIS. Once the process is completed, try to access 
+
+    **Configuration Database**
+
+    .
+  </hint>
+
+  <hint type="success">
+    \</rule>
+
+    \<rule name="HTTP to HTTPS redirect" stopProcessing="true">
+
+    \<match url="(.\*)">
+
+    \</match>
+
+    \<conditions>
+
+    \<add input="\{\{SERVER\_NAME}}" pattern="^localhost$" negate="true">
+
+    \</add>
+
+    \<add input="\{\{HTTPS}}" pattern="off" ignoreCase="true">
+
+    \</add>
+
+    \</conditions>
+
+    \<action type="Redirect" url="https\://\{\{HTTP\_HOST}}/\{R:1}" redirectType="Permanent">
+
+    \</action>
+
+    \</rule>
+  </hint>
+</ExpandableHeading>
+
+<ExpandableHeading>
+  Problem 30:
+  From the System Configuration Wizard (SCW) - unable to connect to Central Central Config URL configuration.
+  -----------------------------------------------------------------------------------------------------------
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/JEhZ07RR6VoZcfUwiyeNR_scw-step3-test-connection-failing.png" position="flex-start" size="40" initialPath="Install_Deploy_Images/SCW-step3-test-connection-failing.png" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Install_Deploy_Images/SCW-step3-test-connection-failing.png"></Image>
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/6S_VhZ9FBGEfCgiZuNkhz_scw-step3-test-connection-failing-2.png" position="flex-start" size="40" initialPath="Install_Deploy_Images/SCW-step3-test-connection-failing-2.png" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Install_Deploy_Images/SCW-step3-test-connection-failing-2.png"></Image>
+
+  ### Possible Cause
+
+  ErrorCode - 0x8007000d - URL Rewrite or IIS Hosting Bundle is not installed correctly.
+
+  ### Solution
+
+  1. Open IIS.
+  2. Browse CentralConfig from Default Websites.
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/uu57-a6mcAoYTXdcVk_z1_central-config-default-website.png" position="flex-start" size="40" indent="1" initialPath="Install_Deploy_Images/Central-Config-Default-Website.png" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Install_Deploy_Images/Central-Config-Default-Website.png"></Image>
+
+  <Paragraph indent="1">
+    Check CCF Url - [http(s)://\<TenantID>/CentralConfig/CentralConfig.svc](https://config.test.lab/CentralConfig/CentralConfig.svc). For example, http\://app2022/CentralConfig/CentralConfig.svc.
+  </Paragraph>
+
+  3. If it is not accessible check error code in the browser - 0x8007000d.
+  4. Restart IIS and check if the CentralConfig URL is accessible.
+  5. If the CentralConfig is URL not accessible – install the [IIS Hosting bundle](https://versionsof.net/core/6.0/6.0.27/) and the [Restart IIS](https://www.iis.net/downloads/microsoft/url-rewrite#additionalDownloads).
+  6. Check the CentralConfig endpoint - http(s)://\<TenantID>/CentralConfig/CentralConfig.svc.
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/WjqXvS88Q158mxjTCskCX_central-config-endpoint.png" position="flex-start" size="40" indent="1" initialPath="Install_Deploy_Images/Central-Config-Endpoint.png" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Install_Deploy_Images/Central-Config-Endpoint.png"></Image>
+
+  7. If the CentralConfig is accessible, continue with the SCW setup.
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Problem 31: System Configuration Wizard (SCW) - Report Provisioning fails displaying the following error - "Possible Exception from access to Config service/Access to SSRS web services/missing info in config database. Error is Error in Execution Error is The request failed with HTTP status 401: Unauthorized".
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/vtFZHuhTdp8bSj81TnwR8_scw-report-provisioning-error.png" position="flex-start" size="40" initialPath="Install_Deploy_Images/SCW-Report-Provisioning-Error.png" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Install_Deploy_Images/SCW-Report-Provisioning-Error.png"></Image>
+
+  ### Possible Cause
+
+  The SSRS report service is not reachable by SCW.
+
+  ### Solution
+
+  Check if the SSRS report configuration is reachable. After confirming, restart the SCW configuration.
+
+  Steps:
+
+  1. Open the Report Server Configuration Manager.
+  2. Start the SSRS and provide correct configuration details.
+  3. Recheck the ReportProvisioning.
+</ExpandableHeading>
+
+<ExpandableHeading>
+  Problem 32:
+  While installing System Configuration Wizard (SCW) Report Server in virtual machine, the following error is thrown - "Could not load file or assembly Micrososft.SqlServer.BatchParser,Version=12.0.0.0."
+  ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/UPpGUbzWUf-hmWznUvta4_assembly-file-load-error.png" position="flex-start" size="40" initialPath="Install_Deploy_Images/Assembly-file-load-error.png" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Install_Deploy_Images/Assembly-file-load-error.png"></Image>
+
+  ### Possible Cause
+
+  If the assembly or its dependencies is not present in the VM.
+
+  ### Resolution
+
+  1. Install the Pre-Requisite installer given with the installation guide.
+
+  <Paragraph indent="1">
+    or
+  </Paragraph>
+
+  2. Download and install the following packages manually:
+     - [SQLSysClrTypes.msi](https://www.microsoft.com/en-gb/download/details.aspx?id=42295)
+     - [SharedManagementObjects.msi](https://www.microsoft.com/en-gb/download/details.aspx?id=42295)
+  3. Install and check Report Server SCW setup.
+</ExpandableHeading>
+
+<ExpandableHeading>
+  Problem 33:
+  Cache rebuild does not run automatically.
+  -----------------------------------------
+
+  ### Resolution
+
+  Run the cache rebuild manually. Refer to :Link[Installing Cache Rebuild]{label="Installing Cache Rebuild" overridedLabel="Installing Cache Rebuild" spaceId docId="5mqDHQo3w7qG8KsA7gvPB" version="v2" docAnchorId="#Cache-Rebuild" loadingMethod="dynamic" newTab="false" githubPath="Install_HEAT_Recommended.htm#Cache-Rebuild" href="Install_HEAT_Recommended.mdx"}.
+</ExpandableHeading>
+
+<ExpandableHeading>
+  Problem 34:
+  After updating the application from 2023.3 to 2023.4, if you are using WIS authentication, manually update the web.config file.
+  -------------------------------------------------------------------------------------------------------------------------------
+
+  ### Resolution
+
+  - Take a backup of the existing file to ensure the configuration is preserved.
+  - After installation is completed, redo the updates to the **WIS web.config** as per the original configuration document, mainly pointing the **AssertionConsumerHandlerUrls&#x20;**&#x74;o the right addresses.
+</ExpandableHeading>
+
+<ExpandableHeading>
+  Problem 35:
+  Integration Service Server issues due to port change.
+  -----------------------------------------------------
+
+  ### Resolution
+
+  As part of 2023.4 integration service is running as a separate service, hosted on port 1213 by default.
+
+  - If value for Integration Service Server is 80, change it to 1213.
+  - If the value for https port is 443, change it to something else.
+  - Ensure to have a separate port and not the same as other appdomains.
+</ExpandableHeading>
+
+<ExpandableHeading>
+  Problem 36:
+  License Server Landscape issues such as login issue with error message "Landscape is not defined in License Server" or "Unable to Load License".
+  ------------------------------------------------------------------------------------------------------------------------------------------------
+
+  ### Resolution
+
+  1. Run the following query:
+
+  [Copy](javascript:void\(0\);)
+
+  ```javascript
+   
+  SELECT * FROM .[dbo].[Frs_LS_LicenseServerLandscape] 
+  ```
+
+  [Copy](javascript:void\(0\);)
+
+  ```javascript
+  "select * from Landscape"
+  ```
+
+  <hint type="info">
+    Run both the above queries from the config tenant.
+  </hint>
+
+  2. Ensure that the value in **ConfigServiceUrl&#x20;**&#x66;ield is valid (check if the service definition loads when adding it in a browser). If not, update it to a valid central config url, for example, http\://domainname/Centralconfig/CentralConfig.svc .
+
+  If using OpsConsole, follow the resolution below:
+
+  3. Check the landscape configuration from the DB or through ops console. If it is similar as shown the image below, that is if it has - /ConfigServiceAPI.asmx at the end, update those specific landscapes to have /Centralconfig/CentralConfig.svc route instead.
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/CvYw7oXBIgT8LyRHZG9cR_opsconsole-resolution.png" position="flex-start" size="40" indent="1" initialPath="Install_Deploy_Images/OpsConsole-Resolution.png" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Install_Deploy_Images/OpsConsole-Resolution.png"></Image>
+
+  <Paragraph indent="1">
+    After update, the landscape configuration should be as shown the below image:
+  </Paragraph>
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/n7KaEENjDci1TugTMnqBO_opsconsole-resolution-updated.png" position="flex-start" size="40" indent="1" initialPath="Install_Deploy_Images/OpsConsole-Resolution-Updated.png" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Install_Deploy_Images/OpsConsole-Resolution-Updated.png"></Image>
+
+  4. Restart IIS and login into both AppServer and LicenseManager.
+
+  <hint type="info">
+    The **CentralConfig.svc** file should only be present only on the landscapes where the upgrade is executed from.
+  </hint>
+
+
+</ExpandableHeading>
+
+<ExpandableHeading>
+  Problem 37:
+  Cannot find APIKey in Header.
+  -----------------------------
+
+  ### Resolution
+
+  The **central-config-api-key** should be the same in all **appdomains appsettings.json** file and in **Frs\_data\_api\_key** table in the ConfigDB.
+
+  Update the central-config-api-key in the respective appdomains **appsettings.json** file.
+</ExpandableHeading>
+
+<ExpandableHeading>
+  Problem 38:
+  Issue with ActionServices.
+  --------------------------
+
+  ### Resolution
+
+  Refer to :Link[ActionServices Troubleshooting]{label="ActionServices Troubleshooting" overridedLabel="ActionServices Troubleshooting" spaceId docId="LOnwhMekz11RD33xjppni" version="v2" docAnchorId="#Troubleshooting-Action-Services" loadingMethod="dynamic" newTab="false" githubPath="../ConfigDB_Guide/Action-Services-Config-Deploy.htm#Troubleshooting-Action-Services" href="../ConfigDB_Guide/Action-Services-Config-Deploy.mdx"} topic.
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Problem 39:
+
+  Survey not opening - getting a 404 error when trying to open survey from incident or email.
+
+  ### Resolution
+
+  Open the Survey Information workspace from Config tenant.
+
+  Update URL in the Host Name field by removing “/Public” and “.aspx” as shown in the image below:
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/jsTwOnYfrlxk_9AojJ8V5_troubleshooting-survey.png" position="flex-start" size="40" initialPath="Install_Deploy_Images/Troubleshooting-Survey.png" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Install_Deploy_Images/Troubleshooting-Survey.png"></Image>
+
+  From \{http/https}://\{\{hostname}}/HEATSurvey/Public/TakeSurvey.aspx?action=take\_survey to \{http/https}://\{\{hostname}}/HEATSurvey/TakeSurvey?action=take\_survey
+
+  If the survey url opens from the machine where the application is hosted but not from other machines, make sure the \{**hostname**} parameter has the fully qualified domain name instead of the machine name.
+</ExpandableHeading>

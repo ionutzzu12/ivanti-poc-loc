@@ -1,0 +1,198 @@
+---
+title: Configuring Discovery
+docTags: 
+createdAt: Fri Jun 05 2026 13:49:30 GMT+0300 (Eastern European Summer Time)
+---
+
+This topic describes how to configure Discovery.
+
+- :Link[Configuring Discovery on a Dedicated Server]{label="Configuring Discovery on a Dedicated Server" overridedLabel="Configuring Discovery on a Dedicated Server" spaceId docId="fC8F2WHjK4lDcVvVxebrh" version="v2" docAnchorId="#Configur" loadingMethod="dynamic" newTab="false" href="Configure_HEAT_Discovery_Standalone.mdx"}
+- :Link[Configuring Discovery on the Production Servers]{label="Configuring Discovery on the Production Servers" overridedLabel="Configuring Discovery on the Production Servers" spaceId docId="fC8F2WHjK4lDcVvVxebrh" version="v2" docAnchorId="#Configur2" loadingMethod="dynamic" newTab="false" href="Configure_HEAT_Discovery_Standalone.mdx"}
+
+## Configuring Discovery on a Dedicated Server
+
+After you have installed the Discovery components, the System Configuration Wizard automatically starts and displays the Configuration Application page.
+
+1. On the Configuration Application page, do the following:
+
+<Paragraph indent="1">
+  a. Under Target Environment, choose Single Server Deployment.
+</Paragraph>
+
+<Paragraph indent="1">
+  b. Under Setup Connection, verify that the configuration matches the settings that you configured for the \{\{Primary.Product}} production servers. See [Configuring the Configuration Database](Configure_HEAT_Configuration_Database.mdx).
+</Paragraph>
+
+<Paragraph indent="1">
+  c. Click Next.
+</Paragraph>
+
+2. On the Service Manager Application page, do the following:
+
+<Paragraph indent="1">
+  a. Verify that the configuration matches the settings that you configured for the \{\{Primary.Product}} production servers. See [Configuring the Neurons for ITSM Application](Configure_HEAT_Service_Management_Application.mdx).
+</Paragraph>
+
+<Paragraph indent="1">
+  b. Check Discovery Stand alone.
+</Paragraph>
+
+<Paragraph indent="1">
+  c. Click Next.
+</Paragraph>
+
+3. On the Application Server Settings page, do the following:
+
+<Paragraph indent="1">
+  a. Verify that the configuration matches the settings that you configured for the \{\{Primary.Product}} production servers.
+</Paragraph>
+
+<Paragraph indent="1">
+  b. Click Next.
+</Paragraph>
+
+4. On the Other Features Settings page, do the following:
+
+<Paragraph indent="1">
+  a. Under Customize Server, in the Discovery Application Server field, enter the name of the Discovery dedicated server.
+</Paragraph>
+
+<Paragraph listStyleType="disc" indent="3">
+  If you are not using SSL, enter the host name.
+</Paragraph>
+
+<Paragraph listStyleType="disc" indent="3">
+  If you are using SSL, enter the fully-qualified domain name.
+</Paragraph>
+
+<Paragraph indent="1">
+  b. Verify that the rest of the configuration matches the settings that you configured for the \{\{Primary.Product}} production servers. See [Configuring Other Feature Settings](Configure_Other_Features_Settings.mdx).
+</Paragraph>
+
+<Paragraph indent="1">
+  c. Click Next.
+</Paragraph>
+
+5. On the Metrics Server page, do the following:
+
+<Paragraph indent="1">
+  a. Verify that the configuration matches the settings that you configured for the \{\{Primary.Product}} production servers. See [Configuring the Metrics Server](Configure_HEAT_Metrics_Server.mdx).
+</Paragraph>
+
+<Paragraph indent="1">
+  b. Click Next.
+</Paragraph>
+
+6. On the Discovery Application Server page, do the following:
+
+<Paragraph indent="1">
+  a. In the Discovery Application Server field, enter the name of the Discovery dedicated server.
+</Paragraph>
+
+<Paragraph listStyleType="disc" indent="3">
+  If you are not using SSL, enter the host name.
+</Paragraph>
+
+<Paragraph listStyleType="disc" indent="3">
+  If you are using SSL, enter the fully-qualified domain name.
+</Paragraph>
+
+<Paragraph indent="1">
+  b. Verify that the rest of the configuration matches the settings that you configured for the \{\{Primary.Product}} production servers. See [Configuring the Discovery Application Server](Configure_HEAT_Discovery_Application_Server.mdx).
+</Paragraph>
+
+<Paragraph indent="1">
+  c. Click Next.
+</Paragraph>
+
+7. On the Discovery Web Server page, do the following:
+
+<Paragraph indent="1">
+  a. In the Discovery Application Server field, enter the name of the Discovery dedicated server.
+</Paragraph>
+
+<Paragraph listStyleType="disc" indent="3">
+  If you are not using SSL, enter the host name.
+</Paragraph>
+
+<Paragraph listStyleType="disc" indent="3">
+  If you are using SSL, enter the fully-qualified domain name.
+</Paragraph>
+
+<Paragraph indent="1">
+  b. Verify that the rest of the configuration matches the settings that you configured for the \{\{Primary.Product}} production servers. See [Configuring the Discovery Web Server](Configure_HEAT_Discovery_Web_Server.mdx).
+</Paragraph>
+
+<Paragraph indent="1">
+  c. Click Finish.
+</Paragraph>
+
+The system displays the Completed page of the System Configuration Wizard.
+
+8. Restart your system (the host server you just configured).
+9. After the system restarts, ensure that you can access \{\{Primary.Product}}. Go to http\://server\_name/HEAT and ensure that the system is functional.
+
+## Configuring Discovery on the Production Servers
+
+Now that there is a dedicated Discovery server in your deployment, you must configure your production servers to recognize it.
+
+On each production server in your deployment, do the following:
+
+1. Go to the Windows apps menu and click System Configuration Wizard. The system opens the System Configuration Wizard and displays the Configuration Application page.
+2. On the Configuration Application page, click Next.
+3. On the \{\{Primary.Product}} application page, click Next.
+4. On the Application Server Settings page, click Next.
+5. On the Other Features Settings page, do the following:
+
+<Paragraph indent="1">
+  a. In the Discovery Application Server field, enter the name of the Discovery dedicated server.
+</Paragraph>
+
+<Paragraph listStyleType="disc" indent="3">
+  If you are not using SSL, enter the host name.
+</Paragraph>
+
+<Paragraph listStyleType="disc" indent="3">
+  If you are using SSL, enter the fully-qualified domain name.
+</Paragraph>
+
+<Paragraph indent="1">
+  b. Click Next.
+</Paragraph>
+
+6. On the Metrics Server page, click Next.
+7. On the Discovery Application Server page, do the following:
+
+<Paragraph indent="1">
+  a. In the Discovery Application Server field, enter the name of the Discovery dedicated server.
+</Paragraph>
+
+<Paragraph listStyleType="disc" indent="3">
+  If you are not using SSL, enter the host name.
+</Paragraph>
+
+<Paragraph listStyleType="disc" indent="3">
+  If you are using SSL, enter the fully-qualified domain name.
+</Paragraph>
+
+<Paragraph indent="1">
+  b. Click Next.
+</Paragraph>
+
+8. On the the Discovery Web Server page:
+
+<Paragraph indent="1">
+  a. In the Discovery Application Server field, enter the name of the Discovery dedicated server.
+</Paragraph>
+
+<Paragraph listStyleType="disc" indent="3">
+  If you are not using SSL, enter the host name.
+</Paragraph>
+
+<Paragraph listStyleType="disc" indent="3">
+  If you are using SSL, enter the fully-qualified domain name.
+</Paragraph>
+
+<Paragraph indent="1">
+  b. Click Finish.
+</Paragraph>

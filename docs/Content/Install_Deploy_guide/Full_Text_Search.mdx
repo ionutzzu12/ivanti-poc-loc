@@ -1,0 +1,58 @@
+---
+title: Full Text Search
+docTags: 
+createdAt: Fri Jun 05 2026 13:49:30 GMT+0300 (Eastern European Summer Time)
+---
+
+The full-text search feature of Microsoft SQL Server is a specialized indexing and querying service for character-based data in Microsoft SQL Server database tables.
+
+By default, the application database is configured to index these incident fields:
+
+- Owner
+- ProfileFullName
+- Resolution
+- Subject
+- Symptom
+
+The full-text search feature is disabled by default.
+
+## Enabling the Full-Text Search Feature
+
+This section describes how to enable and configure the full-text search feature of Microsoft SQL Server.
+
+1. During Microsoft SQL Server installation, in the Feature Selection page of the Microsoft SQL Server setup wizard, check **Full-Text and Semantic Extractions for Search**.
+2. In the Server Configuration page of the Microsoft SQL Server setup wizard, ensure that the Microsoft SQL Full-text Filter Daemon Launcher is configured with the local service account.
+
+<Paragraph indent="1">
+  *Server Configuration*
+</Paragraph>
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/LTtc9YIfLPbFeZdTbuMJD_prereq2.png" position="flex-start" size="40" indent="1" initialPath="Install_Deploy_Images/prereq_2.png" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Install_Deploy_Images/prereq_2.png"></Image>
+
+3. In the Services panel for the system, ensure that the status for SQL Full-text Filter Daemon Launcher says Running.
+
+<Paragraph indent="1">
+  *Services Dialog Box*
+</Paragraph>
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/rRdRdkZRNsoKRqaTyP939_prereq3.png" position="flex-start" size="40" indent="1" initialPath="Install_Deploy_Images/prereq_3.png" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Install_Deploy_Images/prereq_3.png"></Image>
+
+4. Verify that full-text search is configured in Microsoft SQL Server Management Studio by doing the following:
+
+<Paragraph indent="1">
+  a. Open the Files page from the Database Properties dialog box.
+</Paragraph>
+
+<Paragraph indent="1">
+  b. Ensure that Use full-text indexing is checked.
+</Paragraph>
+
+<Paragraph indent="1">
+  c. If it is not checked, verify that the full-text search services are running as described in :Link[In the Services panel for the system, ensure that the status for SQL Full-text Filter Daemon Launcher says Running.]{label="In the Services panel for the system, ensure that the status for SQL Full-text Filter Daemon Launcher says Running." overridedLabel="In the Services panel for the system, ensure that the status for SQL Full-text Filter Daemon Launcher says Running." spaceId docId="wDliLOOiy8Wf30jnBU-Gf" version="v2" docAnchorId="#step_In_the_Services_panel_SQL_Full-text_Filter" loadingMethod="dynamic" newTab="false" href="Full_Text_Search.mdx"}
+</Paragraph>
+
+<Paragraph indent="1">
+  *Checking the Use Full-Text Indexing Option*
+</Paragraph>
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/cUUkH708aKrN0_dpBQBeM_prereq4.png" position="flex-start" size="40" indent="1" initialPath="Install_Deploy_Images/prereq_4.png" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Install_Deploy_Images/prereq_4.png"></Image>

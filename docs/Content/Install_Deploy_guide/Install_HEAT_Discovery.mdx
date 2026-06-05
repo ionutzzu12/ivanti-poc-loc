@@ -1,0 +1,32 @@
+---
+title: Installing Discovery on a Dedicated Server
+docTags: 
+createdAt: Fri Jun 05 2026 13:49:30 GMT+0300 (Eastern European Summer Time)
+---
+
+In small deployments, you install Discovery with the other \{\{Primary.Product}} components on the \{\{Primary.Product}} production servers. For an [Enterprise Production Deployment](Deployment_Enter_Prod.mdx), you can either install Discovery on the production servers or, to reduce the load on the production servers, you can configure a dedicated Discovery server. If you install Discovery on your production servers and then experience a significant load increase, we recommend configuring a dedicated Discovery server.
+
+This topic describes how to install Discovery on a dedicated server.
+
+1. Install \{\{Primary.Product}} on your production servers. See [Installing Neurons for ITSM](Install_HEAT_Recommended.mdx).
+2. On the server dedicated to Discovery, access the installation folder on the Software product CD or zip file and run IvantiServiceManager.exe. Right-click and select Run as Administrator to ensure proper installation.
+
+<Paragraph indent="1">
+  The installer checks for the prerequisite software components. If any of those components is not installed, the system prompts you to install them now.
+</Paragraph>
+
+3. Click **Install** at the prompt. Installation of the prerequisite software can take several minutes. If you are prompted to restart the system, click **Yes**. The system displays the Welcome dialog box. The installer checks for space and other requirements before displaying the Next button.
+4. Click **Next**. The system displays the License Agreement dialog box.
+5. Select **I accept the terms in the license agreement** and click **Next**. The system displays the Destination Folder dialog box.
+6. Click **Next** to accept the default installation folder or click **Change...** and select a different folder. The system displays the Setup Type dialog box.
+7. Select the following components for the Custom Setup dialog box. Under Discovery, choose:
+   - Web Application Components
+   - Discovery Web Server
+8. Click Next. The system displays the Ready to Install the Program dialog box.
+9. Click **Install**. The system begins installing Discovery and displays a status dialog box showing the installation progress of each component over the next few minutes.
+
+<Paragraph indent="1">
+  When the components are installed, the system automatically displays the System Configuration Wizard.
+</Paragraph>
+
+10. Go to [Configuring the Discovery Application Server](Configure_HEAT_Discovery_Application_Server.mdx) for instructions about using the System Configuration Wizard.

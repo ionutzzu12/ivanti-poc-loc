@@ -1,0 +1,51 @@
+---
+title: Installing the Operations Console
+docTags: 
+createdAt: Fri Jun 05 2026 13:49:31 GMT+0300 (Eastern European Summer Time)
+---
+
+- :Link[Installing the Operations Console]{label="Installing the Operations Console" overridedLabel="Installing the Operations Console" spaceId docId="sFer_zhwGPJkH4-BxtMLF" version="v2" docAnchorId="#Installi" loadingMethod="dynamic" newTab="false" href="OpsConsole_Install.mdx"}
+- :Link[Accessing the Operations Console]{label="Accessing the Operations Console" overridedLabel="Accessing the Operations Console" spaceId docId="sFer_zhwGPJkH4-BxtMLF" version="v2" docAnchorId="#Accessin" loadingMethod="dynamic" newTab="false" href="OpsConsole_Install.mdx"}
+
+### Installing the Operations Console
+
+You install the Operations Console when you install Ivanti Service Manager. You can find complete instructions for installing Ivanti Service Manager in the Installation and Deployment Guide for Ivanti Service Manager.
+
+We highly recommend that you only install the Operations Console in the staging landscape, and not in any other landscape. For migrating data, you only need to install the Operations Console in one landscape; you should not install it in more than one landscape.
+
+The following is a summary of the installation steps:
+
+1. Access the installation folder on the Ivanti Software product CD or download folder and run IvantiServiceManager.exe. The system displays the Welcome dialog box.
+2. Click **Next**. The system displays the License Agreement dialog box.
+3. Select **I accept the terms in the license agreement** and click **Next**. The system displays the Destination Folder dialog box.
+4. Click **Next** to accept the default installation folder. The system displays the Setup Type dialog box.
+5. Do one of the following:
+   - Select **Complete** for the installation type. The installation program installs all of the Ivanti Service Manager components including the Operations Console.
+   - Select **Custom** for the installation type. Choose the components to install but ensure that you select Operations Console under Setup/Tools.
+6. Click **Install** in the Ready to Install the Program dialog box.
+
+The installation begins. The system displays a status dialog box, showing the installation progress of each component over the next few minutes.
+
+7. If prompted, click Run to run the file.
+
+### Accessing the Operations Console
+
+The Operations Console has the following default login credentials:
+
+- User name: admin
+- Password: manage
+
+We highly recommend that you change the administrator password the first time that you access the system.
+
+After installing Ivanti Service Manager, do the following to access the Operations Console:
+
+1. Either click Start > All Programs > HEAT Software > HEAT > Ops Console or access the Operations Console from a URL in a browser. The system displays the Operations Console login page. See :Link[Operations Console Login Page]{label="Operations Console Login Page" overridedLabel="Operations Console Login Page" spaceId docId="sFer_zhwGPJkH4-BxtMLF" version="v2" docAnchorId="#FIG_HOCLS" loadingMethod="dynamic" newTab="false" href="OpsConsole_Install.mdx"}.
+
+<Paragraph indent="1">
+  *Operations Console Login Page*
+</Paragraph>
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/uOdn6_G8xjmki4-WwrTrd_opsconsolelogin.png" position="flex-start" size="40" indent="1" initialPath="ops_Images/ops_console_login.png" githubPath="ITSM-On-Prem-Help/Content/ops_console_ug/ops_Images/ops_console_login.png"></Image>
+
+2. Enter the Operations Console user name and password.
+3. Click Login.

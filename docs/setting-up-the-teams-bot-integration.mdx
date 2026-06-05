@@ -1,0 +1,74 @@
+---
+title: Setting up the Teams Bot Integration
+slug: setting-up-the-teams-bot-integration
+docTags: 
+createdAt: Fri Jun 05 2026 13:49:32 GMT+0300 (Eastern European Summer Time)
+---
+
+For integrating Microsoft Teams with \{\{Primary.Company}} \{\{Primary.Product}}, on-premise users should first setup the environment by downloading the package and executing PowerShell script.
+
+## What the Powershell Script does?
+
+- Creates the directory in the **inetpub** folder.
+- Creates a new application pool and sets item property for it.
+- Creates a new web application and sets item property for it.
+- Silently installs the required application, as in you might not get any prompts to proceed with the installation.
+- Copies the required binaries to the destination folder.
+- Creates the appsetting.json once the ipaddress/machine name/local host name is provided.
+
+## Setting up the Central Config API Key
+
+1. Log in to the CentralConfig > **Configure Application** > **Security Controls** > **ApiKeys**.
+2. Find the **CentralConfigApiKey** as shown below and copy the value.
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/-IoJcB61TqAck04eMjcmx_apikey-team-bot-central-config.png" position="flex-start" size="40" indent="1" initialPath="APIKey-Team-Bot-Central-Config.png" githubPath="ITSM-On-Prem-Help/Content/Setting-up-Teams-Bot-Integration/APIKey-Team-Bot-Central-Config.png"></Image>
+
+3. Paste the copied value in the appsettings.json file for the CentralConfigApiKey. For example, central-config-api-key"=”xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx”
+
+## Executing the PowerShell Script
+
+Download the zip file to a relevant folder in your machine.
+
+4. Extract the zip file.
+5. Open PowerShell as Administrator.
+6. Go to the location where the PowerShell script is located, that is, the location where you extracted the zip file.
+7. Run the script - `.\TeamsBot.ps1`.
+8. You will be prompted for the Appserver as well as the Central Config ipaddress/ Machine name/ localhost name. name/ localhost. Enter the appropriate Address/Machine name/localhost.
+
+<Paragraph indent="1">
+  The configuration is done.
+</Paragraph>
+
+## Troubleshooting
+
+<ExpandableHeading>
+  ## Incorrect ipaddress/machine name/local host name.
+
+  If you provide incorrect IP address/machine name/local host name, open the Appsetting.json file from the folder inetpub >Teams Bot Service and replace the AppserverIPAddress with the correct one.
+
+  <ExpandableHeading>
+    ## Example of the AppSetting.json file:
+
+    \{"MicrosoftAppId"="";"MicrosoftAppPassword"="";"IPCMURL"= "http\://$AppserverIPAddress/HEAT/ServiceApi/IPCMService.asmx"; "WorkflowURL"= "http\://$AppserverIPAddress/HEAT/ServiceApi/WorkflowService.asmx"; "ConfigURL"= "http\://$CentralConfigIPAddress/CentralConfig/ConfigServiceAPI.asmx"; "RetrieveTenantLogLevel\_ws\_url"= "http=//$CentralConfigIPAddress/CentralConfig/RetrieveTenantLogLevel.ashx"; "EnableCentralLogging"= false; "LoggingService\_ws\_url"= "http\://$AppserverIPAddress/Heat.Logging.Service/api/LoggingService/HeatServiceManagementLogging"; "ElapsedSecondsToFlushLog"= 60; "ItemSizeToFlushLog"= 1000; "LogSettingCacheTimeoutInMinutes"= 5; "SendLogFileLocation"= "C:\logs"; "WriteLogFileLocation"= "C:\logs"; "SendLogWaitInterval"= 300; "WriteLogWaitInterval"= 300; "EnableLogging"= true; "CacheTimeout"= "30"; "isOnPremise": false; ”CentralConfigApiKey”=”” }
+  </ExpandableHeading>
+</ExpandableHeading>
+
+<hint type="info">
+  Make sure that Boolean values (true/false) don't not have double quotes.
+</hint>
+
+<ExpandableHeading>
+  ## To know the execution policy list
+
+  Run the command - `PS C: \Users\Administrator>Get-ExecutionPolicy - List`
+
+  *Sample image of the policy list*
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## To set the execution policy
+
+  Once the PowerShell script is executed successfully, execute the command - `Set-ExecutionPolicy -ExecutionPolicy “PROVIDE PREVIOUS VALUE” -Scope LocalMachine` to set the execution policy.
+
+  *Sample image of setting execution policy*
+</ExpandableHeading>

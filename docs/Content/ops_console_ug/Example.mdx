@@ -1,0 +1,161 @@
+---
+title: Migration Scenarios Using Simple Mode and Advanced Mode
+docTags: 
+createdAt: Fri Jun 05 2026 13:49:31 GMT+0300 (Eastern European Summer Time)
+---
+
+This section shows the steps to take when migrating data in different scenarios and when disabling the Ivanti Service Manager development project and using Simple Mode and Advanced Mode. It skips the conceptual information and only shows the procedure steps.  See [Appendix B: Migrating Data from One Tenant Instance to Another Using Simple Mode or Advanced Mode](Push_data.mdx) for conceptual information and details about these steps.
+
+These examples migrate data by disabling the Ivanti Service Manager development project and using Simple Mode and Advanced Mode.
+
+- :Link[Migrating Data from the Production Instance of the Tenant to the Staging or UAT Instance of the Tenant]{label="Migrating Data from the Production Instance of the Tenant to the Staging or UAT Instance of the Tenant" overridedLabel="Migrating Data from the Production Instance of the Tenant to the Staging or UAT Instance of the Tenant" spaceId docId="2JxJn6daLr-4HNP4Wjc_U" version="v2" docAnchorId="#You" loadingMethod="dynamic" newTab="false" href="Example.mdx"}
+- :Link[Refreshing the Staging or UAT Instance of the Tenant]{label="Refreshing the Staging or UAT Instance of the Tenant" overridedLabel="Refreshing the Staging or UAT Instance of the Tenant" spaceId docId="2JxJn6daLr-4HNP4Wjc_U" version="v2" docAnchorId="#You2" loadingMethod="dynamic" newTab="false" href="Example.mdx"}
+- :Link[Performing a Quick Migration from the Staging or UAT Instance to the Production Instance]{label="Performing a Quick Migration from the Staging or UAT Instance to the Production Instance" overridedLabel="Performing a Quick Migration from the Staging or UAT Instance to the Production Instance" spaceId docId="2JxJn6daLr-4HNP4Wjc_U" version="v2" docAnchorId="#Updating" loadingMethod="dynamic" newTab="false" href="Example.mdx"}
+- :Link[Migrating Certain Types of Metadata and Validation Data from the Staging or UAT Instance to the Production Instance, or from the Staging Instance to the UAT Instance]{label="Migrating Certain Types of Metadata and Validation Data from the Staging or UAT Instance to the Production Instance, or from the Staging Instance to the UAT Instance" overridedLabel="Migrating Certain Types of Metadata and Validation Data from the Staging or UAT Instance to the Production Instance, or from the Staging Instance to the UAT Instance" spaceId docId="2JxJn6daLr-4HNP4Wjc_U" version="v2" docAnchorId="#Certain2" loadingMethod="dynamic" newTab="false" href="Example.mdx"}
+- :Link[Migrating Certain Types of Metadata, Validation Data, and Master Data from the Staging or UAT Instance to the Production Instance, or from the Staging Instance to the UAT Instance]{label="Migrating Certain Types of Metadata, Validation Data, and Master Data from the Staging or UAT Instance to the Production Instance, or from the Staging Instance to the UAT Instance" overridedLabel="Migrating Certain Types of Metadata, Validation Data, and Master Data from the Staging or UAT Instance to the Production Instance, or from the Staging Instance to the UAT Instance" spaceId docId="2JxJn6daLr-4HNP4Wjc_U" version="v2" docAnchorId="#CERTAIN" loadingMethod="dynamic" newTab="false" href="Example.mdx"}
+- :Link[Migrating Only Transactional Data from the Staging or UAT Instance to the Production Instance, or from the Staging Instance to the UAT Instance]{label="Migrating Only Transactional Data from the Staging or UAT Instance to the Production Instance, or from the Staging Instance to the UAT Instance" overridedLabel="Migrating Only Transactional Data from the Staging or UAT Instance to the Production Instance, or from the Staging Instance to the UAT Instance" spaceId docId="2JxJn6daLr-4HNP4Wjc_U" version="v2" docAnchorId="#TransData" loadingMethod="dynamic" newTab="false" href="Example.mdx"}
+- :Link[Overwriting All Metadata and Validation Data from the Staging or UAT Instance to the Production Instance, or from the Staging Instance to the UAT Instance]{label="Overwriting All Metadata and Validation Data from the Staging or UAT Instance to the Production Instance, or from the Staging Instance to the UAT Instance" overridedLabel="Overwriting All Metadata and Validation Data from the Staging or UAT Instance to the Production Instance, or from the Staging Instance to the UAT Instance" spaceId docId="2JxJn6daLr-4HNP4Wjc_U" version="v2" docAnchorId="#AllMetaValid" loadingMethod="dynamic" newTab="false" href="Example.mdx"}
+- :Link[Migrating Configuration Data (Settings) from the Staging or UAT Instance to the Production Instance, or from the Staging Instance to the UAT Instance]{label="Migrating Configuration Data (Settings) from the Staging or UAT Instance to the Production Instance, or from the Staging Instance to the UAT Instance" overridedLabel="Migrating Configuration Data (Settings) from the Staging or UAT Instance to the Production Instance, or from the Staging Instance to the UAT Instance" spaceId docId="2JxJn6daLr-4HNP4Wjc_U" version="v2" docAnchorId="#Migratin" loadingMethod="dynamic" newTab="false" href="Example.mdx"}
+- :Link[Example: Migrating Service Level Data]{label="Example: Migrating Service Level Data" overridedLabel="Example: Migrating Service Level Data" spaceId docId="2JxJn6daLr-4HNP4Wjc_U" version="v2" docAnchorId="#Example:" loadingMethod="dynamic" newTab="false" href="Example.mdx"}
+
+### Migrating Data from the Production Instance of the Tenant to the Staging or UAT Instance of the Tenant
+
+In this scenario, you are just starting out and have only created an initial production instance of your tenant.
+
+1. Log in to the Operations Console and click the Tenants tab.
+2. Navigate to the landscape you will perform the migration in and click **Manage Migration**.
+3. Click **Push** in the arrow representing the migration path to use. (See :Link[Migration Dashboard]{label="Migration Dashboard" overridedLabel="Migration Dashboard" spaceId docId="kxdBsaHYdzf3E_JvNX_Kv" version="v2" docAnchorId="#FIG_Console" loadingMethod="dynamic" newTab="false" githubPath="Starting_Migration.htm#FIG_Console" href="Starting_Migration.mdx"} in [Starting the Data Migration](Starting_Migration.mdx).) The system displays the Copy source\_tenant\_instance to target\_tenant\_instance (for example, Copy Production to Staging) dialog box.
+4. Enter the following information for the first data migration to a tenant instance:
+   - Select an option in the Target DB Option field.
+   - In the Target DB Server field, if the target landscape contains more than one database server, select the server that hosts the Ivanti Service Manager configuration database.
+   - (Optional) Check **Keep existing users enabled in the target tenant** to keep all the users, and not just the administrators, active.
+   - (Optional) Check **Scrub email address in users** to scrub user emails.
+   - (Optional) Check **Scrub email address in other places** to scrub email accounts saved in transactional data.
+   - (Optional) Check **Trim data to keep last 90 days only** to only copy transactional data that was created or modified within the last 90 days.
+
+<hint type="info">
+  Do not check this option if you are creating the database from the sample ("out of the box") database, because the records are likely to be older than 90 days in the sample database.
+</hint>
+
+<Paragraph listStyleType="disc" indent="2">
+  (Optional) Check **Shrink database after scrubbing and trimming** to truncate unnecessary data when the tenant instance is created from a backup.
+</Paragraph>
+
+5. Click **Execute**.
+
+### Refreshing the Staging or UAT Instance of the Tenant
+
+In this scenario, you have a database on the staging or UAT instance of the tenant and you want to update it with the latest version from the production instance of the tenant.
+
+1. Log in to the Operations Console and click the Tenants tab.
+2. Navigate to the landscape you will perform the migration in and click **Manage Migration**.
+3. Click **Push** in the arrow representing the migration path to use. (See :Link[Migration Dashboard]{label="Migration Dashboard" overridedLabel="Migration Dashboard" spaceId docId="kxdBsaHYdzf3E_JvNX_Kv" version="v2" docAnchorId="#FIG_Console" loadingMethod="dynamic" newTab="false" githubPath="Starting_Migration.htm#FIG_Console" href="Starting_Migration.mdx"} in [Starting the Data Migration](Starting_Migration.mdx).) The Copy source\_tenant\_instance to target\_tenant\_instance (for example, Copy Production to Staging) dialog box appears.
+4. Enter the following information for the first data migration to a tenant instance:
+   - Select an option in the Target DB Option field.
+   - In the Target DB Server field, if the target landscape contains more than one database server, select the server that hosts the Ivanti Service Manager configuration database.
+   - (Optional) Check **Keep existing users enabled in the target tenant** to keep all the users, and not just the administrators, active.
+   - (Optional) Check **Scrub email address in users** to scrub user emails.
+   - (Optional) Check **Scrub email address in other places** to scrub email accounts saved in transactional data.
+   - (Optional) Check **Trim data to keep last 90 days only** to only copy transactional data that was created or modified within the last 90 days.
+   - (Optional) Check **Shrink database after scrubbing and trimming** to truncate unnecessary data when the tenant instance is created from a backup.
+5. Click **Execute**.
+
+### Performing a Quick Migration from the Staging or UAT Instance to the Production Instance
+
+1. Log in to the Operations Console and click the Tenants tab.
+2. Navigate to the landscape you will perform the migration in and click **Manage Migration**.
+3. Click **Push** in the arrow representing the migration path to use. (See :Link[Migration Dashboard]{label="Migration Dashboard" overridedLabel="Migration Dashboard" spaceId docId="kxdBsaHYdzf3E_JvNX_Kv" version="v2" docAnchorId="#FIG_Console" loadingMethod="dynamic" newTab="false" githubPath="Starting_Migration.htm#FIG_Console" href="Starting_Migration.mdx"} in [Starting the Data Migration](Starting_Migration.mdx).) The Copy source\_tenant\_instance to target\_tenant\_instance (for example, Copy Staging to Production) dialog box appears.
+4. In the Copy dialog box, make these selections:
+   - Do not check Advanced Mode.
+   - (Optional) Check Skip target tenant backup before operation to not perform a database backup.
+   - (Optional) Under Copy the following selected data, check Service request if you want to migrate service request information, and check Escalation schedule if you want to migrate escalation schedule information.
+5. Click Execute.
+
+### Migrating Certain Types of Metadata and Validation Data from the Staging or UAT Instance to the Production Instance, or from the Staging Instance to the UAT Instance
+
+1. Log in to the Operations Console and click the Tenants tab.
+2. Navigate to the landscape you will perform the migration in and click **Manage Migration**.
+3. Click **Push** in the arrow representing the migration path to use. (See :Link[Migration Dashboard]{label="Migration Dashboard" overridedLabel="Migration Dashboard" spaceId docId="kxdBsaHYdzf3E_JvNX_Kv" version="v2" docAnchorId="#FIG_Console" loadingMethod="dynamic" newTab="false" githubPath="Starting_Migration.htm#FIG_Console" href="Starting_Migration.mdx"} in [Starting the Data Migration](Starting_Migration.mdx).) The Copy source\_tenant\_instance to target\_tenant\_instance (for example, Copy Staging to Production) dialog box appears.
+4. In the Copy dialog box, check Advanced Mode.
+5. In the Copy dialog box, for the Operation field, choose **Copy Configuration**. (See :Link[Copy Dialog Box (Migrate Metadata and Validation Data)]{label="Copy Dialog Box (Migrate Metadata and Validation Data)" overridedLabel="Copy Dialog Box (Migrate Metadata and Validation Data)" spaceId docId="VvatisdgL5BT76U4_xhmM" version="v2" docAnchorId="#dialog" loadingMethod="dynamic" newTab="false" githubPath="Push_data.htm#dialog" href="Push_data.mdx"} in [Appendix B: Migrating Data from One Tenant Instance to Another Using Simple Mode or Advanced Mode](Push_data.mdx).)
+6. (Optional) Check **Skip target tenant backup before operation** to not back up the target tenant instance prior to the data migration.
+7. (Optional) Check the items to delete if those objects were deleted on the target tenant instance in the Delete metadata items in target\_tenant\_instance that do not exist in source\_tenant\_instance section. If you do not select any checkboxes in this section, all data is merged, and no data on the source tenant instance is deleted.
+8. (Optional) Check the items under the Replace metadata items in target\_tenant\_instance that are newer than those in source\_tenant\_instance section to delete items that exist on both the source tenant instance and the target tenant instance when the version on the target tenant instance is newer than the version on the source tenant instance. If you do not select any checkboxes in this section, all data on the target tenant instance is *overwritten* by data from the source tenant instance.
+9. (Optional) Check the items under the Custom defined validation list data objects section to delete customized validation list items on the target tenant instance that were also deleted on the source tenant instance.
+10. Click **Execute**.
+
+### Migrating Certain Types of Metadata, Validation Data, and Master Data from the Staging or UAT Instance to the Production Instance, or from the Staging Instance to the UAT Instance
+
+1. Log in to the Operations Console and click the Tenants tab.
+2. Navigate to the landscape you will perform the migration in and click **Manage Migration**.
+3. Click **Push** in the arrow representing the migration path to use. (See :Link[Migration Dashboard]{label="Migration Dashboard" overridedLabel="Migration Dashboard" spaceId docId="kxdBsaHYdzf3E_JvNX_Kv" version="v2" docAnchorId="#FIG_Console" loadingMethod="dynamic" newTab="false" githubPath="Starting_Migration.htm#FIG_Console" href="Starting_Migration.mdx"} in [Starting the Data Migration](Starting_Migration.mdx).) The system displays the Copy source\_tenant\_instance to target\_tenant\_instance (for example, Copy Staging to Production) dialog box.
+4. In the Copy dialog box, check Advanced Mode. The system displays more options in the dialog box.
+5. In the Copy dialog box, for the Operation field, choose **Copy Configuration & Master Data**. (See :Link[Copy Dialog Box (Migrate Metadata, Validation Data, and Master Data) -- Top Half]{label="Copy Dialog Box (Migrate Metadata, Validation Data, and Master Data) -- Top Half" overridedLabel="Copy Dialog Box (Migrate Metadata, Validation Data, and Master Data) -- Top Half" spaceId docId="VvatisdgL5BT76U4_xhmM" version="v2" docAnchorId="#Dialog-2" loadingMethod="dynamic" newTab="false" githubPath="Push_data.htm#Dialog-2" href="Push_data.mdx"} in [Appendix B: Migrating Data from One Tenant Instance to Another Using Simple Mode or Advanced Mode](Push_data.mdx).)
+6. Fill in the top portion of the Copy dialog box (the settings for metadata and validation data) as described in :Link[Migrating Certain Types of Metadata and Validation Data from the Staging or UAT Instance to the Production Instance, or from the Staging Instance to the UAT Instance]{label="Migrating Certain Types of Metadata and Validation Data from the Staging or UAT Instance to the Production Instance, or from the Staging Instance to the UAT Instance" overridedLabel="Migrating Certain Types of Metadata and Validation Data from the Staging or UAT Instance to the Production Instance, or from the Staging Instance to the UAT Instance" spaceId docId="2JxJn6daLr-4HNP4Wjc_U" version="v2" docAnchorId="#Certain2" loadingMethod="dynamic" newTab="false" href="Example.mdx"}.
+7. (Optional) Check **Delete data items in target\_tenant\_instance that do not exist in source\_tenant\_instance** to delete master data on the target tenant instance that was also deleted on the source tenant instance.
+8. (Optional) Check any items under the Copy the following selected data section to include them when the data is migrated.
+9. (Optional) Select one or more items to migrate from the Additional Data list.
+10. Click Execute.
+
+### Migrating Only Transactional Data from the Staging or UAT Instance to the Production Instance, or from the Staging Instance to the UAT Instance
+
+1. Log in to the Operations Console and click the Tenants tab.
+2. Navigate to the landscape you will perform the migration in and click **Manage Migration**.
+3. Click **Push** in the arrow representing the migration path to use. (See :Link[Migration Dashboard]{label="Migration Dashboard" overridedLabel="Migration Dashboard" spaceId docId="kxdBsaHYdzf3E_JvNX_Kv" version="v2" docAnchorId="#FIG_Console" loadingMethod="dynamic" newTab="false" githubPath="Starting_Migration.htm#FIG_Console" href="Starting_Migration.mdx"} in [Starting the Data Migration](Starting_Migration.mdx).) The system displays the Copy source\_tenant\_instance to target\_tenant\_instance (for example, Copy Staging to Production) dialog box.
+4. In the Copy dialog box, check Advanced Mode.
+5. In the Copy dialog box, for the Operation field, choose **Copy Data Only**. (See :Link[Copy Dialog Box (Migrate Only Transactional Data)]{label="Copy Dialog Box (Migrate Only Transactional Data)" overridedLabel="Copy Dialog Box (Migrate Only Transactional Data)" spaceId docId="VvatisdgL5BT76U4_xhmM" version="v2" docAnchorId="#dialog_3" loadingMethod="dynamic" newTab="false" githubPath="Push_data.htm#dialog_3" href="Push_data.mdx"} in [Appendix B: Migrating Data from One Tenant Instance to Another Using Simple Mode or Advanced Mode](Push_data.mdx).)
+6. (Optional) Check **Skip target tenant backup before operation** to not back up the target tenant instance prior to the data migration.
+7. (Optional) Check **Delete data items in target\_tenant\_instance that do not exist in source\_tenant\_instance** under the Data only copy options section to delete transactional data on the target tenant instance if that data was also deleted on the source tenant instance.
+8. (Optional) In the Transactional Data list, select the items to migrate.
+9. Click **Execute**.
+
+### Overwriting All Metadata and Validation Data from the Staging or UAT Instance to the Production Instance, or from the Staging Instance to the UAT Instance
+
+1. Log in to the Operations Console and click the Tenants tab.
+2. Navigate to the landscape you will perform the migration in and click **Manage Migration**.
+3. Click **Push** in the arrow representing the migration path to use. (See :Link[Migration Dashboard]{label="Migration Dashboard" overridedLabel="Migration Dashboard" spaceId docId="kxdBsaHYdzf3E_JvNX_Kv" version="v2" docAnchorId="#FIG_Console" loadingMethod="dynamic" newTab="false" githubPath="Starting_Migration.htm#FIG_Console" href="Starting_Migration.mdx"} in [Starting the Data Migration](Starting_Migration.mdx).) The system displays the Copy source\_tenant\_instance to target\_tenant\_instance (for example, Copy Staging to Production) dialog box.
+4. In the Copy dialog box, check Advanced Mode.
+5. In the Copy dialog box, for the Operation field, choose **Copy to Replace**. (See :Link[Copy Dialog Box (To Overwrite Metadata and Validation Data)]{label="Copy Dialog Box (To Overwrite Metadata and Validation Data)" overridedLabel="Copy Dialog Box (To Overwrite Metadata and Validation Data)" spaceId docId="VvatisdgL5BT76U4_xhmM" version="v2" docAnchorId="#dialog_4" loadingMethod="dynamic" newTab="false" githubPath="Push_data.htm#dialog_4" href="Push_data.mdx"} in [Appendix B: Migrating Data from One Tenant Instance to Another Using Simple Mode or Advanced Mode](Push_data.mdx).)
+6. Enter the following information:
+   - Select an option in the Target DB Option field.
+   - In the Target DB Server field, if the target landscape contains more than one database server, select the server that hosts the Ivanti Service Manager configuration database.
+   - (Optional) Check **Keep existing users enabled in the target tenant** to keep all the users, and not just the administrators, active.
+   - (Optional) Check **Scrub email address in users** to scrub user emails.
+   - (Optional) Check **Scrub email address in other places** to scrub email accounts saved in transactional data.
+   - (Optional) Check **Trim data to keep last 90 days only** to only copy transactional data that was created or modified within the last 90 days.
+   - (Optional) Check **Shrink database after scrubbing and trimming** to truncate unnecessary data when the tenant instance is created from a backup.
+   - (Optional) Check Skip target tenant backup before operation to not back up the target tenant instance prior to the data migration.
+7. Click **Execute**.
+
+### Migrating Configuration Data (Settings) from the Staging or UAT Instance to the Production Instance, or from the Staging Instance to the UAT Instance
+
+1. Log in to the Operations Console and click the Tenants tab.
+2. Navigate to the landscape you will perform the migration in and click **Manage Migration**.
+3. Click **Push** in the arrow representing the migration path to use. (See :Link[Migration Dashboard]{label="Migration Dashboard" overridedLabel="Migration Dashboard" spaceId docId="kxdBsaHYdzf3E_JvNX_Kv" version="v2" docAnchorId="#FIG_Console" loadingMethod="dynamic" newTab="false" githubPath="Starting_Migration.htm#FIG_Console" href="Starting_Migration.mdx"} in [Starting the Data Migration](Starting_Migration.mdx).) The system displays the Copy source\_tenant\_instance to target\_tenant\_instance (for example, Copy Staging to Production) dialog box.
+4. In the Copy dialog box, check Advanced Mode.
+5. In the Copy dialog box, for the Operation field, choose Copy Settings. (See :Link[Copy Dialog Box (Migrate Settings)]{label="Copy Dialog Box (Migrate Settings)" overridedLabel="Copy Dialog Box (Migrate Settings)" spaceId docId="VvatisdgL5BT76U4_xhmM" version="v2" docAnchorId="#FIG-Set2" loadingMethod="dynamic" newTab="false" githubPath="Push_data.htm#FIG-Set2" href="Push_data.mdx"} in [Appendix B: Migrating Data from One Tenant Instance to Another Using Simple Mode or Advanced Mode](Push_data.mdx).)
+6. (Optional) Check **Skip target tenant backup before operation** to not back up the target tenant instance prior to the data migration.
+7. (Optional) Check **Delete setting records in target\_tenant that do not exist in source\_tenant** to delete configuration data (settings) on the target tenant instance if that data was also deleted on the source tenant instance.
+8. (Optional) To update configuration data (settings) that has changed in both the source and the target tenant instances, check **Update setting records that changed**.
+9. In the Setting Type list, select the configuration data types (settings) to migrate.
+10. Click **Execute**.
+
+### Example: Migrating Service Level Data
+
+This example shows how to migrate service level data such as service level agreements, operational level agreements, underpinning contracts, service level targets, and service level packages. All of these are made up of master data and transactional data.
+
+1. Log in to the Operations Console and click the Tenants tab.
+2. Navigate to the landscape you will perform the migration in and click **Manage Migration**.
+3. Click **Push** in the arrow representing the migration path to use. (See :Link[Migration Dashboard]{label="Migration Dashboard" overridedLabel="Migration Dashboard" spaceId docId="kxdBsaHYdzf3E_JvNX_Kv" version="v2" docAnchorId="#FIG_Console" loadingMethod="dynamic" newTab="false" githubPath="Starting_Migration.htm#FIG_Console" href="Starting_Migration.mdx"} in [Starting the Data Migration](Starting_Migration.mdx).) The system displays the Copy source\_tenant\_instance to target\_tenant\_instance (for example, Copy Staging to UAT) dialog box.
+4. In the Copy dialog box, for the Operation field, select **Copy Master Data Only**.
+5. (Optional) Check **Delete data items in target\_tenant\_instance that do not exist in source\_tenant\_instance** to delete master data on the target tenant instance that was also deleted on the source tenant instance.
+6. Under the Copy the following selected data section, check Service request and Escalation schedule.
+7. From the Additional Data list, hold down the control key and select all of the following:
+   - Service Agreement (ServiceAgreement)
+   - Service Level Agreement (ServiceLevelAgreement.SLA)
+   - Service Level Objective (ServiceLevelObjective)
+   - Service Level Package (ServiceLevelPackage)
+   - Service Level Target (ServiceLevelTarget)
+   - Service Level Target – General (ServiceLevelTargetGeneral)
+   - Vendor (Vendor)
+8. Click Execute.

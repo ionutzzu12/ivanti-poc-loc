@@ -1,0 +1,180 @@
+---
+title: Installing Neurons for ITSM
+docTags: 
+createdAt: Fri Jun 05 2026 13:49:30 GMT+0300 (Eastern European Summer Time)
+---
+
+This chapter provides an overview of product deployment and associated installation steps.
+
+## Where to Install Neurons for ITSM
+
+Before you begin installation, be clear on your deployment plan for \{\{Primary.Product}}. See \{\{Primary.Product}}[Neurons for ITSM Deployment Overview](Deployment_Overview.mdx).
+
+- For the [Demonstration or Proof-of-Concept Deployment](Deployment_Demo_POC.mdx), you install \{\{Primary.Product}} onto the \{\{Primary.Product}} server.  With this deployment, you must install Microsoft SQL Server and Microsoft SQL Server Reporting Services (SSRS) on your server before you install \{\{Primary.Product}}.
+- For the [Minimum Production Deployment ](Deployment_Min_Prod.mdx), you install \{\{Primary.Product}} onto the \{\{Primary.Product}} server.
+- For the [Enterprise Production Deployment](Deployment_Enter_Prod.mdx), you install \{\{Primary.Product}} onto each of your \{\{Primary.Product}} processing servers and web servers, as described below.
+
+## Installing Neurons for ITSM
+
+**Prerequisite:**
+
+- Without fail take a backup of the entire folder in all the machines where \{\{Primary.Product}} is installed. This step is a mandatory preventive measure, do not miss it.
+- Install the prerequisite installer using **Ivanti Service & Asset Manager Prerequisite.exe**.
+
+<Paragraph indent="1">
+  The **Ivanti Service & Asset Manager.exe** installs the essential software that is required for running the System Configuration Wizard (SCW) tool.
+</Paragraph>
+
+<Paragraph indent="1">
+  For ITSM version 2025.4 and above installation, it places the additional App Domains payload at C:\Program Files (x86)\HEAT Software\Prerequisite.
+</Paragraph>
+
+<hint type="info" indent="1">
+  The list of AppDomains for 2025.4 version is same as 2025.3 version.
+</hint>
+
+- Install the **Additional Ap Domain** provided with the package. Follow instructions given in Additional App Domains Deployment. (Supports up to ITSM 2025.3 version)
+
+<hint type="info" indent="1">
+  Installing the Additional App Domains is mandatory.
+</hint>
+
+Installation is basically the same for all hosts in your deployment, except for the features to be installed, which happens in :Link[Your selection of features from the Setup Type dialog box depends on the role of the individual host in your deployment plan.]{label="Your selection of features from the Setup Type dialog box depends on the role of the individual host in your deployment plan." overridedLabel="Your selection of features from the Setup Type dialog box depends on the role of the individual host in your deployment plan." spaceId docId="5mqDHQo3w7qG8KsA7gvPB" version="v2" docAnchorId="#step_Your_selection_of_features" loadingMethod="dynamic" newTab="false" href="Install_HEAT_Recommended.mdx"}
+
+<hint type="info">
+  After the Additional App Domains powershell script is successfully run, the cache re-build is automatically executed. If the Additional App Domains powershell script is not run in same machine, then the Cache Rebuild should be executed manually. For instructions on how to executed Cache Rebuild manually, refer to :Link[Neurons for ITSM Cache Rebuild]{label="Neurons for ITSM Cache Rebuild" overridedLabel="Neurons for ITSM Cache Rebuild" spaceId docId="5mqDHQo3w7qG8KsA7gvPB" version="v2" docAnchorId="#Cache-Rebuild" loadingMethod="dynamic" newTab="false" href="Install_HEAT_Recommended.mdx"}.
+</hint>
+
+Do the following on each production server in your deployment:
+
+1. Access the installation folder on the Software product CD or zip file and run **IvantiServiceManager.exe**. Right-click and select Run as Administrator to ensure proper installation.
+
+<Paragraph indent="1">
+  The installer checks for the prerequisite software components. If any of those components is not installed, the system prompts you to install them now.
+</Paragraph>
+
+2. Click **Install** at the prompt. Installation of the prerequisite software can take several minutes. If you are prompted to restart the system, click **Yes**. The system displays the Welcome dialog box. The installer checks for space and other requirements before displaying the Next button.
+3. Click **Next**. The system displays the License Agreement dialog box.
+4. Choose **I accept the terms in the license agreement** and click **Next**. The system displays the Destination Folder dialog box.
+5. Click **Next** to accept the default installation folder, or click **Change** and select a different folder. The system displays the Setup Type dialog box.
+6. Your selection of features from the Setup Type dialog box depends on the role of the individual host in your deployment plan.
+   - For the [Demonstration or Proof-of-Concept Deployment](Deployment_Demo_POC.mdx), choose Complete, click Next, and install all components.
+   - For the [Minimum Production Deployment ](Deployment_Min_Prod.mdx), choose Complete, click Next, and install all components.
+   - For the [Enterprise Production Deployment](Deployment_Enter_Prod.mdx), your choice depends on the role of the host:
+     - Production processing server: Choose Custom, click Next, and install all components except for the \{\{Primary.Product}} Operations Console. You must install this server first before you install the staging, UAT, or web servers.
+     - Staging or UAT processing servers: Choose Complete, click Next, and install all components.
+     - Web servers: Choose Custom, click Next, and only install the \{\{Primary.Product}} application server.
+
+<Paragraph indent="1">
+  For the [Enterprise Production Deployment](Deployment_Enter_Prod.mdx), note the following:
+</Paragraph>
+
+<Paragraph listStyleType="disc" indent="4">
+  If your deployment includes different processing servers for production, staging, and UAT, you must install the License Manager in every one of those landscapes.
+</Paragraph>
+
+<Paragraph listStyleType="disc" indent="4">
+  You can choose Complete and install all \{\{Primary.Product}} features on all of your servers, but doing that takes up more disk space than necessary.
+</Paragraph>
+
+<Paragraph indent="1">
+  When installing components, note the following:
+</Paragraph>
+
+<Paragraph listStyleType="disc" indent="4">
+  To not install a component, click the down arrow next to the server icon next to the category name, highlight the component, right click, and select This feature will not be available.
+</Paragraph>
+
+<Paragraph listStyleType="disc" indent="4">
+  If your deployment includes DSM, you do not need to install the \{\{ISMProduct.DSM\_Integration}} service because that component has been incorporated into \{\{Primary.Product}} since Release 2015.2.
+</Paragraph>
+
+7. Click Next. The system displays the Ready to Install the Program dialog box.
+8. Click **Install**. The system begins installing \{\{Primary.Product}} and displays a status dialog box, showing the installation progress of each module over the next few minutes.
+9. Click OK if the system displays a dialog box saying that reboot is required after installation.
+10. If the system displays a dialog box saying that some of the files that need to be updated are currently in use, choose Automatically close and attempt to restart applications and click OK.
+
+<Paragraph indent="1">
+  When the installation is completed, the system displays the System Configuration Wizard.
+</Paragraph>
+
+11. Go to [Configuring Neurons for ITSM ](Server_Config_Procedure.mdx)for instructions about using the System Configuration Wizard.
+
+## Installing Additional App Domains (Up to version 2025.3)
+
+You will be prompted to install the App Domain after the SCW installation is complete. Proceed with the installation without skipping.
+
+- Additional components zip file is provided along with the installer.
+- All the components in the zip files needs a working setup of Ivanti Service & Asset Manager.
+- Powershell script should be run with Administrator privilege.
+- Ensure you have atleast 500 MB of free space before running the script.
+
+**List of App Domains:**
+
+1. Survey
+   - SurveyUI
+   - SurveyProxy
+2. ActionService
+3. TeamsBot
+
+**Steps to run the script:**
+
+1. Extract the zip file provided along with the Installer.
+
+<Paragraph indent="1">
+  The setup will have one powershell script named **install.ps1**.
+</Paragraph>
+
+2. Open a powershell window with Administrator privilege.
+3. Run the following command from the extracted location:
+
+<Paragraph indent="1">
+  [Copy](javascript\:void\(0\);)
+</Paragraph>
+
+<Paragraph indent="1">
+  ```javascript
+  Set-ExecutionPolicy Bypass -Scope Process -Force; .\install.ps1
+  ```
+</Paragraph>
+
+4. Teamsbot is optional component, please type yes to install. If Installing Teamsbot there are two URLs you need to pass where components are installed:
+   - AppServer URL
+   - CentralConfig URL
+
+<Paragraph indent="2">
+  The value can be machine name (if above components are installed on a different server) or localhost (if the components are installed on same server).
+</Paragraph>
+
+ActionService and Survey will be installed by default with the script as they are necessary components for the application to function properly.
+
+## Neurons for ITSM Cache Rebuild
+
+Follow these steps to run the cache rebuild manually:
+
+1. Open the command prompt as an Administrator.
+2. Go to "HEAT Software\HEAT" folder on the machine where you have run the installer.
+
+<Paragraph indent="1">
+  For example, D:\HEAT Software\HEAT\AppServer\CacheRebuild.
+</Paragraph>
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/1i1qcIsMicWhcy_vcSOrQ_cache-rebuild-image1.png" position="flex-start" size="40" indent="1" initialPath="Install_Deploy_Images/Cache-rebuild-image1.png" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Install_Deploy_Images/Cache-rebuild-image1.png"></Image>
+
+3. In the command prompt once the path is correct, run the **CacheRebuild.exe**.
+
+<Paragraph indent="1">
+  For example, D:\HEAT Software\HEAT\AppServer\CacheRebuild>CacheRebuild.exe.
+</Paragraph>
+
+<hint type="info" indent="1">
+  Do not close the command prompt window while the cache rebuild is running; it will close automatically after it's done.
+</hint>
+
+<Paragraph indent="1">
+  The CacheRebuild folder will be saved in the path provided in the SCW.
+</Paragraph>
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/YliWdTIX9OsfZTdMNfj2s_cache-rebuild-location-in-scw.png" position="flex-start" size="40" indent="1" initialPath="Install_Deploy_Images/cache-rebuild-location-in-scw.png" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Install_Deploy_Images/cache-rebuild-location-in-scw.png"></Image>
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/6FRg_jR-517AeMh7QAKZ4_cache-rebuild-folder.png" position="flex-start" size="40" indent="1" initialPath="Install_Deploy_Images/Cache-rebuild-folder.png" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Install_Deploy_Images/Cache-rebuild-folder.png"></Image>

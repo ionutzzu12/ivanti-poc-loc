@@ -1,0 +1,82 @@
+---
+title: About the Different Accounts Used in Neurons for ITSM
+docTags: 
+createdAt: Fri Jun 05 2026 13:49:30 GMT+0300 (Eastern European Summer Time)
+---
+
+Before you install and configure \{\{Primary.Product}}, you must create and know the credentials for the following accounts:
+
+- :Link[IT Account]{label="IT Account" overridedLabel="IT Account" spaceId docId="im47mKyMG_ilmmIbVvUa9" version="v2" docAnchorId="#IT_Account" loadingMethod="dynamic" newTab="false" href="Diff_Accounts_New.mdx"}
+- :Link[Database Account]{label="Database Account" overridedLabel="Database Account" spaceId docId="im47mKyMG_ilmmIbVvUa9" version="v2" docAnchorId="#HEAT_Database_Account" loadingMethod="dynamic" newTab="false" href="Diff_Accounts_New.mdx"}
+- :Link[Service Account]{label="Service Account" overridedLabel="Service Account" spaceId docId="im47mKyMG_ilmmIbVvUa9" version="v2" docAnchorId="#HEAT_Service_Account" loadingMethod="dynamic" newTab="false" href="Diff_Accounts_New.mdx"}
+
+During configuration of \{\{Primary.Product}}, you create the following accounts:
+
+- :Link[Administrator Account for the Configuration Database]{label="Administrator Account for the Configuration Database" overridedLabel="Administrator Account for the Configuration Database" spaceId docId="im47mKyMG_ilmmIbVvUa9" version="v2" docAnchorId="#Administrator_Account_for_the_HEAT_Configuration_Database" loadingMethod="dynamic" newTab="false" href="Diff_Accounts_New.mdx"}
+- :Link[Administrator Account for Neurons for ITSM]{label="Administrator Account for Neurons for ITSM" overridedLabel="Administrator Account for Neurons for ITSM" spaceId docId="im47mKyMG_ilmmIbVvUa9" version="v2" docAnchorId="#Administrator_Account_for_HEAT_Service_Management" loadingMethod="dynamic" newTab="false" href="Diff_Accounts_New.mdx"}
+- :Link[Administrator Account for the Reporting Service]{label="Administrator Account for the Reporting Service" overridedLabel="Administrator Account for the Reporting Service" spaceId docId="im47mKyMG_ilmmIbVvUa9" version="v2" docAnchorId="#Administrator_Account_for_the_HEAT_Reporting_Service" loadingMethod="dynamic" newTab="false" href="Diff_Accounts_New.mdx"}
+- :Link[Administrator Account for the Operations Console]{label="Administrator Account for the Operations Console" overridedLabel="Administrator Account for the Operations Console" spaceId docId="im47mKyMG_ilmmIbVvUa9" version="v2" docAnchorId="#Administrator_Account_for_the_HEAT_Operations_Console" loadingMethod="dynamic" newTab="false" href="Diff_Accounts_New.mdx"}
+
+## IT Account
+
+This is the account that you are logged into when installing \{\{Primary.Product}} and running the System Configuration Wizard.
+
+You must create this account before you start the installation. This account must have administrator privileges on the servers on which you install \{\{Primary.Product}}. Your IT department sets up this account for you.
+
+## Database Account
+
+You must create this account before you start the installation. 
+
+You enter your credentials for the \{\{Primary.Product}} database account on the following System Configuration Wizard pages:
+
+- Configuration Application
+- Ivanti Service Manager Application
+- Metrics Server
+- Ivanti Discovery Application Server
+
+If you plan on installing the reporting feature, you also enter your credentials for the \{\{Primary.Product}} database account on the following System Configuration Wizard pages:
+
+- Microsoft SSRS Configuration
+- Reporting Service Configuration
+
+## Service Account
+
+You must create this account before you start the installation and configuration and it must have administrator privileges on the \{\{Primary.Product}} application server.
+
+A \{\{Primary.Product}} service account is only required when you:
+
+- Do not use the local system account for the Microsoft IIS application pool identity and Windows service.
+- Install the reporting feature.
+
+You enter your credentials for the \{\{Primary.Product}} service account on the following System Configuration Wizard pages:
+
+- Ivanti Application Server Settings
+- Microsoft SSRS Configuration
+
+## Administrator Account for the Configuration Database
+
+This account enables you to log into the configuration database.
+
+You create this account during system configuration on the Configuration Application page of the System Configuration Wizard.
+
+There will probably be different accounts used for different tenants.
+
+## Administrator Account for Neurons for ITSM
+
+This account enables you to log into \{\{Primary.Product}}, with access to the Service Desk Console and Configuration Console.
+
+You create this account during system configuration on the Ivanti Service Manager Application page of the System Configuration Wizard.
+
+There will probably be different accounts used for different tenants.
+
+## Administrator Account for the Reporting Service
+
+This account enables you to log into the reporting feature.
+
+You create this account during system configuration on the Reporting Service Configuration page of the System Configuration Wizard.
+
+## Administrator Account for the Operations Console
+
+This account enables you to log into the Operations Console.
+
+You create this account during system configuration when you check Use this host for Operations Console on the Ivanti Application Server Settings page of the System Configuration Wizard.

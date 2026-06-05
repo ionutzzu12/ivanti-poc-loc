@@ -1,0 +1,159 @@
+---
+title: Firebase Configuration for Mobile Push Notification
+docTags: 
+createdAt: Fri Jun 05 2026 13:49:31 GMT+0300 (Eastern European Summer Time)
+---
+
+A new workspace - **FCM Configuration** is added to ConfigDB. The following are its sections:
+
+- **Project Id**: Project Id of the firebase which we going to configure in future step. This Id is used by the server to send the push notification.
+- **Server Key**: Unique key that is present inside the firebase project. This key is used by the Server to send the push notification.
+
+<hint type="info" indent="1">
+  This section is deprecated and will be removed in the upcoming release. Therefore, meantime, we recommend giving a dummy value. For example, 100021050040.
+</hint>
+
+- **Client configuration for Android**: json configuration which is used by android mobile to generate FCM token. This configuration will be present in Firebase project we need to add in config Database.
+- **Client configuration for iOS**: Configuration which used by iOS device to generate FCM token.
+- **Server Settings**: Use to authenticate firebase service account.
+
+The following steps should be performed for Mobile Push Notification to work:
+
+<ExpandableHeading>
+  ## Creating a new Project in Firebase
+
+  1. Navigate to [https://firebase.google.com/](https://firebase.google.com/) to create a new project. Since Firebase is from Google, you need to sign into your Gmail account so the Firebase project is associated with your Gmail account.
+  2. Navigate to firebase.com and click **Go to console** on the top right corner of the page.
+  3. Click the **Create a project** tile (for new Users) or **Add Project** (for existing users) in the Firebase.
+  4. Type the project name, select the **I accept the firebase terms** check box and click **Continue**.
+  5. Disable Google Analytics and click **Create Project**.
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/pSUyDQNzXLbB7AnQ46c95_fcm4.png" position="flex-start" size="40" indent="1" initialPath="Config_Images/FCM4.png" githubPath="ITSM-On-Prem-Help/Content/ConfigDB_Guide/Config_Images/FCM4.png"></Image>
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Configure iOS and Android app in Firebase
+
+  In this step, you will create iOS and Android app in the firebase project.
+
+  1. Navigate to the newly created project.
+  2. Click on the **Android** icon to create new Android app.
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/dlQ_ZmFiP1MfFTw1kOfhw_fcm5.png" position="flex-start" size="40" indent="1" initialPath="Config_Images/FCM5.png" githubPath="ITSM-On-Prem-Help/Content/ConfigDB_Guide/Config_Images/FCM5.png"></Image>
+
+  3. Enter the name of the package - it should always be **com.ivanti.sm**” in the **Android Package name** and enter any name in **App Nickname**. Ensure the package name is right and click o&#x6E;**&#x20;Register app**.
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/mzq5f3dInbaLZCDNYf-4g_fcm6.png" position="flex-start" size="40" indent="1" initialPath="Config_Images/FCM6.png" githubPath="ITSM-On-Prem-Help/Content/ConfigDB_Guide/Config_Images/FCM6.png"></Image>
+
+  4. Click on **download google.service.json** which is json configuration for Android. Download this file and click **Next**.
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/pNgik6GFsU7QCknD4V5vF_fcm7.png" position="flex-start" size="40" indent="1" initialPath="Config_Images/FCM7.png" githubPath="ITSM-On-Prem-Help/Content/ConfigDB_Guide/Config_Images/FCM7.png"></Image>
+
+  5. Skip Step 3 by clicking on **Next** **– (Add Firebase SDK)**
+  6. Click **Continue to the console**.
+
+  <hint type="info" indent="1">
+    If you see “**Run your app to verify installation**” step then you can click on “**Skip this step**” and then click **Continue to console**.
+  </hint>
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/Mb1mmFNTkSOKfdDelNEIL_fcm8.png" position="flex-start" size="40" indent="1" initialPath="Config_Images/FCM8.png" githubPath="ITSM-On-Prem-Help/Content/ConfigDB_Guide/Config_Images/FCM8.png"></Image>
+
+  Once all these steps are completed, you have the Android app ready in the Firebase project.
+
+  7. Now, do the same for iOS.
+  8. Click on **Add app** again in the Firebase project and select iOS.
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/0ERmmJSLks7NQvbF9tgsJ_fcm9.png" position="flex-start" size="40" indent="1" initialPath="Config_Images/FCM9.png" githubPath="ITSM-On-Prem-Help/Content/ConfigDB_Guide/Config_Images/FCM9.png"></Image>
+
+  9. Specify the same package name **com.ivanti.sm in** the iOS bundle ID, enter the **App nickname** and click on **Register app**.
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/8hUWkwld6VpMBNGXjSa21_fcm10.png" position="flex-start" size="40" indent="1" initialPath="Config_Images/FCM10.png" githubPath="ITSM-On-Prem-Help/Content/ConfigDB_Guide/Config_Images/FCM10.png"></Image>
+
+  10. Click on **Download GoogleServiceInfo.plist** which contains the configuration for iOS device. and click **Next**.
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/tR47QpyqGmRGCui-F7pfn_fcm11.png" position="flex-start" size="40" indent="1" initialPath="Config_Images/FCM11.png" githubPath="ITSM-On-Prem-Help/Content/ConfigDB_Guide/Config_Images/FCM11.png"></Image>
+
+  11. Skip Step 3 by clicking on **Next – (Add Firebase SDK)**.
+  12. Skip Step 4 by clicking on **Next – (Add Initialization code)**.
+  13. Click **Continue to Console** in step 5.
+
+  <hint type="info">
+    If you see Run your app to verify installation step, click **Skip this step** and then click **Continue to console**.
+  </hint>
+
+  Once these steps are completed, you have iOS and Android app configuration is ready in the Firebase.
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Apply iOS Certificate for iOS app
+
+  Ivanti will provide the APNs Certificate for iOS app. You can find the certificate at [Ivanti Market Place](https://marketplace.ivanticloud.com/packages/APNsCertificateforiOSPushNotifications/).
+
+  1. Click the **Setting** button from top left and click on **Project settings**.
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/ja9YSUZ1Pu7qJTsZy3RiT_fcm13.png" position="flex-start" size="40" indent="1" initialPath="Config_Images/FCM13.png" githubPath="ITSM-On-Prem-Help/Content/ConfigDB_Guide/Config_Images/FCM13.png"></Image>
+
+  2. Click the **Cloud Messaging** tab.
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/pjCpbqlBAeOSuqoUu8rHx_fcm14.png" position="flex-start" size="40" indent="1" initialPath="Config_Images/FCM14.png" githubPath="ITSM-On-Prem-Help/Content/ConfigDB_Guide/Config_Images/FCM14.png"></Image>
+
+  3. Scroll down to the **APNS Authentication Key** section and click the **Upload** button.
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/7PYHAHlPdaqYB6C28SJJN_fcm24.png" position="flex-start" size="40" indent="1" initialPath="Config_Images/FCM24.png" githubPath="ITSM-On-Prem-Help/Content/ConfigDB_Guide/Config_Images/FCM24.png"></Image>
+
+  4. Browse to the AuthKey\_V65XKX7498.p8 file.
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/uZV6H6qgjddHm_XmzKHSv_fcm25.png" position="flex-start" size="40" indent="1" initialPath="Config_Images/FCM25.png" githubPath="ITSM-On-Prem-Help/Content/ConfigDB_Guide/Config_Images/FCM25.png"></Image>
+
+  5. Enter the following details:
+     - Key ID: V65XKX7498
+     - Team ID: B7FW4Y3UP6
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Configure Firebase in Config Database of ISM
+
+  1. Navigate to **Project settings** from the main page of Firebase project.
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/WcVHjfVnsmpkirTEtTVxb_fcm17.png" position="flex-start" size="40" indent="1" initialPath="Config_Images/FCM17.png" githubPath="ITSM-On-Prem-Help/Content/ConfigDB_Guide/Config_Images/FCM17.png"></Image>
+
+  2. Navigate Cloud Messaging Copy the Sender ID.
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/5-8RwmlGF1zHIpallyAfk_fcm18.png" position="flex-start" size="40" indent="1" initialPath="Config_Images/FCM18.png" githubPath="ITSM-On-Prem-Help/Content/ConfigDB_Guide/Config_Images/FCM18.png"></Image>
+
+  3. Go to **ISM CentralConfig**, open **FCM Configuration** workspace and paste **Sender ID** which is copied to the **Project ID** in workspace.
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/h463NGckwDQegWy-XLxOe_fcm19.png" position="flex-start" size="40" indent="1" initialPath="Config_Images/FCM19.png" githubPath="ITSM-On-Prem-Help/Content/ConfigDB_Guide/Config_Images/FCM19.png"></Image>
+
+  4. Get **Server Settings** from the **Service accounts** tab.
+
+  <Paragraph indent="1">
+    a. Under the **Project settings** section, go to **Service accounts** > **Firebase Admin SDK**, and click **Generate new private key**.
+  </Paragraph>
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/woCkcCC44qn2LCbLgd6_1_fcm20.png" position="flex-start" size="40" indent="2" initialPath="Config_Images/FCM20.png" githubPath="ITSM-On-Prem-Help/Content/ConfigDB_Guide/Config_Images/FCM20.png"></Image>
+
+  <Paragraph indent="2">
+    A dialog box appears.
+  </Paragraph>
+
+  <Paragraph indent="1">
+    b. Click **Generate key**.
+  </Paragraph>
+
+  <Paragraph indent="2">
+    It will download a JSON file.
+  </Paragraph>
+
+  5. Copy the server setting from the JSON file and paste it in the **Server Settings** box in the **FCM Configuration** workspace.
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/iS_UiSn96NiFVClZdvL4U_fcm21.png" position="flex-start" size="40" indent="1" initialPath="Config_Images/FCM21.png" githubPath="ITSM-On-Prem-Help/Content/ConfigDB_Guide/Config_Images/FCM21.png"></Image>
+
+  6. Copy the entire content from **google-service.json** which is downloaded from Step – 3 and paste in the **Client Configuration** for Android.
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/KaDwbDUT5l-hQz2gGD2tO_fcm22.png" position="flex-start" size="40" indent="1" initialPath="Config_Images/FCM22.png" githubPath="ITSM-On-Prem-Help/Content/ConfigDB_Guide/Config_Images/FCM22.png"></Image>
+
+  7. Finally, you need to add the **iOS FCM configuration** in **config DB**. Copy the entire content from **GoogleService-Info.plist** which is downloaded in step 3 and paste it in the **Client Configuration for iOS** and **Save**.
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/Ia7ClxlJk9yGcJwqtcs_D_fcm23.png" position="flex-start" size="40" indent="1" initialPath="Config_Images/FCM23.png" githubPath="ITSM-On-Prem-Help/Content/ConfigDB_Guide/Config_Images/FCM23.png"></Image>
+</ExpandableHeading>

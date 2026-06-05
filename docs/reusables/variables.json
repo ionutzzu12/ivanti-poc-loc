@@ -1,0 +1,72 @@
+{
+  "Primary.Product": {
+    "contentVariableId": "iYNNqYltyzHbnhw9xeB8C",
+    "name": "Primary.Product",
+    "content": "Neurons for ITSM",
+    "type": "variable",
+    "scope": "global"
+  },
+  "Primary.Company": {
+    "contentVariableId": "w0pgzqFbi_FGW0AJHU5Lt",
+    "name": "Primary.Company",
+    "content": "Ivanti",
+    "type": "variable",
+    "scope": "global"
+  },
+  "Primary.Year-2025": {
+    "contentVariableId": "7kFTcbwu8QU4hVG7jC9d3",
+    "name": "Primary.Year-2025",
+    "content": "2025",
+    "type": "variable",
+    "scope": "global"
+  },
+  "L10n.CompanyLegal": {
+    "contentVariableId": "Fd8QmbZqmanvID9Jy0ABn",
+    "name": "L10n.CompanyLegal",
+    "content": "Ivanti, Inc",
+    "type": "variable",
+    "scope": "global"
+  },
+  "Primary.Version-2025.3": {
+    "contentVariableId": "NahsmClK--zPNWU55SaSu",
+    "name": "Primary.Version-2025.3",
+    "content": "2025.3",
+    "type": "variable",
+    "scope": "global"
+  },
+  "ISMProduct.DSM_Integration": {
+    "contentVariableId": "Ur3vUVn57JzQRO3Vu1tKk",
+    "name": "ISMProduct.DSM_Integration",
+    "content": "DSM Integration",
+    "type": "variable",
+    "scope": "global"
+  },
+  "Primary.TitleLine-Neurons-for-ITSM-Administrator-and-User-Help": {
+    "contentVariableId": "Mr3InAthvi-QPY2enkLsl",
+    "name": "Primary.TitleLine-Neurons-for-ITSM-Administrator-and-User-Help",
+    "content": "Neurons for ITSM - Administrator and User Help",
+    "type": "variable",
+    "scope": "global"
+  },
+  "FRS_VARS.AutoDate-June-01-2026": {
+    "contentVariableId": "jVyxJXyiufhUlEkmhOmqC",
+    "name": "FRS_VARS.AutoDate-June-01-2026",
+    "content": "June 01, 2026",
+    "type": "variable",
+    "scope": "global"
+  },
+  "System.ShortDate": {
+    "contentVariableId": "X3SYk5YkX_oo2ziqvADqN",
+    "name": "System.ShortDate",
+    "content": "6/1/2026",
+    "type": "variable",
+    "scope": "global"
+  },
+  "Primary.GuideName": {
+    "contentVariableId": "G4IcR7Y1Y70r7Clzdsr4L",
+    "name": "Primary.GuideName",
+    "content": "Neurons for ITSM On-Premise Help",
+    "type": "variable",
+    "scope": "global"
+  }
+}
