@@ -1,0 +1,300 @@
+---
+title: Working with Tenants and Tenant Instances
+docTags: 
+createdAt: Fri Jun 05 2026 13:49:31 GMT+0300 (Eastern European Summer Time)
+---
+
+- :Link[About the Tenants Workspace]{label="About the Tenants Workspace" overridedLabel="About the Tenants Workspace" spaceId docId="E1As7bRqncH4Ipv9Eksy7" version="v2" docAnchorId="#About" loadingMethod="dynamic" newTab="false" href="OpsConsole_Tenants.mdx"}
+- :Link[How to Create a New Tenant]{label="How to Create a New Tenant" overridedLabel="How to Create a New Tenant" spaceId docId="E1As7bRqncH4Ipv9Eksy7" version="v2" docAnchorId="#top" loadingMethod="dynamic" newTab="false" href="OpsConsole_Tenants.mdx"}
+- :Link[Editing a Tenant]{label="Editing a Tenant" overridedLabel="Editing a Tenant" spaceId docId="E1As7bRqncH4Ipv9Eksy7" version="v2" docAnchorId="#Editing" loadingMethod="dynamic" newTab="false" href="OpsConsole_Tenants.mdx"}
+
+### About the Tenants Workspace
+
+Ivanti Service Manager uses the concept of tenants so that it can update a system database while not touching the official version of the database. The official version of a database is always located on the production instance of the tenant.  
+
+If you need to make changes to the official system database, you do not want to make the changes realtime to a live version because you might make a mistake and accidentally delete everything. Therefore, the Operations Console allows you to make a copy of the production tenant, called an instance, and make changes there.  When the database changes have been reviewed and approved, only then are they moved back to the production instance of the tenant.
+
+Use the Tenants workspace to perform a variety of tenant and tenant instance management activities, including creating, locking, migrating, and deleting tenants and tenant instances.
+
+- :Link[Workspace Filter Controls]{label="Workspace Filter Controls" overridedLabel="Workspace Filter Controls" spaceId docId="E1As7bRqncH4Ipv9Eksy7" version="v2" docAnchorId="#Workspac" loadingMethod="dynamic" newTab="false" href="OpsConsole_Tenants.mdx"}
+- :Link[Tenant Display Order Controls]{label="Tenant Display Order Controls" overridedLabel="Tenant Display Order Controls" spaceId docId="E1As7bRqncH4Ipv9Eksy7" version="v2" docAnchorId="#Tenant" loadingMethod="dynamic" newTab="false" href="OpsConsole_Tenants.mdx"}
+- :Link[Expanded View and List View]{label="Expanded View and List View" overridedLabel="Expanded View and List View" spaceId docId="E1As7bRqncH4Ipv9Eksy7" version="v2" docAnchorId="#Expanded" loadingMethod="dynamic" newTab="false" href="OpsConsole_Tenants.mdx"}
+
+### Workspace Filter Controls
+
+Use the Status and Landscape drop-down boxes to filter which tenants and tenant instances are displayed in the workspace:
+
+- Status: Displays tenants and tenant instances based on their status. You can select **All**, **Pending**, **Active**, **OnHold**, **Closed**, or **Demo**.
+- Landscape: Displays tenants and tenant instances from a landscape type, such as production, or you can choose **All** to display tenants and tenant instances from all landscapes.
+
+<hint type="info">
+  If you do not see as many tenants or tenant instances as you expect when you first open the Tenants workspace, select **All** from both the Status and Landscape drop-down boxes to display all of the tenants and tenant instances on your system.
+</hint>
+
+See :Link[Tenants Expanded View]{label="Tenants Expanded View" overridedLabel="Tenants Expanded View" spaceId docId="E1As7bRqncH4Ipv9Eksy7" version="v2" docAnchorId="#FIG_HOCEV" loadingMethod="dynamic" newTab="false" href="OpsConsole_Tenants.mdx"}.
+
+*Tenants Expanded View*
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/rlLHq8z7W9BUhLqZNm0Rd_occlearcache.png" position="flex-start" size="40" initialPath="ops_Images/OC_ClearCache.png" githubPath="ITSM-On-Prem-Help/Content/ops_console_ug/ops_Images/OC_ClearCache.png"></Image>
+
+### Tenant Display Order Controls
+
+Use the Sort By field and the Reverse Sort button to configure the order in which tenants and tenant instances are displayed:
+
+- Sort By: Select whether to sort by customer and then URL (Customer, URL option); customer and then status (Customer, Status option); or by customer and then expiration date (Customer, Exp Date option) as the tenant and tenant instance display order.
+- Reverse Sort: Check here to display tenants and tenant instances in reverse alphabetical or numerical order.
+
+See :Link[Tenants Expanded View]{label="Tenants Expanded View" overridedLabel="Tenants Expanded View" spaceId docId="E1As7bRqncH4Ipv9Eksy7" version="v2" docAnchorId="#FIG_HOCEV" loadingMethod="dynamic" newTab="false" href="OpsConsole_Tenants.mdx"}.
+
+### Expanded View and List View
+
+Use the Expanded View and List View buttons to switch between expanded and list views. The name of the currently selected view is shown in a pink font.
+
+- :Link[Expanded View]{label="Expanded View" overridedLabel="Expanded View" spaceId docId="E1As7bRqncH4Ipv9Eksy7" version="v2" docAnchorId="#Expanded2" loadingMethod="dynamic" newTab="false" href="OpsConsole_Tenants.mdx"}
+- :Link[List View]{label="List View" overridedLabel="List View" spaceId docId="E1As7bRqncH4Ipv9Eksy7" version="v2" docAnchorId="#List%C2%A0Vie" loadingMethod="dynamic" newTab="false" href="OpsConsole_Tenants.mdx"}
+
+### Expanded View
+
+Use the Expanded View to display the maximum amount of information for each tenant and tenant instance. This information is displayed:
+
+- Tenant or tenant instance name (for example, ConfigDB, Server\_01, etc.).
+- Ivanti Service Manager database name. This is sometimes the same as the tenant or tenant instance name (for example, ConfigDB), depending on how the tenant or tenant instance was originally configured.
+- Tenant or tenant instance creation and expiration dates.
+- The name and contact information of the primary contact for the tenant or tenant instance.
+- The number of licenses, sessions, and timeout minutes for each tenant or tenant instance.
+- A log of recent tenant or tenant instance changes.
+
+You may also see some or all of these links, depending on how the tenant or tenant instance is configured:
+
+- **Edit Properties**: Opens the Edit dialog box for the tenant or tenant instance where you can set these parameters:
+  - Company name.
+  - Status of the tenant or tenant instance (for example, active, pending, on hold, closed, and demo).
+  - Put the tenant or tenant instance into maintenance mode.
+  - Lock metadata.
+  - Tenant or tenant instance expiration date.
+  - The number of named and concurrent licenses.
+  - The session timeout value.
+  - The person who is the point of contact for matters involving the tenant or tenant instance.
+- **Manage Migration**: Opens the Tenants workspace, from which you can migrate data between tenants or tenant instances.
+- **Extend Expiration Date**: Opens the Expiration Date dialog box, from which you can select a new expiration date for the tenant or tenant instance.
+- **Deactivate**: Opens the Deactivate dialog box, from which you can deactivate the tenant or tenant instance.
+- Clear Cache: Clears the cache of the Ivanti Service Manager application server without having to shut down the application.
+
+### List View
+
+Use the List View to display a minimal amount of information for each tenant and tenant instance. This information is displayed:
+
+- Tenant or tenant instance name (for example, ConfigDB, Server\_01, and so on).
+- Tenant or tenant instance creation and expiration dates.
+- The name and contact information of the primary contact for the tenant or tenant instance.
+- One or both of these links, depending on how the tenant or tenant instance is configured:
+  - **Edit Properties**: Opens the Edit dialog box for the tenant or tenant instance.
+  - **Manage Migration**: Opens the Tenants workspace, from which you can migrate data between tenants or tenant instances.
+
+### How to Create a New Tenant
+
+When you install Ivanti Service Manager, you automatically create a tenant with a production instance. However, in some situations, you may need to create a new tenant. For example, a customer may have two applications running on one system and each application requires its own tenant.
+
+The following sections describe two ways to create a new tenant:
+
+- :Link[Creating a New Tenant by Using the Operations Console]{label="Creating a New Tenant by Using the Operations Console" overridedLabel="Creating a New Tenant by Using the Operations Console" spaceId docId="E1As7bRqncH4Ipv9Eksy7" version="v2" docAnchorId="#Creating" loadingMethod="dynamic" newTab="false" href="OpsConsole_Tenants.mdx"}
+- :Link[Creating a Tenant by Copying an Existing Tenant]{label="Creating a Tenant by Copying an Existing Tenant" overridedLabel="Creating a Tenant by Copying an Existing Tenant" spaceId docId="E1As7bRqncH4Ipv9Eksy7" version="v2" docAnchorId="#Overview" loadingMethod="dynamic" newTab="false" href="OpsConsole_Tenants.mdx"}
+
+### Creating a New Tenant by Using the Operations Console
+
+The easiest way to create a new tenant is to use the Operations Console.
+
+<hint type="info">
+  This process creates a new tenant. It does not create instances, such as staging or UAT, of existing tenants.
+</hint>
+
+1. Log in to the Operations Console.
+2. Click Tenant. The system displays the Tenants workspace.
+3. Click Add Tenant. See :Link[Adding a Tenant]{label="Adding a Tenant" overridedLabel="Adding a Tenant" spaceId docId="E1As7bRqncH4Ipv9Eksy7" version="v2" docAnchorId="#FIG_HOCAT" loadingMethod="dynamic" newTab="false" href="OpsConsole_Tenants.mdx"}.
+
+*Adding a Tenant*
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/8gX9FxhtPog3svYr7mwA__oc-addtenant.png" position="flex-start" size="40" initialPath="ops_Images/OC-AddTenant.png" githubPath="ITSM-On-Prem-Help/Content/ops_console_ug/ops_Images/OC-AddTenant.png"></Image>
+
+4. Enter information in the fields about the source that will act as a starting point for your new tenant:
+   - Choose a source landscape.  This is the landscape where the source tenant resides.  You can only select production or other.
+     - If you select production, you can create a tenant in either the production or other landscapes.
+     - If you select other, you can only create a tenant in the other landscape.
+   - (Optional) Choose a source tenant filter. This allows you to narrow down the source tenants that the system displays in the Source Tenant field below.
+   - Choose a source tenant. These are all the tenants in the source landscape that you selected above.
+   - Choose a source database option. This is where the database for the source tenant comes from.
+     - See :Link[Backup Types]{label="Backup Types" overridedLabel="Backup Types" spaceId docId="N5-aUJp0BHseE-cskrxZB" version="v2" docAnchorId="#Backup" loadingMethod="dynamic" newTab="false" githubPath="Terminology.htm#Backup" href="Terminology.mdx"} for more information about database backup types.
+     - The options you see here depend on if you checked Allow All Backup Options when you created the landscape. If you checked Allow All Backup Options, then you can choose to use live backups when creating a tenant. If you did not check it, you can only restore your database from a previously backed up version. See :Link[Adding a Landscape]{label="Adding a Landscape" overridedLabel="Adding a Landscape" spaceId docId="8eKoisZQmWu1O91nuONnS" version="v2" docAnchorId="#Adding3" loadingMethod="dynamic" newTab="false" githubPath="OpsConsole_Landscapes.htm#Adding3" href="OpsConsole_Landscapes.mdx"} for more information about the Allow All Backup Options parameter.
+     - The options you see here also depend on if you checked LiteSpeed Enabled when you created the landscape group. See :Link[Adding a Landscape Group]{label="Adding a Landscape Group" overridedLabel="Adding a Landscape Group" spaceId docId="8eKoisZQmWu1O91nuONnS" version="v2" docAnchorId="#Adding2" loadingMethod="dynamic" newTab="false" githubPath="OpsConsole_Landscapes.htm#Adding2" href="OpsConsole_Landscapes.mdx"} for information about the LiteSpeed Enabled parameter.
+5. Enter information in the fields about the new tenant:
+   - Choose a tenant landscape. This is the landscape where the new tenant will reside. You can either choose the production landscape or the other landscape, depending on what you entered in the first bullet of step 4 above.
+   - Enter a tenant URL pattern. This is the format in which all tenant URLs will be named. You can optionally use the \{\{tenantName}} variable as a placeholder for the tenant name.
+   - Choose the tenant database server.
+   - Enter a tenant database name pattern. This is the format in which all databases will be named. You can optionally use the \{\{dbName}} variable as a placeholder for the database name.
+   - Enter the file storage path.
+   - Enter the company name.
+   - Enter the tenant status.  Can be pending, active, on hold, closed, or demo.
+   - Enter the expiration date for the tenant. You can choose a specific date or select never expires. Choose the expiration date carefully. When a tenant has expired, you cannot log in to it anymore. You must contact Ivanti Software to extend the expiration date.
+   - Enter the number of named licenses for the tenant.
+   - Enter the number of concurrent licenses for the tenant.
+   - Enter the session timeout in minutes. If the session is dormant for longer than this time, you must log in to the system again.
+   - Choose the primary point of contact for this tenant.
+   - Enter the inbound and outbound email address for this tenant. Any domain names that you already entered on the Adding a Landscape page are populated in the drop-down menu. You can either choose a domain name from the drop-down menu or you can enter a domain name.
+   - Check Reuse mailbox if already exists to reuse the email address if it was already used.
+   - Check Enable email listener to enable the email listener.
+   - Check Keep existing users enabled to keep the existing users enabled.
+   - Check Delete audit, log, change log and history data to delete the data in these tables:
+     - Logs
+     - Frs\_ops\_logon\_history
+     - Frs\_ops\_gbu\_pipeline\_history
+     - Frs\_ops\_metadata\_history
+     - Frs\_ops\_upload\_cache
+     - Journal
+     - LDAPImportLog
+     - Frs\_ops\_package\_item
+     - Frs\_ops\_package
+     - All audit tables, with the name Audit\_table
+   - Check **Scrub email address in users** to ensure that you do not accidentally email users repeatedly during configuration testing on the target tenant instance. If you check this option, the system changes all email fields containing customer email to use the @it.com domain instead of the company domain. This change applies to the user's primary email, contact email, manager email, and team email.
+   - Check **Scrub email address in other places** to scrub email accounts saved in transactional data (such as in incidents, service requests, workflow tasks, and so on).
+   - Check **Trim data to keep last 90 days only** to only copy transactional data that was created or modified within the last 90 days. If you are updating the database from a copy of your existing customer database, most records are likely to be current within 90 days.
+   - Check **Scrub email address in users** to ensure that you do not accidentally email users repeatedly during configuration testing on the target tenant. If you check this option, the system changes all email fields containing customer email to use the @it.com domain instead of the company domain. This change applies to the user's primary email, contact email, manager email, and team email.
+   - Check **Scrub email address in other places** to scrub email accounts saved in transactional data (such as in incidents, service requests, workflow tasks, and so on).
+   - Enter the host name of the report server.
+   - Enter the user name and password for the person who will sign in and use the report server.
+6. Click Create. The system creates the tenant. This may take two or more minutes. After you create the tenant, you can log in to it.
+
+### Creating a Tenant by Copying an Existing Tenant
+
+- :Link[About Copying an Existing Tenant]{label="About Copying an Existing Tenant" overridedLabel="About Copying an Existing Tenant" spaceId docId="E1As7bRqncH4Ipv9Eksy7" version="v2" docAnchorId="#About3" loadingMethod="dynamic" newTab="false" href="OpsConsole_Tenants.mdx"}
+- :Link[Option 1: Tenants are in Separate Environments and do not Share Resources]{label="Option 1: Tenants are in Separate Environments and do not Share Resources" overridedLabel="Option 1: Tenants are in Separate Environments and do not Share Resources" spaceId docId="E1As7bRqncH4Ipv9Eksy7" version="v2" docAnchorId="#Option" loadingMethod="dynamic" newTab="false" href="OpsConsole_Tenants.mdx"}
+- :Link[Option 2: Tenants are in Separate Environments and Share Resources]{label="Option 2: Tenants are in Separate Environments and Share Resources" overridedLabel="Option 2: Tenants are in Separate Environments and Share Resources" spaceId docId="E1As7bRqncH4Ipv9Eksy7" version="v2" docAnchorId="#Option2" loadingMethod="dynamic" newTab="false" href="OpsConsole_Tenants.mdx"}
+
+### About Copying an Existing Tenant
+
+Under normal circumstances, you can use the Operations Console to create a new tenant and manage migrations in an automated fashion in a Ivanti Service Manager deployment. In that scenario, all environments are managed as separate tenants on the same installation. That process is described in :Link[Creating a New Tenant by Using the Operations Console]{label="Creating a New Tenant by Using the Operations Console" overridedLabel="Creating a New Tenant by Using the Operations Console" spaceId docId="E1As7bRqncH4Ipv9Eksy7" version="v2" docAnchorId="#Creating" loadingMethod="dynamic" newTab="false" href="OpsConsole_Tenants.mdx"}.
+
+However, there are times when you might need to move or copy a tenant from one landscape (for example, a separate development environment) to another installation (for example, a final production environment). The end result is the creation of a new tenant in the target environment.
+
+<hint type="info">
+  We recommend only using this process for creating templates or baselines of existing tenants. We do not recommend using this process to create a new tenant. Use the process described in :Link[Creating a New Tenant by Using the Operations Console]{label="Creating a New Tenant by Using the Operations Console" overridedLabel="Creating a New Tenant by Using the Operations Console" spaceId docId="E1As7bRqncH4Ipv9Eksy7" version="v2" docAnchorId="#Creating" loadingMethod="dynamic" newTab="false" href="OpsConsole_Tenants.mdx"} to create new tenants.
+</hint>
+
+The following sections describe two similar ways to create a new tenant by copying an existing tenant. In the first scenario (described in :Link[Option 1: Tenants are in Separate Environments and do not Share Resources]{label="Option 1: Tenants are in Separate Environments and do not Share Resources" overridedLabel="Option 1: Tenants are in Separate Environments and do not Share Resources" spaceId docId="E1As7bRqncH4Ipv9Eksy7" version="v2" docAnchorId="#Option" loadingMethod="dynamic" newTab="false" href="OpsConsole_Tenants.mdx"}), the source environment and target environment do not share resources. In the second scenario (described in :Link[Option 2: Tenants are in Separate Environments and Share Resources]{label="Option 2: Tenants are in Separate Environments and Share Resources" overridedLabel="Option 2: Tenants are in Separate Environments and Share Resources" spaceId docId="E1As7bRqncH4Ipv9Eksy7" version="v2" docAnchorId="#Option2" loadingMethod="dynamic" newTab="false" href="OpsConsole_Tenants.mdx"}), databases and other resources are shared between the source and target environments.
+
+For both options, both the source and destination tenants must be running the same Ivanti Service Manager software release.
+
+<hint type="info">
+  We recommend that you only use this method to create a tenant.  We do not recommend using this method to update an existing tenant.If the tenant already exists in the destination system and you use this method to update that tenant, this method completely overwrites the existing tenant, including transactional data. Therefore, this method is not suitable for moving data or tenants between staging and production servers on an ongoing basis. The person performing the procedure is responsible for ensuring that data is moved correctly and does not accidentally overwrite critical data.
+</hint>
+
+### Option 1: Tenants are in Separate Environments and do not Share Resources
+
+Perform the following procedure to create a new tenant.
+
+1. On the source system, use Microsoft SQL Management Server or a similar tool to make a full Microsoft SQL backup of the Ivanti Service Manager tenant database.
+2. Paste the Microsoft SQL backup onto the destination system.
+3. On the destination system, log in to the Operations Console.
+4. If you are going to overwrite a tenant, delete the existing tenant by doing the following:
+
+<Paragraph indent="1">
+  a. Click Tenants. The system displays the Tenants workspace.
+</Paragraph>
+
+<Paragraph indent="1">
+  b. Click **Expanded View**.
+</Paragraph>
+
+<Paragraph indent="1">
+  c. Select the tenant to delete.
+</Paragraph>
+
+<Paragraph indent="1">
+  d. Select **Deactivate** to deactivate the tenant.
+</Paragraph>
+
+<Paragraph indent="1">
+  e. Select **Delete** to delete the tenant. Deleting it also deletes the database.
+</Paragraph>
+
+5. Click Tenants. The system displays the Tenants workspace.
+6. Click **Add Tenant**.
+7. In the Source DB Option field, select From copied MSSQL backup.
+8. In the Backup Filename field, enter the fully-qualified domain name of the source Microsoft SQL backup.
+9. Enter the remaining tenant details (for example, tenant URL, DB Server, and so on), and provide a valid expiration date. See :Link[Creating a New Tenant by Using the Operations Console]{label="Creating a New Tenant by Using the Operations Console" overridedLabel="Creating a New Tenant by Using the Operations Console" spaceId docId="E1As7bRqncH4Ipv9Eksy7" version="v2" docAnchorId="#Creating" loadingMethod="dynamic" newTab="false" href="OpsConsole_Tenants.mdx"} for information on the remaining fields.
+10. Click **Create**.
+
+The system creates the new tenant with the data from the Microsoft SQL backup. This creates or overwrites an existing tenant with new data.
+
+### Option 2: Tenants are in Separate Environments and Share Resources
+
+You can manually reconfigure the Operations Console on the development and staging instances of a tenant to support the actual production instance and the staging/UAT instances of the tenant on separate database servers. These environments may be accessed by locally-installed Ivanti Service Manager systems as well.
+
+For the purposes of this document, we assume that both the staging and UAT instances of the tenant are managed on a single Ivanti Service Manager system and the actual production environment is deployed on a separate system. The actual production environment must be accessible through database queries and UNC paths from the server on which the staging and UAT instances reside.
+
+Perform the following procedure to create a new tenant:
+
+1. Deploy Ivanti Service Manager in both the staging/UAT and production environments.
+2. In the staging/UAT environment, use the Operations Console to push the initial production instance of the tenant to the staging/UAT instances of the tenant. (See :Link[Creating the First Staging or UAT Instance of the Tenant from the Production Instance of the Tenant]{label="Creating the First Staging or UAT Instance of the Tenant from the Production Instance of the Tenant" overridedLabel="Creating the First Staging or UAT Instance of the Tenant from the Production Instance of the Tenant" spaceId docId="kxdBsaHYdzf3E_JvNX_Kv" version="v2" docAnchorId="#Moving" loadingMethod="dynamic" newTab="false" githubPath="Starting_Migration.htm#Moving" href="Starting_Migration.mdx"} for details about this procedure.) These will become the permanent staging/UAT instances of the tenant.
+3. Use the Operations Console on the staging/UAT instance of the tenant to move the metadata from each tenant instance to the next as required to manage the development lifecycle.
+
+<hint type="info">
+  Be sure to only use the Operations Console in the staging/UAT environment.We recommend that you do not install the Operations Console in the production environment in this scenario.
+</hint>
+
+### Editing a Tenant
+
+- :Link[Editing the Properties of a Tenant]{label="Editing the Properties of a Tenant" overridedLabel="Editing the Properties of a Tenant" spaceId docId="E1As7bRqncH4Ipv9Eksy7" version="v2" docAnchorId="#Editing2" loadingMethod="dynamic" newTab="false" href="OpsConsole_Tenants.mdx"}
+- :Link[Placing a Tenant into Maintenance Mode (Deactivating a Tenant)]{label="Placing a Tenant into Maintenance Mode (Deactivating a Tenant)" overridedLabel="Placing a Tenant into Maintenance Mode (Deactivating a Tenant)" spaceId docId="E1As7bRqncH4Ipv9Eksy7" version="v2" docAnchorId="#Placing" loadingMethod="dynamic" newTab="false" href="OpsConsole_Tenants.mdx"}
+- :Link[Deleting a Tenant]{label="Deleting a Tenant" overridedLabel="Deleting a Tenant" spaceId docId="E1As7bRqncH4Ipv9Eksy7" version="v2" docAnchorId="#Deleting" loadingMethod="dynamic" newTab="false" href="OpsConsole_Tenants.mdx"}
+- :Link[Clearing the Cache]{label="Clearing the Cache" overridedLabel="Clearing the Cache" spaceId docId="E1As7bRqncH4Ipv9Eksy7" version="v2" docAnchorId="#Clearing" loadingMethod="dynamic" newTab="false" href="OpsConsole_Tenants.mdx"}
+
+### Editing the Properties of a Tenant
+
+Follow these steps to edit an existing tenant:
+
+<hint type="info">
+  If you only want to extend the expiration date of the tenant, you can click Extend Expiration Date from the Tenants workspace
+</hint>
+
+1. Log in to the Operations Console.
+2. Click Tenants. The system displays the Tenants workspace.
+3. Find the tenant that you want to edit and click Edit Properties.
+4. Edit any or all of the following fields:
+   - Company name
+   - Status
+   - In maintenance
+   - Metadata locked
+   - Expiration date
+   - Named license
+   - Concurrent license
+   - Session timeout (in minutes)
+   - Contact name
+   - Enable email listener
+5. Click Save.
+
+### Placing a Tenant into Maintenance Mode (Deactivating a Tenant)
+
+To place a tenant into maintenance mode, which is also known as deactivating it, do the following:
+
+1. Log in to the Operations Console.
+2. Click Tenants. The system displays the Tenants workspace.
+3. Find the tenant that you want to place into maintenance mode (deactivate) and do one of the following:
+   - Click Deactivate.
+   - Click Edit Properties, check In Maintenance, and click Save.
+
+### Deleting a Tenant
+
+Before you can delete a tenant, you need to move it into maintenance mode. See :Link[Placing a Tenant into Maintenance Mode (Deactivating a Tenant)]{label="Placing a Tenant into Maintenance Mode (Deactivating a Tenant)" overridedLabel="Placing a Tenant into Maintenance Mode (Deactivating a Tenant)" spaceId docId="E1As7bRqncH4Ipv9Eksy7" version="v2" docAnchorId="#Placing" loadingMethod="dynamic" newTab="false" href="OpsConsole_Tenants.mdx"}.
+
+1. Log in to the Operations Console.
+2. Click Tenants. The system displays the Tenants workspace.
+3. Find the deactivated tenant that you want to delete and click Delete.
+4. Click OK in the confirmation dialog box.
+
+### Clearing the Cache
+
+If the Ivanti Service Manager application server starts returning incorrect data, you may need to clear the cache. You can click Clear Cache to clear the metadata cache on the Ivanti Service Manager application server without having to shut down the Ivanti Service Manager application server. This returns the Ivanti Service Manager application server to the right state and synchronizes it with Ivanti Service Manager.
+
+1. Log in to the Operations Console.
+2. Click Tenants. The system displays the Tenants workspace.
+3. Click Clear Cache.

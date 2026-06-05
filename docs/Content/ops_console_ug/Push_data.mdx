@@ -1,0 +1,577 @@
+---
+title: Appendix B: Migrating Data from One Tenant Instance to Another Using Simple Mode or Advanced Mode
+docTags: 
+createdAt: Fri Jun 05 2026 13:49:31 GMT+0300 (Eastern European Summer Time)
+---
+
+<hint type="info">
+  We do not recommend using these methods for migrating data.  See :Link[The Four Ways to Migrate Data]{label="The Four Ways to Migrate Data" overridedLabel="The Four Ways to Migrate Data" spaceId docId="nnlG7pdbdUpnH_QlL9PjG" version="v2" docAnchorId="#The" loadingMethod="dynamic" newTab="false" githubPath="Migration_Process.htm#The" href="Migration_Process.mdx"} for a list of the ways to migrate data.We recommend enabling and using the Ivanti Service Manager development project for migrating data, as described in [Migrating Data using Heat Development Project](Project.mdx).
+</hint>
+
+- :Link[About Using Simple Mode and Advanced Mode]{label="About Using Simple Mode and Advanced Mode" overridedLabel="About Using Simple Mode and Advanced Mode" spaceId docId="VvatisdgL5BT76U4_xhmM" version="v2" docAnchorId="#About" loadingMethod="dynamic" newTab="false" href="Push_data.mdx"}
+- :Link[How to Use Simple Mode to Migrate Data]{label="How to Use Simple Mode to Migrate Data" overridedLabel="How to Use Simple Mode to Migrate Data" spaceId docId="VvatisdgL5BT76U4_xhmM" version="v2" docAnchorId="#SIMPLE" loadingMethod="dynamic" newTab="false" href="Push_data.mdx"}
+- :Link[Using Advanced Mode to Migrate Data]{label="Using Advanced Mode to Migrate Data" overridedLabel="Using Advanced Mode to Migrate Data" spaceId docId="VvatisdgL5BT76U4_xhmM" version="v2" docAnchorId="#Using2" loadingMethod="dynamic" newTab="false" href="Push_data.mdx"}
+- [Migration Scenarios Using Simple Mode and Advanced Mode](Example.mdx)
+
+## About Using Simple Mode and Advanced Mode
+
+The relationship data between two business objects is copied from the source to the target under the following operations and conditions:
+
+Operations:
+
+- Simple mode copy
+- Copy configuration and master data
+- Copy master data only
+
+Condition:
+
+- Only both business objects on both sides of the relationship are included for copying at the same time.
+
+For example, if you copy user-related data, but do not copy the users, then data such as user to team and user to group assignment is not copied. As another example, if you want the service to category assignment to be copied, you must copy both the service (CI#Service) and the category (Category#) in the same push operation.
+
+Choose between the following:
+
+- Simple Mode: See :Link[How to Use Simple Mode to Migrate Data]{label="How to Use Simple Mode to Migrate Data" overridedLabel="How to Use Simple Mode to Migrate Data" spaceId docId="VvatisdgL5BT76U4_xhmM" version="v2" docAnchorId="#SIMPLE" loadingMethod="dynamic" newTab="false" href="Push_data.mdx"}.
+- Advanced Mode:  See :Link[Using Advanced Mode to Migrate Data]{label="Using Advanced Mode to Migrate Data" overridedLabel="Using Advanced Mode to Migrate Data" spaceId docId="VvatisdgL5BT76U4_xhmM" version="v2" docAnchorId="#Using2" loadingMethod="dynamic" newTab="false" href="Push_data.mdx"}.
+
+## How to Use Simple Mode to Migrate Data
+
+- :Link[Using Simple Mode to Migrate Data]{label="Using Simple Mode to Migrate Data" overridedLabel="Using Simple Mode to Migrate Data" spaceId docId="VvatisdgL5BT76U4_xhmM" version="v2" docAnchorId="#Using" loadingMethod="dynamic" newTab="false" href="Push_data.mdx"}
+- :Link[Simple Mode Migrated Data]{label="Simple Mode Migrated Data" overridedLabel="Simple Mode Migrated Data" spaceId docId="VvatisdgL5BT76U4_xhmM" version="v2" docAnchorId="#SimpleModeMigratedData" loadingMethod="dynamic" newTab="false" href="Push_data.mdx"}
+
+### Using Simple Mode to Migrate Data
+
+When you start the migration, you see the Copy dialog box in :Link[Operations Console with Simple Mode and Advanced Mode]{label="Operations Console with Simple Mode and Advanced Mode" overridedLabel="Operations Console with Simple Mode and Advanced Mode" spaceId docId="VvatisdgL5BT76U4_xhmM" version="v2" docAnchorId="#FIG_HOCAM" loadingMethod="dynamic" newTab="false" href="Push_data.mdx"}.
+
+*Operations Console with Simple Mode and Advanced Mode*
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/9g3hwJOcM6bHVVv12ZKPb_ocadvanced2.png" position="flex-start" size="40" initialPath="ops_Images/OC_Advanced2.png" githubPath="ITSM-On-Prem-Help/Content/ops_console_ug/ops_Images/OC_Advanced2.png"></Image>
+
+1. Do not check Advanced Mode, which means you are choosing to use Simple Mode, which migrates a predefined set of data.
+2. Check Skip target tenant backup before operation to not perform a database backup.  Leave the box empty if you want to back up the database before proceeding with the migration.
+3. Check Delete data items in *target\_tenant\_instance* that do not exist in *source\_tenant\_instance* to delete the data items in the target tenant instance that do not exist in the source tenant instance.
+4. Under Copy the following selected data, check Service request if you want to migrate service request information, and check Escalation schedule if you want to migrate escalation schedule information.
+5. Do one of the following:
+   - Click Preview to preview the changes that will be migrated. The system generates an XML file for you to review. You must save the XML file and open it with an XML editor to see the changes. If you need to make additional changes, go back into the system and make them. If you are satisfied with the changes, go back to the Operations Console and click Execute.
+   - Click Execute to start the data migration.
+
+### Simple Mode Migrated Data
+
+- :Link[Metadata]{label="Metadata" overridedLabel="Metadata" spaceId docId="VvatisdgL5BT76U4_xhmM" version="v2" docAnchorId="#Metadata" loadingMethod="dynamic" newTab="false" href="Push_data.mdx"}
+- :Link[Custom Validation Data]{label="Custom Validation Data" overridedLabel="Custom Validation Data" spaceId docId="VvatisdgL5BT76U4_xhmM" version="v2" docAnchorId="#Custom" loadingMethod="dynamic" newTab="false" href="Push_data.mdx"}
+- :Link[Master Data]{label="Master Data" overridedLabel="Master Data" spaceId docId="VvatisdgL5BT76U4_xhmM" version="v2" docAnchorId="#Master" loadingMethod="dynamic" newTab="false" href="Push_data.mdx"}
+- :Link[Settings]{label="Settings" overridedLabel="Settings" spaceId docId="VvatisdgL5BT76U4_xhmM" version="v2" docAnchorId="#Settings" loadingMethod="dynamic" newTab="false" href="Push_data.mdx"}
+
+### Metadata
+
+<hint type="info">
+  See :Link[Types of Data]{label="Types of Data" overridedLabel="Types of Data" spaceId docId="N5-aUJp0BHseE-cskrxZB" version="v2" docAnchorId="#Data" loadingMethod="dynamic" newTab="false" githubPath="Terminology.htm#Data" href="Terminology.mdx"} for information about metadata.
+</hint>
+
+- Deletes the metadata items in the target tenant instance that do not exist in the source tenant instance for the following items (equivalent to checking the box next to the metadata item name in the Delete metadata items in target\_tenant\_instance that do not exist in source\_tenant\_instance section):
+  - Role
+  - Layout
+  - Form
+  - Grid
+  - Trigger
+  - Rule
+  - Rule override
+  - Validation data
+  - Validation list definition
+- Does not delete the metadata items in the target tenant instance that do not exist in the source tenant instance for the following items (equivalent to not checking the box next to the metadata item name in the Delete metadata items in target\_tenant\_instance that do not exist in source\_tenant\_instance section):
+  - Business object
+  - Branding
+  - Workflow
+  - Counter
+  - Grid-part metadata
+  - Chart-part metadata
+  - Special-part metadata
+  - Search
+  - Report
+  - Dashboard
+  - Quick action
+  - View part
+
+Does not replace the metadata items in the target tenant instance that are newer than those in the source tenant instance for the following items (equivalent to not checking the box next to the metadata item name in the Replace metadata items in target\_tenant\_instance that are newer than those in source\_tenant\_instance section):
+
+- Search
+- Report
+- Dashboard
+- Quick action
+
+See :Link[Simple Mode Options -- Top Half]{label="Simple Mode Options -- Top Half" overridedLabel="Simple Mode Options -- Top Half" spaceId docId="VvatisdgL5BT76U4_xhmM" version="v2" docAnchorId="#FIG_SMMDO" loadingMethod="dynamic" newTab="false" href="Push_data.mdx"}.
+
+### Custom Validation Data
+
+<hint type="info">
+  See :Link[Types of Data]{label="Types of Data" overridedLabel="Types of Data" spaceId docId="N5-aUJp0BHseE-cskrxZB" version="v2" docAnchorId="#Data" loadingMethod="dynamic" newTab="false" githubPath="Terminology.htm#Data" href="Terminology.mdx"} for information about validation data.
+</hint>
+
+Deletes all custom validation data objects in the target tenant instance that do not exist in the source tenant instance.  This is equivalent to checking Delete data items in target\_tenant\_instance that do not exist in source\_tenant\_instance in the Custom defined validation list data objects section.
+
+See :Link[Simple Mode Options -- Top Half]{label="Simple Mode Options -- Top Half" overridedLabel="Simple Mode Options -- Top Half" spaceId docId="VvatisdgL5BT76U4_xhmM" version="v2" docAnchorId="#FIG_SMMDO" loadingMethod="dynamic" newTab="false" href="Push_data.mdx"}.
+
+### Master Data
+
+<hint type="info">
+  See :Link[Types of Data]{label="Types of Data" overridedLabel="Types of Data" spaceId docId="N5-aUJp0BHseE-cskrxZB" version="v2" docAnchorId="#Data" loadingMethod="dynamic" newTab="false" githubPath="Terminology.htm#Data" href="Terminology.mdx"} in the [Terminology](Terminology.mdx) section for information about master data.
+</hint>
+
+- Migrates user-related groups of master data.  This is equivalent to checking Delete data items in target\_tenant\_instance that do not exist in source\_tenant\_instance in the Master data copy options section.
+- Migrates user-related data (including employee, external contact, profile base, and profile employee information), which is the equivalent of checking User related in the Copy the following selected data section.
+
+See :Link[Simple Mode Options -- Top Half]{label="Simple Mode Options -- Top Half" overridedLabel="Simple Mode Options -- Top Half" spaceId docId="VvatisdgL5BT76U4_xhmM" version="v2" docAnchorId="#FIG_SMMDO" loadingMethod="dynamic" newTab="false" href="Push_data.mdx"} and :Link[Simple Mode Options -- Bottom Half]{label="Simple Mode Options -- Bottom Half" overridedLabel="Simple Mode Options -- Bottom Half" spaceId docId="VvatisdgL5BT76U4_xhmM" version="v2" docAnchorId="#FIGSimple-bottom" loadingMethod="dynamic" newTab="false" href="Push_data.mdx"}.
+
+*Simple Mode Options -- Top Half*
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/AuCW0eOQmSwQf9rQc99c-_opsconsolesimple6a.png" position="flex-start" size="40" initialPath="ops_Images/ops.console.simple6A.png" githubPath="ITSM-On-Prem-Help/Content/ops_console_ug/ops_Images/ops.console.simple6A.png"></Image>
+
+*Simple Mode Options -- Bottom Half*
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/onMWkwEgkPgVZMy-lOsT__opsconsolesimple6b.png" position="flex-start" size="40" initialPath="ops_Images/ops.console.simple6B.png" githubPath="ITSM-On-Prem-Help/Content/ops_console_ug/ops_Images/ops.console.simple6B.png"></Image>
+
+### Settings
+
+<hint type="info">
+  See :Link[Types of Data]{label="Types of Data" overridedLabel="Types of Data" spaceId docId="N5-aUJp0BHseE-cskrxZB" version="v2" docAnchorId="#Data" loadingMethod="dynamic" newTab="false" githubPath="Terminology.htm#Data" href="Terminology.mdx"} for information about settings, also referred to as configuration data.
+</hint>
+
+- Deletes settings in the target tenant instance that do not exist in the source tenant instance.  This is equivalent to checking Delete setting records in target\_tenant\_instance that do not exist in source\_tenant\_instance in the Settings copy options section.
+- Updates settings that were changed.  This is equivalent to checking Update setting records that were changed in the Settings copy options section.
+- Applies the two options above to the following settings:
+  - Allowed attachments
+  - Dynamic styles
+  - Password policy
+  - Approval status keywords
+  - Email status update mapping settings
+  - Ignore message with subject settings
+  - Object mapping for email
+  - Task assignment status keywords
+  - Truncate body settings
+  - Trusted sender domains
+
+See :Link[Simple Mode -- Settings Options]{label="Simple Mode -- Settings Options" overridedLabel="Simple Mode -- Settings Options" spaceId docId="VvatisdgL5BT76U4_xhmM" version="v2" docAnchorId="#FIG-Settings" loadingMethod="dynamic" newTab="false" href="Push_data.mdx"}.
+
+*Simple Mode -- Settings Options*
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/W4Rkr2AH2UTUseUnuMjvU_opsconsolesimple4.png" position="flex-start" size="40" initialPath="ops_Images/ops.console.simple4.png" githubPath="ITSM-On-Prem-Help/Content/ops_console_ug/ops_Images/ops.console.simple4.png"></Image>
+
+## Using Advanced Mode to Migrate Data
+
+- :Link[Migrating Metadata and Validation Data (Copy Configuration)]{label="Migrating Metadata and Validation Data (Copy Configuration)" overridedLabel="Migrating Metadata and Validation Data (Copy Configuration)" spaceId docId="VvatisdgL5BT76U4_xhmM" version="v2" docAnchorId="#Update" loadingMethod="dynamic" newTab="false" href="Push_data.mdx"}
+- :Link[Updating Metadata, Validation Data, and Master Data (Copy Configuration & Master Data)]{label="Updating Metadata, Validation Data, and Master Data (Copy Configuration & Master Data)" overridedLabel="Updating Metadata, Validation Data, and Master Data (Copy Configuration & Master Data)" spaceId docId="VvatisdgL5BT76U4_xhmM" version="v2" docAnchorId="#Update2" loadingMethod="dynamic" newTab="false" href="Push_data.mdx"}
+- :Link[Updating Master Data (Copy Master Data Only)]{label="Updating Master Data (Copy Master Data Only)" overridedLabel="Updating Master Data (Copy Master Data Only)" spaceId docId="VvatisdgL5BT76U4_xhmM" version="v2" docAnchorId="#Updating2" loadingMethod="dynamic" newTab="false" href="Push_data.mdx"}
+- :Link[Overwriting all Metadata and Validation Data (Copy to Replace)]{label="Overwriting all Metadata and Validation Data (Copy to Replace)" overridedLabel="Overwriting all Metadata and Validation Data (Copy to Replace)" spaceId docId="VvatisdgL5BT76U4_xhmM" version="v2" docAnchorId="#Overwrit" loadingMethod="dynamic" newTab="false" href="Push_data.mdx"}
+- :Link[Updating Only Transactional Data (Copy Data Only)]{label="Updating Only Transactional Data (Copy Data Only)" overridedLabel="Updating Only Transactional Data (Copy Data Only)" spaceId docId="VvatisdgL5BT76U4_xhmM" version="v2" docAnchorId="#Update3" loadingMethod="dynamic" newTab="false" href="Push_data.mdx"}
+- :Link[Updating Configuration Data (Copy Settings)]{label="Updating Configuration Data (Copy Settings)" overridedLabel="Updating Configuration Data (Copy Settings)" spaceId docId="VvatisdgL5BT76U4_xhmM" version="v2" docAnchorId="#Updating" loadingMethod="dynamic" newTab="false" href="Push_data.mdx"}
+- :Link[Updating Configuration Data (Copy Translation)]{label="Updating Configuration Data (Copy Translation)" overridedLabel="Updating Configuration Data (Copy Translation)" spaceId docId="VvatisdgL5BT76U4_xhmM" version="v2" docAnchorId="#Updating3" loadingMethod="dynamic" newTab="false" href="Push_data.mdx"}
+- :Link[Increasing the Version Number (No Op \[Increase Version Only\])]{label="Increasing the Version Number (No Op [Increase Version Only])" overridedLabel="Increasing the Version Number (No Op [Increase Version Only])" spaceId docId="VvatisdgL5BT76U4_xhmM" version="v2" docAnchorId="#Increasi" loadingMethod="dynamic" newTab="false" href="Push_data.mdx"}
+
+### Migrating Metadata and Validation Data (Copy Configuration)
+
+Perform the following steps to update the configuration of a tenant instance by migrating metadata and validation data. (See :Link[Types of Data]{label="Types of Data" overridedLabel="Types of Data" spaceId docId="N5-aUJp0BHseE-cskrxZB" version="v2" docAnchorId="#Data" loadingMethod="dynamic" newTab="false" githubPath="Terminology.htm#Data" href="Terminology.mdx"} for information about metadata and validation data.) When you perform this migration, metadata and validation data that exist on the target tenant instance are overwritten by the data on the source tenant instance.
+
+<hint type="info">
+  Perform steps 1 to 4 in :Link[Starting the Tenant Instance Migration]{label="Starting the Tenant Instance Migration" overridedLabel="Starting the Tenant Instance Migration" spaceId docId="kxdBsaHYdzf3E_JvNX_Kv" version="v2" docAnchorId="#About" loadingMethod="dynamic" newTab="false" githubPath="Starting_Migration.htm#About" href="Starting_Migration.mdx"} before you perform the steps in this section.
+</hint>
+
+1. Check Advanced Mode.
+2. In the Copy dialog box, for the Operation field, choose **Copy Configuration** to configure the Operations Console to copy metadata and validation data. The dialog box expands and appears similar to the dialog box in :Link[Copy Dialog Box (Migrate Metadata and Validation Data)]{label="Copy Dialog Box (Migrate Metadata and Validation Data)" overridedLabel="Copy Dialog Box (Migrate Metadata and Validation Data)" spaceId docId="VvatisdgL5BT76U4_xhmM" version="v2" docAnchorId="#dialog" loadingMethod="dynamic" newTab="false" href="Push_data.mdx"}.
+
+<hint type="info">
+  You cannot change the value for the Target Landscape field, as it is read-only and depends on the target you chose before you started the migration
+</hint>
+
+*Copy Dialog Box (Migrate Metadata and Validation Data)*
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/cqedDLHxXaWylE02gYKzd_opsconsolesimple1.png" position="flex-start" size="40" initialPath="ops_Images/ops.console.simple1.png" githubPath="ITSM-On-Prem-Help/Content/ops_console_ug/ops_Images/ops.console.simple1.png"></Image>
+
+3. Check **Skip target tenant backup before operation** to select whether to back up the target tenant instance prior to the data migration.
+   - To back up the target tenant instance, leave this checkbox empty. If you have not yet backed up the target tenant outside of the Operations Console, we highly recommend that you back it up here.
+   - To not back up the target tenant instance, select this checkbox. If you have already backed up the target tenant outside of the Operations Console, it is generally not necessary to back it up here.
+4. Use the Delete metadata items in target\_tenant\_instance that do not exist in source\_tenant\_instance section to select how to process items that were deleted in the source tenant instance prior to the migration.
+
+For example, assume that staging is the source tenant instance and UAT is the target tenant instance. If you deleted some business objects on the staging tenant instance as part of a reconfiguration procedure, you can select whether to delete or retain those business objects on the UAT tenant instance when you perform the data migration.
+
+<Paragraph listStyleType="disc" indent="2">
+  To delete business objects on the UAT tenant instance, if those business objects were also deleted on the staging tenant instance, check **Business Objects**.
+</Paragraph>
+
+<Paragraph listStyleType="disc" indent="2">
+  To retain business objects on the UAT tenant instance even though they were deleted on the staging tenant instance (that is, to *merge* the staging and UAT business object lists), do not check **Business Objects**.
+</Paragraph>
+
+<Paragraph listStyleType="disc" indent="2">
+  Use the checkboxes for other items (layouts, workflows, rules, and so on) in the same way.
+</Paragraph>
+
+If you do not select any options in this section, all data is merged, and no data on the UAT instance of the tenant is deleted.
+
+<hint type="info">
+  Even if the target tenant instance is locked, you can still create, edit, and delete dashboards, quick actions, reports, and searches. If you select any of these items, be aware that they could be deleted or updated when you execute a migration even if the target tenant instance is locked
+</hint>
+
+5. Use the Replace metadata items in target\_tenant\_instance that are newer than those in source\_tenant\_instance section to select how to process items that exist on both the source tenant instance and the target tenant instance when the version on the target tenant instance is newer than the version on the source tenant instance. This situation is not typically encountered or recommended, but the ability to respond to it is provided because it does occur occasionally.
+
+For example, assume that staging is the source tenant instance and UAT is the target tenant instance. During testing on the UAT tenant instance, it was determined that a saved search needed to be modified, and the modification was performed on the UAT instance of the tenant. At the same time, another item (for example, change management processes and approvals) was updated on the staging instance of the tenant as part of a scheduled reconfiguration.
+
+<Paragraph listStyleType="disc" indent="2">
+  To *merge* the data on the staging instance of the tenant with the data on the UAT instance of the tenant, check **Search**. This results in the most recent change updates (from staging) and the most recent saved search updates (from UAT) coexisting on the UAT instance of the tenant after the migration. This is the recommended procedure because it ensures that the most recent version of all data is present on the UAT instance of the tenant after the migration.
+</Paragraph>
+
+<Paragraph listStyleType="disc" indent="2">
+  To *overwrite* all of the data on the UAT instance of the tenant with data from the staging instance of the tenant (including overwriting the saved searches that were updated on the UAT instance of the tenant), do not check **Search**. This results in the most recent change updates (from staging) migrating to the UAT instance of the tenant, but the saved search changes that were made on the UAT instance of the tenant prior to the migration are overwritten and reverted to the version on the staging instance of the tenant.
+</Paragraph>
+
+<Paragraph listStyleType="disc" indent="2">
+  Use the checkboxes for other items (dashboards, quick actions, and reports) in the same way.
+</Paragraph>
+
+If you do not select any checkboxes in this section, all data on the UAT instance of the tenant is *overwritten* by data from the staging instance of the tenant. To ensure that all data on the staging instance of the tenant is *merged* with the data on the UAT instance of the tenant (instead of being overwritten), select every checkbox in this section.
+
+<hint type="info">
+  Even if the target tenant instance is locked, you can still create, edit, and delete dashboards, quick actions, reports, and searches. If you select any of these items, be aware that they could be deleted or updated when you execute a migration even if the target tenant instance is locked.
+</hint>
+
+6. Use the Custom defined validation list data objects section to select how to process validation lists that have been customized. *Customized* validation lists are not included in the Validation Data and Validation List Definition checkboxes shown in :Link[Copy Dialog Box (Migrate Metadata and Validation Data)]{label="Copy Dialog Box (Migrate Metadata and Validation Data)" overridedLabel="Copy Dialog Box (Migrate Metadata and Validation Data)" spaceId docId="VvatisdgL5BT76U4_xhmM" version="v2" docAnchorId="#dialog" loadingMethod="dynamic" newTab="false" href="Push_data.mdx"} and described in step 3. To migrate customized validation lists, you must specify them in this step instead. (See :Link[Types of Data]{label="Types of Data" overridedLabel="Types of Data" spaceId docId="N5-aUJp0BHseE-cskrxZB" version="v2" docAnchorId="#Data" loadingMethod="dynamic" newTab="false" githubPath="Terminology.htm#Data" href="Terminology.mdx"} in the [Terminology](Terminology.mdx) section for information about validation data.) 
+
+For example, assume that staging is the source tenant instance and UAT is the target tenant instance. If a customized validation list already exists on the UAT tenant instance, and the validation list is then further customized on the staging tenant instance, you can select whether to *overwrite* the UAT version with the staging version or *merge* the two validation lists.
+
+<Paragraph listStyleType="disc" indent="2">
+  To see the customized validation lists, place the mouse pointer over the checkbox.
+</Paragraph>
+
+<Paragraph listStyleType="disc" indent="2">
+  To delete customized validation list items on the UAT instance of the tenant that were also deleted on the staging instance of the tenant (that is, to *overwrite* the UAT validation list with the staging validation list), check **Delete data items in UAT that do not exist in Staging**.
+</Paragraph>
+
+<Paragraph listStyleType="disc" indent="2">
+  To retain customized validation list items on the UAT instance of the tenant even though they were deleted on the staging instance of the tenant (that is, to *merge* the staging and UAT validation lists), leave the Delete data items in UAT that do not exist in Staging checkbox empty.
+</Paragraph>
+
+7. Select one of these options to start or postpone the data migration:
+   - **Execute**: Starts the migration immediately.
+   - **Preview**: Creates an XML-based patch file called MetadataDiff.xmlMetadataDiff.MetadataPatch. You can review this file to see details of the data that will be migrated. A preview takes the same amount of time to execute as an actual migration.
+   - **Save Setting**: Saves your current selections without executing a migration. The next time you open this dialog box it is populated with your saved settings.
+   - **Save UAT Settings**: Saves your current selections for use when you migrate from the UAT instance of the tenant to the production instance of the tenant.
+   - **Cancel**: Exits the dialog box without saving any settings.
+
+When the data migration finishes, the system creates a log entry for it and updates the status of the affected tenants and tenant instances in the Operations Console migration dashboard. The system also displays an informational message with the results of the migration. Check the Events & Audit History workspace to review the warnings and errors before continuing. (See :Link[About the Events & Audit History Workspace]{label="About the Events & Audit History Workspace" overridedLabel="About the Events & Audit History Workspace" spaceId docId="wHcpWS9hpIjOxex1daUG4" version="v2" docAnchorId="#About6" loadingMethod="dynamic" newTab="false" githubPath="OpsConsole_Usage.htm#About6" href="OpsConsole_Usage.mdx"}.)
+
+### Updating Metadata, Validation Data, and Master Data (Copy Configuration & Master Data)
+
+<hint type="info">
+  Do not use this feature if you have more than 100,000 records as the migration will fail. If you have more data, we recommend that you either exclude some of the records from the data migration or use Microsoft SQL Server scripts or some other tool to migrate the data.
+</hint>
+
+From the Operations Console you can migrate master data together with metadata and validation data in the same migration. (See :Link[Types of Data]{label="Types of Data" overridedLabel="Types of Data" spaceId docId="N5-aUJp0BHseE-cskrxZB" version="v2" docAnchorId="#Data" loadingMethod="dynamic" newTab="false" githubPath="Terminology.htm#Data" href="Terminology.mdx"} in the [Terminology](Terminology.mdx) section for information about master data, metadata, and validation data.) 
+
+Master data consists of data sets that are used across an organization and are typically unique to that organization. User and role definitions, role assignments, and categories are examples of master data.
+
+Perform the following steps to update the configuration for a tenant instance by migrating master data together with metadata and validation data. When you perform this migration, master data, metadata, and validation data that exist on the target tenant instance (UAT in this example) are overwritten by the data on the source tenant instance (staging in this example).
+
+<hint type="info">
+  Perform steps 1 to 4 in :Link[Starting the Tenant Instance Migration]{label="Starting the Tenant Instance Migration" overridedLabel="Starting the Tenant Instance Migration" spaceId docId="kxdBsaHYdzf3E_JvNX_Kv" version="v2" docAnchorId="#About" loadingMethod="dynamic" newTab="false" githubPath="Starting_Migration.htm#About" href="Starting_Migration.mdx"} before you perform the steps in this section.
+</hint>
+
+1. Check Advanced Mode.
+2. In the Operation field in the Copy dialog box, choose **Copy Configuration & Master Data** to configure the Operations Console to copy master data together with metadata and validation data. The dialog box expands and appears similar to the dialog box shown in :Link[Copy Dialog Box (Migrate Metadata, Validation Data, and Master Data) -- Top Half]{label="Copy Dialog Box (Migrate Metadata, Validation Data, and Master Data) -- Top Half" overridedLabel="Copy Dialog Box (Migrate Metadata, Validation Data, and Master Data) -- Top Half" spaceId docId="VvatisdgL5BT76U4_xhmM" version="v2" docAnchorId="#Dialog-2" loadingMethod="dynamic" newTab="false" href="Push_data.mdx"} and :Link[Copy Dialog Box (Migrate Metadata, Validation Data, and Master Data) -- Bottom Half]{label="Copy Dialog Box (Migrate Metadata, Validation Data, and Master Data) -- Bottom Half" overridedLabel="Copy Dialog Box (Migrate Metadata, Validation Data, and Master Data) -- Bottom Half" spaceId docId="VvatisdgL5BT76U4_xhmM" version="v2" docAnchorId="#Fig-NewBottom" loadingMethod="dynamic" newTab="false" href="Push_data.mdx"} .
+
+Note that the top portion of the dialog box is identical to the dialog box shown in :Link[Copy Dialog Box (Migrate Metadata and Validation Data)]{label="Copy Dialog Box (Migrate Metadata and Validation Data)" overridedLabel="Copy Dialog Box (Migrate Metadata and Validation Data)" spaceId docId="VvatisdgL5BT76U4_xhmM" version="v2" docAnchorId="#dialog" loadingMethod="dynamic" newTab="false" href="Push_data.mdx"}. The bottom portion of the dialog box shown in :Link[Copy Dialog Box (Migrate Metadata, Validation Data, and Master Data) -- Bottom Half]{label="Copy Dialog Box (Migrate Metadata, Validation Data, and Master Data) -- Bottom Half" overridedLabel="Copy Dialog Box (Migrate Metadata, Validation Data, and Master Data) -- Bottom Half" spaceId docId="VvatisdgL5BT76U4_xhmM" version="v2" docAnchorId="#Fig-NewBottom" loadingMethod="dynamic" newTab="false" href="Push_data.mdx"} (beginning with **Master data copy options**) is new.
+
+*Copy Dialog Box (Migrate Metadata, Validation Data, and Master Data) -- Top Half*
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/W9ZvRK4bUSijnMyxsBHyD_opsconsolesimple3a.png" position="flex-start" size="40" initialPath="ops_Images/ops.console.simple3A.png" githubPath="ITSM-On-Prem-Help/Content/ops_console_ug/ops_Images/ops.console.simple3A.png"></Image>
+
+*Copy Dialog Box (Migrate Metadata, Validation Data, and Master Data) -- Bottom Half*
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/zIHWBDrImm8STZOeZe-Zn_opsconsolesimple3b.png" position="flex-start" size="40" initialPath="ops_Images/ops.console.simple3B.png" githubPath="ITSM-On-Prem-Help/Content/ops_console_ug/ops_Images/ops.console.simple3B.png"></Image>
+
+3. Fill in the top portion of the dialog box (the settings for metadata and validation data) as described in :Link[Migrating Metadata and Validation Data (Copy Configuration)]{label="Migrating Metadata and Validation Data (Copy Configuration)" overridedLabel="Migrating Metadata and Validation Data (Copy Configuration)" spaceId docId="VvatisdgL5BT76U4_xhmM" version="v2" docAnchorId="#Update" loadingMethod="dynamic" newTab="false" href="Push_data.mdx"}.
+4. Use the Master data copy options section to select how to process master data that was deleted in the source tenant instance prior to the migration.
+
+For example, assume that staging is the source tenant instance and UAT is the target tenant instance. If you deleted master data on the staging tenant instance as part of a reconfiguration procedure, you can select whether to delete or retain that master data on the UAT tenant instance when you perform the migration.
+
+<Paragraph listStyleType="disc" indent="2">
+  To delete master data on the UAT tenant instance that was also deleted on the staging tenant instance (that is, to *overwrite* the UAT master data with the staging master data), check **Delete data items in UAT that do not exist in Staging**. Keep in mind that if deleted master data record definitions are used elsewhere in Ivanti Service Manager, the deletion could break existing relationships or otherwise adversely affect the content of data records.
+</Paragraph>
+
+<Paragraph listStyleType="disc" indent="2">
+  To retain master data on the UAT tenant instance even though it was deleted on the staging tenant instance (that is, to *merge* the staging and UAT master data), do not check **Delete data items in UAT that do not exist in Staging**.
+</Paragraph>
+
+<Paragraph indent="2">
+  Because of the implications of possibly breaking relationships and data records by deleting master data records in this step, it is sometimes advisable to fill in the Copy the following selected data section as described in steps 4 and 5 before making your choice in this step.
+</Paragraph>
+
+5. Use the Copy the following selected data section to select which master data to migrate. If you do not select any items in this section, no master data is migrated.
+
+<Paragraph indent="1">
+  Master data selection choices are as follows:
+</Paragraph>
+
+<Paragraph listStyleType="disc" indent="2">
+  User Only: Migrates user-related data (including employee, external contact, profile base, and profile employee information).
+</Paragraph>
+
+<Paragraph listStyleType="disc" indent="2">
+  **User related**: Place the mouse pointer over this item to display an expanded list of all business objects contained in this item. Includes contact group, department, email address, organizational unit, and standard user team data). When you select this item, the Operations Console performs a full copy of all master data records in the tenant instance from each of the listed business objects.
+</Paragraph>
+
+<hint type="info">
+  If a tenant instance has more than 20,000 users in the system, we do not recommend selecting **User Related** due to performance impact.
+</hint>
+
+<Paragraph listStyleType="disc" indent="3">
+  The profile base object is included in this selection, meaning that Profile.Employee and Profile.ExternalContact are migrated. If the configuration includes a newly created child of the group-object Profile# (this is the profile base object), you must include the master data of the associated object as part of the additional data to be copied (described in step 5).
+</Paragraph>
+
+<Paragraph listStyleType="disc" indent="3">
+  The organizational unit definition is also included in this item. If any changes were made to organizational units on other tenants through the Ivanti Service Manager Configuration Console or by other means, they are overwritten when this item is migrated.
+</Paragraph>
+
+<hint type="info">
+  The Address.Email object is also included in this item. If the email addresses for the staging instance of the tenant are "scrubbed" to use the @saasitdemo.com domain instead of the company domain, the scrubbed email addresses for all Profile.object records are migrated to the target domain. If this configuration is eventually migrated to the production instance of the tenant, the @saasitdemo.com domain setting is still in place, and various login, LDAP import, notification, and email delivery issues will occur. A workaround for this scenario is to not scrub email addresses on the staging instance of the tenant, and instead block all outbound email or redirect outbound email to a single email address. The options to block email and to re-direct all mail to a single account can be set in the email configuration business object
+</hint>
+
+<Paragraph listStyleType="disc" indent="3">
+  Because user and team email addresses on the staging and UAT instances of the tenant might be scrubbed, the migration does not update existing users or teams. Instead, it migrates only new users and user teams.
+</Paragraph>
+
+<Paragraph listStyleType="disc" indent="3">
+  User role assignments and user team assignments are updated as part of this selection.
+</Paragraph>
+
+<Paragraph listStyleType="disc" indent="2">
+  **Service request**: Place the mouse pointer over this item to display an expanded list of all business objects contained in this item. When you select this item, the Operations Console performs a full copy (not a partial or selective copy) of all master data records in the tenant instance from each of the listed business objects.
+</Paragraph>
+
+<Paragraph indent="2">
+  To migrate a subset of the master data records shown in the list (for example, to migrate only the service request category (which has the object name "category")), do not check **Service Request**. Instead, include category in the Additional Data section as described in step 5. When you migrate data from the Additional Data section, it is a full migration (not a partial or selective migration).
+</Paragraph>
+
+<Paragraph indent="2">
+  Request offerings and their accompanying workflows are migrated when you select this item. Only those workflows that are part of a request offering design are migrated. Workflows that are associated with the service request business object are not migrated.
+</Paragraph>
+
+<Paragraph listStyleType="disc" indent="2">
+  **Escalation schedule**: Place the mouse pointer over this item to display an expanded list of all business objects contained in this item, such as escalation schedule, escalation setting, service level package, and service level target. When you select this item, the Operations Console performs a full copy of all master data records in the tenant instance from each of the listed business objects.
+</Paragraph>
+
+<Paragraph indent="2">
+  As a general rule, all of the escalation parameters displayed in the Ivanti Service Manager Configuration Console Escalation tab are migrated.
+</Paragraph>
+
+<Paragraph indent="2">
+  Note that when you migrate escalation schedules, existing schedules on the target tenant instance are overwritten.
+</Paragraph>
+
+6. Use the Additional Data section to list additional master data or transactional data to migrate. Select one or more items to migrate. The Additional Data section contains business objects that:
+   - Are not a part of metadata.
+   - Are not a part of custom defined validation data.
+   - Are not a part of the User Only, User related, Service request, or Escalation schedule categories described in step 5.
+   - Are not a part of typical transaction data such as incident, task, and change.
+   - Might be transactional data. The Operations Console cannot autonomously differentiate between master data and transactional data business objects.
+
+Guidelines for selecting items are as follows:
+
+<Paragraph listStyleType="disc" indent="2">
+  You can select zero or more items from the Additional Data list.
+</Paragraph>
+
+<Paragraph listStyleType="disc" indent="2">
+  Do not select a business object that contains more than 10,000 records due to performance concerns.
+</Paragraph>
+
+<Paragraph listStyleType="disc" indent="2">
+  If an object that is usually configured as metadata was for some reason configured as master data (or results in the creation of a related master data object), select the item here so that it is migrated.
+</Paragraph>
+
+<Paragraph indent="2">
+  For example, validation list data is migrated only if the validation list (that is, the pick list) is based on a business object that is part of the business object list for the validation business object. If the validation list (that is, the pick list) is based on a master business object instead of a validation business object, it will not be migrated by checking Validation Data. Instead, you must select the ValidationListData item in the Additional Data list (as described here in step 5) in order for the validation list to be migrated.
+</Paragraph>
+
+<Paragraph indent="2">
+  Click or \<ctrl>-click items in the Additional Data list to migrate custom data configured as business objects. Keep in mind that migrating business objects with thousands of records can impact performance; these business objects should usually be migrated outside of the Operations Console. Smaller objects (such as Category) are better candidates to select here for migrating within the Operations Console.
+</Paragraph>
+
+<Paragraph indent="2">
+  Note that the Operations Console cannot perform selective copies during a migration. That is, it can only copy a table to a table. For example, if you select the Additional Data item **Table ADFS/SAML (frs\_AuthenticationProvider.SAML)** (:Link[Example Item Selected in the Additional Data List]{label="Example Item Selected in the Additional Data List" overridedLabel="Example Item Selected in the Additional Data List" spaceId docId="VvatisdgL5BT76U4_xhmM" version="v2" docAnchorId="#Validation_5" loadingMethod="dynamic" newTab="false" href="Push_data.mdx"}), *all* of the records from the source database are copied to the target database where frs\_AuthenticationProvider.AuthType = SAML. There is no option to copy only "active" or some selective option from the table frs\_AuthenticationProvider.SAML.
+</Paragraph>
+
+*Example Item Selected in the Additional Data List*
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/2lS5WC2D_FHNbSamFARpH_opsconsole11.png" position="flex-start" size="40" indent="2" initialPath="ops_Images/ops.console.11.png" githubPath="ITSM-On-Prem-Help/Content/ops_console_ug/ops_Images/ops.console.11.png"></Image>
+
+7. Select one of these options to start or postpone the data migration:
+   - **Execute**: Starts the migration immediately.
+   - **Preview**: Creates an XML-based patch file for review.
+   - **Save Setting**: Saves your current selections without executing a migration. You can continue the migration process later using your saved settings.
+   - **Save&#x20;*****Target*****&#xA0;Settings**: Saves your current selections for use with the next migration in the migration sequence. For example, if the current migration is from staging to UAT, choose this option to save the settings for the UAT to production migration that you will perform next.
+   - **Cancel**: Exits the dialog box without saving any settings.
+
+When the data migration finishes, the system creates a log entry for it and updates the status of the affected tenants and tenant instances in the Operations Console migration dashboard as shown in :Link[Migration Dashboard]{label="Migration Dashboard" overridedLabel="Migration Dashboard" spaceId docId="kxdBsaHYdzf3E_JvNX_Kv" version="v2" docAnchorId="#FIG_Console" loadingMethod="dynamic" newTab="false" githubPath="Starting_Migration.htm#FIG_Console" href="Starting_Migration.mdx"} in [Starting the Data Migration](Starting_Migration.mdx). The system also displays an informational message with the results of the migration. Check the Events & Audit History workspace to review the warnings and errors before continuing.
+
+### Updating Master Data (Copy Master Data Only)
+
+From the Operations Console you can migrate master data only. Only do this after you have migrated the configuration data at least once.
+
+<hint type="info">
+  Do not use this feature if you have more than 100,000 records as the migration will fail. If you have more data, we recommend that you either exclude some of the records from the data migration or use Microsoft SQL Server scripts or some other tool to migrate the data.
+</hint>
+
+Master data consists of data sets that are used across an organization and are typically unique to that organization. User and role definitions, role assignments, and categories are examples of master data. (See :Link[Types of Data]{label="Types of Data" overridedLabel="Types of Data" spaceId docId="N5-aUJp0BHseE-cskrxZB" version="v2" docAnchorId="#Data" loadingMethod="dynamic" newTab="false" githubPath="Terminology.htm#Data" href="Terminology.mdx"} for information about master data.) 
+
+Perform the following steps to update the configuration of a tenant instance by migrating master data only. When you perform this migration, master data that exists on the target tenant instance (UAT in this example) is overwritten by the data on the source tenant instance (staging in this example).
+
+<hint type="info">
+  Perform steps 1 to 4 in :Link[Starting the Tenant Instance Migration]{label="Starting the Tenant Instance Migration" overridedLabel="Starting the Tenant Instance Migration" spaceId docId="kxdBsaHYdzf3E_JvNX_Kv" version="v2" docAnchorId="#About" loadingMethod="dynamic" newTab="false" githubPath="Starting_Migration.htm#About" href="Starting_Migration.mdx"} before you perform the steps in this section.
+</hint>
+
+1. Check Advanced Mode.
+2. In the Operation field in the Copy dialog box, choose **Copy Master Data Only** to configure the Operations Console to copy master data only. The dialog box expands and appears similar to the dialog box shown :Link[Copy Dialog Box (Migrate Master Data Only)]{label="Copy Dialog Box (Migrate Master Data Only)" overridedLabel="Copy Dialog Box (Migrate Master Data Only)" spaceId docId="VvatisdgL5BT76U4_xhmM" version="v2" docAnchorId="#MDO" loadingMethod="dynamic" newTab="false" href="Push_data.mdx"}.
+
+*Copy Dialog Box (Migrate Master Data Only)*
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/iE0F8kFm24JI9WUZfdtWa_ocmasterdataonly.png" position="flex-start" size="40" initialPath="ops_Images/OC_MasterDataOnly.png" githubPath="ITSM-On-Prem-Help/Content/ops_console_ug/ops_Images/OC_MasterDataOnly.png"></Image>
+
+3. Fill in the dialog box (master data copy options) as described in steps 4, 5, 6, and 7 of :Link[Updating Metadata, Validation Data, and Master Data (Copy Configuration & Master Data)]{label="Updating Metadata, Validation Data, and Master Data (Copy Configuration & Master Data)" overridedLabel="Updating Metadata, Validation Data, and Master Data (Copy Configuration & Master Data)" spaceId docId="VvatisdgL5BT76U4_xhmM" version="v2" docAnchorId="#Update2" loadingMethod="dynamic" newTab="false" href="Push_data.mdx"}.
+
+When the data migration finishes, the system creates a log entry for it and updates the status of the affected tenants and tenant instances in the Operations Console migration dashboard as shown in :Link[Migration Dashboard]{label="Migration Dashboard" overridedLabel="Migration Dashboard" spaceId docId="kxdBsaHYdzf3E_JvNX_Kv" version="v2" docAnchorId="#FIG_Console" loadingMethod="dynamic" newTab="false" githubPath="Starting_Migration.htm#FIG_Console" href="Starting_Migration.mdx"} in [Starting the Data Migration](Starting_Migration.mdx). The system also displays an informational message with the results of the migration. Check the Events & Audit History workspace to review the warnings and errors before continuing.
+
+### Overwriting all Metadata and Validation Data (Copy to Replace)
+
+From the Operations Console you can perform a migration that overwrites all metadata and validation data on the target tenant instance with data from the source tenant instance. (See :Link[Types of Data]{label="Types of Data" overridedLabel="Types of Data" spaceId docId="N5-aUJp0BHseE-cskrxZB" version="v2" docAnchorId="#Data" loadingMethod="dynamic" newTab="false" githubPath="Terminology.htm#Data" href="Terminology.mdx"} for information about metadata and validation data.) This migration is equivalent to creating the first configuration on the target tenant instance as described in :Link[Creating the First Staging or UAT Instance of the Tenant from the Production Instance of the Tenant]{label="Creating the First Staging or UAT Instance of the Tenant from the Production Instance of the Tenant" overridedLabel="Creating the First Staging or UAT Instance of the Tenant from the Production Instance of the Tenant" spaceId docId="kxdBsaHYdzf3E_JvNX_Kv" version="v2" docAnchorId="#Moving" loadingMethod="dynamic" newTab="false" githubPath="Starting_Migration.htm#Moving" href="Starting_Migration.mdx"}.
+
+Perform the following steps to update a the configuration for a tenant instance by overwriting all metadata and validation data.
+
+<hint type="info">
+  Perform steps 1 to 4 in :Link[Starting the Tenant Instance Migration]{label="Starting the Tenant Instance Migration" overridedLabel="Starting the Tenant Instance Migration" spaceId docId="kxdBsaHYdzf3E_JvNX_Kv" version="v2" docAnchorId="#About" loadingMethod="dynamic" newTab="false" githubPath="Starting_Migration.htm#About" href="Starting_Migration.mdx"} before you perform the steps in this section.
+</hint>
+
+1. Check Advanced Mode.
+2. In the Operation field in the Copy dialog box, select **Copy to Replace**. This configures the Operations Console to overwrite all metadata and validation data on the target tenant instance. The dialog box appears similar to the dialog box shown in :Link[Copy Dialog Box (To Overwrite Metadata and Validation Data)]{label="Copy Dialog Box (To Overwrite Metadata and Validation Data)" overridedLabel="Copy Dialog Box (To Overwrite Metadata and Validation Data)" spaceId docId="VvatisdgL5BT76U4_xhmM" version="v2" docAnchorId="#dialog_4" loadingMethod="dynamic" newTab="false" href="Push_data.mdx"}.
+3. Perform the procedure described in :Link[Updating Metadata, Validation Data, and Master Data (Copy Configuration & Master Data)]{label="Updating Metadata, Validation Data, and Master Data (Copy Configuration & Master Data)" overridedLabel="Updating Metadata, Validation Data, and Master Data (Copy Configuration & Master Data)" spaceId docId="VvatisdgL5BT76U4_xhmM" version="v2" docAnchorId="#Update2" loadingMethod="dynamic" newTab="false" href="Push_data.mdx"}.
+
+*Copy Dialog Box (To Overwrite Metadata and Validation Data)*
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/x9eMbHZG3SzJz3ZHMH1m7_opsconsole6.png" position="flex-start" size="40" initialPath="ops_Images/ops.console.6.png" githubPath="ITSM-On-Prem-Help/Content/ops_console_ug/ops_Images/ops.console.6.png"></Image>
+
+4. Click **Execute** to initiate the migration.
+
+When the data migration finishes, the system creates a log entry for it and updates the status of the affected tenants and tenant instances in the Operations Console migration dashboard as shown in :Link[Migration Dashboard]{label="Migration Dashboard" overridedLabel="Migration Dashboard" spaceId docId="kxdBsaHYdzf3E_JvNX_Kv" version="v2" docAnchorId="#FIG_Console" loadingMethod="dynamic" newTab="false" githubPath="Starting_Migration.htm#FIG_Console" href="Starting_Migration.mdx"} in [Starting the Data Migration](Starting_Migration.mdx). The system also displays an informational message with the results of the migration. Check the Events & Audit History workspace to review the warnings and errors before continuing.
+
+### Updating Only Transactional Data (Copy Data Only)
+
+<hint type="info">
+  The relationship data between two business objects is not copied from the source to the target when you select the Updating Only Transactional Data (Copy Data Only) option.
+</hint>
+
+From the Operations Console you can migrate transactional data (data records, including incidents, changes, service requests, and so on) without migrating any other type of data.
+
+Perform the following steps to update the configuration for a tenant instance by migrating transactional data. When you perform this migration, transactional data that exists on the target tenant instance is overwritten by the data on the source tenant instance.
+
+<hint type="info">
+  Perform steps 1 to 4 in :Link[Starting the Tenant Instance Migration]{label="Starting the Tenant Instance Migration" overridedLabel="Starting the Tenant Instance Migration" spaceId docId="kxdBsaHYdzf3E_JvNX_Kv" version="v2" docAnchorId="#About" loadingMethod="dynamic" newTab="false" githubPath="Starting_Migration.htm#About" href="Starting_Migration.mdx"} before you perform the steps in this section.
+</hint>
+
+1. Check Advanced Mode.
+2. In the Operation field in the Copy dialog box, select **Copy Data Only** to configure the Operations Console to copy transactional data. The dialog box expands and appears similar to the dialog box shown in :Link[Copy Dialog Box (Migrate Only Transactional Data)]{label="Copy Dialog Box (Migrate Only Transactional Data)" overridedLabel="Copy Dialog Box (Migrate Only Transactional Data)" spaceId docId="VvatisdgL5BT76U4_xhmM" version="v2" docAnchorId="#dialog_3" loadingMethod="dynamic" newTab="false" href="Push_data.mdx"}.
+
+*Copy Dialog Box (Migrate Only Transactional Data)*
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/S6xdwY6VzeBIfntvDkZQt_opsconsolesimple5.png" position="flex-start" size="40" initialPath="ops_Images/ops.console.simple5.png" githubPath="ITSM-On-Prem-Help/Content/ops_console_ug/ops_Images/ops.console.simple5.png"></Image>
+
+3. Check **Skip target tenant backup before operation** to select whether to back up the target tenant instance prior to the data migration.
+   - To back up the target tenant instance, leave this checkbox empty. If you have not yet backed up the target tenant instance outside of the Operations Console, we highly recommend that you back it up here.
+   - To not back up the target tenant instance, select this checkbox. If you have already backed up the target tenant instance outside of the Operations Console, it is generally not necessary to back it up here.
+4. Use the Data only copy options section to select how to process transactional data that was deleted in the source tenant instance prior to the migration.
+
+For example, assume that staging is the source tenant instance and production is the target tenant instance. If you deleted transactional data on the staging tenant instance as part of a reconfiguration procedure, you can select whether to delete or retain that data on the production tenant instance when you perform the data migration.
+
+<Paragraph listStyleType="disc" indent="2">
+  To delete transactional data on the production tenant instance if that data was also deleted on the staging tenant instance, check **Delete data items in production that do not exist in staging**.
+</Paragraph>
+
+<Paragraph listStyleType="disc" indent="2">
+  To retain transactional data on the production tenant instance even though it was deleted on the staging tenant instance (that is, to *merge* the staging and production transactional data), leave this checkbox empty.
+</Paragraph>
+
+5. In the Transactional Data list, select the items to migrate.
+6. Click **Execute** to initiate the migration or click **Preview** to create an XML-based patch file for review.
+
+When the data migration finishes, the system creates a log entry for it and updates the status of the affected tenants and tenant instances in the Operations Console migration dashboard as shown in :Link[Migration Dashboard]{label="Migration Dashboard" overridedLabel="Migration Dashboard" spaceId docId="kxdBsaHYdzf3E_JvNX_Kv" version="v2" docAnchorId="#FIG_Console" loadingMethod="dynamic" newTab="false" githubPath="Starting_Migration.htm#FIG_Console" href="Starting_Migration.mdx"} in [Starting the Data Migration](Starting_Migration.mdx). The system also displays an informational message with the results of the migration. Check the Events & Audit History workspace to review the warnings and errors before continuing.
+
+### Updating Configuration Data (Copy Settings)
+
+From the Operations Console you can migrate configuration data, also known as settings.
+
+<hint type="info">
+  Perform steps 1 to 4 in :Link[Starting the Tenant Instance Migration]{label="Starting the Tenant Instance Migration" overridedLabel="Starting the Tenant Instance Migration" spaceId docId="kxdBsaHYdzf3E_JvNX_Kv" version="v2" docAnchorId="#About" loadingMethod="dynamic" newTab="false" githubPath="Starting_Migration.htm#About" href="Starting_Migration.mdx"} before you perform the steps in this section.
+</hint>
+
+1. Check Advanced Mode.
+2. In the Operation field in the Copy dialog box, choose **Copy Settings** to configure the Operations Console to copy configuration data. See :Link[Copy Dialog Box (Migrate Settings)]{label="Copy Dialog Box (Migrate Settings)" overridedLabel="Copy Dialog Box (Migrate Settings)" spaceId docId="VvatisdgL5BT76U4_xhmM" version="v2" docAnchorId="#FIG-Set2" loadingMethod="dynamic" newTab="false" href="Push_data.mdx"}.
+
+*Copy Dialog Box (Migrate Settings)*
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/W4Rkr2AH2UTUseUnuMjvU_opsconsolesimple4.png" position="flex-start" size="40" initialPath="ops_Images/ops.console.simple4.png" githubPath="ITSM-On-Prem-Help/Content/ops_console_ug/ops_Images/ops.console.simple4.png"></Image>
+
+3. Check **Skip target tenant backup before operation** to select whether to back up the target tenant instance prior to the data migration.
+   - To back up the target tenant instance, leave this checkbox empty. If you have not yet backed up the target tenant instance outside of the Operations Console, we highly recommend that you back it up here.
+   - To not back up the target tenant instance, select this checkbox. If you have already backed up the target tenant instance outside of the Operations Console, it is generally not necessary to back it up here.
+4. Do one of the following:
+   - To delete configuration data (settings) on the target tenant instance if that data was also deleted on the source tenant instance, check **Delete setting records in target\_tenant\_instance that do not exist in source\_tenant\_instance**.
+   - To retain configuration data (settings) on the target tenant instance even though it was deleted on the source tenant instance (that is, to *merge* the source and target configuration data), leave this check box empty.
+5. To update configuration data (settings) that has changed in both the source and the target tenant instances, check **Update setting records that changed**.
+6. In the Setting Type list, select the configuration data types (settings) to migrate.
+7. Click **Execute** to initiate the migration or click **Preview** to create an XML-based patch file for review.
+
+When the data migration finishes, the system creates a log entry for it and updates the status of the affected tenants and tenant instances in the Operations Console migration dashboard as shown in :Link[Migration Dashboard]{label="Migration Dashboard" overridedLabel="Migration Dashboard" spaceId docId="kxdBsaHYdzf3E_JvNX_Kv" version="v2" docAnchorId="#FIG_Console" loadingMethod="dynamic" newTab="false" githubPath="Starting_Migration.htm#FIG_Console" href="Starting_Migration.mdx"} in [Starting the Data Migration](Starting_Migration.mdx). The system also displays an informational message with the results of the migration. Check the Events & Audit History workspace to review the warnings and errors before continuing.
+
+### Updating Configuration Data (Copy Translation)
+
+From the Operations Console you can migrate translation. The system connects to the source database and copies over any translations that are different or more recent in the target database. If there is no record in the source database but there is a record in the target, the system does not delete the record in the target database.
+
+<hint type="info">
+  Perform steps 1 to 4 in :Link[Starting the Tenant Instance Migration]{label="Starting the Tenant Instance Migration" overridedLabel="Starting the Tenant Instance Migration" spaceId docId="kxdBsaHYdzf3E_JvNX_Kv" version="v2" docAnchorId="#About" loadingMethod="dynamic" newTab="false" githubPath="Starting_Migration.htm#About" href="Starting_Migration.mdx"} before you perform the steps in this section.
+</hint>
+
+1. Check Advanced Mode.
+2. In the Operation field in the Copy dialog box, choose **Copy Translation** to configure the Operations Console to copy translated data. See :Link[Copy Dialog Box (Migrate Settings)]{label="Copy Dialog Box (Migrate Settings)" overridedLabel="Copy Dialog Box (Migrate Settings)" spaceId docId="VvatisdgL5BT76U4_xhmM" version="v2" docAnchorId="#FIG-Set2" loadingMethod="dynamic" newTab="false" href="Push_data.mdx"}.
+
+*Copy Dialog Box (Copy Translation)*
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/0OQgDWtPKAzSd_kHCnbG6_copy-translation.png" position="flex-start" size="40" initialPath="ops_Images/copy-translation.png" githubPath="ITSM-On-Prem-Help/Content/ops_console_ug/ops_Images/copy-translation.png"></Image>
+
+3. Check **Skip target tenant backup before operation** to select whether to back up the target tenant instance prior to the data migration.
+   - To back up the target tenant instance, leave this checkbox empty. If you have not yet backed up the target tenant instance outside of the Operations Console, we highly recommend that you back it up here.
+   - To not back up the target tenant instance, select this checkbox. If you have already backed up the target tenant instance outside of the Operations Console, it is generally not necessary to back it up here.
+4. Click **Execute** to initiate the migration.
+
+When the data migration finishes, the system creates a log entry for it and updates the status of the affected tenants and tenant instances in the Operations Console migration dashboard as shown in :Link[Migration Dashboard]{label="Migration Dashboard" overridedLabel="Migration Dashboard" spaceId docId="kxdBsaHYdzf3E_JvNX_Kv" version="v2" docAnchorId="#FIG_Console" loadingMethod="dynamic" newTab="false" githubPath="Starting_Migration.htm#FIG_Console" href="Starting_Migration.mdx"} in [Starting the Data Migration](Starting_Migration.mdx). The system also displays an informational message with the results of the migration. Check the Events & Audit History workspace to review the warnings and errors before continuing.
+
+### Increasing the Version Number (No Op \[Increase Version Only])
+
+You can only migrate data from one instance to another if there is a Push link and the system only displays a Push link if the tenant instances have different version numbers. (The system automatically increases the version number of a tenant instance after a successful migration.) Also, you can only migrate data from staging to production when the production instance of the tenant is at version 0. See :Link[Version Numbers of Tenant Instances]{label="Version Numbers of Tenant Instances" overridedLabel="Version Numbers of Tenant Instances" spaceId docId="VvatisdgL5BT76U4_xhmM" version="v2" docAnchorId="#FIGVersions" loadingMethod="dynamic" newTab="false" href="Push_data.mdx"} for an example with Push links and different version numbers for each tenant instance.
+
+*Version Numbers of Tenant Instances*
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/M7SQTfGgV92Z7fr0Ysrf0_no-op.png" position="flex-start" size="40" initialPath="ops_Images/No-Op.png" githubPath="ITSM-On-Prem-Help/Content/ops_console_ug/ops_Images/No-Op.png"></Image>
+
+From the Operations Console you can increase the version number without changing any data by selecting **No Op (Increase version only)**.
+
+<hint type="info">
+  Perform steps 1 to 4 in :Link[Starting the Tenant Instance Migration]{label="Starting the Tenant Instance Migration" overridedLabel="Starting the Tenant Instance Migration" spaceId docId="kxdBsaHYdzf3E_JvNX_Kv" version="v2" docAnchorId="#About" loadingMethod="dynamic" newTab="false" githubPath="Starting_Migration.htm#About" href="Starting_Migration.mdx"} before you perform the steps in this section.
+</hint>
+
+1. Check Advanced Mode.
+2. In the Operation field in the Copy dialog box, choose **No Op (Increase version only)** to increase the version number. See :Link[Copy Dialog Box (No Op \[Increase Version Only\])]{label="Copy Dialog Box (No Op [Increase Version Only])" overridedLabel="Copy Dialog Box (No Op [Increase Version Only])" spaceId docId="VvatisdgL5BT76U4_xhmM" version="v2" docAnchorId="#FigNoOp" loadingMethod="dynamic" newTab="false" href="Push_data.mdx"}.
+
+*Copy Dialog Box (No Op \[Increase Version Only])*
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/CUPnFHmKXvROi33iNvmDV_increaseversion.png" position="flex-start" size="40" initialPath="ops_Images/Increase_version.png" githubPath="ITSM-On-Prem-Help/Content/ops_console_ug/ops_Images/Increase_version.png"></Image>
+
+3. Click **Execute** to initiate the migration.
+
+When the data migration finishes, the system creates a log entry for it and updates the status of the affected tenants and tenant instances in the Operations Console migration dashboard as shown in :Link[Migration Dashboard]{label="Migration Dashboard" overridedLabel="Migration Dashboard" spaceId docId="kxdBsaHYdzf3E_JvNX_Kv" version="v2" docAnchorId="#FIG_Console" loadingMethod="dynamic" newTab="false" githubPath="Starting_Migration.htm#FIG_Console" href="Starting_Migration.mdx"} in [Starting the Data Migration](Starting_Migration.mdx). The system also displays an informational message with the results of the migration. Check the Events & Audit History workspace to review the warnings and errors before continuing.

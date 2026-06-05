@@ -1,0 +1,59 @@
+---
+title: Operations Console Deployment Options
+docTags: 
+createdAt: Fri Jun 05 2026 13:49:30 GMT+0300 (Eastern European Summer Time)
+---
+
+- Determine your database deployment options first. In all of the Operations Console deployment options below, you can substitute any of the database deployments described in [Database Deployment Options](Deploy-DB-options.mdx) for the database deployments in the figure.  So for the database engine instance shown in Option OC1 below, you could substitute Option D1, Option D2a, Option D2b, Option D3, and so on for that database engine instance.
+- To use the Operations Console, the production, staging, and UAT application servers must all use the same version of \{\{Primary.Product}}. When you test new versions of \{\{Primary.Product}}, either install the new version in a separate environment or plan the Operations Console pushes before testing the new version.
+- We recommend using a deployment that has either two or three configuration databases, such as Option OC1, Option OC2, or Option OC3.
+
+## Option OC1: Separate Configuration Databases and Application Servers for Production and Development (Best Practice)
+
+You only install the Operations Console on the staging/UAT server. Do not install it on any other servers.
+
+*Example of Separate Configuration Databases and Application Servers for Production and Development*
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/ElAxB13QBWpneUJRGWC1T_sepprodappserver.png" position="flex-start" size="40" initialPath="Install_Deploy_Images/SepProdAppServer.png" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Install_Deploy_Images/SepProdAppServer.png"></Image>
+
+## Option OC2: Two Configuration Databases and Separate Application Servers for Each Landscape (Best Practice)
+
+You only install the Operations Console on the staging server. Do not install it on any other servers.
+
+*Example of Two Configuration Databases and Separate Application Servers for Each Landscape*
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/pS1u3isO6PncX8oVdS3zm_deploy1.png" position="flex-start" size="40" initialPath="Install_Deploy_Images/Deploy1.png" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Install_Deploy_Images/Deploy1.png"></Image>
+
+## Option OC3: Separate Configuration Databases for Each Landscape (Best Practice)
+
+<hint type="info">
+  The only use case for this option is to upgrade the staging or UAT landscape at different times.
+</hint>
+
+You only install the Operations Console on the staging server. Do not install it on any other servers.
+
+*Example of Separate Configuration Databases for Each Landscape*
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/i6Ci1goSc9zT5YMBgzqHY_configdbeachlandscape.png" position="flex-start" size="40" initialPath="Install_Deploy_Images/ConfigDBEachLandscape.png" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Install_Deploy_Images/ConfigDBEachLandscape.png"></Image>
+
+## Option OC4: One Configuration Database and One Application Server
+
+<hint type="info">
+  We do not recommend using this or any similar deployment that has only one configuration database that is used for IvantiSM, IvantiSM-STG, and IvantiSM-UAT, unless you are setting up a demo environment. The reason for this only being viable for demo environments is that this deployment prevents you from being able to test future upgrades on development tenants without forcing production to upgrade at the same time.
+</hint>
+
+*Example of One Configuration Database and One Application Server*
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/AH30U3KSAeJ4z4e-3p-oO_ops-optsimple.png" position="flex-start" size="40" initialPath="Install_Deploy_Images/ops-optsimple.png" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Install_Deploy_Images/ops-optsimple.png"></Image>
+
+## Option OC5: One Configuration Database and Separate Application Servers for Each Landscape
+
+<hint type="info">
+  We do not recommend using this or any similar deployment that has only one configuration database that is used for IvantiSM, IvantiSM-STG, and IvantiSM-UAT, unless you are setting up a demo environment. The reason for this only being viable for demo environments is that this deployment prevents you from being able to test future upgrades on development tenants without forcing production to upgrade at the same time.
+</hint>
+
+You only install the Operations Console on the staging server. Do not install it on any other servers.
+
+*Example of One Configuration Database and Separate Application Servers for Each Landscape*
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/mu9zjMf8bUkVh0ls_g3X7_appserverforeachlandscape.png" position="flex-start" size="40" initialPath="Install_Deploy_Images/AppServerForEachLandscape.png" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Install_Deploy_Images/AppServerForEachLandscape.png"></Image>

@@ -1,0 +1,119 @@
+---
+title: Using the System Configuration Wizard
+docTags: 
+createdAt: Fri Jun 05 2026 13:49:30 GMT+0300 (Eastern European Summer Time)
+---
+
+The System Configuration Wizard provides an interface in which you can perform various configuration tasks for the initial setup of \{\{Primary.Product}}.
+
+- :Link[Starting the System Configuration Wizard Manually]{label="Starting the System Configuration Wizard Manually" overridedLabel="Starting the System Configuration Wizard Manually" spaceId docId="alfUkeTFhG3vb3qYsOXZW" version="v2" docAnchorId="#h3_Starting_the_System_Configuration_Wizard_Manually" loadingMethod="dynamic" newTab="false" href="Server_Syst_Config_Wiz.mdx"}
+- :Link[Navigating the System Configuration Wizard]{label="Navigating the System Configuration Wizard" overridedLabel="Navigating the System Configuration Wizard" spaceId docId="alfUkeTFhG3vb3qYsOXZW" version="v2" docAnchorId="#h3_Navigating_the_System_Configuration_Wizard" loadingMethod="dynamic" newTab="false" href="Server_Syst_Config_Wiz.mdx"}
+- :Link[Actions to Perform in Each Page]{label="Actions to Perform in Each Page" overridedLabel="Actions to Perform in Each Page" spaceId docId="alfUkeTFhG3vb3qYsOXZW" version="v2" docAnchorId="#h3_Actions_to_Perform_in_Each_Page" loadingMethod="dynamic" newTab="false" href="Server_Syst_Config_Wiz.mdx"}
+
+## Starting the System Configuration Wizard Manually
+
+The System Configuration Wizard starts automatically after you finish installing \{\{Primary.Product}}.
+
+You can also start the System Configuration Wizard manually after your system is configured. See :Link[Changing Feature Settings by Running the System Configuration Wizard]{label="Changing Feature Settings by Running the System Configuration Wizard" overridedLabel="Changing Feature Settings by Running the System Configuration Wizard" spaceId docId="WGF0LK9K1xyiWAHNHpOI4" version="v2" docAnchorId="#h2_Changing_Feature_Settings" loadingMethod="dynamic" newTab="false" githubPath="Add_Feature_Change_Setting.htm#h2_Changing_Feature_Settings" href="Add_Feature_Change_Setting.mdx"}.
+
+## Navigating the System Configuration Wizard
+
+The System Configuration Wizard contains the areas shown in :Link[System Configuration Wizard Areas]{label="System Configuration Wizard Areas" overridedLabel="System Configuration Wizard Areas" spaceId docId="alfUkeTFhG3vb3qYsOXZW" version="v2" docAnchorId="#Fig_HEAT_System_Configuration_Wizard_Areas" loadingMethod="dynamic" newTab="false" href="Server_Syst_Config_Wiz.mdx"}.
+
+*System Configuration Wizard Areas*
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/ztM_GJEQbtKUpxYfey7di_navigate2.png" position="flex-start" size="40" initialPath="../Resources/Images/Navigate2.png" githubPath="ITSM-On-Prem-Help/Content/Resources/Images/Navigate2.png"></Image>
+
+- In the configuration step area, the page that you are currently working on is highlighted in yellow.
+- After you complete a page and click Next, the system places a green check mark next to the completed page name to show that it has been completed.
+
+<hint type="info">
+  The configuration step area is not a navigation pane. You cannot go to a page by clicking it in the configuration step area. Instead, click the Next and Previous buttons to move through the pages sequentially.
+</hint>
+
+- The page display area shows the wizard page itself, including the fields and controls that you set the various parameters.
+
+<hint type="info">
+  * Chat Configuration installs Redis version 6.2 re-distributable which requires internet access while configuring the System Configuration Wizard.
+  * The default behavior of the System Configuration Wizard with respect to **SSL** check boxes have changed from **non-SSL** to **SSL**. For non-SSL based installation these check boxes need to be cleared.
+  * As part of the security fix, the System Configuration Wizard requires host name with domain (Fully Qualified Domain Name). For more information, refer to the [Configuring the Application Server Settings section](Configure_HEAT_Discovery_Application_Server.mdx) in the Installation and Deployment guide.
+</hint>
+
+## Actions to Perform in Each Page
+
+The System Configuration Wizard page numbers can change depending on the features you choose to install.
+
+Unless otherwise noted, the settings that you specify in each wizard page are stored in the Configuration Database.
+
+Configuration Application Settings page:
+
+- Specify the name of the configuration database and the authentication method that is used by all supported web applications when connecting to the configuration database.
+- Create or recreate the configuration database.
+- If you use Windows Integrated Security for the configuration database, specify the Windows domain credentials for the service account.
+
+See :Link[Configuring the Configuration Database]{label="Configuring the Configuration Database" overridedLabel="Configuring the Configuration Database" spaceId docId="uMuAI6qNuHShW_V_nKpv4" version="v2" docAnchorId="#h3_Configuring_the_HEAT_Configuration_Database" loadingMethod="dynamic" newTab="false" githubPath="Configure_HEAT_Configuration_Database.htm#h3_Configuring_the_HEAT_Configuration_Database" href="Configure_HEAT_Configuration_Database.mdx"}.
+
+Service Manager Settings page:
+
+- Specify the name and authentication method for the server where the \{\{Primary.Product}} application database resides.
+- Load the demo database on a server other than the server where the \{\{Primary.Product}} application database resides. This option allows you to review the demo database while the \{\{Primary.Product}} application database continues to run in its current configuration.
+- Specify the application name, attachment location, client authorization key, and the type of name to use when accessing the application.
+
+See [Configuring the Neurons for ITSM Application](Configure_HEAT_Service_Management_Application.mdx).
+
+Application Server Settings page:
+
+- Specify the location of the configuration server and the host name.
+- Specify if you will use this server for surveys or the reporting feature.
+- If you use Windows Integrated Security for the \{\{Primary.Product}} application server, specify the Windows domain credentials for the service account.
+
+See [Configuring the Application Server Settings](Configure_HEAT_Application_Server_Settings.mdx).
+
+Other Feature Settings page:
+
+- Specify the log file and temporary file locations on the configuration server.
+- Specify different server hosts and whether to use SSL for the \{\{Primary.Product}} application server.
+- Specify the inbound web server information.
+
+See [Configuring Other Feature Settings](Configure_Other_Features_Settings.mdx).
+
+Metrics Server page:
+
+- Specify the locations for the log file and the \{\{Primary.Product}} configuration server.
+- Map applications to the metrics server.
+
+See [Configuring the Metrics Server](Configure_HEAT_Metrics_Server.mdx).
+
+Microsoft SSRS Configuration page:
+
+- Appears when you install the reporting feature.
+- Specify information about the Microsoft SQL Server database for the reporting feature.
+
+See [Configuring the Reporting Feature](Configure_Reporting.mdx).
+
+Reporting Service Configuration page:
+
+- Appears when you install the reporting feature.
+- Specify information about the \{\{Primary.Product}} report database for the reporting feature.
+
+See [Configuring the Reporting Feature](Configure_Reporting.mdx).
+
+Discovery Application Server page:
+
+- Specify information about the configuration of the Discovery application server.
+
+See [Configuring the Discovery Application Server](Configure_HEAT_Discovery_Application_Server.mdx).
+
+Discovery Web Server page:
+
+- Specify information about the configuration of the Discovery web server.
+- Upgrade the configuration database and the \{\{Primary.Product}} application database.
+
+See [Configuring the Discovery Web Server](Configure_HEAT_Discovery_Web_Server.mdx).
+
+Upgrade System page:
+
+- Appears when you upgrade to a newer release of \{\{Primary.Product}}.
+- Upgrade the configuration database and the \{\{Primary.Product}} application database.
+
+See [Upgrading Neurons for ITSM from an Earlier Release](Upgrading-Service-and-Asset-Manager-from-an-Earlier-Release.mdx).

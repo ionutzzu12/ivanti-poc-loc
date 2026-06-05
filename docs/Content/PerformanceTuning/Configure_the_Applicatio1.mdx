@@ -1,0 +1,21 @@
+---
+title: Configuring the Application Pool Recycling Schedule
+docTags: 
+createdAt: Fri Jun 05 2026 13:49:31 GMT+0300 (Eastern European Summer Time)
+---
+
+We recommend that you schedule the application pool recycling to occur at a specific time rather than at an interval. Setting a specific time lets you schedule the recycling for off-peak times when performance is least likely to be impacted.
+
+To configure the application pool recycling schedule, do the following:
+
+1. Open the Computer Management panel by going to **Start > Control Panel > Administrative Tools > Computer Management**.
+2. In the Computer Management panel, double-click **Services and Applications** and double-click **Internet Information Services (IIS)**.
+3. In the Connections panel, double-click Application Server and double-click **Application Pools**.
+4. In the list of application pools, highlight an application pool and click **Recycling...** located in the Edit Application Pool area.
+
+*Configuring the Application Pool Recycling Schedule*
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/DSUKDinAZ-yjNwWUR-cRj_apppool1.png" position="flex-start" size="40" initialPath="PerfTune_Images/app.pool.1.png" githubPath="ITSM-On-Prem-Help/Content/PerformanceTuning/PerfTune_Images/app.pool.1.png"></Image>
+
+5. In the Recycling Conditions dialog box, check **Specific time(s)** and specify an off-hours time for the recycling to occur.
+6. Repeat step 4 and step 5 to specify recycling schedules for the other application pools.

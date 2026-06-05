@@ -1,0 +1,30 @@
+---
+title: Operations Console Overview
+docTags: 
+createdAt: Fri Jun 05 2026 13:49:31 GMT+0300 (Eastern European Summer Time)
+---
+
+This section contains the following:
+
+- A brief description of the Operations Console features. See :Link[About the Operations Console]{label="About the Operations Console" overridedLabel="About the Operations Console" spaceId docId="v-qLUjRCfp6ahoHaqXify" version="v2" docAnchorId="#About" loadingMethod="dynamic" newTab="false" href="OpsConsole_Overview.mdx"}.
+- Instructions for navigating the Operations Console interface. See :Link[Operations Console Interface]{label="Operations Console Interface" overridedLabel="Operations Console Interface" spaceId docId="wHcpWS9hpIjOxex1daUG4" version="v2" docAnchorId="#Navigate" loadingMethod="dynamic" newTab="false" githubPath="OpsConsole_Usage.htm#Navigate" href="OpsConsole_Usage.mdx"}.
+- A summary of the actions that you can perform from each area of the Operations Console. See :Link[About the Different Workspaces in the Operations Console]{label="About the Different Workspaces in the Operations Console" overridedLabel="About the Different Workspaces in the Operations Console" spaceId docId="wHcpWS9hpIjOxex1daUG4" version="v2" docAnchorId="#Use" loadingMethod="dynamic" newTab="false" githubPath="OpsConsole_Usage.htm#Use" href="OpsConsole_Usage.mdx"}.
+- Terminology used in this guide, including definitions of data types. See [Terminology](Terminology.mdx).
+- Instructions for installing and logging in to the Operations Console. See [Installing the Operations Console](OpsConsole_Install.mdx) and :Link[Accessing the Operations Console]{label="Accessing the Operations Console" overridedLabel="Accessing the Operations Console" spaceId docId="sFer_zhwGPJkH4-BxtMLF" version="v2" docAnchorId="#Accessin" loadingMethod="dynamic" newTab="false" githubPath="OpsConsole_Install.htm#Accessin" href="OpsConsole_Install.mdx"}.
+
+## About the Operations Console
+
+The Operations Console provides an interface in which you can make changes to your Ivanti Service Manager system (usually in the staging instance of the tenant), test the changes (usually in the UAT instance of the tenant), and then deploy them (to the production instance of the tenant). You can manage tenant instances in the production (live system), staging (development system where initial changes are made), UAT (preproduction system where changes are tested), pilot, and other landscapes. For example, in any landscape you can:
+
+- Create tenant instances.
+- Edit the properties of tenant instances.
+- Lock a tenant instance so that its metadata cannot be modified.
+- Deactivate and delete tenant instances.
+- Update tenant instances by migrating data from one tenant instance to another.
+- Control the timing of tenant development and deployment.
+
+The Operations Console supports these capabilities by connecting to the Ivanti Service Manager configuration server in each landscape. The Operations Console has its own login credentials and database, which provide logging and other tenant management history capabilities.
+
+The Operations Console also provides you with a direct connection to the Ivanti Service Manager configuration database in each landscape, allowing you to manage the Ivanti Service Manager configuration database for that landscape without going through the Ivanti Service Manager configuration server.
+
+The Operations Console requires a database connection to the Ivanti Service Manager configuration database, a database connection to the Ivanti Service Manager application database, and a web services connection to the Ivanti Service Manager application database.

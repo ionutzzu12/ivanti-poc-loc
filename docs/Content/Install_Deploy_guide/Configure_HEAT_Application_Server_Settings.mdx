@@ -1,0 +1,191 @@
+---
+title: Configuring the Application Server Settings
+docTags: 
+createdAt: Fri Jun 05 2026 13:49:30 GMT+0300 (Eastern European Summer Time)
+---
+
+You set connections to other databases in \{\{Primary.Product}} on the Application Server Settings page. You will do the following:
+
+- Specify the location of the configuration server and the host name.
+- Specify if you will use this server for surveys or the reporting feature.
+- If you use Windows Integrated Security for the Application Server, specify the Windows domain credentials for the service account.
+
+*Application Server Settings Page*
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/mCtpWe5YqH7YiVGrbjvKO_applicationserversettings.png" position="flex-start" size="40" initialPath="Install_Deploy_Images/application_server_settings.png" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Install_Deploy_Images/application_server_settings.png"></Image>
+
+1. Enter values into the fields:
+
+| Parameter                     | Description                                                                                                                                                                                                                                                                                                                                                                                       |
+| ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Configuration Server Location | The host name or domain name of the configuration server. The default value is the name of the server that you are logged into now.<br />If the host that you are logged into now is not the configuration server, enter the machine name or fully-qualified domain name of your Configuration Server.<br />If you check Use SSL below, you must enter the host name of the configuration server. |
+| Port                          | The port number of the configuration server. The default is 80, or 443 if you check Use SSL.                                                                                                                                                                                                                                                                                                      |
+| Use SSL                       | Check to use SSL for connections to the configuration server.<br />NOTE: We do not recommend enabling SSL on the configuration server until you have fully tested \{\{Primary.Product}} to ensure that it works with SSL. For information on configuring \{\{Primary.Product}} with SSL, see [Optional SSL Configuration](SSL_Config.mdx).                                                        |
+
+2. Click Test Connection to test the connection to the configuration server. The system displays a success or failure message. Click OK to close the message.
+3. Enter values in the fields:
+
+<table isTableHeaderOn="true">
+  <tr>
+    <td>
+      Parameter
+    </td>
+    <td>
+      Description
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Host Name
+    </td>
+    <td>
+      The location of the system that hosts the Application Server. The default value is the server that you are logged into now.
+      Do one of the following:
+      - If you are installing all \{\{Primary.Product}} components on the same host, accept the default value.
+      - If you enter a different location, it must be a machine name. Do not enter a fully-qualified domain name.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Use this host for Ivanti Operations Console
+    </td>
+    <td>
+      Uses this server for the Ivanti Service Manager Operations Console.
+      NOTE: If you have an [Enterprise Production Deployment](Deployment_Enter_Prod.mdx), we recommend that you only install and use the \{\{Primary.Product}} Operations Console on the staging (STG) instance of the tenant.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Landscape Type
+    </td>
+    <td>
+      (Only if you checked Use this host for Ivanti Operations Console) Displays the landscape type and cannot be changed.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Database Server
+    </td>
+    <td>
+      (Only if you checked Use this host for Ivanti Operations Console) Displays the database server and cannot be changed.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Operations Console Backup Location
+    </td>
+    <td>
+      (Only if you checked Use this host for Ivanti Operations Console) The backup location for the \{\{Primary.Product}} Operations Console. The backup location can either be on a database server or on a network folder.
+      Do one of the following:
+      1. Accept the default location.
+      2. Enter a new location.
+      3. Click Browse... and navigate to a new location.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Test Backup & Restore
+    </td>
+    <td>
+      (Only if you checked Use this host for Ivanti Operations Console) The database to test to ensure you can back up and restore it. Select one from the drop-down list. We recommend that you select the configuration database since it is small.
+      Click test to test the connection. The system displays a message with the results of the test. Click OK to close the message.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Use this host for Survey
+    </td>
+    <td>
+      Uses this server for the \{\{Primary.Product}} survey component.
+      If you use Windows Authentication for the configuration server, the system prompts you for the Windows domain account and credentials.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Use these settings for Reporting Service
+    </td>
+    <td>
+      Uses this server for the \{\{Primary.Product}} reporting feature.
+      Usually, you configure the reporting feature on the Microsoft SSRS Configuration and Ivanti Reporting Service Configuration pages. However, if you have two different domains and the reporting feature server cannot reach the web server, you can configure these settings to enable the servers to communicate.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Use SSL for Reports
+    </td>
+    <td>
+      (Only if you checked Use these settings for Reporting Service) Uses SSL for reports.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Use Windows Authentication for SSRS
+    </td>
+    <td>
+      (Only if you checked Use these settings for Reporting Service) Uses Windows authentication for reports. If you plan on sharing the same Microsoft SSRS instance with other applications besides the reporting feature, you must use Windows authentication.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Web Service Virtual Directory
+    </td>
+    <td>
+      (Only if you checked Use these settings for Reporting Service) The name of the web service virtual directory.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Ivanti Web Application Pool Identity Account
+    </td>
+    <td>
+      (Only if you checked Use these settings for Reporting Service) The application pool identity for the \{\{Primary.Product}} web application pool. Select one of the following:
+      - Keep existing account
+      - Specify new account
+      If you select Specify new account, click Set to enter the credentials.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      User Name
+    </td>
+    <td>
+      (Only if you checked Use these settings for Reporting Service and selected Specify new account for the Ivanti Web Application Pool Identity Account field)
+      The user name for the application pool identity for the \{\{Primary.Product}} web application pool.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Password
+    </td>
+    <td>
+      (Only if you checked Use these settings for Reporting Service and selected Specify new account for the Ivanti Web Application Pool Identity Account field)
+      The password associated with the user above.  Click OK.
+    </td>
+  </tr>
+</table>
+
+4. If you are using Microsoft SQL authentication for the configuration server, the system displays this message: "Local system account will be used for IIS Application Pool Identity and Windows Service". See :Link[Service Account]{label="Service Account" overridedLabel="Service Account" spaceId docId="im47mKyMG_ilmmIbVvUa9" version="v2" docAnchorId="#HEAT_Service_Account" loadingMethod="dynamic" newTab="false" githubPath="Diff_Accounts_New.htm#HEAT_Service_Account" href="Diff_Accounts_New.mdx"} for more information about this account.
+
+To use a different account, do the following:
+
+<Paragraph indent="1">
+  a. Check Use a different account.
+</Paragraph>
+
+<Paragraph indent="1">
+  b. Click Set.
+</Paragraph>
+
+<Paragraph indent="1">
+  c. Enter the user name for the service account.
+</Paragraph>
+
+<Paragraph indent="1">
+  d. Enter the password associated with the service account.
+</Paragraph>
+
+<Paragraph indent="1">
+  e. Click OK.
+</Paragraph>
+
+5. Each tenant in a multiple server deployment must have an administrator account. If you selected Multiple Server Deployment on the Configuration Application page, click Previous to return to the \{\{Primary.Product}} application page and create additional tenant accounts.

@@ -1,0 +1,247 @@
+---
+title: Configuring the Discovery Application Server
+docTags: 
+createdAt: Fri Jun 05 2026 13:49:30 GMT+0300 (Eastern European Summer Time)
+---
+
+On this page you will specify information about the configuration of the Discovery application server and the Discovery configuration database. Follow these steps:
+
+- :Link[Starting the Configuration for the Discovery Application Server]{label="Starting the Configuration for the Discovery Application Server" overridedLabel="Starting the Configuration for the Discovery Application Server" spaceId docId="AGeCevEtZZqkP6-iLORrF" version="v2" docAnchorId="#Starting" loadingMethod="dynamic" newTab="false" href="Configure_HEAT_Discovery_Application_Server.mdx"}
+- :Link[Configuring a System without a Discovery Configuration Database (Creating a New One)]{label="Configuring a System without a Discovery Configuration Database (Creating a New One)" overridedLabel="Configuring a System without a Discovery Configuration Database (Creating a New One)" spaceId docId="AGeCevEtZZqkP6-iLORrF" version="v2" docAnchorId="#h4_Create_HEAT_Discovery_Database" loadingMethod="dynamic" newTab="false" href="Configure_HEAT_Discovery_Application_Server.mdx"}
+- :Link[Configuring a System with a Discovery Configuration Database (Editing One that Already Exists)]{label="Configuring a System with a Discovery Configuration Database (Editing One that Already Exists)" overridedLabel="Configuring a System with a Discovery Configuration Database (Editing One that Already Exists)" spaceId docId="AGeCevEtZZqkP6-iLORrF" version="v2" docAnchorId="#h4_HEAT_Discovery_Database_Already_Exists" loadingMethod="dynamic" newTab="false" href="Configure_HEAT_Discovery_Application_Server.mdx"}
+
+### Starting the Configuration for the Discovery Application Server
+
+The first time that you see this page, there is no Discovery configuration database, as shown in :Link[Discovery Application Server Page: No Database]{label="Discovery Application Server Page: No Database" overridedLabel="Discovery Application Server Page: No Database" spaceId docId="AGeCevEtZZqkP6-iLORrF" version="v2" docAnchorId="#Fig_HEAT_Discovery_Application_Server_Page_in_the_System_Configuration_Wizard" loadingMethod="dynamic" newTab="false" href="Configure_HEAT_Discovery_Application_Server.mdx"}.
+
+*Discovery Application Server Page: No Database*
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/gWAsTqTBS6jPVJyQ63EZk_discoveryapplicationserver.png" position="flex-start" size="40" initialPath="Install_Deploy_Images/discovery_application_server.png" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Install_Deploy_Images/discovery_application_server.png"></Image>
+
+1. Enter values into the fields:
+
+<Paragraph indent="1">
+    <table isTableHeaderOn="true">
+      <tr>
+        <td>
+          Parameter
+        </td>
+        <td>
+          Description
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Configuration Server
+        </td>
+        <td>
+          The host name or fully-qualified domain name of the configuration server. The default value is the name of the host that you are logged into now.
+          Do one of the following:
+          - Accept the default value.
+          - Enter the name of the server of the configuration server.
+          If you use SSL, you must enter a fully-qualified domain name.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Port
+        </td>
+        <td>
+          The port number of the configuration server. The default is 80, or 443 if you check Use SSL.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Use SSL
+        </td>
+        <td>
+          Enables SSL encryption to the configuration server.
+        </td>
+      </tr>
+    </table>
+</Paragraph>
+
+2. Click Test Connection to test the connection to the configuration server. The system displays a success or failure message. Click OK to close the message. You must have a working connection to the server. You cannot continue with the configuration if this connection does not work.
+3. Enter values into the fields:
+
+<Paragraph indent="1">
+    <table isTableHeaderOn="true">
+      <tr>
+        <td>
+          Parameter
+        </td>
+        <td>
+          Description
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Log File Location
+        </td>
+        <td>
+          The folder on the server that you are logged into now where the log files are located. The default location for the log files is C:\Logs.
+          Do one of the following:
+          - Accept the default value.
+          - Enter the name of the folder where the log files are located.
+          - Browse for a different folder by clicking Browse.... Select a new folder and click OK.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Message Queue Server
+        </td>
+        <td>
+          Where the \{\{Primary.Product}} message queue server is located. The default value is the server that you are logged into now.
+          Do one of the following:
+          - Accept the default value.
+          - Enter the name where the \{\{Primary.Product}} message queue server is located.
+          If you use SSL, you must enter a fully-qualified domain name.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Port
+        </td>
+        <td>
+          The port number of the \{\{Primary.Product}} message queue server. The default is 7200.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Use SSL
+        </td>
+        <td>
+          Enables SSL encryption to the \{\{Primary.Product}} message queue server.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Discovery Application Server
+        </td>
+        <td>
+          Where the Discovery application server is located. The default value is the server that you are logged into now.
+          Do one of the following:
+          - Accept the default value.
+          - Enter the name where the Discovery application server is located.
+          If you use SSL, you must enter a fully-qualified domain name.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Port
+        </td>
+        <td>
+          The port number of the Discovery application server. The default is 80, or 443 if you check Use SSL.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Use SSL
+        </td>
+        <td>
+          Enables SSL encryption to the Discovery application server.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Discovery Database Setup
+        </td>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Database Server
+        </td>
+        <td>
+          The name of the system proposed for the Discovery configuration database. The default value is the server that you are logged into now.
+          Do one of the following:
+          - Accept the default value.
+          - Enter the name of the Discovery configuration database server.
+          - Browse for a server name by clicking the down arrow and selecting \<Browse for more...>. The system displays any Microsoft SQL Server instances in your network. Choose a server and click OK.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Database Name
+        </td>
+        <td>
+          The name of the Discovery configuration database. The default name is HEATDiscoveryConfig and you cannot change the name.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Authentication Method
+        </td>
+        <td>
+          There are two authentication methods for the Discovery configuration database, one for creation and one for access.
+          Select the authentication method for creating the Discovery configuration database:
+          - Windows Authentication: Uses Microsoft Windows authentication.
+          - SQL Authentication: Uses Microsoft SQL authentication. If you select this option, enter the user name and password below.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          User Name
+        </td>
+        <td>
+          (Only if you selected SQL Authentication) The user name associated with the Microsoft SQL authentication.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Password
+        </td>
+        <td>
+          (Only if you selected SQL Authentication) The password associated with the user name for the Microsoft SQL authentication.
+        </td>
+      </tr>
+    </table>
+</Paragraph>
+
+4. Click Test Connection to test the connection to the Discovery configuration database server. The system displays a success or failure message. Click OK to close the message. You must have a working connection to create a database. You cannot continue with the configuration if this connection does not work.
+5. Do one of the following:
+   - If this is the initial setup, go to :Link[Configuring a System without a Discovery Configuration Database (Creating a New One)]{label="Configuring a System without a Discovery Configuration Database (Creating a New One)" overridedLabel="Configuring a System without a Discovery Configuration Database (Creating a New One)" spaceId docId="AGeCevEtZZqkP6-iLORrF" version="v2" docAnchorId="#h4_Create_HEAT_Discovery_Database" loadingMethod="dynamic" newTab="false" href="Configure_HEAT_Discovery_Application_Server.mdx"}.
+   - If your system already has a Discovery configuration database, go to :Link[Configuring a System with a Discovery Configuration Database (Editing One that Already Exists)]{label="Configuring a System with a Discovery Configuration Database (Editing One that Already Exists)" overridedLabel="Configuring a System with a Discovery Configuration Database (Editing One that Already Exists)" spaceId docId="AGeCevEtZZqkP6-iLORrF" version="v2" docAnchorId="#h4_HEAT_Discovery_Database_Already_Exists" loadingMethod="dynamic" newTab="false" href="Configure_HEAT_Discovery_Application_Server.mdx"}.
+
+### Configuring a System without a Discovery Configuration Database (Creating a New One)
+
+An initial installation does not have a Discovery configuration database. The system displays this: "No Discovery (HEATDiscoveryConfig) Database is detected."
+
+Follow these steps to create one.
+
+1. Enter values into the fields:
+
+<Paragraph indent="1">
+  | Parameter                   | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+  | --------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+  | Create & Load Discovery DB  | Click to create and load a new Discovery configuration database. The system displays the New Database dialog box.  <br />*New Database Dialog Box*  <br /><Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/NJg_xKN8k-LYq-5VenQid_imappserver3.png" position="flex-start" size="40" initialPath="Install_Deploy_Images/IMAppServer3.png" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Install_Deploy_Images/IMAppServer3.png"></Image> |
+  | Discovery Database Name     | The name of the Discovery configuration database. The default name is HEATDiscoveryConfig and you cannot change the name.                                                                                                                                                                                                                                                                                                                                                              |
+  | Discovery Database Location | The location for the Discovery configuration database.                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+  | Collation                   | The set of rules that describe how to compare and sort strings, such as the order in which letters are sorted and whether case matters.  <br />NOTE: ISM application does not support case sensitive SQL Collation.                                                                                                                                                                                                                                                                    |
+  | Advanced Options            |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+  | Logical Name                | The logical name of the Discovery configuration database. This name is stored as a file name, and is a separate entity from the read-only database name that is displayed in Microsoft SQL Server Management Studio.                                                                                                                                                                                                                                                                   |
+  | File Type                   | The file type, either database records or database logs. These values are read-only.                                                                                                                                                                                                                                                                                                                                                                                                   |
+  | Initial Size (MB)           | The initial file size, in MB, when creating the Discovery configuration database.                                                                                                                                                                                                                                                                                                                                                                                                      |
+  | Autogrowth                  | Specifies how the database will expand when it reaches its maximum file size. We recommend having at least 1 GB or 10% to start with. Click ... to update the values.                                                                                                                                                                                                                                                                                                                  |
+  | Path                        | The location of the file. Click ... to update the location.                                                                                                                                                                                                                                                                                                                                                                                                                            |
+  | File Name                   | The name of the file.                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+</Paragraph>
+
+2. Click OK in the New Database dialog box. The system creates the Discovery configuration database.
+3. To restart the \{\{Primary.Product}} services after you finish the installation, check Restart services after setting configuration files..
+4. Click Next. The system displays the Discovery Web Server page.
+
+### Configuring a System with a Discovery Configuration Database (Editing One that Already Exists)
+
+If you are upgrading or repairing \{\{Primary.Product}} you already have a Discovery configuration database.
+
+1. To recreate the Discovery configuration database, click Re-Create & Load Discovery DB. The system displays a confirmation message.
+
+<hint type="info">
+  If you have customized the existing Discovery configuration database, specify a different location in the Discovery Database Location dialog box. Otherwise, the system overwrites your customization when you recreate the database.
+</hint>
+
+2. Click OK at the confirmation message.
+3. To restart the \{\{Primary.Product}} services after you finish the installation, check Restart services after setting configuration files..
+4. Click Next. The system displays the Discovery Web Server page.

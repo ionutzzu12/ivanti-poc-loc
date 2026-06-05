@@ -1,0 +1,51 @@
+---
+title: Security Enterprise Production Deployment
+docTags: 
+createdAt: Fri Jun 05 2026 13:49:30 GMT+0300 (Eastern European Summer Time)
+---
+
+This deployment is based on the [Enterprise Production Deployment](Deployment_Enter_Prod.mdx) with a DMZ added to provide security where users log in from outside of the company network.
+
+We recommend the following DMZ configurations:
+
+- DMZ with \{\{Primary.Product}} web servers
+- DMZ with reverse proxy servers
+
+The DMZ is configured for authenticated access. When web servers are in the DMZ, each user must enter his user name and password to log into \{\{Primary.Product}}. This architecture involves the additional cost of setting up and maintaining two firewalls.
+
+Where you implement reverse proxy servers, you can add another layer of access authentication. This architecture involves the additional cost of setting up and maintaining two reverse proxy servers and a load balancer.
+
+## About Using a DMZ with Web Servers
+
+This option offers a greater level of security than placing your \{\{Primary.Product}} web servers outside of a single company firewall. Placing a second firewall between the Internet and the web servers forms a semi-trusted network that prevents external access to your \{\{Primary.Product}} process servers and databases.
+
+We recommend that you harden the \{\{Primary.Product}} web servers by taking the following actions:
+
+- Disabling all unnecessary services
+- Running necessary services with the lowest possible privileges
+- Requiring strong passwords
+- Locking an account after a certain number of login failures
+- Deleting or disabling unnecessary user accounts, such as the guest user account
+- Renaming or changing the description of the administrator account
+- Installing the latest security updates and patches on the server
+- Enabling security logging and checking the logs frequently
+
+The same \{\{Primary.Product}} components are installed on the web servers when they are located in the DMZ as when they are located outside of the company firewall. See :Link[About Installing the Neurons for ITSM for the Enterprise Production Deployment]{label="About Installing the Neurons for ITSM for the Enterprise Production Deployment" overridedLabel="About Installing the Neurons for ITSM for the Enterprise Production Deployment" spaceId docId="ACaYlJ1fPYIHAS-Bow7-Y" version="v2" docAnchorId="#h3_HEAT_SM_Component_Installation" loadingMethod="dynamic" newTab="false" githubPath="Deployment_Enter_Prod.htm#h3_HEAT_SM_Component_Installation" href="Deployment_Enter_Prod.mdx"}.
+
+*Example of an Enterprise Deployment with&#x20;*\{\{Primary.Product}}*&#x20;Web Servers in the DMZ*
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/vR-FIdyuaTS_7spdanRBN_enterprisedeploymentdmz.svg" position="flex-start" size="40" initialPath="Install_Deploy_Images/enterprise_deployment_dmz.svg" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Install_Deploy_Images/enterprise_deployment_dmz.svg"></Image>
+
+## About Using a DMZ with Reverse Proxy Servers
+
+This option offers the greatest level of security by placing your web servers inside the company firewall. By placing reverse proxy servers in the DMZ, you prevent direct user login to the \{\{Primary.Product}} web servers.
+
+In addition, by locating the web servers on the same network as the process servers and databases, you achieve a true three-tier architecture.
+
+The same \{\{Primary.Product}} components are installed on the web servers when they are located inside the firewalls as when the servers are located outside.
+
+This architecture involves the additional costs of servers to host the reverse-proxy service, as well as setting up and maintaining a second firewall. See :Link[About Installing the Neurons for ITSM for the Enterprise Production Deployment]{label="About Installing the Neurons for ITSM for the Enterprise Production Deployment" overridedLabel="About Installing the Neurons for ITSM for the Enterprise Production Deployment" spaceId docId="ACaYlJ1fPYIHAS-Bow7-Y" version="v2" docAnchorId="#h3_HEAT_SM_Component_Installation" loadingMethod="dynamic" newTab="false" githubPath="Deployment_Enter_Prod.htm#h3_HEAT_SM_Component_Installation" href="Deployment_Enter_Prod.mdx"}.
+
+*Example of an Enterprise Deployment with&#x20;*\{\{Primary.Product}}*&#x20;Reverse Proxy Servers in the DMZ*
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/i9_0eOkcfouLLW0O1fYuq_enterprisedeploymentdmzreverse.svg" position="flex-start" size="40" initialPath="Install_Deploy_Images/enterprise_deployment_dmz_reverse.svg" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Install_Deploy_Images/enterprise_deployment_dmz_reverse.svg"></Image>

@@ -1,0 +1,32 @@
+---
+title: Tuning Business Rules and Workflows
+docTags: 
+createdAt: Fri Jun 05 2026 13:49:31 GMT+0300 (Eastern European Summer Time)
+---
+
+The following sections describe how to tune business rules and workflows to maximize performance. Implementing these practices can significantly improve overall system performance and reduce deadlocks and timeouts caused by the workflow engine.
+
+- :Link[Disabling Inactive Business Rules]{label="Disabling Inactive Business Rules" overridedLabel="Disabling Inactive Business Rules" spaceId docId="R3vf4oPvJd_8QZ8_8fzB4" version="v2" docAnchorId="#Disable" loadingMethod="dynamic" newTab="false" href="tune_rules_workflows.mdx"}
+- :Link[Disabling Inactive Workflows]{label="Disabling Inactive Workflows" overridedLabel="Disabling Inactive Workflows" spaceId docId="R3vf4oPvJd_8QZ8_8fzB4" version="v2" docAnchorId="#Disable2" loadingMethod="dynamic" newTab="false" href="tune_rules_workflows.mdx"}
+- :Link[Deleting Workflow Tables]{label="Deleting Workflow Tables" overridedLabel="Deleting Workflow Tables" spaceId docId="R3vf4oPvJd_8QZ8_8fzB4" version="v2" docAnchorId="#Archive" loadingMethod="dynamic" newTab="false" href="tune_rules_workflows.mdx"}
+- :Link[Validating Email Addresses in Notification Workflows]{label="Validating Email Addresses in Notification Workflows" overridedLabel="Validating Email Addresses in Notification Workflows" spaceId docId="R3vf4oPvJd_8QZ8_8fzB4" version="v2" docAnchorId="#Validate" loadingMethod="dynamic" newTab="false" href="tune_rules_workflows.mdx"}
+
+### Disabling Inactive Business Rules
+
+Review all active business rules. If a business rule is no longer used, disable it by removing its trigger and updating the rule description to disabled.
+
+### Disabling Inactive Workflows
+
+Whenever a workflow is triggered, the system adds it to the event queue where it waits to be processed. Reducing the number of workflows waiting to be processed in the event queue improves performance. Review all active workflows. If a workflow is not used, disable it and update is description to disabled.
+
+### Deleting Workflow Tables
+
+It is not uncommon for workflow history tables to contain hundreds of thousands of records. Workflow instance tables can also contain large numbers of records. Deleting workflow history and instance tables prevents the workflow engine from having to query them. Deleting workflow history and instance tables can significantly improve event table performance.
+
+For details about how to deleting tables, see [Deleting Inactive Tables and Records](Archiving_tables.mdx).
+
+We recommend that you delete workflow tables on a regular basis (such as one or more times per week, if feasible).
+
+### Validating Email Addresses in Notification Workflows
+
+If a notification workflow containing an invalid email address is triggered, event queue resources are wasted while the invalid email address is evaluated and processed. To prevent this situation, add a condition to notification workflows so that email addresses are validated before the workflow is triggered.

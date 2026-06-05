@@ -1,0 +1,28 @@
+---
+title: Configuration Database
+docTags: 
+createdAt: Fri Jun 05 2026 13:49:31 GMT+0300 (Eastern European Summer Time)
+---
+
+Use the \{\{Primary.Product}} configuration database (ConfigDB) for the following:
+
+- To manage different instances (such as production, staging, and UAT) of tenants.
+- To update your environment. The information in the ConfigDB is originally populated by the System Configuration Wizard, which is used when installing \{\{Primary.Product}}.
+
+<hint type="info">
+  This is the master configuration database for your \{\{Primary.Product}} system. Do not make any changes here, except in the few areas described in the 'Workspaces that Can Be Used' section. Making unauthorized changes to the ConfigDB can lead to disastrous results and may be unrecoverable. Use the ConfigDB with **extreme** caution.
+</hint>
+
+## Intended Audience
+
+This guide is intended for advanced on-premise \{\{Primary.Product}} - Version \{\{Primary.Version-2025.3}} administrators and Ivanti Software personnel.
+
+## Document Organization
+
+This help lists the workspaces in the ConfigDB and what, if any, tasks can be performed. This document contains the following sections:
+
+- Information about logging in. See [About Logging into the Configuration Database](<How to Log In.mdx>).
+- Workspaces that are also available in the \{\{Primary.Product}} Service Desk Console or the \{\{Primary.Product}} Configuration Console. See [Workspaces that Already Exist](workspaces_exist.mdx).
+- Workspaces that are for internal use only. See [Internal Use Only Workspaces](remove_pages.mdx).
+- Workspaces that are populated by the System Configuration Wizard. Do not make any changes to these workspaces. See [Workspaces Populated by the System Configuration Wizard](SCW_pages.mdx).
+- Workspaces where you may make changes. See [Workspaces that Can Be Used](used_pages.mdx).

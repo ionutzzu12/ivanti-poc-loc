@@ -1,0 +1,47 @@
+---
+title: Installing the Neurons for ITSM System
+docTags: 
+createdAt: Fri Jun 05 2026 13:49:30 GMT+0300 (Eastern European Summer Time)
+---
+
+This section describes how to install \{\{Primary.Product}} for a new, complete system using the recommended deployment as described in [Neurons for ITSM Deployment Overview](Deployment_Overview.mdx).
+
+- :Link[Installing Neurons for ITSM in the Production Environment]{label="Installing Neurons for ITSM in the Production Environment" overridedLabel="Installing Neurons for ITSM in the Production Environment" spaceId docId="ZJDlSuPz0ZICpeDvTjMnJ" version="v2" docAnchorId="#Production_Environment" loadingMethod="dynamic" newTab="false" href="Install_Server.mdx"}
+- :Link[Installing Neurons for ITSM in the Staging and UAT Environments]{label="Installing Neurons for ITSM in the Staging and UAT Environments" overridedLabel="Installing Neurons for ITSM in the Staging and UAT Environments" spaceId docId="ZJDlSuPz0ZICpeDvTjMnJ" version="v2" docAnchorId="#Staging_and_UAT_Environments" loadingMethod="dynamic" newTab="false" href="Install_Server.mdx"}
+- :Link[Installing the Reporting Feature]{label="Installing the Reporting Feature" overridedLabel="Installing the Reporting Feature" spaceId docId="ZJDlSuPz0ZICpeDvTjMnJ" version="v2" docAnchorId="#Installing_the_HEAT_Reporting_Feature" loadingMethod="dynamic" newTab="false" href="Install_Server.mdx"}
+- :Link[Installing the Neurons for ITSM Operations Console]{label="Installing the Neurons for ITSM Operations Console" overridedLabel="Installing the Neurons for ITSM Operations Console" spaceId docId="ZJDlSuPz0ZICpeDvTjMnJ" version="v2" docAnchorId="#Installing_the_HEAT_Operations_Console" loadingMethod="dynamic" newTab="false" href="Install_Server.mdx"}
+
+## Installing Neurons for ITSM in the Production Environment
+
+To install \{\{Primary.Product}} in the production environment, do the following:
+
+- Install all \{\{Primary.Product}} features except for the Operations Console. See :Link[Installing Neurons for ITSM]{label="Installing Neurons for ITSM" overridedLabel="Installing Neurons for ITSM" spaceId docId="5mqDHQo3w7qG8KsA7gvPB" version="v2" docAnchorId="#Installi" loadingMethod="dynamic" newTab="false" githubPath="Install_HEAT_Recommended.htm#Installi" href="Install_HEAT_Recommended.mdx"}.
+- Use the System Configuration Wizard to configure your production environment. See [Configuring Neurons for ITSM ](Server_Config_Procedure.mdx).
+
+## Installing Neurons for ITSM in the Staging and UAT Environments
+
+- If you are hosting the staging and UAT environments on one server, follow the steps below.
+- If you are hosting the staging and UAT environments on separate servers, follow the steps below once for the staging environment and once for the UAT environment.
+
+To install \{\{Primary.Product}} in the staging and UAT environments, do the following:
+
+- Install all \{\{Primary.Product}} features including the Operations Console.
+
+<hint type="info" indent="1">
+  If you are hosting the staging and UAT environments on separate servers, we recommend only installing the Operations Console on the staging server and not on both.
+</hint>
+
+- Use the System Configuration Wizard to configure your staging and UAT environments. See [Configuring Neurons for ITSM ](Server_Config_Procedure.mdx).
+
+## Installing the Reporting Feature
+
+To install the reporting feature, do the following:
+
+- Install the reporting feature on the \{\{Primary.Product}} database server. See :Link[Installing the Reporting Feature]{label="Installing the Reporting Feature" overridedLabel="Installing the Reporting Feature" spaceId docId="hO91ovz19nE1BQ9xuqE3F" version="v2" docAnchorId="#Installi4" loadingMethod="dynamic" newTab="false" githubPath="Install_HEAT_Report_Server.htm#Installi4" href="Install_HEAT_Report_Server.mdx"}.
+- Use the System Configuration Wizard to configure the reporting feature. See [Configuring the Reporting Feature](Configure_Reporting.mdx).
+
+## Installing the Neurons for ITSM Operations Console
+
+You use the \{\{Primary.Product}} Operations Console to create the staging and UAT instances of the tenant. (The system automatically created the production instance of the tenant.)
+
+If you have any problems with the installation, you can review the installation log file that resides with the other system temporary files in the system temporary folder at %tmp%.

@@ -1,0 +1,43 @@
+---
+title: Decommissioning FTP and File on Shared folder Integration
+docTags: 
+createdAt: Fri Jun 05 2026 13:49:31 GMT+0300 (Eastern European Summer Time)
+---
+
+Currently, ITSM customers can import data from FTP and Shared Path locations. Since these sources pose a security threat to the cloud environment, restrictions are added to the use of these options. These restrictions are feature flagged which can enable or disable the options available to an end user either while importing or exporting data to ITSM.
+
+<hint type="info">
+  - Both FTP and File on Shared Folder controls are disabled using the feature flag from 2022.3 on wards. These feature flags can be turned off by the Cloud Ops in the Config DB under Feature Management workspace.
+  - The feature flag is not turned off to make sure both FTP and File on Shared Folder controls are still available and customer can migrate to Secure FTP without impacting their automation. However, it would be temporary.
+  - It's highly recommended to move your file upload related automation from FTP and File on Shared Folder location to Secure FTP on priority. Refer SecureFTP configuration documentation further.
+</hint>
+
+## Steps to enable or disable the feature flag
+
+Navigate to the **Feature Management** Business Object in the Config DB and search for your tenant feature.
+
+1. Once you open the feature, set the **State** as **Unconditionally ON** to enable the feature.
+
+<Paragraph indent="1">
+  *Feature flag on*
+</Paragraph>
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/5_iPFJaMkhrJeEB3xs1wu_ftp-config-feature-flag-on.png" position="flex-start" size="40" indent="1" initialPath="Config_Images/FTP-Config-feature-Flag-On.png" githubPath="ITSM-On-Prem-Help/Content/ConfigDB_Guide/Config_Images/FTP-Config-feature-Flag-On.png"></Image>
+
+2. Set the **State** as **Disable** or **Trial Completed**, this disables the feature.
+
+<Paragraph indent="1">
+  *Feature flag off*
+</Paragraph>
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/zimEipMcgwiJiETw8Gf4i_ftp-config-feature-flag-off.png" position="flex-start" size="40" indent="1" initialPath="Config_Images/FTP-Config-Feature-flag-off.png" githubPath="ITSM-On-Prem-Help/Content/ConfigDB_Guide/Config_Images/FTP-Config-Feature-flag-off.png"></Image>
+
+## Post Feature Configuration
+
+1. From the Configuration console navigate to **Data Import Connections** under **Integration tools**.
+2. Click **Add new** and select the **Connection Type** field.
+   - When the feature is enabled - in the **Connection Type** field drop-down list, **FTP** and **File on Shared Folder** options are available.
+   - When the feature is disabled - in the **Connection Type** field drop-down list, **FTP** and **File on Shared Folder** options are not available.
+3. Similarly, the **Location** field in the **Data Export Connections**,
+   - When the feature is enabled, the **Location** will show **FTP** and **Secure FTP**.
+   - When the feature is disabled, the **Location** will show only **Secure FTP**.

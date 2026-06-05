@@ -1,0 +1,418 @@
+---
+title: Installing the Knowledge Uploader (Knowledge Import Tool)
+docTags: 
+createdAt: Fri Jun 05 2026 13:49:30 GMT+0300 (Eastern European Summer Time)
+---
+
+- :Link[About the Knowledge Uploader (Knowledge Import Tool)]{label="About the Knowledge Uploader (Knowledge Import Tool)" overridedLabel="About the Knowledge Uploader (Knowledge Import Tool)" spaceId docId="dQhhbJJHUCMj1CUjvb370" version="v2" docAnchorId="#About" loadingMethod="dynamic" newTab="false" href="Install_HEAT_Knowledge.mdx"}
+- :Link[Installing the Knowledge Uploader (Knowledge Import Tool)]{label="Installing the Knowledge Uploader (Knowledge Import Tool)" overridedLabel="Installing the Knowledge Uploader (Knowledge Import Tool)" spaceId docId="dQhhbJJHUCMj1CUjvb370" version="v2" docAnchorId="#h3_Installing_the_HEAT_Knowledge_Import_Tool" loadingMethod="dynamic" newTab="false" href="Install_HEAT_Knowledge.mdx"}
+- :Link[Initially Configuring and Logging Into the NXT Knowledge Import Tool]{label="Initially Configuring and Logging Into the NXT Knowledge Import Tool" overridedLabel="Initially Configuring and Logging Into the NXT Knowledge Import Tool" spaceId docId="dQhhbJJHUCMj1CUjvb370" version="v2" docAnchorId="#h3_Configuring_the_Knowledge_Server" loadingMethod="dynamic" newTab="false" href="Install_HEAT_Knowledge.mdx"}
+- :Link[Using the NXT Knowledge Import Tool]{label="Using the NXT Knowledge Import Tool" overridedLabel="Using the NXT Knowledge Import Tool" spaceId docId="dQhhbJJHUCMj1CUjvb370" version="v2" docAnchorId="#Using" loadingMethod="dynamic" newTab="false" href="Install_HEAT_Knowledge.mdx"}
+- :Link[Initially Configuring and Logging Into the Knowledge Import Tool]{label="Initially Configuring and Logging Into the Knowledge Import Tool" overridedLabel="Initially Configuring and Logging Into the Knowledge Import Tool" spaceId docId="dQhhbJJHUCMj1CUjvb370" version="v2" docAnchorId="#Initiall" loadingMethod="dynamic" newTab="false" href="Install_HEAT_Knowledge.mdx"}
+- :Link[Using the Knowledge Import Tool]{label="Using the Knowledge Import Tool" overridedLabel="Using the Knowledge Import Tool" spaceId docId="dQhhbJJHUCMj1CUjvb370" version="v2" docAnchorId="#Using2" loadingMethod="dynamic" newTab="false" href="Install_HEAT_Knowledge.mdx"}
+
+## About the Knowledge Uploader (Knowledge Import Tool)
+
+You can import knowledge articles from HEAT Classic, ITSM, or a local or networked file system into \{\{Primary.Product}}. \{\{Primary.Product}} currently has two knowledge import tools: the NXT Knowledge Server Tool (for NXT formats such as ITSM or HEAT Classic) and the Knowledge Server Tool (to use with file systems). These tools are collectively called the Knowledge Uploader and are also called the Knowledge Import Tool.
+
+For information about using these tools after you have installed and configured them, see Using the Knowledge Uploader in the \{\{Primary.Product}} online help.
+
+## Installing the Knowledge Uploader (Knowledge Import Tool)
+
+Most installations of \{\{Primary.Product}} automatically include the Knowledge Uploader (also called the Knowledge Import Tool).
+
+The following procedure is necessary only if you did not install the Knowledge Uploader when you installed \{\{Primary.Product}}.
+
+On the server or servers that you are going to use as the production environment, do the following:
+
+1. Access the installation folder on the Software product CD or zip file and run IvantiServiceManager.exe. Right-click and select Run as Administrator to ensure proper installation.
+
+<Paragraph indent="1">
+  The installer checks for the prerequisite software components. If any of those components is not installed, the system prompts you to install them now.
+</Paragraph>
+
+2. Click **Install** at the prompt. Installation of the prerequisite software can take several minutes. If you are prompted to restart the system, click **Yes**. The system displays the Welcome dialog box. The installer checks for space and other requirements before displaying the Next button.
+3. Click **Next**. The system displays the License Agreement dialog box.
+4. Choose **I accept the terms in the license agreement** and click **Next**. The system displays the Destination Folder dialog box.
+5. Click **Next** to accept the default installation folder or click **Change...** and select a different folder. The system displays the Setup Type dialog box.
+6. Select Custom in the Setup Type dialog box and click the Knowledge Import Tool under Setup Tools. See :Link[Custom Setup and the Knowledge Import Tool]{label="Custom Setup and the Knowledge Import Tool" overridedLabel="Custom Setup and the Knowledge Import Tool" spaceId docId="dQhhbJJHUCMj1CUjvb370" version="v2" docAnchorId="#Custom_Setup_in_Installation" loadingMethod="dynamic" newTab="false" href="Install_HEAT_Knowledge.mdx"}.
+
+<Paragraph indent="1">
+  *Custom Setup and the Knowledge Import Tool*
+</Paragraph>
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/SDBV3VCcZInzVN1qsubim_installcustomknowledgeimport.PNG" position="flex-start" size="40" indent="1" initialPath="Install_Deploy_Images/InstallCustom_KnowledgeImport.PNG" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Install_Deploy_Images/InstallCustom_KnowledgeImport.PNG"></Image>
+
+7. Click Next. The system displays the Ready to Install the Program dialog box.
+8. Click **Install**. The system begins installing \{\{Primary.Product}} and displays a status dialog box showing the installation progress of each component over the next few minutes.
+
+<Paragraph indent="1">
+  When the installation is finished, the system displays the InstallShield Wizard Completed dialog box.
+</Paragraph>
+
+9. Click Finish. When the file installation is finished, the system displays the System Configuration Wizard.
+10. Close the System Configuration Wizard, as there is no specific configuration for the Knowledge Uploader in the System Configuration Wizard.
+
+The system now has two new applications on it. They are called Knowledge Import Tool and Knowledge Import Tool (NXT).
+
+## Initially Configuring and Logging Into the NXT Knowledge Import Tool
+
+<hint type="info">
+  There are two knowledge tools. This topic is about the NXT Knowledge Import Tool and NOT the Knowledge Import Tool.
+</hint>
+
+After you have installed \{\{Primary.Product}}, including the Knowledge Uploader (also called the Knowledge Import Tool), do the following to initially configure and log into the NXT Knowledge Import Tool:
+
+1. On the system where you installed \{\{Primary.Product}}, open the application called Knowledge Import Tool NXT. The system displays the NXT Knowledge Server Configuration dialog box. See :Link[NXT Knowledge Server Configuration Dialog Box]{label="NXT Knowledge Server Configuration Dialog Box" overridedLabel="NXT Knowledge Server Configuration Dialog Box" spaceId docId="dQhhbJJHUCMj1CUjvb370" version="v2" docAnchorId="#Fig_Knowledge_Server_Configuration" loadingMethod="dynamic" newTab="false" href="Install_HEAT_Knowledge.mdx"}.
+
+<Paragraph indent="1">
+  *NXT Knowledge Server Configuration Dialog Box*
+</Paragraph>
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/h787HRYLTqmyoyjP54fF0_knowledgeserverconfiguration.png" position="flex-start" size="40" indent="1" initialPath="Install_Deploy_Images/knowledge_server_configuration.png" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Install_Deploy_Images/knowledge_server_configuration.png"></Image>
+
+2. Enter information into the fields.
+
+<Paragraph indent="1">
+    <table isTableHeaderOn="true">
+      <tr>
+        <td>
+          Parameter
+        </td>
+        <td>
+          Description
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Server Version
+        </td>
+        <td>
+          The version of the NXT server that you are taking the knowledge articles from. To determine the server version, open the program and find the server information.
+          You can choose from any of the following:
+          - Knowledge Service V5.0.4003.3
+          - Knowledge Service Plus V9.6.1.13
+          - Knowledge Service Plus V9.6.1.14
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Server Address
+        </td>
+        <td>
+          Enter the following:
+          - The protocol type (uses TCP by default)
+          - The server path of the NXT server that you are taking the knowledge articles from
+          - The port (uses 2242 by default)
+        </td>
+      </tr>
+      <tr>
+        <td>
+          User Name
+        </td>
+        <td>
+          The user name of a person who can access the NXT server that you are taking the knowledge articles from.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Password
+        </td>
+        <td>
+          The password associated with the user name.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Save password
+        </td>
+        <td>
+          Saves the password.
+        </td>
+      </tr>
+    </table>
+</Paragraph>
+
+<hint type="info" indent="1">
+  To change these settings after the initial configuration, from the menu bar select Configuration > Configure NXT server.
+</hint>
+
+3. Click Continue.
+4. The system displays the Login dialog box. See :Link[Knowledge Server Tool Login]{label="Knowledge Server Tool Login" overridedLabel="Knowledge Server Tool Login" spaceId docId="dQhhbJJHUCMj1CUjvb370" version="v2" docAnchorId="#FIG_HEAT" loadingMethod="dynamic" newTab="false" href="Install_HEAT_Knowledge.mdx"}.
+
+<Paragraph indent="1">
+  *Knowledge Server Tool Login*
+</Paragraph>
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/r7p-u_cTDBtSt3LZk6UMk_knowledge-login.png" position="flex-start" size="40" indent="1" initialPath="Install_Deploy_Images/knowledge login.png" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Install_Deploy_Images/knowledge login.png"></Image>
+
+5. Enter information into the fields.
+
+<Paragraph indent="1">
+  | Parameter     | Description                                                                                                                                  |
+  | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+  | User Name     | The user name of a person who can access \{\{Primary.Product}}.                                                                              |
+  | Password      | The password associated with the user.                                                                                                       |
+  | Tenant        | The tenant to log into. You can select either ConfigDB to log into the configuration database or IvantiSM to log into \{\{Primary.Product}}. |
+  | Save password | Saves the password.                                                                                                                          |
+</Paragraph>
+
+<hint type="info" indent="1">
+  To change these settings after the initial configuration, from the menu bar select Configuration > Configure application server.
+</hint>
+
+6. Click Continue. The system displays the Select role dialog box.
+7. Select the role to log in as and click Continue. The system displays the Knowledge base upload tool page.
+
+<Paragraph indent="1">
+  *Knowledge Base Upload Tool*
+</Paragraph>
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/EGdnuw1kIQZ3je6MW6hwH_knowledge-upload-2.png" position="flex-start" size="40" indent="1" initialPath="Install_Deploy_Images/knowledge Upload 2.png" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Install_Deploy_Images/knowledge Upload 2.png"></Image>
+
+## Using the NXT Knowledge Import Tool
+
+<hint type="info">
+  There are two knowledge tools. This topic is about the NXT Knowledge Import Tool and NOT the Knowledge Import Tool.
+</hint>
+
+Follow these steps to import knowledge into \{\{Primary.Product}}.
+
+1. Click Select Articles to select the knowledge articles to import. The system displays the NXT articles selection dialog box.
+2. Expand the list to see where knowledge articles are located, and then highlight one or more articles.
+
+<Paragraph indent="1">
+  *Select the Knowledge Articles to Import*
+</Paragraph>
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/GmEb_inL9WjPyS5YpcehG_choose-knowledge-article.png" position="flex-start" size="40" indent="1" initialPath="Install_Deploy_Images/Choose knowledge article.png" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Install_Deploy_Images/Choose knowledge article.png"></Image>
+
+3. Click OK. The system lists the selected articles on the bottom part of the page.
+4. Select the articles to upload and click Upload to launch the Article Creation wizard and start the upload process.
+
+<Paragraph indent="1">
+  The Article Creation wizard page contains two main areas: a Selected Documents area on the left containing the list of files to import, and a Document Properties area on the right that contains two tabs. One tab is called Default Values and the other is called Selected Documents.
+</Paragraph>
+
+5. To remove a document from the Selected Documents section, check it and click **Remove selected**. By default, the knowledge uploader imports all of the documents in the Selected Documents, even if you do not select them.
+6. Optionally, use the Document Properties section to specify the properties that the knowledge uploader displays together with the files in \{\{Primary.Product}}. You can specify properties for all files (using the Default values tab) or for individual files (using the Selected Document tab after highlighting the file in the Selected Documents section).
+
+<Paragraph indent="1">
+  You can specify these properties:
+</Paragraph>
+
+<Paragraph listStyleType="disc" indent="2">
+  **Article Type**: The article type. Select from Document, Error Message, Issue Resolution, Patch, Q\&A, or Reference.
+</Paragraph>
+
+<Paragraph listStyleType="disc" indent="2">
+  **Article Status**: The status of the article. Select from Approved, Draft, Expired, Failed Review, Pending Review, Published, or Submitted.
+</Paragraph>
+
+<Paragraph listStyleType="disc" indent="2">
+  **Target collection**: The target. Select from Company Policy & Procedure, Customer Knowledge, Internal Knowledge, IT Knowledge, or Service Desk.
+</Paragraph>
+
+<Paragraph listStyleType="disc" indent="2">
+  **Category**: The category for this knowledge article.
+</Paragraph>
+
+<Paragraph listStyleType="disc" indent="2">
+  **Subject**: The subject of the article.
+</Paragraph>
+
+<Paragraph listStyleType="disc" indent="2">
+  **Resolution**: The resolution details if the knowledge article contains this information.
+</Paragraph>
+
+<Paragraph listStyleType="disc" indent="2">
+  **Description**: A description for the knowledge article.
+</Paragraph>
+
+7. Click **Import**. The system starts importing the selected knowledge articles.
+
+<Paragraph indent="1">
+  If you select a file that has already been imported into the knowledge base, the system displays the Collision warning dialog box.
+</Paragraph>
+
+8. Depending on what you want to do with the file that has already been imported, click one of the following:
+   - **Apply for all**: Applies your choice to all previously imported files that are found during the import process.
+   - **Update**: Overwrites the file that already exists in the Knowledge Base with the file that is being imported.
+   - **Create New**: Does not overwrite the file being imported with the file that already exists in the Knowledge Base. After importing, there are two knowledge articles with the same name in the Knowledge Base.
+   - **Cancel**: Cancels the import process.
+
+<Paragraph indent="1">
+  The system displays a dialog box with the status of the import.
+</Paragraph>
+
+9. Click **OK**.
+10. Optionally, do the following:
+    - Review the import logs by clicking the Log tab. You can clear or save the log.
+    - Review the import history by clicking the Import History tab. Click a number in the Imported column to display more information about an import session.
+
+## Initially Configuring and Logging Into the Knowledge Import Tool
+
+<hint type="info">
+  There are two knowledge tools. This topic is about the Knowledge Import Tool and NOT the NXT Knowledge Import Tool.
+</hint>
+
+After you have installed \{\{Primary.Product}}, including the Knowledge Uploader, do the following to initially configure and log into the Knowledge Import Tool:
+
+1. On the system where you installed \{\{Primary.Product}}, open the application called Knowledge Import Tool. The system displays the Select role dialog box.
+2. Select the role to log in as and click Continue. The system displays the Knowledge base upload tool page.
+
+<Paragraph indent="1">
+  *Knowledge Base Upload Tool*
+</Paragraph>
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/s-xWiRLJtVBFkyYNOL07z_knowledge-upload.png" position="flex-start" size="40" indent="1" initialPath="Install_Deploy_Images/knowledge Upload.png" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Install_Deploy_Images/knowledge Upload.png"></Image>
+
+## Using the Knowledge Import Tool
+
+<hint type="info">
+  There are two knowledge tools. This topic is about the Knowledge Import Tool and NOT the NXT Knowledge Import Tool.
+</hint>
+
+Follow these steps to import knowledge into \{\{Primary.Product}}.
+
+1. Specify the article file type to search for, by doing the following:
+
+<Paragraph indent="1">
+  a. Click the Settings icon <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/RC8du8niAbUUl8WYKpZVe_settings-button.png" size="10" isUploading="false" initialPath="../Resources/Images/Settings-button.png" githubPath="ITSM-On-Prem-Help/Content/Resources/Images/Settings-button.png"></Image> in the Looking for section. The system displays the File search filters dialog box.
+</Paragraph>
+
+<Paragraph indent="1">
+  b. In the Add New drop-down list, select one or more file types:
+</Paragraph>
+
+<Paragraph listStyleType="disc" indent="3">
+  **Microsoft office documents**: Files that have .doc, .docx, .xls, and .xlsx extensions.
+</Paragraph>
+
+<Paragraph listStyleType="disc" indent="3">
+  **PDF files**: Files that have a .pdf extension.
+</Paragraph>
+
+<Paragraph listStyleType="disc" indent="3">
+  **Images**: Files that have .bmp, .jpg, and .gif extensions.
+</Paragraph>
+
+<Paragraph indent="1">
+  c. Optionally, you can add more file types by clicking **Custom**. The system adds a line item to the filter list called Custom. Click the line item to open it for editing. You can change the filter name and specify one or more extensions. Click **OK**. The system adds the file types that you specified to the Looking for section.
+</Paragraph>
+
+2. Specify which local or network folders to search for knowledge articles and then perform the search:
+
+<Paragraph indent="1">
+  a. Click the Settings icon <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/RC8du8niAbUUl8WYKpZVe_settings-button.png" size="10" isUploading="false" initialPath="../Resources/Images/Settings-button.png" githubPath="ITSM-On-Prem-Help/Content/Resources/Images/Settings-button.png"></Image> in the In Folders section. The system displays the Import folders dialog box.
+</Paragraph>
+
+<Paragraph indent="1">
+  b. Click **Add New**. The system displays the Browse For Folder navigation dialog box.
+</Paragraph>
+
+<Paragraph indent="1">
+  c. Navigate to a folder and highlight it. (To optionally add a new subfolder to the folder, click **Make New Folder**.)
+</Paragraph>
+
+<Paragraph indent="1">
+  d. Click **OK**. The system adds the folder to the list of folders to search. If you created a new folder, the system adds it to the file system as an empty folder.
+</Paragraph>
+
+<Paragraph indent="1">
+  e. Optionally, check **Recursive** for a folder to specify that the system should search the subfolders within the folder.
+</Paragraph>
+
+<Paragraph indent="1">
+  f. Optionally, check **Monitor for changes** to configure the knowledge uploader to monitor all of the folders on the list for changes to the file types that you specified in step 1b.
+</Paragraph>
+
+<Paragraph indent="1">
+  g. Repeat steps b-f to continue to add folders to the list as necessary.
+</Paragraph>
+
+<Paragraph indent="1">
+  h. Click **OK**.
+</Paragraph>
+
+<Paragraph indent="1">
+  The knowledge uploader performs the search and displays all of the files that meet the search criteria.
+</Paragraph>
+
+3. Select the files to upload:
+
+<Paragraph indent="1">
+  a. If you think the contents of the scanned folders might have changed, click **Rescan Folders** to regenerate the file list.
+</Paragraph>
+
+<Paragraph indent="1">
+  b. In the file list, check the files to upload, or click **Select All** to upload all of the files.
+</Paragraph>
+
+<Paragraph indent="1">
+  c. Click **Upload** to launch the Article Creation wizard and start the upload process.
+</Paragraph>
+
+<Paragraph indent="1">
+  The Article Creation wizard page contains two main areas: a Selected Documents area on the left containing the list of files to import, and a Document Properties area on the right that contains two tabs. One tab is called Default Values and the other is called Selected Documents.
+</Paragraph>
+
+4. To remove a document from the Selected Documents section, check it and click **Remove selected**. By default, the knowledge uploader imports all of the documents in the Selected Documents, even if you do not select them.
+5. Optionally, use the Document Properties section to specify the properties that the knowledge uploader displays together with the files in \{\{Primary.Product}}. You can specify properties for all files (using the Default values tab) or for individual files (using the Selected Document tab after highlighting the file in the Selected Documents section).
+
+<Paragraph indent="1">
+  You can specify these properties:
+</Paragraph>
+
+<Paragraph listStyleType="disc" indent="2">
+  **Article Type**: The article type. Select from Document, Error Message, Issue Resolution, Patch, Q\&A, or Reference.
+</Paragraph>
+
+<Paragraph listStyleType="disc" indent="2">
+  **Article Status**: The status of the article. Select from Approved, Draft, Expired, Failed Review, Pending Review, Published, or Submitted.
+</Paragraph>
+
+<Paragraph listStyleType="disc" indent="2">
+  **Target collection**: The target. Select from Company Policy & Procedure, Customer Knowledge, Internal Knowledge, IT Knowledge, or Service Desk.
+</Paragraph>
+
+<Paragraph listStyleType="disc" indent="2">
+  **Category**: The category for this knowledge article.
+</Paragraph>
+
+<Paragraph listStyleType="disc" indent="2">
+  **Use file name as Subject**: Check to use the article file name to fill in the Subject field.
+</Paragraph>
+
+<Paragraph listStyleType="disc" indent="2">
+  **Subject**: Only use this field if you did not check **Use file name as Subject**. Enter a subject for the article.
+</Paragraph>
+
+<Paragraph listStyleType="disc" indent="2">
+  **Resolution**: Enter the resolution if the knowledge article contains one.
+</Paragraph>
+
+<Paragraph listStyleType="disc" indent="2">
+  **Description**: Enter a description for the knowledge article.
+</Paragraph>
+
+6. Click **Import**. The import process begins.
+
+<Paragraph indent="1">
+  If you select a file that has already been imported into the knowledge base, the system displays the Collision warning dialog box.
+</Paragraph>
+
+7. Depending on what you want to do with the file that has already been imported, click one of the following:
+   - **Apply for all**: Applies your choice to all previously imported files that are found during the import process.
+   - **Update**: Overwrites the file that already exists in the knowledge base with the file that is being imported.
+   - **Create New**: Does not overwrite the file being imported with the file that already exists in the knowledge base. After importing, there are two knowledge articles with the same name in the knowledge base.
+   - **Cancel**: Cancels the import process.
+
+<Paragraph indent="1">
+  The system displays an Import dialog box with the status of the import.
+</Paragraph>
+
+8. Click **OK**.
+9. Optionally, do the following:
+   - Review the import logs by clicking the Log tab. You can clear or save the log.
+   - Review the import history by clicking the Import History tab. Click a number in the Imported column to display more information about an import session.

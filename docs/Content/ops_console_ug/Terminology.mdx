@@ -1,0 +1,245 @@
+---
+title: Terminology
+docTags: 
+createdAt: Fri Jun 05 2026 13:49:31 GMT+0300 (Eastern European Summer Time)
+---
+
+This section defines key terms pertaining to the Operations Console and the tenant creation and data migration process.
+
+- :Link[General Terms]{label="General Terms" overridedLabel="General Terms" spaceId docId="N5-aUJp0BHseE-cskrxZB" version="v2" docAnchorId="#General" loadingMethod="dynamic" newTab="false" href="Terminology.mdx"}
+- :Link[Types of Data]{label="Types of Data" overridedLabel="Types of Data" spaceId docId="N5-aUJp0BHseE-cskrxZB" version="v2" docAnchorId="#Data" loadingMethod="dynamic" newTab="false" href="Terminology.mdx"}
+- :Link[Landscapes]{label="Landscapes" overridedLabel="Landscapes" spaceId docId="N5-aUJp0BHseE-cskrxZB" version="v2" docAnchorId="#Landscap" loadingMethod="dynamic" newTab="false" href="Terminology.mdx"}
+- :Link[Tenant and Tenant Instance Types]{label="Tenant and Tenant Instance Types" overridedLabel="Tenant and Tenant Instance Types" spaceId docId="N5-aUJp0BHseE-cskrxZB" version="v2" docAnchorId="#Tenant" loadingMethod="dynamic" newTab="false" href="Terminology.mdx"}
+
+### General Terms
+
+- :Link[Operations Console]{label="Operations Console" overridedLabel="Operations Console" spaceId docId="N5-aUJp0BHseE-cskrxZB" version="v2" docAnchorId="#Operatio" loadingMethod="dynamic" newTab="false" href="Terminology.mdx"}
+- :Link[Customer Success Manager (CSM)]{label="Customer Success Manager (CSM)" overridedLabel="Customer Success Manager (CSM)" spaceId docId="N5-aUJp0BHseE-cskrxZB" version="v2" docAnchorId="#Customer" loadingMethod="dynamic" newTab="false" href="Terminology.mdx"}
+- :Link[Service Level Agreement (SLA)]{label="Service Level Agreement (SLA)" overridedLabel="Service Level Agreement (SLA)" spaceId docId="N5-aUJp0BHseE-cskrxZB" version="v2" docAnchorId="#Service" loadingMethod="dynamic" newTab="false" href="Terminology.mdx"}
+- :Link[Backup Types]{label="Backup Types" overridedLabel="Backup Types" spaceId docId="N5-aUJp0BHseE-cskrxZB" version="v2" docAnchorId="#Backup" loadingMethod="dynamic" newTab="false" href="Terminology.mdx"}
+
+### Operations Console
+
+The tool used to create tenants and tenant instances, move data from one tenant instance to another (for example, from the staging instance of a tenant to the production instance), and perform various administrative tasks.
+
+### Customer Success Manager (CSM)
+
+An Ivanti Software staff member who is the primary contact for a customer, providing support in managing the customer's Ivanti Service Manager system. A CSM establishes a long-term relationship with a customer while also supporting the Ivanti Software Professional Services Organization and other Ivanti Software teams throughout the customer's engagement with Ivanti Software.
+
+A CSM works with a customer to do the following:
+
+- Understand the customer's business requirements.
+- Help the customer understand the roles of other Ivanti Service Manager implementation team members.
+- Work with the customer to understand the customer's predefined metrics of success and ensure that those metrics are tracked and met during the customer's relationship with Ivanti Software.
+- Ensure that the customer's questions and issues are acted upon quickly by the appropriate implementation team members.
+- Provide the customer with information and access to training resources to ensure that the Ivanti Service Manager system is successful. Information and training resources are provided over the duration of the customer's relationship with Ivanti Software.
+
+### Service Level Agreement (SLA)
+
+A customer's service level agreement defines the response and resolution target times for services provided by Ivanti  Software. In the context of Ivanti Service Manager, a service level agreement determines the details that govern the process to provision, configure, and upgrade the tenant and its instances.
+
+A support service is offered through the CSM organization. Incidents and service requests are covered under the service delivery agreements, meaning that they are handled and completed within agreed time to the satisfaction of the customer within the boundaries of the contractual agreements.
+
+### Backup Types
+
+There are three steps to the process of backing up a database:
+
+1. Back up the database on the source system.
+2. Copy the database from the source system to the target system.
+3. Restore the database on the target system.
+
+You can either use Microsoft SQL or LiteSpeed to perform the backup. Use Microsoft SQL to perform the backup. There are several backup types you can choose from when using the Operations Console:
+
+- **From last LiteSpeed backup**: Copies the source database from the source database backup location to the target database backup location and restores the database from there.
+- **From live LiteSpeed backup**: Performs a live LiteSpeed backup of the source database and places the backup in the source database backup location. Copies the source database backup to the target database backup location and restores the database from there.
+- **From copied LiteSpeed backup**: The source database has already been manually copied to the target database backup location. If you choose this option, the system adds a field called Backup Filename where you enter the name of the LiteSpeed backup.
+- **From last MSSQL backup**: Copies the source database from the source database backup location to the target database backup location and restores the database from there.
+- **From live MSSQL backup**: Performs a live Microsoft SQL backup of the source database and places the backup in the source database backup location. Copies the source database backup to the target database backup location and restores the database from there.
+- **From copied MSSQL backup**: The source database has already been manually copied to the target database backup location. If you choose this option, the system adds a field called Backup Filename where you enter the name of the Microsoft SQL backup.
+- **Database already restored**: The database was already restored manually outside of the Operations Console (for example, through Microsoft SQL Server Management Studio). Choosing this option means the database is not backed up or restored.
+
+### Types of Data
+
+- :Link[Configuration Data (Settings)]{label="Configuration Data (Settings)" overridedLabel="Configuration Data (Settings)" spaceId docId="N5-aUJp0BHseE-cskrxZB" version="v2" docAnchorId="#Configur" loadingMethod="dynamic" newTab="false" href="Terminology.mdx"}
+- :Link[Master Data]{label="Master Data" overridedLabel="Master Data" spaceId docId="N5-aUJp0BHseE-cskrxZB" version="v2" docAnchorId="#Master" loadingMethod="dynamic" newTab="false" href="Terminology.mdx"}
+- :Link[Metadata]{label="Metadata" overridedLabel="Metadata" spaceId docId="N5-aUJp0BHseE-cskrxZB" version="v2" docAnchorId="#Metadata" loadingMethod="dynamic" newTab="false" href="Terminology.mdx"}
+- :Link[Transactional Data]{label="Transactional Data" overridedLabel="Transactional Data" spaceId docId="N5-aUJp0BHseE-cskrxZB" version="v2" docAnchorId="#Transact" loadingMethod="dynamic" newTab="false" href="Terminology.mdx"}
+- :Link[Validation Data]{label="Validation Data" overridedLabel="Validation Data" spaceId docId="N5-aUJp0BHseE-cskrxZB" version="v2" docAnchorId="#Validati" loadingMethod="dynamic" newTab="false" href="Terminology.mdx"}
+
+### Configuration Data (Settings)
+
+Configuration data, also called settings, is defined as core configuration attributes that define Ivanti Service Manager.
+
+The only configuration data (settings) that the system migrates when you migrate configuration data (settings), as described in :Link[Updating Configuration Data (Copy Settings)]{label="Updating Configuration Data (Copy Settings)" overridedLabel="Updating Configuration Data (Copy Settings)" spaceId docId="VvatisdgL5BT76U4_xhmM" version="v2" docAnchorId="#Updating" loadingMethod="dynamic" newTab="false" githubPath="Push_data.htm#Updating" href="Push_data.mdx"}, are the following:
+
+- Allowed attachments
+- Authentication providers such as LDAP, SAML, OpenId, and Windows Integrated Security
+- Bulk upload profiles
+- Dynamic styles
+- Global constants
+- Integration settings
+- LDAP configurations
+- Object matching lists
+- Password policies
+- Voice integrations
+- Watch list items
+- Email configurations (including approval status keywords, email status update mapping settings, ignore message with subject settings, object mappings for email, task assignment status keywords, truncate body settings, and trusted sender domains)
+
+You cannot migrate other types of configuration data (settings) using the Operations Console. To migrate this data, do so manually outside of the Operations Console by using Microsoft SQL commands.
+
+### Master Data
+
+Master data is defined as data sets that are used across an organization and are typically unique to that organization. User and role definitions, role assignments, and categories are examples of master data. Customers typically make their own changes to their master data, although the implementation team can also change master data for a customer.
+
+Master data is migrated together with metadata so that it is consistent with the business object definitions. There are four types of master data and you can migrate any or all of them:
+
+- User data, except for user email addresses because they may have been scrubbed.
+- User-related data, such as contact group, standard user team, organizational unit, and so on.
+- Service request data, such as request offerings, request parameters, and so on.
+- Escalation schedule.
+
+You can now track these types of master data:
+
+- Analytic metrics dashboards and configuration
+- Schedule entries
+- Escalation settings and schedules
+- Escalation clock control
+- Service level packages
+- Service level targets
+
+To see a list of master data for a tenant, if any has been defined, place your mouse over the destination tenant.
+
+The only way to migrate master data is by enabling the Ivanti Service Manager development project and using the push link. See :Link[The Four Ways to Migrate Data]{label="The Four Ways to Migrate Data" overridedLabel="The Four Ways to Migrate Data" spaceId docId="nnlG7pdbdUpnH_QlL9PjG" version="v2" docAnchorId="#The" loadingMethod="dynamic" newTab="false" githubPath="Migration_Process.htm#The" href="Migration_Process.mdx"} for more information about this method of migrating data and see :Link[Example: Migrating Service Level Data]{label="Example: Migrating Service Level Data" overridedLabel="Example: Migrating Service Level Data" spaceId docId="2JxJn6daLr-4HNP4Wjc_U" version="v2" docAnchorId="#Example:" loadingMethod="dynamic" newTab="false" githubPath="Example.htm#Example:" href="Example.mdx"} for an example.
+
+### Metadata
+
+Configured business objects, business object attributes, forms, grids, quick actions, searches, and so on. When you reconfigure your Ivanti Service Manager system, most of the changes are implemented by editing metadata.
+
+The types of metadata are as follows:
+
+- Business objects
+- Counters
+- Forms
+- Grids
+- Layouts
+- Quick actions
+- Rules
+- Rule overrides
+- Branding
+- Roles
+- Validation (pick list) definitions
+- Business rules
+- Searches (namely saved searches)
+- Dashboards
+- Chart-part metadata (one type of dashboard)
+- Grid-part metadata (one type of dashboard)
+- Special-part metadata (one type of dashboard)
+- View-part metadata (one type of dashboard)
+- Workflows
+- Workflow types
+- Reports (subscription, schedule, and distribution are not migrated from source to target)
+- Validation data (of pure validation business objects and custom data)
+- Images in the frs\_def\_images table
+
+You can lock all of the metadata, except for quick actions, dashboards, searches, and reports. Those four types of metadata cannot be locked and are always open to be edited in the production instance of the tenant. To lock the other types of metadata, set the metadata to read-only. Each tenant instance has a Metadata Locked field that lets you know if the metadata is locked for an instance of a tenant.
+
+### Transactional Data
+
+A customer's data records, including incidents, changes, service requests, and so on.
+
+The only way to migrate transactional data is by enabling the Ivanti Service Manager development project and using the push link. See :Link[The Four Ways to Migrate Data]{label="The Four Ways to Migrate Data" overridedLabel="The Four Ways to Migrate Data" spaceId docId="nnlG7pdbdUpnH_QlL9PjG" version="v2" docAnchorId="#The" loadingMethod="dynamic" newTab="false" githubPath="Migration_Process.htm#The" href="Migration_Process.mdx"} for more information about this method of migrating data and see :Link[Example: Migrating Service Level Data]{label="Example: Migrating Service Level Data" overridedLabel="Example: Migrating Service Level Data" spaceId docId="2JxJn6daLr-4HNP4Wjc_U" version="v2" docAnchorId="#Example:" loadingMethod="dynamic" newTab="false" githubPath="Example.htm#Example:" href="Example.mdx"} for an example.
+
+### Validation Data
+
+Validation data objects defined by customers. You must migrate all validation data together at the same time and you must migrate metadata and validation data together in the same migration. This guarantees that when metadata is migrated, it includes all pick list definitions that are associated with validation objects.
+
+Validation data is any data that is configured as part of a validation business object. A validation business object and its associated data (for example, a pick list and the data in the list) are both considered validation data. But a standard business object and its associated data (for example, a pick list and the data in the list) are not both validation data.  If the business object is a standard business object, then that is validation data, but the associated data is not considered validation data.
+
+| Business Object                                   | Is it Validation Data? |
+| ------------------------------------------------- | ---------------------- |
+| Standard business object                          | Yes                    |
+| Validation business object                        | Yes                    |
+| Data associated with a standard business object   | No                     |
+| Data associated with a validation business object | Yes                    |
+
+### Landscapes
+
+- :Link[Landscape Definition]{label="Landscape Definition" overridedLabel="Landscape Definition" spaceId docId="N5-aUJp0BHseE-cskrxZB" version="v2" docAnchorId="#Landscap2" loadingMethod="dynamic" newTab="false" href="Terminology.mdx"}
+- :Link[Landscape Components]{label="Landscape Components" overridedLabel="Landscape Components" spaceId docId="N5-aUJp0BHseE-cskrxZB" version="v2" docAnchorId="#Landscap3" loadingMethod="dynamic" newTab="false" href="Terminology.mdx"}
+- :Link[Types of Landscapes]{label="Types of Landscapes" overridedLabel="Types of Landscapes" spaceId docId="N5-aUJp0BHseE-cskrxZB" version="v2" docAnchorId="#Types" loadingMethod="dynamic" newTab="false" href="Terminology.mdx"}
+- :Link[About the Pilot Landscape Lifecycle]{label="About the Pilot Landscape Lifecycle" overridedLabel="About the Pilot Landscape Lifecycle" spaceId docId="N5-aUJp0BHseE-cskrxZB" version="v2" docAnchorId="#Landscap4" loadingMethod="dynamic" newTab="false" href="Terminology.mdx"}
+
+### Landscape Definition
+
+A landscape is a set of IT infrastructure components that support tenant instances of the same type (where type refers to production, staging, and UAT). The production landscape only contains the production instances of tenants, the staging landscape only contains the staging instances of tenants, and the UAT landscape only contains the UAT instances of tenants.
+
+:Link[Typical Production Landscape]{label="Typical Production Landscape" overridedLabel="Typical Production Landscape" spaceId docId="N5-aUJp0BHseE-cskrxZB" version="v2" docAnchorId="#FIG_LAND" loadingMethod="dynamic" newTab="false" href="Terminology.mdx"} shows a typical configuration for a production landscape. Components and their locations vary from customer to customer. For example, on-premise customers probably only have one production tenant in their production landscape.
+
+*Typical Production Landscape*
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/nfw0XmlYVkCDt2eHkhqMn_44.png" position="flex-start" size="40" initialPath="ops_Images/4_4.png" githubPath="ITSM-On-Prem-Help/Content/ops_console_ug/ops_Images/4_4.png"></Image>
+
+### Landscape Components
+
+At a minimum, a landscape contains these components:
+
+- An individual, isolated Microsoft SQL Ivanti Service Manager application database (called IvantiSM) in each tenant (each tenant instance has its own database, but not its own database instance).
+- A central Ivanti Service Manager configuration database (called ConfigDB) containing information about all tenant instances in the landscape.
+- A shared pool of Ivanti Service Manager application servers for all Ivanti Service Manager instances in the landscape.
+- A shared database cluster for the Ivanti Service Manager configuration and Ivanti Service Manager application databases.
+- A shared pool of workflow servers used by all Ivanti Service Manager instances in the landscape.
+- A shared pool of escalation engines used by all Ivanti Service Manager instances in the landscape. This is sometimes combined with the workflow server.
+- A shared pool of email listeners used by all Ivanti Service Manager instances in the landscape.
+- A shared pool of integration servers per function, such as survey, Discovery, Desktop Server and Management (DSM), Report Server, License Server, and so on.
+
+### Types of Landscapes
+
+There are six types of landscapes:
+
+- Production landscape: Hosts the production instances of tenants. Used during the data migration lifecycle. This is the environment where the product is deployed.
+- Staging landscape: Hosts the staging instances of tenants. Used during the data migration lifecycle. This is the environment where development work is done.
+- UAT landscape: Hosts the UAT instances of tenants. Used during the data migration lifecycle. This is the environment where testing is done.
+- **Pilot landscape**: Optional. A standalone landscape that hosts the pilot tenant to provide customers with early access to a new Ivanti Service Manager point release. See :Link[About the Pilot Landscape Lifecycle]{label="About the Pilot Landscape Lifecycle" overridedLabel="About the Pilot Landscape Lifecycle" spaceId docId="N5-aUJp0BHseE-cskrxZB" version="v2" docAnchorId="#Landscap4" loadingMethod="dynamic" newTab="false" href="Terminology.mdx"}.
+- Development landscape: Optional. A standalone landscape that hosts tenant templates for demos, test drives, training, and so on.
+- Other landscape: Optional. A standalone landscape type that can be used for any purpose.
+
+### About the Pilot Landscape Lifecycle
+
+The pilot landscape hosts the pilot tenant which provides customers with early access to a new Ivanti Service Manager point release. Participating in the pilot release is optional. If you want to participate, request information from your Solutions/Implementation Manager. Ivanti Software accepts pilot customers on a first-come, first-served basis.
+
+Approximately three weeks before a release, Ivanti Software makes the pilot landscape available to customers who have requested access. This is a temporary landscape that is only available during communicated periods.
+
+| A pilot landscape functions very similar to an alpha release. You can expect several updates and frequent changes in this landscape. We announce these frequent redeployments using system notifications only, and not through email. |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+
+Approximately a week after the Ivanti Service Manager pilot landscape release, Ivanti Service Manager moves into the staging landscape.  When the system is in the staging landscape, it is available to all customers. During this time, no content moves from the staging landscape to the production landscape.
+
+Ivanti Software posts the staging landscape update schedule on the web portal.  During the staging landscape, there are approximately five updates. Each update is accompanied by a release note.  You can request these staging release notes from support or your CSM.
+
+If you find a problem, submit feedback by the end of the first week in order for it to potentially be fixed in the production landscape.
+
+During the second week of the staging landscape, there is usually only one update and that is usually on Wednesday. This gives Ivanti Software a minimum of two days to do final testing on the system before it moves to the production landscape.
+
+### Tenant and Tenant Instance Types
+
+A tenant is a Ivanti Service Manager system for a particular customer or application.
+
+An instance of the Ivanti Service Manager tenant within a landscape. By default, each customer receives a production instance of the tenant and a staging instance of the tenant. Additional optional tenant instances are also available. The name and URL for each tenant instance must be unique.
+
+<hint type="info">
+  The term "tenant instance" is NOT related to the term "database instance". The use of the word instance, when referring to a tenant, simply means one copy or version of it.
+</hint>
+
+The available tenant instances are:
+
+- **Production instance of a tenant**: A tenant instance containing a customer's your production database (including all configuration and transactional data), managed under a service level agreement. All customers have a production instance of their tenant. The production instance of the tenant resides in a hardened environment in the production landscape. We do not recommend making metadata or configuration changes directly to the production instance of the tenant during production usage. Instead, make those changes in the staging instance of the tenant, push them to the UAT instance of the tenant for testing, and then push them to the production instance of the tenant.You can make some changes to master data (such as adding employees, role assignments, and so on) directly to the production instance of the tenant.The production instance of the tenant is the only tenant instance covered under a service level agreement.
+- **Staging instance of a tenant**: A tenant instance for developing and configuring a customer's your Ivanti Service Manager system and business processes. This tenant instance is generally used for configuration and metadata changes (but not transactional data changes). It undergoes a baselining process, in which it is updated periodically or by customer request from the production instance of the tenant to ensure that it is in sync with the production instance of the tenant prior to configuration and metadata changes. It can also be used to test new releases, new capabilities, and for training. All customers have a staging instance of their tenant; however, the staging tenant is not covered under a service level agreement.
+- **UAT instance of a tenant**: A temporary tenant instance used for configuration testing and validation before the new configuration is pushed to an existing production tenant instance. The UAT instance of the tenant is required when reconfiguring an existing production instance of the tenant. It is optional when provisioning the production instance of the tenant for the first time or when upgrading to a new Ivanti Service Manager release.
+
+On-premise customers may or may not use a UAT instance of a tenant.
+
+- **Pilot instance of a tenant**: During the upgrade process to a new release, an optional pilot instance of the tenant is made available to customers to allow early access to a new point release. The pilot instance of the tenant resides in the pilot landscape.
+- **Development instance of a tenant**: An optional development instance of the tenant for testing or development. The development instance of the tenant resides in the development landscape.
+- **Other instance of a tenant**: An optional instance of the tenant for testing or development. The other instance of the tenant resides in the other landscape.
+- **Tenant environment**: Infrastructure that ties together the production, staging, and UAT instances of a tenant. This infrastructure allows a complete change management process to manage and control the development and deployment lifecycles between these instances of the tenant.
+- **Tenant template**: A preconfigured ("out-of-the-box") tenant that is typically used to set up a new tenant. A template implements best practices according to ITIL standards, and optimizes processes to allow fast implementation.

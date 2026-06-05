@@ -1,0 +1,40 @@
+---
+title: Minimum Production Deployment
+docTags: 
+createdAt: Fri Jun 05 2026 13:49:30 GMT+0300 (Eastern European Summer Time)
+---
+
+Customers with 10 or fewer users often want to minimize their hardware investment. With the minimum production deployment architecture, you install all \{\{Primary.Product}} components, except for the \{\{Primary.Product}} databases, onto a single server. We recommend that you install the \{\{Primary.Product}} databases onto a separate Microsoft SQL server.
+
+*Example of&#x20;*\{\{Primary.Product}}*&#xA0;and Databases on Separate Servers*
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/A01WQI9kwL-5zqKG7LUMC_minimumproductiondeployment2.png" position="flex-start" size="40" initialPath="Install_Deploy_Images/minimum_production_deployment_2.png" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Install_Deploy_Images/minimum_production_deployment_2.png"></Image>
+
+In this deployment, all three landscapes (development \[staging], testing \[UAT], and production) run on the same server. As a result:
+
+- Any issues created during the development cycle might affect production users.
+- You cannot perform pre-upgrade testing.
+
+## Hardware Requirements for the Minimum Production Deployment
+
+The following are the hardware requirements for the \{\{Primary.Product}} server:
+
+- One server, either physical or virtual
+- 2 CPU
+- 4 GB memory
+- 200 GB hard drive
+
+The following are the hardware requirements for the Microsoft SQL server where the databases reside:
+
+- One server (we recommend a physical server)
+- 2 CPU
+- 8 GB memory
+- 1 TB hard drive
+
+## About Installing the Neurons for ITSM Components for the Minimum Production Deployment
+
+:Link[Neurons for ITSM Components and Databases on Separate Servers]{label="Neurons for ITSM Components and Databases on Separate Servers" overridedLabel="Neurons for ITSM Components and Databases on Separate Servers" spaceId docId="wNRSclFLXaP2250-xHLsJ" version="v2" docAnchorId="#HEAT_SM_Components_and_Databases_on_Separate_Servers" loadingMethod="dynamic" newTab="false" href="Deployment_Min_Prod.mdx"} shows a diagram of the recommended locations of the various \{\{Primary.Product}} software components in this deployment.
+
+\{\{Primary.Product}}*&#x20;Components and Databases on Separate Servers*
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/b4wgqWvlMFfx85asZiug6_minimumproductiondeploymentcomponents2.png" position="flex-start" size="40" initialPath="Install_Deploy_Images/minimum_production_deployment_components_2.png" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Install_Deploy_Images/minimum_production_deployment_components_2.png"></Image>

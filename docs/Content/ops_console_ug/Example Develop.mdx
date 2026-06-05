@@ -1,0 +1,126 @@
+---
+title: Example: Migrating Request Offering Changes By Enabling the Ivanti Service Manager Development Project
+docTags: 
+createdAt: Fri Jun 05 2026 13:49:31 GMT+0300 (Eastern European Summer Time)
+---
+
+This example is an end-to-end example of migrating request offering changes by enabling using the Ivanti Service Manager development project.  It describes how to make a change to a request offering in the staging instance of a tenant and then migrate the change to the production instance of the tenant. In this example, the Ivanti Service Manager development project is enabled and data is migrated by both applying a package and by using the push link.
+
+| This example is copied directly from the Ivanti Service Manager online help. |
+| ---------------------------------------------------------------------------- |
+
+- :Link[About this Example]{label="About this Example" overridedLabel="About this Example" spaceId docId="52x0GH1ChzieMgbWZGSKu" version="v2" docAnchorId="#About_this_Migration" loadingMethod="dynamic" newTab="false" href="Example Develop.mdx"}
+- :Link[Before You Begin]{label="Before You Begin" overridedLabel="Before You Begin" spaceId docId="52x0GH1ChzieMgbWZGSKu" version="v2" docAnchorId="#Before_You_Begin" loadingMethod="dynamic" newTab="false" href="Example Develop.mdx"}
+- :Link[Packaging the Changes Using Ivanti Service Manager]{label="Packaging the Changes Using Ivanti Service Manager" overridedLabel="Packaging the Changes Using Ivanti Service Manager" spaceId docId="52x0GH1ChzieMgbWZGSKu" version="v2" docAnchorId="#Packaging_the_Changes" loadingMethod="dynamic" newTab="false" href="Example Develop.mdx"}
+- :Link[Migrating the Data from the Staging Instance to the UAT Instance]{label="Migrating the Data from the Staging Instance to the UAT Instance" overridedLabel="Migrating the Data from the Staging Instance to the UAT Instance" spaceId docId="52x0GH1ChzieMgbWZGSKu" version="v2" docAnchorId="#Migrating_the_Data_from_the_HEAT_Operations_Console" loadingMethod="dynamic" newTab="false" href="Example Develop.mdx"}
+- :Link[Making Changes to the Request Offering in the Configuration Console]{label="Making Changes to the Request Offering in the Configuration Console" overridedLabel="Making Changes to the Request Offering in the Configuration Console" spaceId docId="52x0GH1ChzieMgbWZGSKu" version="v2" docAnchorId="#Making_Changes_to_the_Request_Offering" loadingMethod="dynamic" newTab="false" href="Example Develop.mdx"}
+- :Link[Testing the Change]{label="Testing the Change" overridedLabel="Testing the Change" spaceId docId="52x0GH1ChzieMgbWZGSKu" version="v2" docAnchorId="#Testing_the_Change" loadingMethod="dynamic" newTab="false" href="Example Develop.mdx"}
+- :Link[Migrating the Data from the Staging Instance to the Production Instance]{label="Migrating the Data from the Staging Instance to the Production Instance" overridedLabel="Migrating the Data from the Staging Instance to the Production Instance" spaceId docId="52x0GH1ChzieMgbWZGSKu" version="v2" docAnchorId="#Migrating_the_Data_from_the_Staging_Instance_to_the_Production_Instance" loadingMethod="dynamic" newTab="false" href="Example Develop.mdx"}
+- :Link[Migrating the Service Request Data from the UAT Instance to the Production Instance]{label="Migrating the Service Request Data from the UAT Instance to the Production Instance" overridedLabel="Migrating the Service Request Data from the UAT Instance to the Production Instance" spaceId docId="52x0GH1ChzieMgbWZGSKu" version="v2" docAnchorId="#Migrating_the_Data_from_the_UAT_Instance_to_the_Production_Instance" loadingMethod="dynamic" newTab="false" href="Example Develop.mdx"}
+
+### About this Example
+
+Ivanti Service Manager does not have a system for tracking request offerings, so to migrate a request offering from one environment to another, you must create and apply a package and also do a master data push using the Operations Console. Creating and applying a package alone does not migrate the request offering change.
+
+### Before You Begin
+
+Before you begin, use the Operations Console to refresh the staging instance of the tenant from the production instance of the tenant. This ensures that you have the same baseline in both environments before you make the change.
+
+### Packaging the Changes Using Ivanti Service Manager
+
+When you make changes to request offerings, Ivanti Service Manager tracks the changes made to the request offering and associated workflows and quick actions, but does not track the changes made to some related content. Ivanti Service Manager does not record changes for the organizational unit, configuration item service, location, or request offering links to organizational units, configuration item services, or locations. This can cause confusion when you move changes from one system to another.
+
+The changes that the system records may differ depending on if you are logged in as an administrator or as another role when you make the changes.
+
+- If you make the changes as a service owner, you cannot select the project to apply the changes to. Therefore, all changes are added to the default project.
+- If you make the changes as an administrator, you can select the project to apply the changes to.  Before you make the changes to the request offering, we recommend that you create a new project and apply the changes to that project. See :Link[Creating a Project]{label="Creating a Project" overridedLabel="Creating a Project" spaceId docId="09HNL1mmV8N-c_aWcP1z_" version="v2" docAnchorId="#Creating" loadingMethod="dynamic" newTab="false" githubPath="ProjectOLH.htm#Creating" href="ProjectOLH.mdx"}.
+
+1. (Optional. For administrators only.) Go to the Configuration Console, create a project, and then select it.
+2. Make the changes to the request offering. The system tracks the changes to the workflows and quick actions associated with the request offering.
+3. Create a package with the transaction sets associated with the changes that you made to the request offering. Ensure that the package contains all of the changes made to the system since you made the baseline, as described in :Link[Before You Begin]{label="Before You Begin" overridedLabel="Before You Begin" spaceId docId="52x0GH1ChzieMgbWZGSKu" version="v2" docAnchorId="#Before_You_Begin" loadingMethod="dynamic" newTab="false" href="Example Develop.mdx"}, regardless of if they are related to your project.
+
+### Migrating the Data from the Staging Instance to the UAT Instance
+
+1. Log into the Operations Console.
+2. Refresh the UAT instance of the tenant from the production instance of the tenant.
+3. From the Tenants tab, find the instance to migrate and click Manage Migration.
+4. At the top of the page, click Enable to enable the Ivanti Service Manager development project. At the confirmation message, click OK.
+5. In the arrow going from the staging instance of the tenant to the UAT instance of the tenant, click Apply Package.
+6. Do the following:
+   - In the Source Package field, select the package to migrate.
+   - Check Skip Target Tenant Backup.
+   - Select Apply without validation. This allows you to apply the package even if there are errors. You may need to fix the errors after the change is applied, if you do not want to restore the database and fix the root cause.
+   - Click Execute.
+
+<Paragraph indent="2">
+  The system migrates the package.
+</Paragraph>
+
+7. In the arrow going from the staging instance of the tenant to the UAT instance of the tenant, click Push.
+8. Do the following:
+   - In the Operation field, select Copy Master Data Only.
+   - Check Delete data items in uat that do not exist in staging.
+   - Check Service request.
+   - Click Execute.
+
+<Paragraph indent="1">
+  The system migrates all of the service requests.
+</Paragraph>
+
+### Making Changes to the Request Offering in the Configuration Console
+
+If the target tenant instance does not have an equivalent request offering, (for example, if you are importing a package from the App Store or a package from another system), you must manually link the configuration item service, organizational unit, and location.
+
+1. Log into the Service Desk Console on the UAT instance of the tenant.
+2. Open the Request Offering workspace.
+3. Find and open the existing request offering.
+4. On the 1. Define request offering page, for the Service field, select the configuration item service associated with this request offering. Note that in many cases, the configuration item  service is represented by a GUID and not by its name in the drop-down list. Be sure to select the correct configuration item  service.
+5. Click Next twice until you reach the 4. Publish Action Access page.
+6. Click Add to add a new organizational unit and location. The system displays a new line.
+7. Click Any under the Team header and select the organizational unit associated with this request offering. Click OK. Note that in many cases, the organizational unit is represented by a GUID and not by its name in the drop-down list. Be sure to select the correct organizational unit.
+8. Click Any under the Location header and select the location associated with this request offering. Click OK. Note that in many cases, the location is represented by a GUID and not by its name in the drop-down list. Be sure to select the correct location.
+9. Click Save & Exit.
+
+### Testing the Change
+
+1. Log into the UAT instance of the tenant and test the changes.
+2. If anything is wrong, perform the procedures in both :Link[Packaging the Changes Using Ivanti Service Manager]{label="Packaging the Changes Using Ivanti Service Manager" overridedLabel="Packaging the Changes Using Ivanti Service Manager" spaceId docId="52x0GH1ChzieMgbWZGSKu" version="v2" docAnchorId="#Packaging_the_Changes" loadingMethod="dynamic" newTab="false" href="Example Develop.mdx"} and :Link[Migrating the Data from the Staging Instance to the UAT Instance]{label="Migrating the Data from the Staging Instance to the UAT Instance" overridedLabel="Migrating the Data from the Staging Instance to the UAT Instance" spaceId docId="52x0GH1ChzieMgbWZGSKu" version="v2" docAnchorId="#Migrating_the_Data_from_the_HEAT_Operations_Console" loadingMethod="dynamic" newTab="false" href="Example Develop.mdx"}.
+3. When you are finished testing the change and are satisfied with the results, go back to the staging instance of the tenant and close the package. This ensures that no further changes in the system are added to the package.
+
+### Migrating the Data from the Staging Instance to the Production Instance
+
+1. Log into the Operations Console.
+2. From the Tenants tab, find the instance to migrate and click Manage Migration.
+3. At the top of the page, click Enable to enable the Ivanti Service Manager development project. At the confirmation message, click OK.
+4. In the arrow going from the staging instance of the tenant to the production instance of the tenant, click Apply Package.
+5. Do the following:
+   - In the Source Package field, select the package to migrate.
+   - Ensure that Skip Target Tenant Backup is not checked.
+   - Select Apply without validation. This allows you to apply the package even if there are errors. You may need to fix the errors after the change is applied, if you do not want to restore the database and fix the root cause.
+   - Click Execute.
+
+<Paragraph indent="2">
+  The system migrates the package.
+</Paragraph>
+
+### Migrating the Service Request Data from the UAT Instance to the Production Instance
+
+You must publish the service request master data from the UAT instance of the tenant to the production instance of the tenant because the UAT instance has the tested service request data. (If you are sure that no changes were made to the staging instance of the tenant, you can push the service request data from there to the production instance of the tenant instead.)
+
+1. Log into the Operations Console.
+2. From the Tenants tab, find the instance to migrate and click Manage Migration.
+3. In the arrow going from the UAT instance of the tenant to the production instance of the tenant, click Push.
+
+| If there is no Push link in the arrow, you must push the data from the staging instance to the UAT instance. In the Operation field, select No Op (Increase version only) and click Execute. |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+
+4. Do the following:
+   - In the Operation field, select Copy Master Data Only.
+   - In the Additional Data section, select any or all of Service (CI.Service), Organizational Unit (OrganizationalUnit), and Location (Location).
+   - Check Skip target tenant backup before operation.
+   - Check Delete data items in production that do not exist in uat.
+   - Click Execute.
+
+<Paragraph indent="1">
+  The system migrates all of the service requests.
+</Paragraph>
