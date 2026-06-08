@@ -1,0 +1,254 @@
+---
+title: Tuning Indexes
+docTags: 
+createdAt: Fri Jun 05 2026 13:49:31 GMT+0300 (Eastern European Summer Time)
+---
+
+Perform these steps to re-index the Ivanti Service Manager database:
+
+- :Link[Capturing a Database Trace]{label="Capturing a Database Trace" overridedLabel="Capturing a Database Trace" spaceId docId="2hxaOThjwsZWbQYWb_9_6" version="v2" docAnchorId="#Capture" loadingMethod="dynamic" newTab="false" href="Tune_Indexes.mdx"}
+- :Link[Getting Index Tuning Recommendations]{label="Getting Index Tuning Recommendations" overridedLabel="Getting Index Tuning Recommendations" spaceId docId="2hxaOThjwsZWbQYWb_9_6" version="v2" docAnchorId="#Get" loadingMethod="dynamic" newTab="false" href="Tune_Indexes.mdx"}
+-  :Link[About Creating New Indexes]{label="About Creating New Indexes" overridedLabel="About Creating New Indexes" spaceId docId="2hxaOThjwsZWbQYWb_9_6" version="v2" docAnchorId="#Create" loadingMethod="dynamic" newTab="false" href="Tune_Indexes.mdx"}
+
+### Capturing a Database Trace
+
+Use the Microsoft SQL Server Profiler in Microsoft SQL Server Management Studio to capture a database trace. You analyze the information from this trace file in :Link[Getting Index Tuning Recommendations]{label="Getting Index Tuning Recommendations" overridedLabel="Getting Index Tuning Recommendations" spaceId docId="2hxaOThjwsZWbQYWb_9_6" version="v2" docAnchorId="#Get" loadingMethod="dynamic" newTab="false" href="Tune_Indexes.mdx"}.
+
+1. Open Microsoft SQL Server Management Studio by selecting **Start > All Programs > Microsoft SQL Server 2008 > SQL Server Management Studio**.
+2. Highlight the server that hosts the Ivanti Service Manager database.
+3. From the Tools menu, select **SQL Server Profiler**.
+4. Start a new trace:
+   - If you are prompted for login credentials, specify them for Ivanti Service Manager and click **Connect**. The system displays the Trace Properties window.
+   - If you are not prompted for login credentials, select **File > New Trace** in the SQL Server Profiler window. The system prompts you for login credentials. Specify credentials for Ivanti Service Manager and click **Connect**. The system displays the Trace Properties window.
+5. On the General tab, do the following:
+
+<Paragraph indent="1">
+  a. In the Trace name field, enter a name for the trace.
+</Paragraph>
+
+<Paragraph indent="1">
+  b. In the Use the template field, select **Standard (default)**.
+</Paragraph>
+
+<Paragraph indent="1">
+  c. Check **Save to file** and designate a file location for the trace.
+</Paragraph>
+
+*Running a Trace From the Trace Properties Window*
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/qMZ-QLaMHe7xRCXr7RKBY_traceproperties.png" position="flex-start" size="40" initialPath="PerfTune_Images/TraceProperties.png" githubPath="ITSM-On-Prem-Help/Content/PerformanceTuning/PerfTune_Images/TraceProperties.png"></Image>
+
+6. Click **Run** to initiate the trace. The system displays trace information while the trace runs.
+
+*A Running Trace*
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/ObbHBNumm5gZCsI4WCz2t_tracewindow.png" position="flex-start" size="40" initialPath="PerfTune_Images/TraceWindow.png" githubPath="ITSM-On-Prem-Help/Content/PerformanceTuning/PerfTune_Images/TraceWindow.png"></Image>
+
+7. When the trace has collected enough information to analyze as described in the next section, select **Pause Trace** or **Stop Trace** from the File menu.
+
+### Getting Index Tuning Recommendations
+
+Use the Index Tuning Advisor in Microsoft SQL Server Management Studio to get index tuning recommendations.
+
+1. Open Microsoft SQL Server Management Studio by selecting **Start > All Programs > Microsoft SQL Server 2008 > SQL Server Management Studio**.
+2. Highlight the server that hosts the Ivanti Service Manager database.
+3. From the Tools menu, select **Database Engine Tuning Advisor**.
+4. Start a new tuning session:
+   - If you are prompted for login credentials, specify the credentials for Ivanti Service Manager and click **Connect**. The system displays the Database Engine Tuning Advisor window containing a new open session.
+   - If you are not prompted for login credentials, select **File > New Session** in the Database Engine Tuning Advisor window. The system prompts you for login credentials. Specify credentials for Ivanti Service Manager and click **Connect**. The system opens a new session in the Database Engine Tuning Advisor window.
+5. On the General tab, in the Workload area, browse to the trace file that you created in :Link[Capturing a Database Trace]{label="Capturing a Database Trace" overridedLabel="Capturing a Database Trace" spaceId docId="2hxaOThjwsZWbQYWb_9_6" version="v2" docAnchorId="#Capture" loadingMethod="dynamic" newTab="false" href="Tune_Indexes.mdx"} and click **Open**.
+6. In the Select databases and tables to tune area, highlight the Ivanti Service Manager database.
+
+*Selecting the Ivanti Service Manager Database*
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/7BJ4KTDjAN8TVsr95A_J3_dbenginetuningadvisor1.png" position="flex-start" size="40" initialPath="PerfTune_Images/DBEngineTuningAdvisor_1.png" githubPath="ITSM-On-Prem-Help/Content/PerformanceTuning/PerfTune_Images/DBEngineTuningAdvisor_1.png"></Image>
+
+7. From the drop-down menu next to the selected database in the Selected Tables column, choose which tables to analyze.
+
+*Selecting Tables*
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/iQhSssRyoyCy0MRTFuFjs_dbenginetuningadvisor2-2.png" position="flex-start" size="40" initialPath="PerfTune_Images/DBEngineTuningAdvisor_2 (2).png" githubPath="ITSM-On-Prem-Help/Content/PerformanceTuning/PerfTune_Images/DBEngineTuningAdvisor_2 (2).png"></Image>
+
+8. Click the Tuning Options tab.
+9. In the Physical Design Structures (PDS) to use in database section, select **Indexes**.
+10. In the Partitioning strategy to employ section, select **No partitioning**.
+11. In the Physical Design Structures (PDS) to keep in database section, select **Keep all existing PDS**.
+12. Click **Start Analysis**.
+13. To view progress, select the Progress tab.
+14. To view recommended indexing actions, click the Recommendations tab and go to the Index Recommendations section.
+
+*Index Recommendations*
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/h30Afyqc6b5f3033ZJSsB_sqlserver2.png" position="flex-start" size="40" initialPath="PerfTune_Images/sql.server.2.png" githubPath="ITSM-On-Prem-Help/Content/PerformanceTuning/PerfTune_Images/sql.server.2.png"></Image>
+
+1. Verify that the indexes recommended for creation do not already exist in the Ivanti Service Manager database as described in :Link[Checking for Duplicate Indexes]{label="Checking for Duplicate Indexes" overridedLabel="Checking for Duplicate Indexes" spaceId docId="TYkEMyGMRFSnUc_1wK4eX" version="v2" docAnchorId="#Check3" loadingMethod="dynamic" newTab="false" githubPath="Database_tuning.htm#Check3" href="Database_tuning.mdx"}.
+2. To view the tuning summary, click the Reports tab. You can view reports in the Tuning Reports drop-down list beneath the tuning summary.
+
+### About Creating New Indexes
+
+After you verify that the indexes recommended for creation do not already exist in the Ivanti Service Manager database, use the Configuration Console to create the indexes.
+
+- :Link[Best Practices for Creating New Indexes]{label="Best Practices for Creating New Indexes" overridedLabel="Best Practices for Creating New Indexes" spaceId docId="2hxaOThjwsZWbQYWb_9_6" version="v2" docAnchorId="#Best" loadingMethod="dynamic" newTab="false" href="Tune_Indexes.mdx"}
+- :Link[Creating New Indexes]{label="Creating New Indexes" overridedLabel="Creating New Indexes" spaceId docId="2hxaOThjwsZWbQYWb_9_6" version="v2" docAnchorId="#Creating" loadingMethod="dynamic" newTab="false" href="Tune_Indexes.mdx"}
+
+### Best Practices for Creating New Indexes
+
+Follow these best practices when you create new indexes:
+
+- Ivanti Service Manager does not create clustered indexes. Disregard any clustered indexes created outside of Ivanti Service Manager.
+- Ivanti Service Manager does not create or use include fields or included indexes. You must create and maintain any included indexes that you use outside of the Ivanti Service Manager database. We recommend that you evaluate on a case by case basis the trade off between performance gains and maintenance overhead.
+- Ivanti Service Manager maintains statistics only for indexes created in Ivanti Service Manager. Disregard any statistics returned by the create statistics operations in database performance tuning tools.
+
+### Creating New Indexes
+
+Perform these steps to create new indexes using the Configuration Console:
+
+1. From the Configuration Console, click **Build > Business Objects**. The system displays the Business Objects workspace.
+2. Select a business object. The system displays the Business Object page.
+3. Click the Indexes tab. The system displays the Indexes workspace with a list of indexes for the business object.
+4. To add a new index, click **Add New\...**. The system displays index fields associated with this business object.
+5. Select the field to index for this business object. You can add more fields later. The system displays the System Properties page.
+6. Enter information into the fields.
+
+<table isTableHeaderOn="true">
+  <tr>
+    <td>
+      Field
+    </td>
+    <td>
+      Description
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Index Name
+    </td>
+    <td>
+      A unique name for this index.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Description
+    </td>
+    <td>
+      A useful description for this index.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Unique
+    </td>
+    <td>
+      Designates this value as unique, preventing duplicate entries in the index and its backing table. You can create uniqueness by using multiple fields. This option automatically creates an unique index of this field.
+      Unlike the primary key field:
+      - You can have multiple unique fields in the business object.
+      - This field is allowed to contain NULL values (although the NULL values are not indexed).
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Clustered
+    </td>
+    <td>
+      Checks if the business object is part of a clustered index at the database level. Clustered indexes can greatly increase overall speed of retrieval, but usually only where data is accessed sequentially in the same or reverse order of the clustered index, or when a range of items is selected. This is the same as a clustered index function for a Microsoft SQL database.
+      A clustered index cannot contain included fields (it cannot be a cover index).
+      This checkbox is disabled for index fields that have an increasing value, such as GUID.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Key Fields
+    </td>
+    <td>
+      See :Link[Viewing, Adding, and Deleting Key Fields]{label="Viewing, Adding, and Deleting Key Fields" overridedLabel="Viewing, Adding, and Deleting Key Fields" spaceId docId="2hxaOThjwsZWbQYWb_9_6" version="v2" docAnchorId="#Viewing," loadingMethod="dynamic" newTab="false" href="Tune_Indexes.mdx"}
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Included Fields
+    </td>
+    <td>
+      See :Link[Viewing, Adding, and Deleting Included Fields ]{label="Viewing, Adding, and Deleting Included Fields " overridedLabel="Viewing, Adding, and Deleting Included Fields " spaceId docId="2hxaOThjwsZWbQYWb_9_6" version="v2" docAnchorId="#Viewing,2" loadingMethod="dynamic" newTab="false" href="Tune_Indexes.mdx"}.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Filter Expression
+    </td>
+    <td>
+      Optional. You can apply a filter to the index that does not include NULL values. Click the add new icon
+      <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/B1ksUkKZR8ugxjsJC-JYO_addgreen.png" position="flex-start" size="40" initialPath="../Resources/GLOBAL_Images/add_green.png" githubPath="ITSM-On-Prem-Help/Content/Resources/GLOBAL_Images/add_green.png"></Image>
+      , then choose a field from the list to create a filter. Repeat as needed.
+      - Operation: Choose an operation from the drop-down list for this filter.
+      - **NotNull**: The filter does not index NULL values.
+      - Value: Enter a string value or expression for this filter.
+    </td>
+  </tr>
+</table>
+
+7. Click Add this Index. The system adds the index to the business object.
+
+### Viewing, Adding, and Deleting Key Fields
+
+The system displays the running size, in bytes, of the index for the key fields. The limit is 900 bytes.
+
+1. From the Configuration Console, click **Build > Business Objects**. The system displays the Business Objects workspace.
+2. Select a business object. The system displays the Business Object page.
+3. Click the Indexes tab. The system displays the Indexes workspace with a list of indexes for the business object.
+4. Click an index name to open the record.
+5. To add a key field, do the following:
+
+<Paragraph indent="1">
+  a. Click the add icon <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/B1ksUkKZR8ugxjsJC-JYO_addgreen.png" size="10" isUploading="false" initialPath="../Resources/GLOBAL_Images/add_green.png" githubPath="ITSM-On-Prem-Help/Content/Resources/GLOBAL_Images/add_green.png"></Image> at the end of the row.
+</Paragraph>
+
+<Paragraph indent="1">
+  b. Click **not set** to select a field from the drop-down list.
+</Paragraph>
+
+<Paragraph indent="1">
+  c. Click **Ascending** to change the order. You can select either ascending or descending.
+</Paragraph>
+
+6. To delete a key field, click the delete icon
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/wYbY2Vd-GF64moc129jPZ_deleteredx.png" position="flex-start" size="40" indent="1" initialPath="../Resources/GLOBAL_Images/delete_red_x.png" githubPath="ITSM-On-Prem-Help/Content/Resources/GLOBAL_Images/delete_red_x.png"></Image>
+
+<Paragraph indent="1">
+  at the end of the row.
+</Paragraph>
+
+7. Click **Save**.
+
+### Viewing, Adding, and Deleting Included Fields
+
+1. From the Configuration Console, click **Build > Business Objects**. The system displays the Business Objects workspace.
+2. Select a business object. The Business Object page appears.
+3. Click the Indexes tab. The system displays the Indexes workspace with a list of indexes for the business object.
+4. Click an index name to open the record.
+5. To add a key field, do the following:
+
+<Paragraph indent="1">
+  a. Click the add icon <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/B1ksUkKZR8ugxjsJC-JYO_addgreen.png" size="10" isUploading="false" initialPath="../Resources/GLOBAL_Images/add_green.png" githubPath="ITSM-On-Prem-Help/Content/Resources/GLOBAL_Images/add_green.png"></Image> at the end of the row.
+</Paragraph>
+
+<Paragraph indent="1">
+  b. Click **not set** to select a field from the drop-down list.
+</Paragraph>
+
+<Paragraph indent="1">
+  c. Click **Ascending** to change the order. You can select either ascending or descending.
+</Paragraph>
+
+6. To delete a key field, click the delete icon
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/wYbY2Vd-GF64moc129jPZ_deleteredx.png" position="flex-start" size="40" indent="1" initialPath="../Resources/GLOBAL_Images/delete_red_x.png" githubPath="ITSM-On-Prem-Help/Content/Resources/GLOBAL_Images/delete_red_x.png"></Image>
+
+<Paragraph indent="1">
+  at the end of the row.
+</Paragraph>
+
+7. Click Save.
+
+For additional information about adding indexes, see the Ivanti Service Manager online help. (For information about accessing the Ivanti Service Manager documentation.

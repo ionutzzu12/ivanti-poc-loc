@@ -1,0 +1,53 @@
+---
+title: About Third-Party Software
+docTags: 
+createdAt: Fri Jun 05 2026 13:49:30 GMT+0300 (Eastern European Summer Time)
+---
+
+\{\{Primary.Product}} supports the functionality provided by any third-party applications included in the \{\{Primary.Product}} distribution, regardless of the vendor's support status. Some of the versions mentioned in the documentation for these third-party applications will be updated to the latest versions in subsequent releases.
+
+## Third-Party Software Components
+
+The \{\{Primary.Product}} installation package provides the following required third-party software components:
+
+- Microsoft SQL Server 2014 Shared Management Objects
+- Microsoft System CLR Types for Microsoft SQL Server 2014
+- Microsoft Exchange Web Services Managed API 2.1
+- IISNode v0.2.26
+- Microsoft Access Database Engine 2016 Redistributable (x64)
+- Microsoft .NET Core 8.0 Runtime
+- URL Rewrite Module 2.1 (English)
+- VC++ 2015-2022 Redistributable (x64)
+- Node.js v25.6.1
+- Microsoft Windows Server Roles and Features
+
+<hint type="info">
+  Ensure these Roles and Features are part of the operating system or install them manually.
+</hint>
+
+- Redis 6.2.5 or later
+
+<hint type="info">
+  You have to install Redis manually. For more details, refer [Setting up Redis](../Install_Deploy_guide/On-premise-Redis-Setup.mdx).
+</hint>
+
+- Microsoft .NET Framework 4.8 Full
+- Server Manager - Windows Server Common (windows feature)
+- Server Manager - Windows Server Common\_WCF (windows feature)
+- Server Manager - Windows Server Common\_MSMQ (windows feature)
+
+If the installer does not detect these components on the host system, they are installed automatically.
+
+<hint type="info">
+  If you create your own installation packages for remote deployment, include the software components that are listed in the system requirements that follow.
+</hint>
+
+## Third-Party Software Support
+
+Ivanti relies on, and integrates with, many different third-party applications.
+
+Ivanti Software regularly performs quality assurance testing in the interactions between \{\{Primary.Product}} and these applications. Our policy is to support any tested version of a third-party application (as certified) and newer versions (as compliant), so long as the third-party vendor claims and maintains backward compatibility.
+
+If Ivanti Software becomes aware that a third-party vendor has not maintained backward compatibility to the most recent certified version, Ivanti Software notes this in the compatibility matrix as an exception.
+
+\{\{Primary.Product}} does not support third-party applications that are older than a certified version. Ivanti Software often certifies more than one version of third-party software when more than one version is in common use; otherwise, the current generally available version is used during each Ivanti Software version quality assurance cycle.

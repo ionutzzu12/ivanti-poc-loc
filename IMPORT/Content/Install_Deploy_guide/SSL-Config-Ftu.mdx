@@ -1,0 +1,104 @@
+---
+title: SSL Configuration
+docTags: 
+createdAt: Fri Jun 05 2026 13:49:30 GMT+0300 (Eastern European Summer Time)
+---
+
+This section explains how to configure Secure Sockets Layer (SSL) on Internet Information Services (IIS) for first-time users.
+
+The configuration of SSL for a site includes the following steps:
+
+- Create an SSL binding on a site.
+- Verify the SSL binding by making a request to the site.
+- Configure SSL options in IIS by making SSL a requirement for the site.
+
+## Prerequisites
+
+- Install Microsoft IIS in your virtual machine or computer.
+- Obtain appropriate certificate for SSL encryption and for authenticating the identity of the server.
+
+## Create an SSL binding
+
+1. Open **Internet Information Services (IIS) Manager**, and open **Server Certificates**.
+2. Click **Import**, and upload the certificate.
+
+<Paragraph indent="1">
+  After the certificate is imported, it appears on th&#x65;**&#x20;Server Certificates** page.
+</Paragraph>
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/ZVrth9dkGPTaRsm-6cKDn_servercertlisted.png" position="flex-start" size="40" indent="1" initialPath="Install_Deploy_Images/server_cert_listed.png" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Install_Deploy_Images/server_cert_listed.png"></Image>
+
+3. In the **Connections** pane, go to **Sites** > **Default Web Site**.
+4. In the **Actions** pane, click **Bindings** to create SSL binding. The Site Bindings window opens.
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/LzQdPmmbHaYGXg-KA1udl_binding-option.png" position="flex-start" size="40" indent="1" initialPath="Install_Deploy_Images/binding-option.png" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Install_Deploy_Images/binding-option.png"></Image>
+
+5. Click **Add**, and enter the required information:
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/wHWuE-bQT5FwTs6TP_w7h_site-binding.png" position="flex-start" size="40" indent="1" initialPath="Install_Deploy_Images/site-binding.png" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Install_Deploy_Images/site-binding.png"></Image>
+
+| Field               | Description                                                                              |
+| ------------------- | ---------------------------------------------------------------------------------------- |
+| **Type**            | Select **https** from the dropdown menu.                                                 |
+| **IP address**      | Select **All Unassigned** from the dropdown menu.                                        |
+| **Port**            | Enter 443.                                                                               |
+| **Host name**       | Enter the host name of your virtual machine or computer.                                 |
+| **SSL certificate** | From the dropdown menu, select the certificate that you uploaded in Server Certificates. |
+
+6. Click **OK**.
+
+<Paragraph indent="1">
+  IIS creates a new SSL binding for your site.
+</Paragraph>
+
+Next, you can verify whether the SSL binding works.
+
+## Verify the SSL binding
+
+1. In the **Connections** pane, go to> **Sites&#x20;**> **Default Web Site**.
+2. In the **Actions** pane, under **Browser Website**, click the site you configured.
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/5zOika_HN6YTN0-eo7qqt_browse-website.png" position="flex-start" size="40" indent="1" initialPath="Install_Deploy_Images/browse-website.png" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Install_Deploy_Images/browse-website.png"></Image>
+
+The site opens in your default browser. If SSL is configured correctly, the URL begins with https, indicating a secured connection.
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/Ote1bdwxqlSvd7HF2ngwo_site-ssl-configured.png" position="flex-start" size="40" initialPath="Install_Deploy_Images/site-ssl-configured.png" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Install_Deploy_Images/site-ssl-configured.png"></Image>
+
+## Configure SSL options in IIS
+
+1. Go to **Connections** pane >**&#x20;Sites** > **Default Web Site**.
+2. On the **Default Web Site Home** page, open **SSL Settings**.
+3. Select the **Require SSL** checkbox.
+4. Select the **Accept** button for Client certificates.
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/n1JaF_QPG2aIj_GNE7nK7_ssl-settings.png" position="flex-start" size="40" indent="1" initialPath="Install_Deploy_Images/ssl-settings.png" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Install_Deploy_Images/ssl-settings.png"></Image>
+
+5. Click **Apply**.
+
+Once you enable this setting, your host device is secured and you can access the application securely with https.
+
+## Manage trusted root certificates for a local computer
+
+To prevent security warnings in the browser, you need to add the certificate to th&#x65;**&#x20;Trusted Root Certification Authorities** store on your local computer so that the browser recognizes it as a trusted source.
+
+To add the certificate to the **Trusted Root Certification Authorities**, follow these steps:
+
+1. Click **Start** and search for **mmc**.
+2. On the **File** menu, click **Add/Remove Snap-ins**.
+3. Under **Available snap-ins**, selec&#x74;**&#x20;Certificates** and click **Add**.
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/8BLDg8xK-mJksFkEv8JpS_addremovesnapins.png" position="flex-start" size="40" indent="1" initialPath="Install_Deploy_Images/add_remove_snapins.png" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Install_Deploy_Images/add_remove_snapins.png"></Image>
+
+4. Select **Computer account**, and click **Next**.
+5. Click **Finish**, and then click **OK**.
+6. In the console tree, go to **Certificates (Local Computer)** > **Trusted Root Certification Authorities**.
+7. Right-click **Certificates**, and go to **All Tasks** > **Import**.
+8. Click **Next**, and upload the same certificate you used for SSL binding.
+
+The local computer now trusts your certificate, and any connections or applications that rely on this certificate will recognize it as secure and valid.
+
+If you want to configure both your \{\{Primary.Product}} application database and configuration database to use SSL, refer to :Link[Optional SSL Configuration]{label="Optional SSL Configuration" overridedLabel="Optional SSL Configuration" spaceId docId="7jMjfA-KPBueRZn9NgoLH" version="v2" docAnchorId="#h2_Optional_SSL_Configuration" loadingMethod="dynamic" newTab="false" githubPath="SSL_Config.htm#h2_Optional_SSL_Configuration" href="SSL_Config.mdx"}.
+
+<hint type="info">
+  SSL offloading is enabled in IIS Reverse Proxy, so we recommend deploying it only inside trusted network zones.
+</hint>

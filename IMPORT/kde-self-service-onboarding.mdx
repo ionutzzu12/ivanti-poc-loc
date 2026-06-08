@@ -1,0 +1,246 @@
+---
+title: KDE Self-Service Onboarding
+docTags: 
+createdAt: Fri Jun 05 2026 16:14:14 GMT+0300 (Eastern European Summer Time)
+---
+
+**KDE Self-Service Onboarding2**
+
+**Overview**
+
+The KDE (Kyndryl Developer Experience) Self-Service Onboarding feature enables squad leaders to independently onboard and manage their squads, systems, components, APIs, and related resources. This unified and guided interface minimizes dependency on platform administrators, standardizes onboarding workflows, and significantly accelerates time-to-value for engineering teams. This document covers the following sections:
+
+1. [Prerequisites](https://kyndryl.sharepoint.com/sites/KDE-Developer-Experience/SitePages/KDE-User-Guide.aspx#prerequisites)
+
+2. [Squad Onboarding](https://kyndryl.sharepoint.com/sites/KDE-Developer-Experience/SitePages/KDE-User-Guide.aspx#squad-onboarding)
+
+3. [Squad Management](https://kyndryl.sharepoint.com/sites/KDE-Developer-Experience/SitePages/KDE-User-Guide.aspx#squad-management)
+
+4. [System & Entity Onboarding](https://kyndryl.sharepoint.com/sites/KDE-Developer-Experience/SitePages/KDE-User-Guide.aspx#system-entity-onboarding)
+
+**Prerequisites**
+
+Before starting the self-service onboarding process, ensure the following prerequisites are met:
+
+\- You have access to the KDE Portal.
+
+\- You have a valid enterprise user account (corporate email).
+
+**Squad Onboarding**
+
+Squad onboarding is the first step in the self-service journey. During this process, a user requests elevation to the Squad Owner role, which grants permissions to manage squad members and technical entities.
+
+**Initiating the Request**
+
+Follow the steps below to initiate a squad onboarding request:
+
+1\. Navigate to the Self-Service Onboarding page in the KDE Portal.
+
+2\. The landing screen displays the option to initiate the onboarding process.
+
+ 
+
+3\. Click the "Initiate Onboarding Process" button.
+
+![Picture 1](https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/2BnrZiR_MvIDnD04qarED_image.png)
+
+4\. Complete the Request Details form:
+
+![Picture 1](https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/TecsrVdYK1i3WwRHGfk0e_image.png)
+
+ 
+
+\- Department: Select your organization. This automatically populates the Squad Identity prefix based on GEMU GitHub team mappings.
+
+\- Squad Name: Select your squad from the fetched ADO teams list. If not listed, use the "Add new squad" option to manually enter the squad name.
+
+\- Squad Owner Email: Auto-populated from your user profile.
+
+\- Requested RBAC Role: Auto-filled as Owner.
+
+\- Current Role: Select your current role from the available options.
+
+During onboarding, the system automatically provisions role-based access control (RBAC) groups:
+
+\- Owner (Admin): Full administrative access for squad, entities, and members.
+
+\- Developer (Read-Write): Can create and modify systems and entities.
+
+\- Viewer (Read-Only): View-only access to entities.
+
+5\. Click Submit to send the onboarding request for approval.
+
+ 
+
+**Approval Process**
+
+After submission, the onboarding request progresses through a transparent approval workflow, which is visualized using the Squad Onboarding Stepper.
+
+The approval stages include:
+
+1\. Initiate the Request – Request successfully submitted.
+
+2\. Under FLM Review – Approval from the First-Line Manager.
+
+3\. Under KDE Administrator Review – Final validation by the KDE platform administrators.
+
+![Picture 1](https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/4RhJbN7cild0vmzBwWBBD_image.png)
+
+**Note:** The current status of the onboarding request can be tracked at any time from the onboarding landing page.
+
+**Squad Management**
+
+Once the onboarding request is approved, you are granted Squad Owner access and redirected to the Squad Dashboard. This dashboard provides centralized control over squad members and project entities. And visibility into entity statistics, and onboarding activity status.
+
+![Picture 1](https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/-f04afOYcTDjUyBe2QktG_image.png)
+
+**Activity Summary**
+
+The Activity Summary card confirms successful execution of backend onboarding steps.
+
+\- Domain (Squad) creation
+
+\- GitHub squad team setup
+
+\- YAML group creation
+
+\- RBAC role and policy provisioning
+
+**Entity & Squad Statistics**
+
+The dashboard displays real-time counts of Systems, APIs, Components, Resources, and Total Squad Members.
+
+**My Team Tab**
+
+The My Team tab displays squad-level configuration details and member information.
+
+![Picture 1](https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/NLQoAftKm_U0VgHB_tAQe_image.png)
+
+**Header Information**
+
+The header section displays important squad metadata, including:
+
+\- Squad & Department mapping.
+
+\- GitHub Team and YAML Group references.
+
+\- Domain YAML configuration link.
+
+**Managing Members**
+
+The squad member table allows you to perform the following actions:
+
+\- Add Members: Invite new users to the squad.
+
+\- Edit Role: Update a member’s role using the pencil icon.
+
+\- Remove Members: Remove users using the delete (trash) icon.
+
+\- Search: Quickly locate members using the search bar.
+
+ 
+
+**System & Entity Onboarding**
+
+The My Project Entity tab serves as the primary workspace for managing systems and their associated entities. Entities are displayed in a hierarchical structure, with Systems as top-level nodes.
+
+![Picture 1](https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/jVjs8yt0dWe09fck5lISV_image.png)
+
+**Creating a System**
+
+To onboard a new system, perform the following steps:
+
+1\. Click the + Create button in the top-right corner of the dashboard.
+
+2\. Complete the Create System form:
+
+\- Domain (Squad): Auto-filled based on your squad context.
+
+\- System Name & Title: Unique identifier and display name.
+
+\- Description: Brief explanation of the system’s purpose.
+
+\- Tags: Mandatory for classification and discoverability.
+
+\- Environment: Target environment (e.g., Development, Test, Production).
+
+\- Documents: Reference documentation names and URLs.
+
+3\. Click Submit to create the system.
+
+![Picture 1](https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/pzqtRi1RBwOFjJ3F8wsPS_image.png)
+
+ 
+
+ 
+
+**Adding Child Entities**
+
+APIs, Components, and Resources are created under an existing system to maintain logical grouping.
+
+Steps to add a child entity:
+
+1\. Locate the parent system in the All Entities table.
+
+2\. Click the three-dot (ellipsis) menu for the system.
+
+3\. Select Create API, Create Component, or Create Resource.
+
+4\. Complete the entity-specific form, including:
+
+\- Basic Details: Name, Title, Description.
+
+\- Tags: Mandatory classification tags.
+
+\- Technical Details: Repository links, lifecycle, specification type, etc.
+
+\- Documents: Related references and URLs.
+
+5\. Click Save to create the entity.
+
+ 
+
+**Add Resource Entity**
+
+Resource entities represent infrastructure or external dependencies such as databases or messaging systems.
+
+![Picture 1](https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/17eQY-BoEg1q_TzkQ2Oq3_image.png)
+
+ 
+
+**Add Component Entity**
+
+Component entities describe deployable services and include dependency mapping, cluster details, and API relationships.
+
+![Picture 1](https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/UDGvJ6yfTsABbIxH0Zxda_image.png)
+
+**Add API Entity**
+
+API entities capture interface definitions and integration details including spec type, lifecycle, repositories, and documentation.
+
+![Picture 1](https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/UDGvJ6yfTsABbIxH0Zxda_image.png)
+
+**Managing Entities**
+
+Each entity row provides management actions via the three-dot menu:
+
+\- View Details: Open a detailed configuration view.
+
+\- Edit: Update editable fields of the entity.
+
+\- Duplicate: Create a copy for faster onboarding of similar entities.
+
+\- Delete:
+
+  - Systems: Delete system along with all related entities.
+
+  - Child entities: Remove individual APIs, components, or resources.
+
+**System entity actions:**
+
+![Picture 1](https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/0kDgQdSEmQx1-2U6FhC6W_image.png)
+
+### **Delete the entity:**
+
+![Picture 1](https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/DdXF7nceaErIfmfzKSQyJ_image.png)
+

@@ -1,0 +1,115 @@
+---
+title: Compatibility Matrix
+docTags: 
+createdAt: Fri Jun 05 2026 13:49:30 GMT+0300 (Eastern European Summer Time)
+---
+
+This compatibility matrix provides a comprehensive overview of the system components that required for the optimal deployment and operation of \{\{Primary.Product}}.
+
+See also [About Third-Party-Software](About_Third_Party_Software.mdx).
+
+## Legend
+
+| C  | Has been fully tested by Quality Assurance (QA) and indicates compatibility (supported).             |
+| -- | ---------------------------------------------------------------------------------------------------- |
+| W  | Has not been fully tested by QA for compatibility and/or integration, but works (supported).         |
+| N  | Has been tested by QA for compatibility and/or integration but is NOT supported due to test results. |
+| NT | Has not been tested by QA; is currently NOT supported due to lack of testing.                        |
+| -- | Not applicable/not available (not supported).                                                        |
+
+## Server Compatibility
+
+| Operating System                              | \{\{Primary.Product}} Release 2026 |
+| --------------------------------------------- | ---------------------------------- |
+| Microsoft Windows Server 2019 English - EN-US | C                                  |
+| Microsoft Windows Server 2022 English - EN-US | C                                  |
+| Microsoft Windows Server 2025 English - EN-US | C                                  |
+
+## Microsoft .NET Framework
+
+|                                        | \{\{Primary.Product}} Release 2026 |
+| -------------------------------------- | ---------------------------------- |
+| Microsoft .NET Framework Release 4.8   | C                                  |
+| Microsoft .NET Framework Release 4.8.1 | C                                  |
+
+## Web Servers
+
+|                             | \{\{Primary.Product}} Release 2026 |
+| --------------------------- | ---------------------------------- |
+| Microsoft IIS Release 10 \* | C                                  |
+
+\* Versions 1607 and 1809, which supports Windows Server 2019 or later
+
+## Database Management Software
+
+|                                | \{\{Primary.Product}} Release 2026 |
+| ------------------------------ | ---------------------------------- |
+| Microsoft SQL Server 2017 \*   | C                                  |
+| Microsoft SQL Server 2019      | C                                  |
+| Microsoft SQL Server 2022 \*\* | C                                  |
+| Microsoft SQL Server 2025      | C                                  |
+
+<font color="#000000">* ITSM 2026.1 is the last version to support SQL Server 2017.</font>
+
+\* Customers using SQL 2022 or SQL 2025 who are considering migrating to a Cloud deployment of \{\{Primary.Company}} \{\{Primary.Product}}, may have to downgrade their SQL 2022 or SQL 2025 database to SQL 2019 prior to migrating.
+
+<hint type="danger">
+  - ITSM application does not support case-sensitive SQL Collation.
+  - ITSM application only supports the SQL Collation of SQL\_Latin1\_General\_CP1\_CI\_AS.
+</hint>
+
+## Configuring a SQL Server Always On High Availability Group
+
+ITSM supports the **SQL Server Always On High Availability Group** feature. To configure, refer the [Microsoft documentation](https://learn.microsoft.com/en-us/azure/azure-sql/virtual-machines/windows/availability-group-manually-configure-tutorial-single-subnet?view=azuresql).
+
+| Database Management Software | \{\{Primary.Product}} Release 2026 |
+| ---------------------------- | ---------------------------------- |
+| Microsoft SQL Server 2017 \* | C                                  |
+| Microsoft SQL Server 2019    | C                                  |
+| Microsoft SQL Server 2022    | C                                  |
+| Microsoft SQL Server 2025    | C                                  |
+
+\* ITSM 2026.1 is the last version to support SQL Server 2017.
+
+<hint type="info">
+  - After configuring the **SQL Server Always On High Availability Group**, make sure to rerun the System Configuration Wizard by providing availability group listener name in the **Configuration Database Server Name** section.
+  - The Ops Console doesn’t work when the **SQL Server Always On High Availability Group** is enabled.
+  - When upgrading, make sure to remove the databases from the availability group. Once the upgrade is complete, you can add the databases back to the availability group.
+</hint>
+
+## Email Servers
+
+|                                                                                | \{\{Primary.Product}} Release 2026 |
+| ------------------------------------------------------------------------------ | ---------------------------------- |
+| Lotus Domino                                                                   | NT                                 |
+| Novell GroupWise                                                               | NT                                 |
+| Microsoft Exchange 2010 (Email Server products that support POP3, SMTP, IMAP4) | C                                  |
+| Microsoft Exchange Web Service                                                 | C                                  |
+| Google Service Account                                                         | C                                  |
+| MS Graph                                                                       | C                                  |
+
+## Other Integrations
+
+|                                              | \{\{Primary.Product}} Release 2026 |
+| -------------------------------------------- | ---------------------------------- |
+| Ivanti Voice                                 | C                                  |
+| Ivanti Service Manager DSM Release 2015.2    | NT                                 |
+| Ivanti Service Manager DSM Release 2016.x \* | W                                  |
+| Citrix                                       | NT                                 |
+| VMWare ESX 4                                 | W                                  |
+| Ivanti Service Manager Mobile                | C                                  |
+
+\* DSM EoL (End of Life) is Dec 31, 2026
+
+## Browser Compatibility
+
+<hint type="info">
+  \{\{Primary.Product}} versions 2022.1 and newer do not support Internet Explorer.
+</hint>
+
+| Browser         | Supported Version                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Google Chrome   | Ivanti recommends and supports using the Google Chrome version 142 or later (not including beta versions) with \{\{Primary.Product}}. If new versions of Google Chrome break compatibility with \{\{Primary.Product}}, we will document those exceptions here and work to support the new browser version with the next release.<br /><br />Download and install the [ClickOnce extension](<https://chrome.google.com/webstore/detail/meta4-clickonce- launcher/jkncabbipkgbconhaajbapbhokpbgkdc?hl=en>) to ensure that the Ivanti Neurons for ITSM reporting feature works correctly. |
+| Mozilla Firefox | Ivanti recommends and supports using the Mozilla Firefox version 132 or later (not including beta versions) with \{\{Primary.Product}}. If new versions of Mozilla Firefox break compatibility with \{\{Primary.Product}}, we will document those exceptions here and work to support the new browser version with the next release.                                                                                                                                                                                                                                                   |
+| Microsoft Edge  | Ivanti recommends and supports using the Microsoft Edge version 138 or later (not including beta versions) with \{\{Primary.Product}}. If new versions of Microsoft Edge break compatibility with \{\{Primary.Product}}, we will document those exceptions here and work to support the new browser version with the next release.                                                                                                                                                                                                                                                     |
+| Safari          | For MacOS clients, Ivanti recommends and supports using the Safari version 18.2 or later (not including beta versions) with \{\{Primary.Product}}. If new versions of Safari break compatibility with \{\{Primary.Product}}, we will document those exceptions here and work to support the new browser version with the next release.                                                                                                                                                                                                                                                 |

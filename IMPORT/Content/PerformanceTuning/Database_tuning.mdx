@@ -1,0 +1,483 @@
+---
+title: Database Tuning
+docTags: 
+createdAt: Fri Jun 05 2026 13:49:31 GMT+0300 (Eastern European Summer Time)
+---
+
+This section describes how to tune the Ivanti Service Manager database for optimal performance. If the system responds slowly while running queries, loading dashboards, or performing other actions, implement the recommendations described here. Information includes:
+
+- :Link[Performance Enhancement Recommendations]{label="Performance Enhancement Recommendations" overridedLabel="Performance Enhancement Recommendations" spaceId docId="TYkEMyGMRFSnUc_1wK4eX" version="v2" docAnchorId="#Performa" loadingMethod="dynamic" newTab="false" href="Database_tuning.mdx"}
+- [Tuning Indexes](Tune_Indexes.mdx)
+- [About Using Full Text Search](Full_Text_Search.mdx)
+
+## Performance Enhancement Recommendations
+
+The following sections describe recommendations and caveats to keep in mind when you tune the Ivanti Service Manager database.
+
+- :Link[About Tuning the Indexes on a Regular Basis]{label="About Tuning the Indexes on a Regular Basis" overridedLabel="About Tuning the Indexes on a Regular Basis" spaceId docId="TYkEMyGMRFSnUc_1wK4eX" version="v2" docAnchorId="#Perform" loadingMethod="dynamic" newTab="false" href="Database_tuning.mdx"}
+- [Deleting Inactive Tables and Records](Archiving_tables.mdx)
+- :Link[Checking for Under-Utilized Indexes]{label="Checking for Under-Utilized Indexes" overridedLabel="Checking for Under-Utilized Indexes" spaceId docId="TYkEMyGMRFSnUc_1wK4eX" version="v2" docAnchorId="#Check" loadingMethod="dynamic" newTab="false" href="Database_tuning.mdx"}
+- :Link[Turning on JSON Compression in Microsoft Internet Information Services (IIS)]{label="Turning on JSON Compression in Microsoft Internet Information Services (IIS)" overridedLabel="Turning on JSON Compression in Microsoft Internet Information Services (IIS)" spaceId docId="TYkEMyGMRFSnUc_1wK4eX" version="v2" docAnchorId="#Turning_on_JSONCompression" loadingMethod="dynamic" newTab="false" href="Database_tuning.mdx"}
+- :Link[Checking Database Latency and Moving Indexes to a Separate Disk]{label="Checking Database Latency and Moving Indexes to a Separate Disk" overridedLabel="Checking Database Latency and Moving Indexes to a Separate Disk" spaceId docId="TYkEMyGMRFSnUc_1wK4eX" version="v2" docAnchorId="#Check2" loadingMethod="dynamic" newTab="false" href="Database_tuning.mdx"}
+- :Link[About Creating Indexes Using the Configuration Console, Not Third-Party Tools]{label="About Creating Indexes Using the Configuration Console, Not Third-Party Tools" overridedLabel="About Creating Indexes Using the Configuration Console, Not Third-Party Tools" spaceId docId="TYkEMyGMRFSnUc_1wK4eX" version="v2" docAnchorId="#database.tuning_3939428069_1117924" loadingMethod="dynamic" newTab="false" href="Database_tuning.mdx"}
+- :Link[Checking for Duplicate Indexes]{label="Checking for Duplicate Indexes" overridedLabel="Checking for Duplicate Indexes" spaceId docId="TYkEMyGMRFSnUc_1wK4eX" version="v2" docAnchorId="#Check3" loadingMethod="dynamic" newTab="false" href="Database_tuning.mdx"}
+- :Link[System Tables to Not Index]{label="System Tables to Not Index" overridedLabel="System Tables to Not Index" spaceId docId="TYkEMyGMRFSnUc_1wK4eX" version="v2" docAnchorId="#Do" loadingMethod="dynamic" newTab="false" href="Database_tuning.mdx"}
+- :Link[Not Using Include Fields in Indexes]{label="Not Using Include Fields in Indexes" overridedLabel="Not Using Include Fields in Indexes" spaceId docId="TYkEMyGMRFSnUc_1wK4eX" version="v2" docAnchorId="#Do2" loadingMethod="dynamic" newTab="false" href="Database_tuning.mdx"}
+- :Link[Ignoring “Create Statistics” Index Results]{label="Ignoring “Create Statistics” Index Results" overridedLabel="Ignoring “Create Statistics” Index Results" spaceId docId="TYkEMyGMRFSnUc_1wK4eX" version="v2" docAnchorId="#Ignore" loadingMethod="dynamic" newTab="false" href="Database_tuning.mdx"}
+- :Link[Setting the Value for the Database Auto-Growth Parameter]{label="Setting the Value for the Database Auto-Growth Parameter" overridedLabel="Setting the Value for the Database Auto-Growth Parameter" spaceId docId="TYkEMyGMRFSnUc_1wK4eX" version="v2" docAnchorId="#Configur" loadingMethod="dynamic" newTab="false" href="Database_tuning.mdx"}
+- :Link[Monitoring Database Growth and Resetting the Auto-Growth Parameter as Necessary]{label="Monitoring Database Growth and Resetting the Auto-Growth Parameter as Necessary" overridedLabel="Monitoring Database Growth and Resetting the Auto-Growth Parameter as Necessary" spaceId docId="TYkEMyGMRFSnUc_1wK4eX" version="v2" docAnchorId="#Monitor" loadingMethod="dynamic" newTab="false" href="Database_tuning.mdx"}
+
+### About Tuning the Indexes on a Regular Basis
+
+Evaluate on an on-going basis the need to perform the re-indexing procedure described in [Tuning Indexes](Tune_Indexes.mdx). If necessary, you can perform the re-indexing procedure as part of normal maintenance.  It does not require hardware or other infrastructure changes.
+
+### About Deleting Inactive Tables on a Regular Basis
+
+Whenever possible, delete inactive tables in the Ivanti Service Manager database to keep the database size and complexity to a minimum. See [Deleting Inactive Tables and Records](Archiving_tables.mdx) for details about deleting.
+
+### Checking for Under-Utilized Indexes
+
+Ivanti Service Manager uses indexes to quickly access data. This is defined as reading from the index. Every time that you add a new record, you must also add the new record information to all of the indexes that it applies to. This is defined as writing to an index. While using an index saves time, adding information (writing) to the index takes time.
+
+We recommend that you check your indexes to ensure that they are used frequently. If an index is not used frequently, the performance impact of writing to it initially might not justify the benefits that it provides. One way to check for under-utilization is to determine the ratio of an index of reads to writes. If you have a table that you are writing records to frequently, but you are not reading using this index very often, it takes more effort to add the new record to the index than it is probably worth.
+
+Calculate the read\:write ratio for an index to determine if it is under utilized. If an index has a read\:write ratio of 10:1 or less (that is, if total reads to the index does not equal at least 10 times the number of total writes to the index), you should consider deleting the index.
+
+Run the following Microsoft SQL script on the Ivanti Service Manager database to check how often data in an index is read and how often it is written.
+
+\-- This script checks for under-utilized indexes.
+
+\-- Indexes in which the number of "writes" outnumbers
+
+\-- the number of "reads" by far, e.g., 90%, are
+
+\-- considered possibly under-utilized indexes.
+
+SELECT OBJECT\_NAME(s.object\_id)AS 'Table Name',
+
+<hint type="success">
+  i.name AS 'Index Name',
+</hint>
+
+<hint type="success">
+  i.index_id,
+</hint>
+
+<hint type="success">
+  user_updates AS 'Total Writes',
+</hint>
+
+<hint type="success">
+  user_seeks + user_scans + user_lookups AS 'Total Reads',
+</hint>
+
+<hint type="success">
+  user\_updates - (user\_seeks + user\_scans + user\_lookups)
+
+  AS 'Difference'
+</hint>
+
+FROM sys.dm\_db\_index\_usage\_stats AS s WITH (NOLOCK)
+
+<hint type="success">
+  INNER JOIN sys.indexes AS i WITH (NOLOCK)ON s.object\_id
+
+  \= i.object\_id
+</hint>
+
+<hint type="success">
+  AND i.index_id = s.index_id
+</hint>
+
+WHERE OBJECTPROPERTY(s.object\_id,'IsUserTable')= 1
+
+<hint type="success">
+  AND s.database_id =DB_ID()
+</hint>
+
+<hint type="success">
+  AND user_updates > (user_seeks + user_scans + user_lookups)
+</hint>
+
+<hint type="success">
+  AND i.index_id > 1
+</hint>
+
+ORDER BY 'Difference' DESC,
+
+<hint type="success">
+  'Total Writes' DESC,
+</hint>
+
+<hint type="success">
+  'Total Reads' ASC;
+</hint>
+
+### Turning on JSON Compression in Microsoft Internet Information Services (IIS)
+
+Follow these steps to improve performance by implementing JSON compression:
+
+1. Open the Computer Management panel by going to **Start > Control Panel > Administrative Tools > Computer Management**.
+2. In the Computer Management panel, double-click **Services and Applications** and double-click **Internet Information Services (IIS)**.
+3. On the page for the server (not the site) click Configuration Editor.
+4. Expand system.webServer and click httpCompression.
+5. Click dynamicTypes to open it.
+6. Click mimeType to open the Properties dialog box.
+7. For the mimeType entry, enter application/json, and for the enabled entry, enter True.
+8. Click Apply.
+9. Restart your Microsoft IIS server to load the new module.
+
+### Checking Database Latency and Moving Indexes to a Separate Disk
+
+When data and indexes are stored on the same physical disk, resource contention might occur when the system looks up an index and retrieves the corresponding data. Measure the database latency to determine whether resource contention is affecting performance.
+
+Run the following script on the Ivanti Service Manager database to check database latency. If database latency significantly exceeds 110 ms, move indexes to a physical disk that is separate from the disk that stores the Ivanti Service Manager database.
+
+\-- Description: This script checks the latency on the
+
+\-- different Ivanti databases. Ideally the latency figure
+
+\-- should be a single digit value.
+
+SELECT
+
+<hint type="success">
+  \--virtual file latency
+</hint>
+
+<hint type="success">
+  \[ReadLatency] =
+</hint>
+
+<hint type="success">
+  <hint type="success">
+    CASE WHEN [num_of_reads] = 0
+  </hint>
+</hint>
+
+<hint type="success">
+  <hint type="success">
+    <hint type="success">
+      THEN 0 ELSE ([io_stall_read_ms] / [num_of_reads]) END,
+    </hint>
+  </hint>
+</hint>
+
+<hint type="success">
+  \[WriteLatency] =
+</hint>
+
+<hint type="success">
+  <hint type="success">
+    CASE WHEN [num_of_writes] = 0
+  </hint>
+</hint>
+
+<hint type="success">
+  <hint type="success">
+    <hint type="success">
+      THEN 0 ELSE ([io_stall_write_ms] / [num_of_writes]) END,
+    </hint>
+  </hint>
+</hint>
+
+<hint type="success">
+  \[Latency] =
+</hint>
+
+<hint type="success">
+  <hint type="success">
+    CASE WHEN ([num_of_reads] = 0 AND [num_of_writes] = 0)
+  </hint>
+</hint>
+
+<hint type="success">
+  <hint type="success">
+    <hint type="success">
+      THEN 0 ELSE ([io_stall] / ([num_of_reads] + [num_of_writes]))             END,
+    </hint>
+  </hint>
+</hint>
+
+<hint type="success">
+  \--avg bytes per IOP
+</hint>
+
+<hint type="success">
+  \[AvgBPerRead] =
+</hint>
+
+<hint type="success">
+  <hint type="success">
+    CASE WHEN [num_of_reads] = 0
+  </hint>
+</hint>
+
+<hint type="success">
+  <hint type="success">
+    <hint type="success">
+      THEN 0 ELSE ([num_of_bytes_read] / [num_of_reads]) END,
+    </hint>
+  </hint>
+</hint>
+
+<hint type="success">
+  \[AvgBPerWrite] =
+</hint>
+
+<hint type="success">
+  <hint type="success">
+    CASE WHEN [io_stall_write_ms] = 0
+  </hint>
+</hint>
+
+<hint type="success">
+  <hint type="success">
+    <hint type="success">
+      THEN 0 ELSE ([num_of_bytes_written] / [num_of_writes]) END,
+    </hint>
+  </hint>
+</hint>
+
+<hint type="success">
+  \[AvgBPerTransfer] =
+</hint>
+
+<hint type="success">
+  <hint type="success">
+    CASE WHEN ([num_of_reads] = 0 AND [num_of_writes] = 0)
+  </hint>
+</hint>
+
+<hint type="success">
+  <hint type="success">
+    <hint type="success">
+      THEN 0 ELSE
+    </hint>
+  </hint>
+</hint>
+
+<hint type="success">
+  <hint type="success">
+    <hint type="success">
+      <hint type="success">
+        (([num_of_bytes_read] + [num_of_bytes_written])/
+      </hint>
+    </hint>
+  </hint>
+</hint>
+
+<hint type="success">
+  <hint type="success">
+    <hint type="success">
+      <hint type="success">
+        ([num_of_reads] + [num_of_writes])) END,
+      </hint>
+    </hint>
+  </hint>
+</hint>
+
+<hint type="success">
+  LEFT ([mf].[physical_name], 2) AS [Drive],
+</hint>
+
+<hint type="success">
+  DB_NAME ([vfs].[database_id]) AS [DB],
+</hint>
+
+<hint type="success">
+  \-- [vfs].*,
+</hint>
+
+<hint type="success">
+  \[mf].[physical_name]
+</hint>
+
+FROM
+
+<hint type="success">
+  sys.dm_io_virtual_file_stats (NULL,NULL) AS [vfs]
+</hint>
+
+<hint type="success">
+  JOIN sys.master_files AS [mf]
+</hint>
+
+<hint type="success">
+  ON [vfs].[database_id] = [mf].[database_id]
+</hint>
+
+<hint type="success">
+  AND [vfs].[file_id] = [mf].[file_id]
+</hint>
+
+<hint type="success">
+  WHERE DB_NAME ([vfs].[database_id]) like '%HEAT%'
+</hint>
+
+\-- and \[vfs].\[file\_id] = 2 -- log files
+
+\-- ORDER BY \[Latency] DESC
+
+\-- ORDER BY \[ReadLatency] DESC
+
+ORDER BY \[WriteLatency] DESC;
+
+GO
+
+### About Creating Indexes Using the Configuration Console, Not Third-Party Tools
+
+Do not use third-party tools (such as Microsoft SQL Server Management Studio) to update indexes in the Ivanti Service Manager database. Instead, use the Configuration Console to create new indexes. We recommend this because the Configuration Console creates and maintains index information as Ivanti Service Manager metadata. Ivanti Service Manager uses this metadata whenever tables or indexes in the Ivanti Service Manager database need to be recreated.
+
+### Checking for Duplicate Indexes
+
+Check for duplicate indexes in these situations:
+
+- Before creating indexes in the Ivanti Service Manager database, make sure that the table for which you are creating an index does not already have an index containing the same fields.
+- If you suspect that duplicate indexes already exist and are impacting performance, find and delete them.
+
+The following sections describe how to check a specific table to determine whether it is indexed, and how to query the Ivanti Service Manager database to identify all duplicate indexes.
+
+- :Link[Checking a Specific Table for Indexes]{label="Checking a Specific Table for Indexes" overridedLabel="Checking a Specific Table for Indexes" spaceId docId="TYkEMyGMRFSnUc_1wK4eX" version="v2" docAnchorId="#database.tuning_3939428069_1127125" loadingMethod="dynamic" newTab="false" href="Database_tuning.mdx"}
+- :Link[Checking for Duplicate Indexes Using a Microsoft SQL Script]{label="Checking for Duplicate Indexes Using a Microsoft SQL Script" overridedLabel="Checking for Duplicate Indexes Using a Microsoft SQL Script" spaceId docId="TYkEMyGMRFSnUc_1wK4eX" version="v2" docAnchorId="#database.tuning_3939428069_1127176" loadingMethod="dynamic" newTab="false" href="Database_tuning.mdx"}
+
+### Checking a Specific Table for Indexes
+
+Follow these steps:
+
+1. Open Microsoft SQL Server Management Studio.
+2. In the Object Explorer panel, navigate to the Ivanti Service Manager database.
+3. Navigate to **Tables > System Tables >&#x20;*****table\_name*****&#x20;> Indexes**.
+4. Double-click an index to open it in the Index Properties window. Indexed fields are listed in the Index key columns area.
+
+*Checking for Fields that are Already Indexed*
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/er1Tyk9AQ98mtEFzUQptO_sqlserver1.png" position="flex-start" size="40" initialPath="PerfTune_Images/sql.server.1.png" githubPath="ITSM-On-Prem-Help/Content/PerformanceTuning/PerfTune_Images/sql.server.1.png"></Image>
+
+### Checking for Duplicate Indexes Using a Microsoft SQL Script
+
+Run the following Microsoft SQL script on the Ivanti Service Manager database to identify duplicate indexes:
+
+\-- This script checks for duplicate indexes.
+
+with indexcols AS
+
+(
+
+SELECT object\_id AS id,
+
+<hint type="success">
+  index_id AS indid, name,
+</hint>
+
+(SELECT case keyno WHEN 0 THEN NULL ELSE colid END AS \[data()]
+
+FROM sys.sysindexkeys AS k
+
+<hint type="success">
+  where k.id = i.object_id
+</hint>
+
+<hint type="success">
+  and k.indid = i.index_id
+</hint>
+
+ORDER BY keyno, colid
+
+for xml path('')) AS cols,
+
+(SELECT case keyno when 0 then colid else NULL end AS \[data()]
+
+from sys.sysindexkeys AS k
+
+<hint type="success">
+  where k.id = i.object_id
+</hint>
+
+<hint type="success">
+  and k.indid = i.index_id
+</hint>
+
+ORDER BY colid
+
+for xml path ('')) AS inc
+
+FROM sys.indexes AS i
+
+)
+
+SELECT object\_schema\_name(c1.id) + '.' + object\_name(c1.id) AS 'table',
+
+<hint type="success">
+  c1.name as 'index',
+</hint>
+
+<hint type="success">
+  c2.name as 'exactduplicate'
+</hint>
+
+FROM indexcols as c1
+
+<hint type="success">
+  JOIN indexcols as c2
+</hint>
+
+<hint type="success">
+  ON c1.id = c2.id
+</hint>
+
+<hint type="success">
+  AND c1.indid < c2.indid
+</hint>
+
+<hint type="success">
+  AND c1.cols = c2.cols
+</hint>
+
+<hint type="success">
+  AND c1.inc = c2.inc;
+</hint>
+
+### System Tables to Not Index
+
+We recommend that you do not index tables that begin with FRS\_. These are system tables containing default indexes that are required for Ivanti Service Manager to function properly.
+
+### Not Using Include Fields in Indexes
+
+See :Link[Best Practices for Creating New Indexes]{label="Best Practices for Creating New Indexes" overridedLabel="Best Practices for Creating New Indexes" spaceId docId="2hxaOThjwsZWbQYWb_9_6" version="v2" docAnchorId="#Best" loadingMethod="dynamic" newTab="false" githubPath="Tune_Indexes.htm#Best" href="Tune_Indexes.mdx"} for more information.
+
+### Ignoring “Create Statistics” Index Results
+
+When creating indexes, ignore the “Create Statistics” results returned by performance tuning tools. See :Link[Best Practices for Creating New Indexes]{label="Best Practices for Creating New Indexes" overridedLabel="Best Practices for Creating New Indexes" spaceId docId="2hxaOThjwsZWbQYWb_9_6" version="v2" docAnchorId="#Best" loadingMethod="dynamic" newTab="false" githubPath="Tune_Indexes.htm#Best" href="Tune_Indexes.mdx"} for more information.
+
+### Setting the Value for the Database Auto-Growth Parameter
+
+By default, the auto-growth size of a new database is 1 MB. This is too small for the Ivanti Service Manager database, so you must increase it.
+
+To estimate and configure the appropriate auto-growth size for your Ivanti Service Manager database, do the following:
+
+1. Estimate the total size of your initial Ivanti Service Manager database based on expected transactions for incident, service request, and other primary business objects.
+2. Open Microsoft SQL Server Management Studio.
+3. In the Object Explorer panel, navigate to the Ivanti Service Manager database.
+4. Right click the Ivanti Service Manager database and select **Properties**.
+5. In the Select a page panel, click **Files**.
+6. In the Initial Size (MB) column of the Ivanti Service Manager database line item, set the initial database size based on your estimate from step 1.
+
+*Specifying the Initial Size of the Ivanti Service Manager Database*
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/qSE-uV9wIBzoZSgs447-8_autogrowth1.png" position="flex-start" size="40" initialPath="PerfTune_Images/autogrowth.1.png" githubPath="ITSM-On-Prem-Help/Content/PerformanceTuning/PerfTune_Images/autogrowth.1.png"></Image>
+
+7. Click the details icon in the Ivanti Service Manager database line item to open the Change Autogrowth for Ivanti Service Manager dialog box.
+8. Check Enable Autogrowth, select In Megabytes, and enter a number that is 5 to 10 percent of the initial database size.  We recommend that you set the auto-growth parameter using a static value instead of a percentage.
+
+*Setting the Auto-Growth Parameter*
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/q5pzTZFQYKxvstLR-LMwc_autogrowth2.png" position="flex-start" size="40" initialPath="PerfTune_Images/autogrowth.2.png" githubPath="ITSM-On-Prem-Help/Content/PerformanceTuning/PerfTune_Images/autogrowth.2.png"></Image>
+
+9. Click **OK**.
+
+### Monitoring Database Growth and Resetting the Auto-Growth Parameter as Necessary
+
+We recommend that you periodically evaluate whether the value for the Enable Autogrowth parameter is appropriate and reset it as necessary.
+
+After you create the initial Ivanti Service Manager database, monitor its size every month for the first few months to estimate its growth rate. If necessary, reset the value for the Enable Autogrowth parameter based on the observed growth rate. After you determine the long-term growth pattern, you can usually wait six months or longer before checking and adjusting the value of the Enable Autogrowth parameter.

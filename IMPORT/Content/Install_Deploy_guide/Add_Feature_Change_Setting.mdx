@@ -1,0 +1,61 @@
+---
+title: Adding Features and Changing Settings
+docTags: 
+createdAt: Fri Jun 05 2026 13:49:30 GMT+0300 (Eastern European Summer Time)
+---
+
+- :Link[Adding and Deleting Features]{label="Adding and Deleting Features" overridedLabel="Adding and Deleting Features" spaceId docId="WGF0LK9K1xyiWAHNHpOI4" version="v2" docAnchorId="#h2_Adding_and_Deleting_Features" loadingMethod="dynamic" newTab="false" href="Add_Feature_Change_Setting.mdx"}
+- :Link[Changing Feature Settings by Running the System Configuration Wizard]{label="Changing Feature Settings by Running the System Configuration Wizard" overridedLabel="Changing Feature Settings by Running the System Configuration Wizard" spaceId docId="WGF0LK9K1xyiWAHNHpOI4" version="v2" docAnchorId="#h2_Changing_Feature_Settings" loadingMethod="dynamic" newTab="false" href="Add_Feature_Change_Setting.mdx"}
+
+## Adding and Deleting Features
+
+Adding features to or deleting features from an existing \{\{Primary.Product}} system is much easier than upgrading the system.
+
+If you have an [Enterprise Production Deployment](Deployment_Enter_Prod.mdx), your action might apply to just one, some, or all of the servers, depending on the features that you are adding or deleting.
+
+<hint type="info">
+  To add servers to your deployment, follow the instructions under [Installing the Neurons for ITSM System](Install_Server.mdx)
+</hint>
+
+To add features or delete features, do the following:
+
+1. Access the installation folder on the \{\{Primary.Company}} Software product CD or zip file and run IvantiServiceManager.exe. Right-click and select Run as Administrator to ensure proper installation.
+
+The installer checks for the prerequisite software components. If any of those components is not installed, the system prompts you to install them now.
+
+2. Select **Install** at prompt. Installation of the prerequisite software can take several minutes.
+3. If you are prompted to restart the system, select **Yes**. The system displays the Welcome dialog box.
+4. Click **Next**. The system displays the Program Maintenance dialog box.
+5. Choose Modify and click **Next**. The system displays the Custom Setup dialog box.
+
+*Custom Setup Dialog Box*
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/l6mV5KD16B0iDFbUtB8J7_customsetupinstallation.png" position="flex-start" size="40" initialPath="Install_Deploy_Images/custom_setup_installation.png" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Install_Deploy_Images/custom_setup_installation.png"></Image>
+
+6. Click the down arrow on each feature and make your selection.
+
+<hint type="info">
+  Adding features requires more hard-drive space. If there is not enough space on your hard drive, the installer displays a message.
+</hint>
+
+7. Click Next and then click Install.
+
+The \{\{Primary.Product}} installation begins. The system displays a status dialog box showing the installation progress of each component over the next few minutes.
+
+8. If you cancel the installation at any time, click Finish to close the installer.
+
+When the components are installed, the system automatically launches the System Configuration Wizard.
+
+9. Go to [Configuring Neurons for ITSM ](Server_Config_Procedure.mdx)for instructions about using the System Configuration Wizard.
+
+## Changing Feature Settings by Running the System Configuration Wizard
+
+To change settings without adding or deleting features, you do not need the Ivanti Software product CD or zip file.
+
+1. In the Start menu, click the down arrow to see the Apps menu, and then click System Configuration Wizard.
+
+<hint type="info">
+  You must click Run as administrator when you start the System Configuration Wizard manually.
+</hint>
+
+2. Go to [Configuring Neurons for ITSM ](Server_Config_Procedure.mdx)for instructions about using the System Configuration Wizard.

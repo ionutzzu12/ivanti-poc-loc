@@ -1,0 +1,71 @@
+---
+title: Troubleshooting - Performance Tuning
+docTags: 
+createdAt: Fri Jun 05 2026 13:49:31 GMT+0300 (Eastern European Summer Time)
+---
+
+This section describes how to diagnose and fix common performance issues.
+
+Issues occur occasionally in Ivanti Service Manager. This does not necessarily indicate a malfunction.  We recommend that you evaluate each issue on a case by case basis.
+
+<table isTableHeaderOn="true">
+  <tr>
+    <td>
+      Symptom
+    </td>
+    <td>
+      Possible Cause
+    </td>
+    <td>
+      Action
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Dashboards and searches are slow to load.
+    </td>
+    <td>
+      - Incidents and other records that are no longer active still have open status.
+    </td>
+    <td>
+      - Close and delete inactive incidents as described in :Link[About Reviewing, Closing, and Deleting Records]{label="About Reviewing, Closing, and Deleting Records" overridedLabel="About Reviewing, Closing, and Deleting Records" spaceId docId="scoHOO4KKVngdOwHX6ymC" version="v2" docAnchorId="#Review," loadingMethod="dynamic" newTab="false" githubPath="Recommendation__Periodic.htm#Review," href="Recommendation__Periodic.mdx"} and [Deleting Inactive Tables and Records](Archiving_tables.mdx).
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Issues and timeouts that are traceable to the workflow engine occur.
+    </td>
+    <td>
+      - Workflows that are inactive are still enabled.
+      - Notification workflows do not validate email addresses prior to running.
+    </td>
+    <td>
+      - Disable inactive workflows as described in :Link[Disabling Inactive Workflows]{label="Disabling Inactive Workflows" overridedLabel="Disabling Inactive Workflows" spaceId docId="R3vf4oPvJd_8QZ8_8fzB4" version="v2" docAnchorId="#Disable2" loadingMethod="dynamic" newTab="false" githubPath="tune_rules_workflows.htm#Disable2" href="tune_rules_workflows.mdx"}.
+      - Validate email addresses in workflows as described in :Link[Validating Email Addresses in Notification Workflows]{label="Validating Email Addresses in Notification Workflows" overridedLabel="Validating Email Addresses in Notification Workflows" spaceId docId="R3vf4oPvJd_8QZ8_8fzB4" version="v2" docAnchorId="#Validate" loadingMethod="dynamic" newTab="false" githubPath="tune_rules_workflows.htm#Validate" href="tune_rules_workflows.mdx"}.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Database command timeout errors occur.
+    </td>
+    <td>
+      - You need to re-index the Ivanti Service Manager database.
+      - In general, when there is a timeout, the environment has insufficient hardware.
+    </td>
+    <td>
+      - Re-index the Ivanti Service Manager database as described in [Tuning Indexes](Tune_Indexes.mdx).
+      - Verify that your system meets the hardware requirements described in the *System Requirements and Compatibility Matrix for Ivanti Service Manager*.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Workflows take a very long time to execute.
+    </td>
+    <td>
+    </td>
+    <td>
+      - Delete workflow-related tables as described in [Deleting Inactive Tables and Records](Archiving_tables.mdx)
+      - Increase the processor count in the file called WorkflowService.exe.config to 40 as described in [Tuning Business Rules and Workflows](tune_rules_workflows.mdx).
+    </td>
+  </tr>
+</table>

@@ -1,0 +1,23 @@
+---
+title: Configuring the Message Queue
+docTags: 
+createdAt: Fri Jun 05 2026 13:49:31 GMT+0300 (Eastern European Summer Time)
+---
+
+Use the Message Queue Configuration workspace to create and configure a message queue.
+
+Follow these steps:
+
+1. Log in to the ConfigDB.
+2. From the workspace selector bar, select Message Queue Configuration. The system displays the Message Queue Configuration workspace.
+3. Enter information into the fields.
+
+<Paragraph indent="1">
+  | Parameter                       | Description                                                                                                                                                                                                                                   |
+  | ------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+  | Polling Interval (sec)          | Specifies how often to check the message queue. The default value is 120.                                                                                                                                                                     |
+  | Processor Threads               | Specifies the number of threads.  The value depends on the specifications (such as memory and CPU) of your system. The default value is 250.                                                                                                  |
+  | Metadata Refresh Interval (min) | Specifies the interval for which to refresh the metadata pertaining to the tenant, which is the amount of time for which to retain the cache. After this amount of time, the system purges the cache and reloads it. The default value is 10. |
+</Paragraph>
+
+4. Click Save.

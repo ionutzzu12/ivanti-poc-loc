@@ -1,0 +1,32 @@
+---
+title: Configuring the Message Queue Handler
+docTags: 
+createdAt: Fri Jun 05 2026 13:49:31 GMT+0300 (Eastern European Summer Time)
+---
+
+Use the Message Queue Handler workspace to configure the message queue handler.
+
+Follow these steps:
+
+1. Log in to the ConfigDB.
+2. From the workspace selector bar, select Message Queue Handler. The system displays the Message Queue Handler workspace.
+3. Enter information into the fields.
+
+<Paragraph indent="1">
+  | Parameter                          | Description                                                                                                                                                                                                                                                                                                                |
+  | ---------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+  | Name                               | Name of the message queue handler web service.                                                                                                                                                                                                                                                                             |
+  | Endpoint                           | The URL of the message queue handler web service to which queued tasks are dispatched. An example is http\://IP\_address/IntegrationService.svc.                                                                                                                                                                           |
+  | Dispatch Method                    | The name of the web method that is implemented as part of the handler web service (which the message queue invokes to dispatch tasks). For example, the \{\{Primary.Product}} XSLT email handler implements a web method called HandleMessage.  <br />  <br />NOTE: The name of the dispatch web method is case sensitive. |
+  | Batch Size                         | The maximum number of tasks that the message queue can dispatch to a message queue handler.                                                                                                                                                                                                                                |
+  | Active                             | Specifies if the message queue handler is on or off.                                                                                                                                                                                                                                                                       |
+  | Priority                           | Specifies the order of this handler, in relation to any other handlers that are defined.                                                                                                                                                                                                                                   |
+  | Process Timeout Interval (minutes) | Amount of time to wait for a response from the message queue handler before logging an error or before retrying, if you have not exceeded the number of attempts specified by the Max number of attempts parameter.                                                                                                        |
+  | Include Data with Dispatch         | Specifies whether to include the data when this dispatch web method is called. If you do not check this option, the message queue handler must call the dispatch web method to get the data.                                                                                                                               |
+  | Max number of Attempts             | The maximum number of times to resend the data before logging an error.                                                                                                                                                                                                                                                    |
+  | Archive on Completion              | Specifies whether to archive the message queue journal, which contains the tasks that the message queue handler has processed. Use this information for troubleshooting purposes. Enabled by default.                                                                                                                      |
+  | Purge Archive after (days)         | Set to 30 days by default. The amount of days after which the archive is purged.                                                                                                                                                                                                                                           |
+  | Description                        | A description of the message queue handler.                                                                                                                                                                                                                                                                                |
+</Paragraph>
+
+4. Click Save.

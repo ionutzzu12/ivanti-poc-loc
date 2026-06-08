@@ -1,0 +1,167 @@
+---
+title: Configuring the Metrics Server
+docTags: 
+createdAt: Fri Jun 05 2026 13:49:30 GMT+0300 (Eastern European Summer Time)
+---
+
+Perform these steps to configure one or more Metrics Server databases, which you can use to analyze data. Your deployment can have multiple Metrics Server databases to improve performance.
+
+On this page, you will do the following:
+
+- Specify the locations for the log file and the configuration server.
+- Map applications to the Metrics Server.
+
+<Paragraph indent="1">
+  *Metrics Server Page*
+</Paragraph>
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/lGV6JACQ9YPkkvt8IEHBA_metricsserver1.png" position="flex-start" size="40" indent="1" initialPath="Install_Deploy_Images/metrics_server_1.png" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Install_Deploy_Images/metrics_server_1.png"></Image>
+
+1. Enter values into the fields:
+
+<Paragraph indent="1">
+    <table isTableHeaderOn="true">
+      <tr>
+        <td>
+          Parameter
+        </td>
+        <td>
+          Description
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Metrics Cache Database Connection
+        </td>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Database Server Name
+        </td>
+        <td>
+          Where the metrics cache database server is located. The default value is the server where the application server is located.
+          Do one of the following:
+          - Accept the default value.
+          - Enter the name of the server of the metrics cache database.
+          - Browse for a server name by clicking the down arrow and selecting \<Browse for more...>. The system displays all available database servers in the network for your connection. Choose a server and click OK.
+          NOTE: Do not choose localhost unless you are setting up a :Link[Demonstration or Proof-of-Concept Deployment]{label="Demonstration or Proof-of-Concept Deployment" overridedLabel="Demonstration or Proof-of-Concept Deployment" spaceId docId="IIhf7YMCmXD2alAx6WlYN" version="v2" docAnchorId="#top" loadingMethod="dynamic" newTab="false" githubPath="Deployment_Demo_POC.htm#top" href="Deployment_Demo_POC.mdx"}.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Database Name
+        </td>
+        <td>
+          The name of the metrics cache database.
+          Do one of the following:
+          - Accept the default value.
+          - Enter the name of the metrics cache database.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Authentication Method
+        </td>
+        <td>
+          Select one of the following:
+          - Windows Authentication: Uses Microsoft Windows authentication.
+          - SQL Authentication: Uses Microsoft SQL authentication. If you select this option, enter the user name and password below.
+          NOTE: The metrics cache database server is not compatible with SSL if your system has Windows authentication set up.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          User Name
+        </td>
+        <td>
+          (Only if you selected SQL Authentication) The user name associated with the Microsoft SQL authentication.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Password
+        </td>
+        <td>
+          (Only if you selected SQL Authentication) The password associated with the user name for the Microsoft SQL authentication.
+        </td>
+      </tr>
+    </table>
+</Paragraph>
+
+2. Click Test Connection to test the connection to the metrics cache database server. The system displays a success or failure message below the Test Connection button. You must have a working connection to create a database. You cannot continue with the configuration if this connection does not work.
+3. Do one of the following:
+   - If this is the initial setup, go to :Link[Creating a New Metrics Server Database]{label="Creating a New Metrics Server Database" overridedLabel="Creating a New Metrics Server Database" spaceId docId="n7w0NuZBQQcEEEnFi5Af6" version="v2" docAnchorId="#h4_If_the_HEAT_Metrics_Cache_Database_Does_Not_Exist" loadingMethod="dynamic" newTab="false" href="Configure_HEAT_Metrics_Server.mdx"}.
+   - If your system already has a metrics server database, go to :Link[Recreating the Metrics Server Database]{label="Recreating the Metrics Server Database" overridedLabel="Recreating the Metrics Server Database" spaceId docId="n7w0NuZBQQcEEEnFi5Af6" version="v2" docAnchorId="#h4_If_the_HEAT_Metrics_Cache_Database_Already_Exists" loadingMethod="dynamic" newTab="false" href="Configure_HEAT_Metrics_Server.mdx"}.
+
+## Creating a New Metrics Server Database
+
+An initial installation does not have a metrics server database. Follow these steps to create one.
+
+1. Click Create & Load Metrics Server DB. The system displays the New Database dialog box.
+
+<Paragraph indent="1">
+  *New Database Dialog Box*
+</Paragraph>
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/AKokNfhU2U72KmG4_lGKv_metricsservernewdb.png" position="flex-start" size="40" indent="1" initialPath="Install_Deploy_Images/metricsServerNewDB.png" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Install_Deploy_Images/metricsServerNewDB.png"></Image>
+
+2. In the Location field, select a location for the metrics server database.
+3. Click Advanced Options to view and reconfigure these metrics server database settings:
+   - Logical name: The logical name of the metrics database. This name is stored as a file name, and is a separate entity from the read-only database name that is displayed in Microsoft SQL Server Management Studio.
+   - File type: The file type, either database records or database logs. These values are read-only.
+   - Initial size in MB: The initial file size, in MB, when creating the metrics database.
+   - Autogrowth size:  Specifies how the database will expand when it reaches its maximum file size. We recommend having at least 1 GB or 10% to start with. Click ... to update the values.
+   - The location of the database: The location of the file. Click ... to update the location.
+   - File name: The name of the file.
+4. Click OK in the New Database dialog box.
+
+The Configuration Server Location field indicates the location of the system that hosts the configuration server. The default value is the name of the host that you are logged into now.
+
+5. If this is the system that hosts the configuration server, accept the default value.
+
+If the host that you are logged into now is not the configuration server, enter the machine name or fully-qualified domain name of your configuration server.
+
+If you use SSL, you enter the fully-qualified domain name of the configuration server.
+
+6. Enter the port number in the Port field. The default value is 80. If you click Use SSL, it changes to 443.
+7. Select whether to use SSL for connections to the configuration server.
+
+If you use SSL, you must provide a fully-qualified domain name in the Configuration Server Location field.
+
+8. Click Test Connection to test the connection to the configuration server. A pop-up message notifies you of success or failure.
+
+<hint type="info">
+  We do not recommend enabling SSL on the configuration server until you have fully tested \{\{Primary.Product}} to ensure that it works with SSL.For information on configuring \{\{Primary.Product}} with SSL, see [Optional SSL Configuration](SSL_Config.mdx).
+</hint>
+
+9. Enter the following information to register a server in a multi-server deployment to the metrics server database:
+   - Accept the default server name or enter a different name.
+   - Optional. Enter a description of the server.
+   - The default server name value is the name of the host that you are logged into now. You must use this name or localhost.
+   - Check the box to use SSL encryption.
+   - Check the box to enable this metrics server.
+10. Click Save.
+11. To map an application to the new metrics server to an application, check Map. You can reference the same metrics server to multiple \{\{Primary.Product}} applications.
+
+<hint type="info">
+  To change this server at a later time, run the System Configuration Wizard, advance to the Metrics Server page, and click Remove.
+</hint>
+
+12. Click Next. The system displays the Discovery Application Server page.
+
+## Recreating the Metrics Server Database
+
+If you are upgrading or repairing \{\{Primary.Product}}, you already have a metrics server database, and the Metrics Server page looks like :Link[Metrics Server Page]{label="Metrics Server Page" overridedLabel="Metrics Server Page" spaceId docId="n7w0NuZBQQcEEEnFi5Af6" version="v2" docAnchorId="#Fig_HEAT_Metrics_Server_Page2" loadingMethod="dynamic" newTab="false" href="Configure_HEAT_Metrics_Server.mdx"}.
+
+*Metrics Server Page*
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/lGV6JACQ9YPkkvt8IEHBA_metricsserver1.png" position="flex-start" size="40" initialPath="Install_Deploy_Images/metrics_server_1.png" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Install_Deploy_Images/metrics_server_1.png"></Image>
+
+1. To recreate the metrics server database, click Re-Create & Load Metrics Server DB. The system displays the New Database dialog box.
+2. Perform steps 2 through 12 in :Link[Creating a New Metrics Server Database]{label="Creating a New Metrics Server Database" overridedLabel="Creating a New Metrics Server Database" spaceId docId="n7w0NuZBQQcEEEnFi5Af6" version="v2" docAnchorId="#h4_If_the_HEAT_Metrics_Cache_Database_Does_Not_Exist" loadingMethod="dynamic" newTab="false" href="Configure_HEAT_Metrics_Server.mdx"}.
+
+<hint type="info">
+  If you have customized the existing metrics server database, specify a different location in the Metrics Server Database Location field in the New Database dialog box. Otherwise, the system overwrites your customization when you load the recreated database.
+</hint>

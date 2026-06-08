@@ -1,0 +1,59 @@
+---
+title: Installing Neurons for ITSM Reporting Feature
+docTags: 
+createdAt: Fri Jun 05 2026 13:49:30 GMT+0300 (Eastern European Summer Time)
+---
+
+- :Link[About Microsoft SSRS]{label="About Microsoft SSRS" overridedLabel="About Microsoft SSRS" spaceId docId="5SJykWeeHtAhgHM4ZioW1" version="v2" docAnchorId="#h3_About_Installing_Microsoft_SSRS" loadingMethod="dynamic" newTab="false" href="Microsoft_SSRS.mdx"}
+- :Link[Checking if Microsoft SSRS is Installed]{label="Checking if Microsoft SSRS is Installed" overridedLabel="Checking if Microsoft SSRS is Installed" spaceId docId="5SJykWeeHtAhgHM4ZioW1" version="v2" docAnchorId="#Checking" loadingMethod="dynamic" newTab="false" href="Microsoft_SSRS.mdx"}
+- :Link[Installing Microsoft SSRS]{label="Installing Microsoft SSRS" overridedLabel="Installing Microsoft SSRS" spaceId docId="5SJykWeeHtAhgHM4ZioW1" version="v2" docAnchorId="#h3_Installing_Microsoft_SSRS" loadingMethod="dynamic" newTab="false" href="Microsoft_SSRS.mdx"}
+
+## About Microsoft SSRS
+
+The \{\{Primary.Product}} reporting feature requires that the 64-bit version of Microsoft SQL Server and Microsoft SQL Server Reporting Services (SSRS) are installed and running on the \{\{Primary.Product}} database server. The reporting feature does not support the 32-bit version of Microsoft SQL Server and Microsoft SQL Server Reporting Services (SSRS).
+
+## Checking if Microsoft SSRS is Installed
+
+To verify that Microsoft SSRS is installed on your system, do the following:
+
+1. Open the Microsoft Windows Services dialog box and look for an entry called SQL Server Reporting Services.
+
+<Paragraph indent="1">
+  *Windows Services Dialog Box*
+</Paragraph>
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/JKkB-8dvnwT6xW9j5qHhL_ssrsservices.png" position="flex-start" size="40" indent="1" initialPath="Install_Deploy_Images/SSRS_services.png" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Install_Deploy_Images/SSRS_services.png"></Image>
+
+<Paragraph indent="1">
+  The name in parentheses is the Microsoft SSRS instance name. See :Link[Windows Services Dialog Box]{label="Windows Services Dialog Box" overridedLabel="Windows Services Dialog Box" spaceId docId="5SJykWeeHtAhgHM4ZioW1" version="v2" docAnchorId="#Fig_Services_Dialog_Box" loadingMethod="dynamic" newTab="false" href="Microsoft_SSRS.mdx"}. During the reporting feature configuration, you must enter this instance name.
+</Paragraph>
+
+<hint type="info" indent="1">
+  The instance name cannot contain any special characters, such as \ , : ; ... and so on. The instance names can contain $ and \_. See [https://support.microsoft.com/en-us/help/2282743/fix-the-special-characters-are-displayed-incorrectly-in-a-textbox-cont](https://support.microsoft.com/en-us/help/2282743/fix-the-special-characters-are-displayed-incorrectly-in-a-textbox-cont).If the names of the current Microsoft SSRS instances have special characters, you must install an additional Microsoft SSRS instance with an instance name free of special characters.
+</hint>
+
+2. Choose the appropriate action:
+   - If Microsoft SSRS is already installed and the instance name (the name in parentheses) has no special characters ( -, \_, #, and so on), make sure that:
+     - The value in the Status column is set to Running.
+     - The value in the Startup Type column is set to either Automatic or Automatic (Delayed Start).
+   - If Microsoft SSRS is already installed but the instance name has special characters ( -, \_, #, and so on), use the Microsoft SQL Server Installation Center to add a new Microsoft SSRS instance with an instance name free of special characters.
+   - If Microsoft SSRS is not installed, use the Microsoft SQL Server Installation Center to add a Microsoft SSRS component to an existing Microsoft SQL installation.
+
+## Installing Microsoft SSRS
+
+Microsoft SQL Server Reporting Services (SSRS) is an optional installation feature of Microsoft SQL Server. It is a server-based, report-generating software system.
+
+The Microsoft SSRS feature is disabled by default. This section describes how to enable and configure the Microsoft SSRS feature of Microsoft SQL Server.
+
+1. During Microsoft SQL Server installation, in the Feature Selection page of the Microsoft SQL Server setup wizard, check **Reporting Services - Native**.
+
+<Paragraph indent="1">
+  *Checking Reporting Services - Native*
+</Paragraph>
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/AF5Mbz5unAoIb9kos-OkT_sqlfeatureselectionssrs.png" position="flex-start" size="40" indent="1" initialPath="Install_Deploy_Images/SQL_feature_selection_ssrs.png" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Install_Deploy_Images/SQL_feature_selection_ssrs.png"></Image>
+
+2. As you work your way through the Microsoft SQL Server setup wizard, verify that Reporting Services - Native is part of the server configuration.
+3. When the installation is complete, go back to Windows Services and verify that Microsoft SQL Server Reporting Services is present. See :Link[Checking Reporting Services - Native]{label="Checking Reporting Services - Native" overridedLabel="Checking Reporting Services - Native" spaceId docId="5SJykWeeHtAhgHM4ZioW1" version="v2" docAnchorId="#Fig-Checking" loadingMethod="dynamic" newTab="false" href="Microsoft_SSRS.mdx"}.
+
+With Microsoft SSRS present and running, the database server is ready for you to install and configure \{\{Primary.Product}}.

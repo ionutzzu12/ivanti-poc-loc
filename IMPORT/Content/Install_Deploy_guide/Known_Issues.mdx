@@ -1,0 +1,1880 @@
+---
+title: Known Issues
+docTags: 
+createdAt: Fri Jun 05 2026 13:49:32 GMT+0300 (Eastern European Summer Time)
+---
+
+## Release Version 2025.4
+
+### Bug ID: 1742513
+
+| **Issue**           | IIS (W3SVC) Service Stop fails with PowerShell error during SCW configuration                                                                                                                                                                                                                                                                                                                                                                                                     |
+| ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Expected Result** | IIS restarts successfully without throwing an error and Powershell window to close automatically.                                                                                                                                                                                                                                                                                                                                                                                 |
+| **Actual Result**   | IIS World Wide Web Publishing Service (W3SVC) fails to stop and does not restart during SCW configuration. Also, throws a PowerShell error.<br /><Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/Z4663cRDj1Se9hL6ZNOSm_iis-scw-error-ps.png" position="flex-start" size="40" initialPath="KnownIssuesImages/IIS-SCW-error-ps.png" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/KnownIssuesImages/IIS-SCW-error-ps.png"></Image> |
+| **Workaround**      | Manually restart the IIS (W3SVC) Service from the Windows Server settings or control panel.                                                                                                                                                                                                                                                                                                                                                                                       |
+
+## Release Version 2025.3
+
+### Bug ID: 1674149
+
+<table isTableHeaderOn="true">
+  <tr>
+    <td>
+      **Issue**
+    </td>
+    <td>
+      You cannot access the **Service Catalog** business object under the **Service Owner** role if you are not using the **English (United States)** locale. If you have changed your locale to another and try to access any request under **Service Catalog**, you might receive an error stating: Access denied to table Frs\_def\_self\_service\_literals#. This issue is occurred because the Object Permissions are not set properly for the **Frs\_def\_self\_service\_literals** business object.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Expected Result**
+    </td>
+    <td>
+      For any locale, you should be able to access any request under the **Service Catalog** business object.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Actual Result**
+    </td>
+    <td>
+      For non-**English (United States)** locales, you can't access some of the requests under the **Service Catalog** business object.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Workaround**
+    </td>
+    <td>
+      1. Log in to ITSM as an Administrator.
+      2. Open the Configuration console, and go to **Configure** > **Users and Permissions** > **Roles and Permissions** > **ServiceOwner** role > **Object Permissions**.
+      3. Find **Frs\_def\_self\_service\_literals** business object, and then select the **View** checkbox.
+      4. Click **Save**.
+    </td>
+  </tr>
+</table>
+
+## Release Version 2025.2
+
+No known issues in this release.
+
+## Release Version 2024.3
+
+No known issues in this release.
+
+## Release Version 2024.2
+
+No known issues in this release.
+
+## Release Version 2023.4
+
+### Bug ID: 1369214
+
+| **Issue**      | When using HTTP - unable to create incident due to console errors while creating an issue in Self Service Mobile UI V3. |
+| -------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| **Workaround** | Use HTTPS.                                                                                                              |
+
+### Bug ID: 1369214
+
+<table isTableHeaderOn="true">
+  <tr>
+    <td>
+      **Issue**
+    </td>
+    <td>
+      Inbound web service request fails with null reference object error and the message is stuck in **Dispatched** state.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Workaround**
+    </td>
+    <td>
+      Verify and update the dispatch method name for the type **Web Service Handler** to **HandleWebServiceMessage**.
+      5. Login to Config DB of the on-premise environment.
+      6. Open the Message Queue Handler Workspace.
+      7. Open the handler name **Web Service Handler**.
+      8. Update the Dispatch method name to **HandleWebServiceMessage**.
+      9. Restart the Ivanti Message Queue Service.
+      In case the Dispatch Name is **HandleMessage**, then incoming web service will not work.
+    </td>
+  </tr>
+</table>
+
+## Release Version 2023.3
+
+No known issues in this release.
+
+## Release Version 2023.2
+
+| **Issue**      | Whenever Asset Processor displays the message "SQL Error 245: Data Access Error. Conversion failed".                                                          |
+| -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Workaround** | Under CI Business Object select the field **PercentFreeDiskspace** and set **Precision** as 2 and save. Run the device sync again for failed Asset Processor. |
+
+## Release Version 2023.1
+
+### Bug: 1041094:
+
+<table isTableHeaderOn="true">
+  <tr>
+    <td>
+      **Issue**
+    </td>
+    <td>
+      ICDP web.release.configfile has 2 endpoints which has the same contract name and binding configuration. Due to this the files generated by SCW for OnPrem has 2 nodes with incorrect addresses that causes software messages to timeout.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Details**
+    </td>
+    <td>
+      1. Log in to \{\{Primary.TitleLine-Neurons-for-ITSM-Administrator-and-User-Help}}.
+      2. Open the Configuration console.
+      3. Go to **Integration Tools** > **Data Import Connections** >**&#x20;Ivanti Neurons Connector –Device**.
+      4. Validate the test connection and proceed till the final screen.
+      5. Click **Run now**.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Expected Result**
+    </td>
+    <td>
+      The status message in the Integration queue is displayed as Timed out.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Actual Result**
+    </td>
+    <td>
+      The status message in the Integration queue should be displayed as Completed
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Workaround**
+    </td>
+    <td>
+      Remove the redundant entry that includes the actual hostname and update the "localhost" entry in the web.config file to specify the port number as 7200.
+    </td>
+  </tr>
+</table>
+
+## Release Version 2022.3
+
+No known issues in this release.
+
+## Release Version 2022.2
+
+No known issues in this release.
+
+## Release Version 2022.1
+
+### Bug: 923520:
+
+<table isTableHeaderOn="true">
+  <tr>
+    <td>
+      **Issue**
+    </td>
+    <td>
+      When the **Archive Mailbox Name** has uppercase text, the email services do not work.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Details**
+    </td>
+    <td>
+      6. Log in to ITSM as an Administrator.
+      7. Click **more&#x20;**&#x61;nd search for **Inbox** Business Object and open it.
+      <Paragraph indent="1">
+        or
+      </Paragraph>
+      8. From the Configuration console, select **Email Configuration** > **Mail Boxes**.
+      9. Select any Protocol except **IMAP4**.
+      10. Set the following options to **Move to Folder**:
+      - **Action To Perform On Processing Success**
+      - **Action To Perform On Processing Error**
+      11. Enter the value as **Absolute&#x20;**&#x69;n the **Archive Mailbox Name** field.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Expected Result**
+    </td>
+    <td>
+      Email services should work.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Actual Result**
+    </td>
+    <td>
+      Email Service do not work.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Workaround**
+    </td>
+    <td>
+      Enter only lowercase letter in the **Archive Mailbox Name** field.
+    </td>
+  </tr>
+</table>
+
+### Bug: 923520:
+
+<table isTableHeaderOn="true">
+  <tr>
+    <td>
+      **Issue**
+    </td>
+    <td>
+      Email services do not work for **IMAP4&#x20;**&#x50;rotocol when the **Action To Perform On Processing Success** and **Action To Perform On Processing Error** options are set to **Move to Folder**.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Details**
+    </td>
+    <td>
+      1. Log in to ITSM as an Administrator.
+      2. Click **more&#x20;**&#x61;nd search for **Inbox&#x20;**&#x42;usiness Object and open it.
+      <Paragraph indent="1">
+        or
+      </Paragraph>
+      3. From the Configuration console, select **Email Configuration** > **Mail Boxes**.
+      4. Set the following options to **Move to Folder**:
+      - **Action To Perform On Processing Success**
+      - **Action To Perform On Processing Error**
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Expected Result**
+    </td>
+    <td>
+      Email services should work.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Actual Result**
+    </td>
+    <td>
+      Email Service do not work.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Workaround**
+    </td>
+    <td>
+      Delete the Inbox settings record and create a new one. Ensure the following options are set to **Delete**:
+      - **Action To Perform On Processing Success**
+      - **Action To Perform On Processing Error**
+    </td>
+  </tr>
+</table>
+
+### Bug: 923520:
+
+<table isTableHeaderOn="true">
+  <tr>
+    <td>
+      **Issue**
+    </td>
+    <td>
+      Email services do not work when the **Action To Perform On Processing Success** and **Action To Perform On Processing Error** options are changed from **Move to Folder** to **Delete** without deleting the data in the **Archive Mailbox Name** field.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Details**
+    </td>
+    <td>
+      1. Log in to ITSM as an Administrator.
+      2. Click **more&#x20;**&#x61;nd search for **Inbox** Business Object and open it.
+      <Paragraph indent="1">
+        or
+      </Paragraph>
+      3. From the Configuration console, select **Email Configuration&#x20;**> **Mail Boxes**.
+      4. Select the **Protocol** as **IMAP4**.
+      5. Set the following options to **Move to Folder**:
+      - **Action To Perform On Processing Success**
+      - **Action To Perform On Processing Error**
+      6. Enter some value in the **Archive Mailbox Name** field.
+      7. Without deleting the data in the **Archive Mailbox Name**, change the following options to **Delete**.
+      - **Action To Perform On Processing Success**
+      - **Action To Perform On Processing Error**
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Expected Result**
+    </td>
+    <td>
+      Email services should work.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Actual Result**
+    </td>
+    <td>
+      Email Service do not work.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Workaround**
+    </td>
+    <td>
+      Before changing the following options to **Delete**, ensure to delete the data from the **Archive Mailbox Name** field.
+      - **Action To Perform On Processing Success**
+      - **Action To Perform On Processing Error**
+    </td>
+  </tr>
+</table>
+
+## Release Version 2021.4
+
+No known issues in this release.
+
+## Release Version 2021.3
+
+No known issues in this release.
+
+## Release Version - 2021.2
+
+Following known issue is in \{\{Primary.Company}} \{\{Primary.Product}} 2021.2 release:
+
+1. :Link[Bug 845546]{label="Bug 845546" overridedLabel="Bug 845546" spaceId docId="Shx_lNACrjSRUWykFIdVB" version="v2" docAnchorId="#Bug845546" loadingMethod="dynamic" newTab="false" href="Known_Issues.mdx"}: When upgrading from 2021.1 to 2021.2, the application throws an error.
+2. :Link[Bug 811955]{label="Bug 811955" overridedLabel="Bug 811955" spaceId docId="Shx_lNACrjSRUWykFIdVB" version="v2" docAnchorId="#Bug811955" loadingMethod="dynamic" newTab="false" href="Known_Issues.mdx"}: Request Offerings do not display in alphabetical order when the Global Constant **EnableUKEnglishLocalization** is set to **True**.
+
+## Issue Details
+
+1. Bug: 845546:
+
+<hint type="success">
+
+</hint>
+
+1. Bug: 811955:
+
+<hint type="success">
+  <table isTableHeaderOn="true">
+    <tr>
+      <td>
+        **Issue**
+      </td>
+      <td>
+        Request Offerings do not display in alphabetical order when the Global Constant **EnableUKEnglishLocalization** is set to **True**.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        **Details**
+      </td>
+      <td>
+        1. Log in to Neurons for ITSM
+        2. Open the Configuration console > **Global Constants** > set the **EnableUKEnglishLocalization&#x20;**&#x6F;ption as **True**.
+        3. Open **Languages** and add English UK Culture. If it is already added, remove and re-add.
+        4. Open the Service Desk console > **Request Offerings**. The list of Request Offerings are in alphabetical order.
+        5. Edit one of the offering except the first one from list, save and exit the page.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        **Actual Result**
+      </td>
+      <td>
+        The recently edited offering is on the top of the list.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        **Expected Result**
+      </td>
+      <td>
+        The Request Offerings should still be displayed in alphabetical order.
+      </td>
+    </tr>
+  </table>
+</hint>
+
+## Release Version - 2021.1
+
+Following known issue is in \{\{Primary.Company}} \{\{Primary.Product}} 2021.1 release:
+
+:Link[Bug 822605]{label="Bug 822605" overridedLabel="Bug 822605" spaceId docId="Shx_lNACrjSRUWykFIdVB" version="v2" docAnchorId="#Bug774221" loadingMethod="dynamic" newTab="false" href="Known_Issues.mdx"}: - Provisioning report on SSRS 2019 for custom authentication throws a 401 unauthorized error.
+
+## Issue Details
+
+Bug: 822605:
+
+<table isTableHeaderOn="true">
+  <tr>
+    <td>
+      **Issue**
+    </td>
+    <td>
+      Provisioning report on SSRS 2019 for custom authentication throws a 401 unauthorized error.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Details**
+    </td>
+    <td>
+      Steps:
+      1. Install 2021.1 on windows 2019 and sql 2019.
+      2. Provision report on SSRS 2019.
+      3. Select **Custom Authentication** for **Microsoft SSRS Authentication Type**.
+      4. Under **Service Account**, select **Use built-in account** and **Network Service** from the drop down list.
+      5. Click **Next** and provide the necessary information and click **Provision Report Now**.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Actual Result**
+    </td>
+    <td>
+      The application throws a 401 error.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Expected Result**
+    </td>
+    <td>
+      Report provision should be successful.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Workaround**
+    </td>
+    <td>
+      Stop and start the Report Server Configuration Manager (SSRS) and provision the report again.
+    </td>
+  </tr>
+</table>
+
+<hint type="success">
+
+</hint>
+
+## Release Version - 2020.4
+
+Following known issue is in \{\{Primary.Company}} \{\{Primary.Product}} 2020.4 release:
+
+:Link[Bug 774221]{label="Bug 774221" overridedLabel="Bug 774221" spaceId docId="Shx_lNACrjSRUWykFIdVB" version="v2" docAnchorId="#Bug774221" loadingMethod="dynamic" newTab="false" href="Known_Issues.mdx"}: - Enabling chat fails.
+
+## Issue Details
+
+Bug: 774221:
+
+| **Issue**           | Enabling chat fails.                                                                                         |
+| ------------------- | ------------------------------------------------------------------------------------------------------------ |
+| **Details**         | Enabling chat fails with the error message - "Unable to register in chat" or "Login prompted".               |
+| **Expected Result** | Chat feature should be enabled without any errors.                                                           |
+| **Workaround**      | Review the Redis configuration inside AppServer directory of the installation and restart the Redis service. |
+
+## Release Version - 2020.3
+
+Following known issue is in \{\{Primary.Company}} \{\{Primary.Product}} 2020.3 release:
+
+:Link[Bug 739326]{label="Bug 739326" overridedLabel="Bug 739326" spaceId docId="Shx_lNACrjSRUWykFIdVB" version="v2" docAnchorId="#Bug739326" loadingMethod="dynamic" newTab="false" href="Known_Issues.mdx"} - When trying to install Ivanti Service and Asset Manager, the installer automatically closes without installing upon clicking the **Install** button.
+
+## Issue Details
+
+Bug: 739326
+
+<table isTableHeaderOn="true">
+  <tr>
+    <td>
+      **Issue**
+    </td>
+    <td>
+      When trying to install Ivanti Service and Asset Manager, the installer automatically closes without installing upon clicking the Install button.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Details**
+    </td>
+    <td>
+      1. Setup a machine with Window authentication.
+      2. Download the Ivanti Service and Asset Manager installer and run as Administrator.
+      3. Select the product you want to install, that is ISM, ITAM, or ITxM.
+      4. Follow the next steps and finally click the **Install** button.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Actual Result**
+    </td>
+    <td>
+      The installer closes automatically.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Expected Result**
+    </td>
+    <td>
+      The product should be installed.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Workaround**
+    </td>
+    <td>
+      Run the installer again.
+    </td>
+  </tr>
+</table>
+
+## Release Version - 2020.2
+
+Following is the list of known issues in \{\{Primary.Company}} \{\{Primary.Product}} 2020.2 release:
+
+1. :Link[Bug 697328]{label="Bug 697328" overridedLabel="Bug 697328" spaceId docId="Shx_lNACrjSRUWykFIdVB" version="v2" docAnchorId="#Bug697328" loadingMethod="dynamic" newTab="false" href="Known_Issues.mdx"} - After session timeout clicking on received notification it redirects to Home page of SSM user in Android and iOS device.
+2. :Link[Bug 700504]{label="Bug 700504" overridedLabel="Bug 700504" spaceId docId="Shx_lNACrjSRUWykFIdVB" version="v2" docAnchorId="#Bug700504" loadingMethod="dynamic" newTab="false" href="Known_Issues.mdx"} - Enable Biometric Authentication checkbox is not displaying in Android device which has Face ID.
+3. :Link[Bug 701732]{label="Bug 701732" overridedLabel="Bug 701732" spaceId docId="Shx_lNACrjSRUWykFIdVB" version="v2" docAnchorId="#Bug701732" loadingMethod="dynamic" newTab="false" href="Known_Issues.mdx"} - While renewing session using password, it throws time stamp exception in Android device.
+4. :Link[Bug 702094]{label="Bug 702094" overridedLabel="Bug 702094" spaceId docId="Shx_lNACrjSRUWykFIdVB" version="v2" docAnchorId="#Bug702094" loadingMethod="dynamic" newTab="false" href="Known_Issues.mdx"} - Navigating to Ivanti Cloud Workspace throws an error.
+5. :Link[Bug 703679]{label="Bug 703679" overridedLabel="Bug 703679" spaceId docId="Shx_lNACrjSRUWykFIdVB" version="v2" docAnchorId="#Bug703679" loadingMethod="dynamic" newTab="false" href="Known_Issues.mdx"} - TRANSLATION-Japanese-Administrator-Chat Configuration-"Seconds" is mistranslated as "2nd".
+6. :Link[Bug 711161]{label="Bug 711161" overridedLabel="Bug 711161" spaceId docId="Shx_lNACrjSRUWykFIdVB" version="v2" docAnchorId="#Bug711161" loadingMethod="dynamic" newTab="false" href="Known_Issues.mdx"} - While upgrading from 2020.1, SCW throws an error if the value for Privileged User is set as 1 under Concurrent User section.
+
+## Issue Details
+
+1. Bug: 697328
+
+<hint type="success">
+  <table isTableHeaderOn="true">
+    <tr>
+      <td>
+        **Issue**
+      </td>
+      <td>
+        After session timeout clicking on received notification it redirects to Home page of SSM user in Android and iOS device.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        **Details**
+      </td>
+      <td>
+        **Prerequisite**:
+        - Ensure ISM application is configured to receive push notifications on your device.
+        1. Login to ISM mobile app as SSM role in Android or IOS device
+        2. Wait for session timeout (configure session time out in Admin UI)
+        3. In desktop create an incident to get notification in the mobile device
+        4. Click on the newly received notification
+        5. It redirects to Login page, enter valid credential to login.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        **Actual Result**
+      </td>
+      <td>
+        After successful login it redirects to Home page of SSM user.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        **Expected Result**
+      </td>
+      <td>
+        After successful login it should redirect to Notification Corner.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        **Workaround**
+      </td>
+      <td>
+        After landing on the home page, user can click on the bell icon on top right to navigate to notification corner to view notification.
+      </td>
+    </tr>
+  </table>
+</hint>
+
+1. Bug: 700504
+
+<hint type="success">
+  <table isTableHeaderOn="true">
+    <tr>
+      <td>
+        **Issue**
+      </td>
+      <td>
+        Enable Biometric Authentication checkbox is not displaying in Android device which has Face ID.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        **Actual Result**
+      </td>
+      <td>
+        **Prerequisite**:
+        - Ensure Biometric authentication is enabled on your device.
+        1. Install latest ISM app in Android device which has Face ID enabled in the device.
+        2. Launch the App and access the url.
+        3. In the login page observe for Enable Biometric Authentication check box.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        **Expected Result**
+      </td>
+      <td>
+        Enable Biometric Authentication checkbox is not displayed to the user.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        **Actual Result**
+      </td>
+      <td>
+        Enable Biometric Authentication checkbox should be displayed to the user.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        **Workaround**
+      </td>
+      <td>
+        Use Phone PIN to login or enable fingerprint authentication on your mobile device.
+      </td>
+    </tr>
+  </table>
+</hint>
+
+1. **Bug: 701732**
+
+<hint type="success">
+  <table isTableHeaderOn="true">
+    <tr>
+      <td>
+        **Issue**
+      </td>
+      <td>
+        While renewing session using password, it throws time stamp exception in Android device.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        **Actual Result**
+      </td>
+      <td>
+        **Prerequisite**:
+        - Session timeout value should be set in the Admin UI. e.g – set the value to 1 minute.
+        1. Login to ISM using passowrd in Android device.
+        2. Wait for session timeout.
+        3. Click on any workspace.
+        4. In the "You were logged out. Would you like to continue working?" pop up click the Yes button.
+        5. In the login page enter password and click the login button.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        **Expected Result**
+      </td>
+      <td>
+        It throws time stamp exception.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        **Actual Result**
+      </td>
+      <td>
+        It should login successfully to ISM mobile app.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        **Workaround**
+      </td>
+      <td>
+        Close the app, relaunch and login again.
+      </td>
+    </tr>
+  </table>
+</hint>
+
+1. **Bug: 702094**
+
+<hint type="success">
+  <table isTableHeaderOn="true">
+    <tr>
+      <td>
+        **Issue**
+      </td>
+      <td>
+        Navigating to Ivanti Cloud Workspace throws an error.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        **Actual Result**
+      </td>
+      <td>
+        Note: This workspace newly added in 2020.2 and was not present in previous releases.
+        1. Login to ISM as Administrator.
+        2. Open Ivanti Cloud workspace.
+        3. In the login page enter password and click the login button.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        **Expected Result**
+      </td>
+      <td>
+        Workspace doesn’t load and displays error.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        **Actual Result**
+      </td>
+      <td>
+        Workspace should load without any error.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        **Workaround**
+      </td>
+      <td>
+        No workaround available.
+      </td>
+    </tr>
+  </table>
+</hint>
+
+1. **Bug: 703679**
+
+<hint type="success">
+  <table isTableHeaderOn="true">
+    <tr>
+      <td>
+        **Issue**
+      </td>
+      <td>
+        TRANSLATION-Japanese-Administrator-Chat Configuration-"Seconds" is mistranslated as "2nd".
+      </td>
+    </tr>
+    <tr>
+      <td>
+        **Actual Result**
+      </td>
+      <td>
+        1. Login to the tenant as Administrator.
+        2. Go to the Chat Configuration workspace.
+        3. Click UI under Session Configuration Settings.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        **Expected Result**
+      </td>
+      <td>
+        "Seconds" is translated as 2nd in time.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        **Actual Result**
+      </td>
+      <td>
+        Seconds should be properly translated.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        **Workaround**
+      </td>
+      <td>
+        No workaround available.
+      </td>
+    </tr>
+  </table>
+</hint>
+
+1. **Bug: 711161**
+
+<hint type="success">
+  <table isTableHeaderOn="true">
+    <tr>
+      <td>
+        **Issue**
+      </td>
+      <td>
+        While upgrading from 2020.1, SCW throws an error if the value for Privileged User is set as 1 under Concurrent User section.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        **Workaround**
+      </td>
+      <td>
+        1. Log in to \{\{Primary.Product}} with the Administrator role.
+        2. Open the Configuration console.
+        3. Under Security Controls, select Security and Sessions.
+        4. Under Concurrent Session, change the value of Named User, Privileged User, and Non Privileged User to 0.
+        5. Save the changes and refresh the page and re-validate the values are changed.
+        6. Now you can install 2020.2 \{\{Primary.Product}}.
+        7. After installation is complete, you can change the concurrent users values as it was earlier.
+        **Note:** The user session information is stored in Frs\_system\_settings in case of sql update.
+        <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/ACthmNDaMMKKGLcIcZCKb_concurrentuser.png" position="flex-start" size="40" initialPath="KnownIssuesImages/ConcurrentUser.png" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/KnownIssuesImages/ConcurrentUser.png"></Image>
+      </td>
+    </tr>
+  </table>
+</hint>
+
+## Release Version - 2020.1
+
+Following is the list of known issues in \{\{Primary.Company}} \{\{Primary.Product}} 2020.1 release:
+
+1. :Link[Bug 670687]{label="Bug 670687" overridedLabel="Bug 670687" spaceId docId="Shx_lNACrjSRUWykFIdVB" version="v2" docAnchorId="#Bug:670687" loadingMethod="dynamic" newTab="false" href="Known_Issues.mdx"} - ISM SSO: Session renew fails for OpenID and SAML OKTA for Android device.
+2. :Link[Bug 670665 ]{label="Bug 670665 " overridedLabel="Bug 670665 " spaceId docId="Shx_lNACrjSRUWykFIdVB" version="v2" docAnchorId="#Bug:670665" loadingMethod="dynamic" newTab="false" href="Known_Issues.mdx"}- ISM SSO: After session timeout user is redirected to different browser while default authentication is activated if user don't want to work in Android device.
+3. :Link[Bug ]{label="Bug " overridedLabel="Bug " spaceId docId="Shx_lNACrjSRUWykFIdVB" version="v2" docAnchorId="#Bug:670661" loadingMethod="dynamic" newTab="false" href="Known_Issues.mdx"}:Link[670661]{label="670661" overridedLabel="670661" spaceId docId="Shx_lNACrjSRUWykFIdVB" version="v2" docAnchorId="#Bug:670661" loadingMethod="dynamic" newTab="false" href="Known_Issues.mdx"} - ISM SSO: After session timeout while renewing the session, application opens default external authentication login page in different browser in iOS device.
+4. :Link[Bug ]{label="Bug " overridedLabel="Bug " spaceId docId="Shx_lNACrjSRUWykFIdVB" version="v2" docAnchorId="#Bug:636223" loadingMethod="dynamic" newTab="false" href="Known_Issues.mdx"}:Link[636223]{label="636223" overridedLabel="636223" spaceId docId="Shx_lNACrjSRUWykFIdVB" version="v2" docAnchorId="#BugNew636223" loadingMethod="dynamic" newTab="false" href="Known_Issues.mdx"} - Ivanti cloud transfer: Blank record is getting created in Hardware workspace for device.
+5. :Link[Bug 648276]{label="Bug 648276" overridedLabel="Bug 648276" spaceId docId="Shx_lNACrjSRUWykFIdVB" version="v2" docAnchorId="#BugNew:648276" loadingMethod="dynamic" newTab="false" href="Known_Issues.mdx"} - Software Asset creation has intermittent issues.
+6. :Link[Bug 671029]{label="Bug 671029" overridedLabel="Bug 671029" spaceId docId="Shx_lNACrjSRUWykFIdVB" version="v2" docAnchorId="#Bug:671029" loadingMethod="dynamic" newTab="false" href="Known_Issues.mdx"} - Username and roles are not visible as the text is in white color by default.
+7. :Link[Bug 431449]{label="Bug 431449" overridedLabel="Bug 431449" spaceId docId="Shx_lNACrjSRUWykFIdVB" version="v2" docAnchorId="#BugNew:431449" loadingMethod="dynamic" newTab="false" href="Known_Issues.mdx"} - On-premise : Installation of Metric server for the first time fails.
+8. :Link[Bug 678308]{label="Bug 678308" overridedLabel="Bug 678308" spaceId docId="Shx_lNACrjSRUWykFIdVB" version="v2" docAnchorId="#Bug:678308" loadingMethod="dynamic" newTab="false" href="Known_Issues.mdx"} - On-premise: Unable to Login to Tenant once SCW completed for ITAM/IxM/ISM clean windows authentication.
+9. :Link[Bug 676494]{label="Bug 676494" overridedLabel="Bug 676494" spaceId docId="Shx_lNACrjSRUWykFIdVB" version="v2" docAnchorId="#Bug:676494" loadingMethod="dynamic" newTab="false" href="Known_Issues.mdx"} - Default value of Request Offering text field set to Current User Function (Primary Phone) is not reflecting in Service Catalog.
+
+## Issue Details
+
+1. Bug: 670687
+
+<hint type="success">
+  <table isTableHeaderOn="true">
+    <tr>
+      <td>
+        **Issue**
+      </td>
+      <td>
+        ISM SSO: Session renew fails for OpenID and SAML OKTA for Android device.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        **Details**
+      </td>
+      <td>
+        **Prerequisite**:
+        - Set any one of the external authentication as default. And set timeout session as 1 minute in Admin UI for validation purpose.
+        1. ISM Android Mobile App using OpenID or SAML OKTA as external authentication provider.
+        2. Wait for more than 1 minute.
+        3. Click on any one of the workspace.
+        4. The message "*You were logged out. Would you like to continue working?*" is displayed.
+        5. Click **Yes**.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        **Actual Result**
+      </td>
+      <td>
+        The same message "*You were logged out. Would you like to continue working?*" is displayed.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        **Expected Result**
+      </td>
+      <td>
+        The session should renew without any error.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        **Workaround**
+      </td>
+      <td>
+        No workaround available.
+      </td>
+    </tr>
+  </table>
+</hint>
+
+1. Bug: 670665
+
+<hint type="success">
+  | **Issue**           | ISM SSO: After session timeout user is redirected to different browser while default authentication is activated if user don't want to work in Android device.                                                                                                                                        |
+  | ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+  | **Actual Result**   | On timeout of your session, if you select **No** button for the "*You were logged out. Would you like to continue working?*" the application redirects to different browser and opens default authentication login page in different browser and application continues loading in Android Mobile App. |
+  | **Expected Result** | The application should logout the user session from the Android app.                                                                                                                                                                                                                                  |
+  | **Workaround**      | No workaround available.                                                                                                                                                                                                                                                                              |
+</hint>
+
+1. Bug: 670661
+
+<hint type="success">
+  | **Issue**           | ISM SSO: After session timeout while renewing the session, application opens default external authentication login page in different browser in iOS device.                                                                                                                                                                                                                          |
+  | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+  | **Actual Result**   | **Scenario 1:** When **Yes** button is clicked for the timeout session message, default authentication provider login page opens in different browser and in mobile app ISM keeps loading.  <br />**Scenario 2:** On clicking the external authentication hyperlink, the external authentication login page is opened in different browser instead of opening within the mobile app. |
+  | **Expected Result** | The application should open in the ISM app.                                                                                                                                                                                                                                                                                                                                          |
+  | **Workaround**      | No workaround available.                                                                                                                                                                                                                                                                                                                                                             |
+</hint>
+
+1. **Bug: 636223**
+
+<hint type="success">
+  | **Issue**      | Ivanti cloud transfer: Blank record is getting created in Hardware workspace for device. |
+  | -------------- | ---------------------------------------------------------------------------------------- |
+  | **Workaround** | No workaround is available.                                                              |
+</hint>
+
+1. **Bug:&#x20;****648276**
+
+<hint type="success">
+  | **Issue**      | Software Asset creation has intermittent issues.  <br />For example, when a software is installed on different system, after sometime the same software asset is created twice. |
+  | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+  | **Workaround** | No workaround is available.                                                                                                                                                     |
+</hint>
+
+1. **Bug:&#x20;****671029**
+
+<hint type="success">
+  <table isTableHeaderOn="true">
+    <tr>
+      <td>
+        **Issue**
+      </td>
+      <td>
+        Username and roles are not visible as the text is in white color by default.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        **Details**
+      </td>
+      <td>
+        1. Login to ISM with Admin role.
+        2. Verify the logged in username and role.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        **Actual Result**
+      </td>
+      <td>
+        The username and role are not visible as the text is in white color.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        **Expected Result**
+      </td>
+      <td>
+        The logged in username and role should be visible.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        **Workaround**
+      </td>
+      <td>
+        Navigate to the Configuration console > Style Editor and change the role text’s color to black.
+      </td>
+    </tr>
+  </table>
+</hint>
+
+1. **Bug: 431449**
+
+<hint type="success">
+  <table isTableHeaderOn="true">
+    <tr>
+      <td>
+        **Issue**
+      </td>
+      <td>
+        On-premise - Installation of Metric server for the first time fails with db connection error.
+        <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/rXsahsk0jWAYNWU6qhknj_bug431449.png" position="flex-start" size="40" initialPath="Install_Deploy_Images/bug_431449.png" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Install_Deploy_Images/bug_431449.png"></Image>
+        **Steps:**
+        1. Install the latest 2020.1 build on Windows 2014 R2 or any OS.
+        2. Select the Metric Server configuration in SCW.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        **Actual Results**
+      </td>
+      <td>
+        The application fails to create the Metric Server database after the "Create" action though the db test connection is successful.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        **Expected Results**
+      </td>
+      <td>
+        The application should create the Metrix Server database.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        **Workaround**
+      </td>
+      <td>
+        Recreate works fine.
+      </td>
+    </tr>
+  </table>
+</hint>
+
+1. **Bug: 678308**
+
+<hint type="success">
+  <table isTableHeaderOn="true">
+    <tr>
+      <td>
+        **Issue**
+      </td>
+      <td>
+        On-premise: Unable to Login to Tenant once SCW completed for ITAM/IxM/ISM clean windows authentication.
+        **Steps:**
+        1. Set up ITAM clean windows authentication.
+        2. Once SCW completed open tenant enter valid credentials to login to tenant.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        **Actual Results**
+      </td>
+      <td>
+        The application throws an error.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        **Workaround**
+      </td>
+      <td>
+        Re-run the SCW and try to login.
+      </td>
+    </tr>
+  </table>
+</hint>
+
+1. **Bug: 676494**
+
+<hint type="success">
+  <table isTableHeaderOn="true">
+    <tr>
+      <td>
+        **Issue**
+      </td>
+      <td>
+        Default value of Request Offering text field set to Current User Function (Primary Phone) is not reflecting in Service Catalog.
+        **Prerequisite:**
+        - Add Phone number to the current user.
+        **Steps:**
+        1. Login to the application as Admin or Service Owner.
+        2. Create a new Request Offering.
+        3. Go to **Design Request** form and add a text field.
+        4. Edit the field and set the default value to **Function** and select **Current User: Primary Phone** from the drop down list.
+        5. Publish the Request Offering and save.
+        6. Open the created Request Offering in Service Catalog and verify the current user phone number is populated.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        **Actual Results**
+      </td>
+      <td>
+        Current User Phone number is not displayed in the service catalog.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        **Workaround**
+      </td>
+      <td>
+        This is specific to 2019.1.0 OOTB onwards. No workaround available.
+      </td>
+    </tr>
+  </table>
+</hint>
+
+## Release Version - 2019.3.1
+
+Following is the list of known issues in \{\{Primary.Company}} \{\{Primary.Product}} 2019.3 release:
+
+1. :Link[Bug 636223]{label="Bug 636223" overridedLabel="Bug 636223" spaceId docId="Shx_lNACrjSRUWykFIdVB" version="v2" docAnchorId="#Bug:636223" loadingMethod="dynamic" newTab="false" href="Known_Issues.mdx"} - Ivanti cloud transfer: Blank record is getting created in Hardware workspace for device.
+2. :Link[Bug 648276]{label="Bug 648276" overridedLabel="Bug 648276" spaceId docId="Shx_lNACrjSRUWykFIdVB" version="v2" docAnchorId="#Bug:648276" loadingMethod="dynamic" newTab="false" href="Known_Issues.mdx"} - Software Asset creation has intermittent issues.
+
+## Issue Details
+
+1. Bug: 636223
+
+<hint type="success">
+  | **Issue**      | Ivanti cloud transfer: Blank record is getting created in Hardware workspace for device. |
+  | -------------- | ---------------------------------------------------------------------------------------- |
+  | **Workaround** | No workaround is available.                                                              |
+</hint>
+
+1. Bug: 648276
+
+<hint type="success">
+  | **Issue**      | Software Asset creation has intermittent issues.  <br />For example, when a software is installed on different system, after some time the same software asset is created twice. |
+  | -------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+  | **Workaround** | No workaround is available.                                                                                                                                                      |
+</hint>
+
+## Release Version - 2019.3
+
+Following is the list of known issues in \{\{Primary.Company}} \{\{Primary.Product}} 2019.3 release:
+
+1. :Link[Bug 616198]{label="Bug 616198" overridedLabel="Bug 616198" spaceId docId="Shx_lNACrjSRUWykFIdVB" version="v2" docAnchorId="#Bug616198" loadingMethod="dynamic" newTab="false" href="Known_Issues.mdx"} - Heat Mobile app may crash when iOS is upgraded from version 12.3.1 to 13.1.
+2. :Link[Bug 610706]{label="Bug 610706" overridedLabel="Bug 610706" spaceId docId="Shx_lNACrjSRUWykFIdVB" version="v2" docAnchorId="#Bug610706" loadingMethod="dynamic" newTab="false" href="Known_Issues.mdx"} - Post 2019.2 upgrade, Audit History is not updated based on the relationship link for FRS\_Approval business object.
+3. :Link[Bug 615685]{label="Bug 615685" overridedLabel="Bug 615685" spaceId docId="Shx_lNACrjSRUWykFIdVB" version="v2" docAnchorId="#Bug615685" loadingMethod="dynamic" newTab="false" href="Known_Issues.mdx"} - Ivanti Cloud (UNO) Login App V1 & V2 integration does not work on ISM tenant which has Pre-MCT database.
+4. :Link[Bug 620323]{label="Bug 620323" overridedLabel="Bug 620323" spaceId docId="Shx_lNACrjSRUWykFIdVB" version="v2" docAnchorId="#Bug620323" loadingMethod="dynamic" newTab="false" href="Known_Issues.mdx"} - Duplicate entries for workflow and task on creating a service request from a backup database.
+5. :Link[Bug 635269]{label="Bug 635269" overridedLabel="Bug 635269" spaceId docId="Shx_lNACrjSRUWykFIdVB" version="v2" docAnchorId="#Bug635269" loadingMethod="dynamic" newTab="false" href="Known_Issues.mdx"} - IP Whitelisting shows "Invalid IP" for all FRSHeat integration API requests when session key from "Authenticate User" is used.
+6. :Link[Bug 644185]{label="Bug 644185" overridedLabel="Bug 644185" spaceId docId="Shx_lNACrjSRUWykFIdVB" version="v2" docAnchorId="#Bug644185" loadingMethod="dynamic" newTab="false" href="Known_Issues.mdx"} - The application throws an error when trying to link new and edit existing records in Telemetry Logging Configuration tab in config db tenant.
+7. :Link[Bug 70551]{label="Bug 70551" overridedLabel="Bug 70551" spaceId docId="Shx_lNACrjSRUWykFIdVB" version="v2" docAnchorId="#Bug70551" loadingMethod="dynamic" newTab="false" href="Known_Issues.mdx"} - Embedding content using iFrame in HTML UI Control is not working as expected.
+8. :Link[Bug 518404]{label="Bug 518404" overridedLabel="Bug 518404" spaceId docId="Shx_lNACrjSRUWykFIdVB" version="v2" docAnchorId="#Bug518404" loadingMethod="dynamic" newTab="false" href="Known_Issues.mdx"} - Request Offering is not getting created in the tenant, when imported via the Release Tool patch file.
+9. :Link[Bug 632194]{label="Bug 632194" overridedLabel="Bug 632194" spaceId docId="Shx_lNACrjSRUWykFIdVB" version="v2" docAnchorId="#Bug632194" loadingMethod="dynamic" newTab="false" href="Known_Issues.mdx"} - IP whitelisting - Integration trusted host is not allowing any IP to send/receive request, when the load balancer IP is configured.
+
+## Issue Details
+
+1. Bug: 616198
+
+<hint type="success">
+  | **Issue**      | After upgrading iOS version from 12.3.1 to 13.1, some users may experience crashing of the Heat Mobile app. |
+  | -------------- | ----------------------------------------------------------------------------------------------------------- |
+  | **Workaround** | Un-install and re-install the Heat Mobile app.                                                              |
+</hint>
+
+2. Bug: 610706
+
+<hint type="success">
+  <table isTableHeaderOn="true">
+    <tr>
+      <td>
+        **Issue**
+      </td>
+      <td>
+        Post 2019.2 upgrade, Audit History is not updated based on the relationship link for FRS\_Approval business object.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        **Actual Results**
+      </td>
+      <td>
+        1. Upgrade \{\{Primary.Product}} to version 2019.2.
+        2. Log in to \{\{Primary.Product}} with Admin user role.
+        3. Open the Configuration console.
+        4. Navigate to **Business Objects** > **Service Request** > Relationships > ServiceReqAssociatedFRS\_Approval.
+        5. Select the Relationship is Audited check box.
+        6. Save and exit.
+        7. Create a Service Request that generates an approval, for example, Mailbox Quota Request.
+        8. Save the Service Request and exit.
+        9. Re-open the Service Request and click the Audit History tab.
+        10. No link to the Approval record is added in the Audit History.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        **Expected Results**
+      </td>
+      <td>
+        A link to the Approval record should be added in the Audit History.
+      </td>
+    </tr>
+  </table>
+</hint>
+
+3. Bug: 615685
+
+<hint type="success">
+  | **Issue**      | Ivanti Cloud (UNO) Login App V1 & V2 integration does not work on ISM tenant which has Pre-MCT database. |
+  | -------------- | -------------------------------------------------------------------------------------------------------- |
+  | **Workaround** | Upgrade the pre-MCT tenant using MCT migration tool before performing IvantiCloud (UNO) Integration.     |
+</hint>
+
+4. Bug: 620323
+
+<hint type="success">
+  | **Issue**      | Duplicate entries for workflow and task on creating a service request from a backup database.                                                                                                                                                                                                                                                                                                                                                                                                                      |
+  | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+  | **Workaround** | Note: The issue is re-producible when you restore the 2019.3 OOTB database from any existing tenant.  <br />You need to run a clean up script to remove the unwanted entries from specific table so that no duplicate workflow is triggered.  <br />Run the below query in the restored tenant database and "isvisble=0" condition is mandatory. Make sure the workflow service is stopped before running this script and start after running.  <br />"select \* from Frs\_def\_businessrules where isvisible = 0" |
+</hint>
+
+5. Bug: 635269
+
+<hint type="success">
+  | **Issue**      | IP Whitelisting shows "Invalid IP" for all FRSHeat integration API requests when session key from "Authenticate User" is used. |
+  | -------------- | ------------------------------------------------------------------------------------------------------------------------------ |
+  | **Workaround** | Use the SID (from ISM application > **Developer Tools**) to authenticate API requests.                                         |
+</hint>
+
+6. Bug: 644185
+
+<hint type="success">
+  <table isTableHeaderOn="true">
+    <tr>
+      <td>
+        **Issue**
+      </td>
+      <td>
+        The application throws an error when trying to link new and edit existing records in Telemetry Logging Configuration tab in config db tenant.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        **Actual Results**
+      </td>
+      <td>
+        1. Log in to a config db tenant of \{\{Primary.Product}} with Admin user role.
+        2. Open a tenant record and navigate to Telemetry Logging Configuration tab.
+        3. Click **Link** > select a service record to link > **Add** or **Edit** button.
+        The application displays an error message.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        **Expected Results**
+      </td>
+      <td>
+        The selected service record should be linked to the Telemetry Logging Configuration.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        **Workaround**
+      </td>
+      <td>
+        Go to the Telemetry Logging Configuration workspace, add new service records or existing records here. The updated services will be visible in the Telemetry Logging Configuration tab of the tenant page which you can now link.
+      </td>
+    </tr>
+  </table>
+</hint>
+
+7. Bug: 70551
+
+<hint type="success">
+  | **Issue** | Embedding content using iFrame in HTML UI Control is not working as expected. |
+  | --------- | ----------------------------------------------------------------------------- |
+</hint>
+
+8. Bug: 518404
+
+<hint type="success">
+  | **Issue** | Request Offering is not getting created in the tenant, when imported via the Release Tool patch file. |
+  | --------- | ----------------------------------------------------------------------------------------------------- |
+</hint>
+
+9. Bug: 632194
+
+<hint type="success">
+  | **Issue** | IP whitelisting - Integration trusted host is not allowing any IP to send/receive request, when the load balancer IP is configured. |
+  | --------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+</hint>
+
+## Release Version - 2019.2
+
+There are no known issues in \{\{Primary.Company}} \{\{Primary.Product}} 2019.2 release.
+
+## Release Version - 2019.1 and earlier
+
+Given below is the list of known issues in \{\{Primary.Company}} \{\{Primary.Product}} 2019.1 and earlier releases.
+
+1. :Link[Bug 476581]{label="Bug 476581" overridedLabel="Bug 476581" spaceId docId="Shx_lNACrjSRUWykFIdVB" version="v2" docAnchorId="#Bug:476581" loadingMethod="dynamic" newTab="false" href="Known_Issues.mdx"} - Configuration fails if the App server cache does not have trusted host information of database server.
+2. :Link[Bug 492307]{label="Bug 492307" overridedLabel="Bug 492307" spaceId docId="Shx_lNACrjSRUWykFIdVB" version="v2" docAnchorId="#Bug:492307" loadingMethod="dynamic" newTab="false" href="Known_Issues.mdx"} - On-premise - Re-branding is pending in the ITAM application as it still refers to "Ivanti Service Manager".
+3. :Link[Bug 492520]{label="Bug 492520" overridedLabel="Bug 492520" spaceId docId="Shx_lNACrjSRUWykFIdVB" version="v2" docAnchorId="#Bug:492520" loadingMethod="dynamic" newTab="false" href="Known_Issues.mdx"} - SSRS configuration with custom authentication and domain credentials may throw the 1326 error sometimes.
+4. :Link[Bug 492643]{label="Bug 492643" overridedLabel="Bug 492643" spaceId docId="Shx_lNACrjSRUWykFIdVB" version="v2" docAnchorId="#Bug:492643" loadingMethod="dynamic" newTab="false" href="Known_Issues.mdx"} - Ops console is not re-branded for Ivanti, it still shows HEAT brand names.
+5. :Link[Bug 333924]{label="Bug 333924" overridedLabel="Bug 333924" spaceId docId="Shx_lNACrjSRUWykFIdVB" version="v2" docAnchorId="#Bug:333924" loadingMethod="dynamic" newTab="false" href="Known_Issues.mdx"} - Configure OpenIDConnect Auth Provider for MS Azure AD.
+6. :Link[Bug 341934]{label="Bug 341934" overridedLabel="Bug 341934" spaceId docId="Shx_lNACrjSRUWykFIdVB" version="v2" docAnchorId="#Bug:341934" loadingMethod="dynamic" newTab="false" href="Known_Issues.mdx"} - \[Request for Information] Report: Distribution option "Download".
+7. :Link[Bug 505677]{label="Bug 505677" overridedLabel="Bug 505677" spaceId docId="Shx_lNACrjSRUWykFIdVB" version="v2" docAnchorId="#Bug:505677" loadingMethod="dynamic" newTab="false" href="Known_Issues.mdx"} - Multiple records are displayed on the home page search for a single request.
+8. :Link[Bug 502699]{label="Bug 502699" overridedLabel="Bug 502699" spaceId docId="Shx_lNACrjSRUWykFIdVB" version="v2" docAnchorId="#Bug:502699" loadingMethod="dynamic" newTab="false" href="Known_Issues.mdx"} - SSRS configuration fails while trying to add the provision report in SCW.
+9. :Link[Bug 504840]{label="Bug 504840" overridedLabel="Bug 504840" spaceId docId="Shx_lNACrjSRUWykFIdVB" version="v2" docAnchorId="#Bug:504840" loadingMethod="dynamic" newTab="false" href="Known_Issues.mdx"} - There is a browser compatibility issue for Self Service Mobile, in the UI price list/ Cost panel showing Zero(0).
+10. :Link[Bug 383101]{label="Bug 383101" overridedLabel="Bug 383101" spaceId docId="Shx_lNACrjSRUWykFIdVB" version="v2" docAnchorId="#Bug383101" loadingMethod="dynamic" newTab="false" href="Known_Issues.mdx"} - Japanese characters are shown as ? in the FRS\_SurveyAnswer.
+11. :Link[Bug 359153]{label="Bug 359153" overridedLabel="Bug 359153" spaceId docId="Shx_lNACrjSRUWykFIdVB" version="v2" docAnchorId="#Bug359153" loadingMethod="dynamic" newTab="false" href="Known_Issues.mdx"} - Logout from the Self Service Mobile UI takes users to the ISM login instead of the Auth provider login.
+12. :Link[Bug 508376]{label="Bug 508376" overridedLabel="Bug 508376" spaceId docId="Shx_lNACrjSRUWykFIdVB" version="v2" docAnchorId="#Bug:508376" loadingMethod="dynamic" newTab="false" href="Known_Issues.mdx"} - "FrontRange Solution" installer certificate is not trusted by Microsoft anymore.
+13. :Link[Bug 519086]{label="Bug 519086" overridedLabel="Bug 519086" spaceId docId="Shx_lNACrjSRUWykFIdVB" version="v2" docAnchorId="#Bug:519086" loadingMethod="dynamic" newTab="false" href="Known_Issues.mdx"} - Upgrading 2019.1 directly from 2018.1.1 does not work.
+14. :Link[Bug 522220]{label="Bug 522220" overridedLabel="Bug 522220" spaceId docId="Shx_lNACrjSRUWykFIdVB" version="v2" docAnchorId="#Bug:522220" loadingMethod="dynamic" newTab="false" href="Known_Issues.mdx"} - Unable to create new CI due to the Asset Processor Configuration.
+15. :Link[Bug 525479]{label="Bug 525479" overridedLabel="Bug 525479" spaceId docId="Shx_lNACrjSRUWykFIdVB" version="v2" docAnchorId="#Bug:525479" loadingMethod="dynamic" newTab="false" href="Known_Issues.mdx"} - Login page not loading by throwing Timestamp Error while Internal Services user is disabled.
+16. :Link[Bug 522214]{label="Bug 522214" overridedLabel="Bug 522214" spaceId docId="Shx_lNACrjSRUWykFIdVB" version="v2" docAnchorId="#Bug:522214" loadingMethod="dynamic" newTab="false" href="Known_Issues.mdx"} - Config db/tenant db metadata version field left blank during upgrade/install.
+17. :Link[Bug 431449]{label="Bug 431449" overridedLabel="Bug 431449" spaceId docId="Shx_lNACrjSRUWykFIdVB" version="v2" docAnchorId="#BugNew:431449" loadingMethod="dynamic" newTab="false" href="Known_Issues.mdx"} - On-premise : Installation of Metric server for the first time fails.
+18. :Link[Bug 526262]{label="Bug 526262" overridedLabel="Bug 526262" spaceId docId="Shx_lNACrjSRUWykFIdVB" version="v2" docAnchorId="#Bug:526262" loadingMethod="dynamic" newTab="false" href="Known_Issues.mdx"} - Upgraded ISM 2018.3.1 to 2019.1 and post upgrade accessing the below workspaces as LicenseManager role throws exception.
+19. :Link[Bug 485595]{label="Bug 485595" overridedLabel="Bug 485595" spaceId docId="Shx_lNACrjSRUWykFIdVB" version="v2" docAnchorId="#Bug:485595" loadingMethod="dynamic" newTab="false" href="Known_Issues.mdx"} - The Sting "Self" is UNLOC shown under Self Service User - My Items > Benefits Package Claim.
+20. :Link[Bug 235039]{label="Bug 235039" overridedLabel="Bug 235039" spaceId docId="Shx_lNACrjSRUWykFIdVB" version="v2" docAnchorId="#Bug:235039" loadingMethod="dynamic" newTab="false" href="Known_Issues.mdx"} - The Service Request Review and Submit page displays the incorrect employee details if the login IDs are similar.
+21. :Link[Bug 533210]{label="Bug 533210" overridedLabel="Bug 533210" spaceId docId="Shx_lNACrjSRUWykFIdVB" version="v2" docAnchorId="#Bug:533210" loadingMethod="dynamic" newTab="false" href="Known_Issues.mdx"} - 2019.1 premise installer seems to silently exit or crash after installing one of the pre-req modules.
+22. :Link[Bug 576301]{label="Bug 576301" overridedLabel="Bug 576301" spaceId docId="Shx_lNACrjSRUWykFIdVB" version="v2" docAnchorId="#Bug:576301" loadingMethod="dynamic" newTab="false" href="Known_Issues.mdx"} - Errors on Form and Grid for BO AuthenticationPrincipal when upgrading from 2018.3.1 to 2019.1.0 premise.
+
+## Issue Details
+
+**Bug: 476581**
+
+<hint type="success">
+  | **Issue**      | Configuration fails if App server cache does not have trusted host information of database server  <br />1. Install or upgrade ISM application to latest build version of 2018.1.1  <br />2. Install or upgrade the reporting service  <br />3. Provision the report as part of configuration  <br />Use Custom Authentication method for SSRS configuration and SQL authentication for database connection type.  <br /><Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/Y1ZCSUPaj2-aVaK9Y9LCN_bug476581.png" position="flex-start" size="40" initialPath="Install_Deploy_Images/bug_476581.png" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Install_Deploy_Images/bug_476581.png"></Image> |
+  | -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+  | **Workaround** | There is a timing issue on provisioning. If the application cache is not rebuilt after updating the Trusted Host Entry in the config database (central config webapp), then provisioning of reports will fail as post config calls fails (Exception to access config service). Hence, it is advised to make sure Trusted Host Address are already added in the config database and IIS is reset (or wait for 15 mins to rebuild cache).                                                                                                                                                                                                                                                                                                        |
+</hint>
+
+**Bug 492307**
+
+<hint type="success">
+  | **Issue**            | On-premise - Re-branding is pending in the ITAM application as it still refers to "Ivanti Service Manager".  <br />**Steps to reproduce**  <br />Install ITAM application and check the product version and other branding-related information.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+  | -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+  | **Actual Results**   | <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/zTZaJs4AWtKPuEVcWJFmk_bug4923071.png" size="97" isUploading="false" initialPath="Install_Deploy_Images/bug_492307_1.png" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Install_Deploy_Images/bug_492307_1.png"></Image>  <br /><Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/9mDgvKRkV7jdKG-gvmK0I_bug4923072.png" position="flex-start" size="40" initialPath="Install_Deploy_Images/bug_492307_2.png" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Install_Deploy_Images/bug_492307_2.png"></Image>  <br /><Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/Ksnattjk9qIXWoxqxXX-I_bug4923073.png" position="flex-start" size="40" initialPath="Install_Deploy_Images/bug_492307_3.png" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Install_Deploy_Images/bug_492307_3.png"></Image> |
+  | **Expected Results** | Currently, the 2018.3.1 on-premise version is built on top of the ISM platform and continues to refer ISM in many places. This needs to be fixed.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+  | **Workaround**       | No application functionality should be lost.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+</hint>
+
+**Bug 492520**
+
+<hint type="success">
+  | **Issue**            | SSRS configuration with Custom Authentication may fail sometimes if the domain user credentials provided is working. You will see the 1326 error.  <br />**Steps to reproduce**  <br />Configure SSRS with Custom Authentication with Domain credentials.                                                                                                                                                                     |
+  | -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+  | **Actual Results**   | SSRS configuration with Custom Authentication is shown below:  <br /><Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/hGrlRmGmqrR3qhGe3g7TU_bug492520.png" position="flex-start" size="40" initialPath="Install_Deploy_Images/bug_492520.png" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Install_Deploy_Images/bug_492520.png"></Image>                                    |
+  | **Expected Results** | Provided domain credentials should work and users should be able to proceed.                                                                                                                                                                                                                                                                                                                                                  |
+  | **Workaround**       | Use Custom authentication with the User in-built account type "Network Service" to proceed.  <br /><Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/H6DqEaS_Fu0Gi3Di44v9c_bug4925202.png" position="flex-start" size="40" initialPath="Install_Deploy_Images/bug_492520_2.png" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Install_Deploy_Images/bug_492520_2.png"></Image> |
+</hint>
+
+**Bug 492643**
+
+<hint type="success">
+  | **Issue**          | 2018.3.1 ops console is not re-branded for Ivanti, it still shows HEAT brand names.  <br />**Steps to reproduce**  <br />Login to ops console by accessing the following path: http\://10.16.228.14/OpsConsole/User                                                                                                   |
+  | ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+  | **Actual Results** | <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/50Kf_K-Le_NMPzSadceuC_bug492643.png" position="flex-start" size="40" initialPath="Install_Deploy_Images/bug_492643.png" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Install_Deploy_Images/bug_492643.png"></Image> |
+</hint>
+
+**Bug 333924**
+
+<hint type="success">
+  | **Issue**          | When configuring OpenIDConnect Authentication Provider for MS Azure AD and making "Test Authentication", he follwoing message appears: "Use Sub as external login as e-mail is not available at this step."  <br />Azure AD does not return "email" claim in response and there is no "email" in "Extracted JWT token".  <br />Instead of returning email in "email" claim, Azure returns an email in "upn" claim:  <br />\{"typ":"JWT",  <br />"alg":"RS256",  <br />"x5t":"z44wMdHu8wKsumrbfaK98qxs5YI",  <br />"kid":"z44wMdHu8wKsumrbfaK98qxs5YI"}.\{"aud":"022c4d20-1d56-4a73-a421-86b2b423f344",  <br />"iss":"https\://sts.windows.net/23afecaf-6440-44aa-a6f2-b6e38bd02ba9/",  <br />"iat":1517385849,  <br />"nbf":1517385849,  <br />"exp":1517389749,  <br />"aio":"Y2NgYGi+6xjp02/t1/erTNy+LKVPa8dC4+/TP3xennmSm1+8+z4A",  <br />"amr":\["pwd"],  <br />"family\_name":"Sandyrov",  <br />"given\_name":"Andrej",  <br />"ipaddr":"88.119.194.198",  <br />"name":"Andrej Sandyrov",  <br />"oid":"83f1b61f-1e77-4ce5-85ad-c76bed5a1247",  <br />"onprem\_sid":"S-1-5-21-1293440551-2949271503-1314497110-1132",  <br />"sub":"qX\_OE8OkmVyYRXYI7chX4qqSWPyCQLVRl8CU\_YtYOY8",  <br />"tid":"23afecaf-6440-44aa-a6f2-b6e38bd02ba9",  <br />"unique\_name":"andrejs\@synergy.lt",  <br />"upn":"andrejs\@synergy.lt",  <br />"uti":"ZmsLjPCsLEqe3Kbp8qkDAA",  <br />"ver":"1.0"}  <br />The following errors occur:  <br />User not found for external login qX\_OE8OkmVyYRXYI7chX4qqSWPyCQLVRl8CU\_YtYOY8. Try to use auto-provisioning  <br />...  <br />Value is missing for 'email'  <br />System.ArgumentException: Value is missing for 'email'  <br />?? at HEAT.Authentication.Sso.Oidc.OidcResultHandler.GetDictStringValue(IDictionary\`2 dict, String  <br />...  <br />Authentication failed unexpected error |
+  | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+  | **Actual Results** | Configuration to install Ivanti SM handler to use "upn" instead of "email.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+</hint>
+
+**Bug 341934**
+
+<hint type="success">
+  | **Issue**            | When choosing the "Download" option in Distribution Information of the report from the homepage dashboard or report list, download is not happening. |
+  | -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+  | **Expected Results** | Reports should be downloaded from homepage dashboard or report list.                                                                                 |
+</hint>
+
+**Bug 505677**
+
+<hint type="success">
+  | **Issue**            | In self-service mobile, when searching with the string "optional software" in the home page search box, multiple records that are displayed for a single record and the request offerings are in the "Design" state.  <br />**Steps to reproduce**  <br />1. Log in to ISM in the "Self Service Mobile" role.  <br />2. On the home page, search for "optional software".  <br /><Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/mBSUrwDetAMabzOR7_zAK_bug5056771.png" position="flex-start" size="40" initialPath="Install_Deploy_Images/bug_505677_1.png" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Install_Deploy_Images/bug_505677_1.png"></Image>  <br />  <br /><Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/JuneUbctaNjaP6-XLXZaa_bug5056772.png" position="flex-start" size="40" initialPath="Install_Deploy_Images/bug_505677_2.png" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Install_Deploy_Images/bug_505677_2.png"></Image> |
+  | -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+  | **Actual Results**   | The system displays multiple records for a single request that is in design state.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+  | **Expected Results** | A single record should get displayed for a single request that are in the "Published" state.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+</hint>
+
+**Bug 502699**
+
+<hint type="success">
+  | **Issue**            | SSRS configuration fails while trying to add the Provision report in SCW.  <br />**Steps to reproduce**  <br />1. Configure the Reporting service configuration.  <br />2. Click on "Provision report now".  <br /><Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/J39wiM_Rshmp5S2s8_0FZ_bug502699.png" position="flex-start" size="40" initialPath="Install_Deploy_Images/bug_502699.png" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Install_Deploy_Images/bug_502699.png"></Image> |
+  | -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+  | **Actual Results**   | Error message appears as shown above.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+  | **Expected Results** | There should be no error and the URL should be accessible.                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+</hint>
+
+**Bug 504840**
+
+<hint type="success">
+  <table isTableHeaderOn="true">
+    <tr>
+      <td>
+        **Issue**
+      </td>
+      <td>
+        There is a browser compatibility issue (in Firefox and Microsoft Edge) for Self Service Mobile, in the UI price list/ Cost panel showing Zero(0).
+        If a user selects an item, for example, Desktop, which is $595 when he submits the request, the cost panel shows $0. Hence, the severity must be kept to 2. In addition, customer bugs (which are linked) are getting blocked and hence, the priority should be set to 2.
+        **Steps to reproduce**
+        1. Login as an **Admin**.
+        2. Go to the **Request Offerings** workspace and import a .ROF file, publish, and save.
+        3. Switch to the **Self Service** (old UI) role.
+        4. Go to **Service Catalog** and open this offering.
+        5. Select **Desktop** type, then a **Desktop** and a **Quantity**. Notice that the price list looks correct for the selection.
+        6. Without submitting or saving, go back and select **Laptop** type, a **Laptop** and a **Quantity**. Observe that the **Costs** panel is still correct and the originally selected **Desktop** item is removed.
+        7. Switch to the **Self Service Mobile** UI.
+        8. Go to **Service Catalog** and open this offering.
+        9. Select **Desktop** type, then a **Desktop** and a **Quantity**. Observe that the price list looks correct for the selection.
+        10. Without submitting or saving, go back and select **Laptop** type, a **Laptop** and a **Quantity**. Notice that the **Costs** panel retains the previously selected **Desktop** even though it should not.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        **Actual Results**
+      </td>
+      <td>
+        The **Cost** panel shows zero even if the product is selected.
+        <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/TBv66y7ucBNrYp4vN6V52_bug5048401.png" position="flex-start" size="40" initialPath="../Resources/Images/Bug_504840_1.png" githubPath="ITSM-On-Prem-Help/Content/Resources/Images/Bug_504840_1.png"></Image>
+        This is working fine in Chrome, but not working in Firefox and Microsoft Edge.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        **Expected Results**
+      </td>
+      <td>
+        The **Cost** panel should display the correct value for the selected type.
+      </td>
+    </tr>
+  </table>
+</hint>
+
+**Bug 383101**
+
+<hint type="success">
+  <table isTableHeaderOn="true">
+    <tr>
+      <td>
+        **Issue**
+      </td>
+      <td>
+        Japanese characters are shown as ? in the FRS\_SurveyAnswer
+        **Steps to reproduce**
+        This error can be replicated in Demo 2017.3.1 and 2018.1 tenant: https\://tenant-dev2.saasitpilot.com/.
+        1. Open FRS\_SurveyAnswer#
+        2. Go to field QuestionText or AnswerText
+        3. Change type to unicode,
+        4. Save.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        **Actual Results**
+      </td>
+      <td>
+        Error: Unhanded system exception: The given key was not present in the dictionary.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        **Expected Results**
+      </td>
+      <td>
+        Possibility to set this field to be unicode text.
+      </td>
+    </tr>
+  </table>
+</hint>
+
+**Bug 359153**
+
+<hint type="success">
+  <table isTableHeaderOn="true">
+    <tr>
+      <td>
+        **Issue**
+      </td>
+      <td>
+        Logout from the Self Service Mobile UI takes users to the ISM login instead of the Auth provider login.
+        **Steps to reproduce**
+        1. Set up the environment with SAML authentication.
+        2. Set up a logout URL as seen in the screenshot.
+        3. Log in as admin with the role of Self Service Mobile.
+        4. Log out later using the logout button.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        **Actual Results**
+      </td>
+      <td>
+        Users are taken back to the ISM login page for only Self Service Mobile role.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        **Expected Results**
+      </td>
+      <td>
+        Users should be taken back to the SAML login page.
+      </td>
+    </tr>
+  </table>
+</hint>
+
+**Bug 508376**
+
+<hint type="success">
+  <table isTableHeaderOn="true">
+    <tr>
+      <td>
+        **Issue**
+      </td>
+      <td>
+        The certificate issued for installer is "FrontRange Solution" and Publisher name is "Ivanti Inc." since the last couple of releases. The Windows certificate trust store never questioned the authenticity of the certificate earlier. However, somehow it is prompting the certificate trust question now on Windows OS like 2016, 2012 etc.
+        **Steps to reproduce**
+        1. Take the latest installer and install on vanilla OS (Win2016, 2012)
+      </td>
+    </tr>
+    <tr>
+      <td>
+        **Actual Results**
+      </td>
+      <td>
+        <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/HW-rhsd9X6914IU1uH_Be_bug508376.png" position="flex-start" size="40" initialPath="Install_Deploy_Images/bug_508376.png" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Install_Deploy_Images/bug_508376.png"></Image>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        **Expected Results**
+      </td>
+      <td>
+        Issue a new certificate to installer with "Ivanti Inc."
+      </td>
+    </tr>
+    <tr>
+      <td>
+        **Workaround**
+      </td>
+      <td>
+        Accept the certificate to add to MS trust store.
+      </td>
+    </tr>
+  </table>
+</hint>
+
+**Bug 519086**
+
+<hint type="success">
+  <table isTableHeaderOn="true">
+    <tr>
+      <td>
+        **Issue**
+      </td>
+      <td>
+        If a user tries to directly upgrade from 2018.1.1 to 2019.1.0 or the latest version, the upgrade will fail.
+        This is because SCW fails to launch the post installer update due to the missing registry key for ProductType. This entry should be retained during the upgrade, which is currently not working. 2018.1.1 build: 2018.1.1000.2018103001 @ 10/29/2018 2019.1.1 build: 2019.1.1000.2019030701
+        The supported upgrade paths for 2018.1.1 to 2019.1.0 application version must be 2018.1.1 > 2018.3.1 > 2019.1.0.
+        **Steps to reproduce**
+        1. Upgrade the existing 2018.1.1 on-premise version to the 2019.1.0 on-premise version by skipping the 2018.3.1 upgrade path.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        **Actual Results**
+      </td>
+      <td>
+        <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/6ildQbqd4BE8BtJl7MYkq_bug519086.png" position="flex-start" size="40" initialPath="Install_Deploy_Images/bug_519086.png" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Install_Deploy_Images/bug_519086.png"></Image>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        **Expected Results**
+      </td>
+      <td>
+        The product reg key must be created during an upgrade and SCW should launch without any error.
+      </td>
+    </tr>
+  </table>
+</hint>
+
+**Bug 522220**
+
+<hint type="success">
+  <table isTableHeaderOn="true">
+    <tr>
+      <td>
+        **Issue**
+      </td>
+      <td>
+        Unable to create new CI due to the Asset Processor Configuration.
+        After installing the GatewayDC(Discovery), Gateway CI is not getting generated and getting error message as "Unable to create new CI due to the Asset Processor configuration". This is can be found only on OOTB(IxM) on 2019.1 Builds Onwards.
+        **Steps to reproduce**
+        1. Pre-requisite: This issue can only be reproduced on OOTB(IxM). SO to reproduce OOTB(IxM) environment is required.
+        2. Login to the application.
+        3. Go to the Admin UI and download the GatewayDC/StandardGateway and install with proper credential on the above mentioned kind on tenants environment.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        **Actual Results**
+      </td>
+      <td>
+        Gateway is not getting created in under Gateway workSpace and Highlighted Error will comes in Message Queue Journal.
+        <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/dAFVrHgy1_71tb2OqGapM_bug522220.png" position="flex-start" size="40" initialPath="Install_Deploy_Images/bug_522220.png" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Install_Deploy_Images/bug_522220.png"></Image>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        **Expected Results**
+      </td>
+      <td>
+        \-
+      </td>
+    </tr>
+  </table>
+</hint>
+
+**Bug 525479**
+
+<hint type="success">
+  <table isTableHeaderOn="true">
+    <tr>
+      <td>
+        **Issue**
+      </td>
+      <td>
+        When Internal Services user is disabled in a tenant, then login page is not loading by throwing timestamp error.
+        It is a regression issue as the 2018.3.1 environment login page is loading successfully if an Internal Services user is disabled. After 2019.1 deployment to FFT and NVD PLT landscapes where few customers login page is not loading by throwing the Timestamp Error. On Analyzing, ops team found Login "Internal Services" were disabled in those tenants. After enabling the login, they were able to login to the Tenant without any issues.
+        **Steps to reproduce**
+        1. Login to ISM as the Admin role.
+        2. Open Employee workspace and search for "Internal Services" user.
+        3. Disable "Internal Services" user and close the browser or try to logout.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        **Actual Results**
+      </td>
+      <td>
+        The system is throwing the Timestamp error while loading the login page.
+        <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/zOy89XQUrLK3Ojzklzfuz_bug525479.png" position="flex-start" size="40" initialPath="Install_Deploy_Images/bug_525479.png" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Install_Deploy_Images/bug_525479.png"></Image>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        **Expected Results**
+      </td>
+      <td>
+        After disabling "Internal Services" user, login page should be loaded properly without throwing any timestamp error.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        **Workaround**
+      </td>
+      <td>
+        To work properly, we need to enable the "Internal Services" user.
+      </td>
+    </tr>
+  </table>
+</hint>
+
+**Bug 522214**
+
+<hint type="success">
+  <table isTableHeaderOn="true">
+    <tr>
+      <td>
+        **Issue**
+      </td>
+      <td>
+        After installation or upgrade of ISM/AM/IXM application, the metaRevision field is not updated. Regression: NO as it is observed in 2018.3.1 or an earlier version.
+        **Steps to reproduce**
+        1. Install & upgrade any of the above application
+        2. Check the MetaRevision version of the application tenant in configuration.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        **Actual Results**
+      </td>
+      <td>
+        <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/KepRD9zCvLXaNcxhC_qq-_bug522214.png" position="flex-start" size="40" initialPath="Install_Deploy_Images/bug_522214.png" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Install_Deploy_Images/bug_522214.png"></Image>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        **Expected Results**
+      </td>
+      <td>
+        MetaRevision should be updated or should retain the old value (in case of no system table upgrade) as it is a mandatory field.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        **Workaround**
+      </td>
+      <td>
+        User should manually enter "670" in this field and save it. This is a workaround only for 2019.1.
+      </td>
+    </tr>
+  </table>
+</hint>
+
+**Bug 431449**
+
+<hint type="success">
+  <table isTableHeaderOn="true">
+    <tr>
+      <td>
+        **Issue**
+      </td>
+      <td>
+        Version: 2018.1.1 On-premise
+        OS: Windows 2016 SP1 & IIS version 10.0.14393.0
+        Installation of Metric server for the first time fails with db connection error, however subsequent attempt of "recreate" works fine.
+        <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/rXsahsk0jWAYNWU6qhknj_bug431449.png" position="flex-start" size="40" initialPath="Install_Deploy_Images/bug_431449.png" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Install_Deploy_Images/bug_431449.png"></Image>
+        **Steps to reproduce**
+        1. Install the latest 2018.1.1 build on Windows 2014 R2 or any OS.
+        2. Select the Metric Server configuration in SCW.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        **Actual Results**
+      </td>
+      <td>
+        The application fails to create the Metric Server database after the "Create" action though the db test connection is successful. However, subsequent attempt on "recreate' works fine.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        **Expected Results**
+      </td>
+      <td>
+        \-
+      </td>
+    </tr>
+  </table>
+</hint>
+
+**Bug 526262**
+
+<hint type="success">
+  | **Issue**            | Upgraded ISM 2018.3.1 to 2019.1.0 and post upgrade accessing the below workspaces as LicenseManager role throws exception.  <br />**Steps to reproduce**  <br />Upgrade ISM 2018.3.1 to 2019.1.0.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+  | -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+  | **Actual Results**   | LicenseManager home page fails to load.  <br />Accessing the Software Inventory, Software Product, Software Family and other workspaces as a LicenseManager throws error in UI.  <br /><Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/pggCZVG03CfpV5pja709X_bug5262621.png" position="flex-start" size="40" initialPath="Install_Deploy_Images/bug_526262_1.png" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Install_Deploy_Images/bug_526262_1.png"></Image>  <br /><Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/FmXpRQuYwZXIt1OqdJOFn_bug5262622.png" position="flex-start" size="40" initialPath="Install_Deploy_Images/bug_526262_2.png" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Install_Deploy_Images/bug_526262_2.png"></Image>  <br /><Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/Er3_gHE55DwiMtUtRnuvG_bug5262623.png" position="flex-start" size="40" initialPath="Install_Deploy_Images/bug_526262_3.png" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Install_Deploy_Images/bug_526262_3.png"></Image>  <br /><Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/YaCLjaejpLA9Gx54agBSd_bug5262624.png" position="flex-start" size="40" initialPath="Install_Deploy_Images/bug_526262_4.png" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Install_Deploy_Images/bug_526262_4.png"></Image> |
+  | **Expected Results** | The above mentioned modules should not be exposed to LicenseManager role.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+</hint>
+
+**Bug 485595**
+
+<hint type="success">
+  <table isTableHeaderOn="true">
+    <tr>
+      <td>
+        **Issue**
+      </td>
+      <td>
+        The Sting "Self" is UNLOC shown under Self Service User - My Items > Benefits Package Claim.
+        **Steps to reproduce**
+        1. Log in to ISM and change the role to **Self Service User**.
+        2. Open the **My Items** workspace.
+        3. Select **Benefits Package Claim**.
+        4. Under **Item Details**, there is one unloc sting "Self" from "PATIENT INFORMATION".
+      </td>
+    </tr>
+    <tr>
+      <td>
+        **Actual Results**
+      </td>
+      <td>
+        The Sting "Self" is UNLOC shown under Self Service User - My Items > Benefits Package Claim.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        **Expected Results**
+      </td>
+      <td>
+        The UNLOC string should translated as "自我".
+      </td>
+    </tr>
+  </table>
+</hint>
+
+**Bug 235039**
+
+<hint type="success">
+  | **Issue**            | Upgraded ISM 2018.3.1 to 2019.1.0 and post upgrade accessing the below workspaces as LicenseManager role throws exception.  <br />**Steps to reproduce**  <br />Upgrade ISM 2018.3.1 to 2019.1.0. |
+  | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+  | **Actual Results**   | LicenseManager home page fails to load.  <br />Accessing the Software Inventory, Software Product, Software Family and other workspaces as a LicenseManager throws error in UI.                   |
+  | **Expected Results** | The above mentioned modules should not be exposed to LicenseManager role.                                                                                                                         |
+</hint>
+
+**Bug 533210**
+
+<hint type="success">
+  <table isTableHeaderOn="true">
+    <tr>
+      <td>
+        **Issue**
+      </td>
+      <td>
+        2019.1 premise installer seems to silently exit or crash after installing one of the pre-req modules.
+        **Steps to reproduce**
+        1. Run installer exe as an admin.
+        2. Click **Install** to installer pre-reqs. A dialog box will appear, "Extracting Ivanti Service Asset Manager.msi.
+        3. Follow the wizard to where you select SM / AM / both.
+        4. Select any installation type, click next, then again next, select **Complete**, click next, and then click install. Just after the VC 2013 redist x64 finishes installing the installer exits silently.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        **Actual Results**
+      </td>
+      <td>
+        Just after the VC 2013 redist x64 finishes the installing process, the installer exits silently.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        **Expected Results**
+      </td>
+      <td>
+        Installer should progress normally.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        **Workaround**
+      </td>
+      <td>
+        Re-run the installer EXE.
+      </td>
+    </tr>
+  </table>
+</hint>
+
+**Bug 576301**
+
+<hint type="success">
+  <table isTableHeaderOn="true">
+    <tr>
+      <td>
+        **Issue**
+      </td>
+      <td>
+        During Update System on Update Application Database in SCW, the system receives a notification that it was updated with visible errors.
+        Example: Patch 'AuthenticationPrincipal' has 5 error(s) Error during metadata commit operation for seq = 12482: System.Exception: Nom de colonne non valide : 'GlobalId'.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        **Workaround**
+      </td>
+      <td>
+        If a customer receives the error for GlobalID and/or AuthenticationPrincipal, then:
+        1. Close SCW.
+        2. Restore the Application DB back to 2018.3.1.
+        3. Go to the AdminUI and import the “GlobalID\_Contract\_Identity.MetadataPatch” package.
+        4. Re-launch SCW.
+        5. Re-validate and re-select upgrade. The customer should be able to upgrade ISM DB with no errors.
+        Optimally, the customer should run through the following steps so they do not have to wade through a failing upgrade and then have to restore the 2018.3.1 Application DB, thus saving possibly hours of time.
+        1. After installing 2019.1.0 and before walking through the SCW, launch AdminUI.
+        2. Import the “GlobalID\_Contract\_Identity.MetadataPatch” package.
+        3. Walk through SCW and the customer should be able to upgrade DB.
+      </td>
+    </tr>
+  </table>
+</hint>

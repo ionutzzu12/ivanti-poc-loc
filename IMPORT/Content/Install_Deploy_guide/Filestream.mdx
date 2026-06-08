@@ -1,0 +1,82 @@
+---
+title: Enabling Attachment File Streaming
+docTags: 
+createdAt: Fri Jun 05 2026 13:49:30 GMT+0300 (Eastern European Summer Time)
+---
+
+- :Link[About Enabling Attachment File Streaming]{label="About Enabling Attachment File Streaming" overridedLabel="About Enabling Attachment File Streaming" spaceId docId="0UasCab55OZ5dMzZ9yWMR" version="v2" docAnchorId="#About" loadingMethod="dynamic" newTab="false" href="Filestream.mdx"}
+- :Link[Task 1: Enabling the FILESTREAM Feature]{label="Task 1: Enabling the FILESTREAM Feature" overridedLabel="Task 1: Enabling the FILESTREAM Feature" spaceId docId="0UasCab55OZ5dMzZ9yWMR" version="v2" docAnchorId="#Task_1._Enabling_the_FILESTREAM_Feature" loadingMethod="dynamic" newTab="false" href="Filestream.mdx"}
+- :Link[Task 2: Setting up Neurons for ITSM]{label="Task 2: Setting up Neurons for ITSM" overridedLabel="Task 2: Setting up Neurons for ITSM" spaceId docId="0UasCab55OZ5dMzZ9yWMR" version="v2" docAnchorId="#Task_2._Setting_up_HEAT_Service_Management_Using_the_System_Configuration_Wizard" loadingMethod="dynamic" newTab="false" href="Filestream.mdx"}
+- :Link[Task 3: Running the File Stream Attachment Script]{label="Task 3: Running the File Stream Attachment Script" overridedLabel="Task 3: Running the File Stream Attachment Script" spaceId docId="0UasCab55OZ5dMzZ9yWMR" version="v2" docAnchorId="#Task_3._Running_the_FileStreamAttachment.sql_Script" loadingMethod="dynamic" newTab="false" href="Filestream.mdx"}
+
+## About Enabling Attachment File Streaming
+
+Microsoft SQL Server 2022 and later versions come with enhanced support for unstructured data in the form of the FILESTREAM data type, which stores unstructured data files in the NTFS file system while storing the metadata about the unstructured data files in the Microsoft SQL Server database. For more information, see [https://technet.microsoft.com/en-us/library/bb933993(v=sql.105).aspx](https://technet.microsoft.com/en-us/library/bb933993\(v=sql.105\).aspx).
+
+Beginning with Release 2016.1.1, \{\{Primary.Product}} supports the FILESTREAM attachment type when you perform the tasks below.
+
+<hint type="info">
+  This procedure is only required for deployments that store FILESTREAM attachments.
+</hint>
+
+## Task 1: Enabling the FILESTREAM Feature
+
+You must enable the FILESTREAM feature on the Microsoft SQL Server instances where you plan to install the configuration database and the \{\{Primary.Product}} application database. The database administrator normally performs this task.
+
+1. On the database server, go to the Windows apps menu and click SQL Server Configuration Manager.
+2. Navigate to the SQL Server Services node and double-click the Microsoft SQL Server instance to modify. For example, select SQL Server (MSSQLSERVER).
+
+<Paragraph indent="1">
+  *Microsoft SQL Server Properties Dialog Box*
+</Paragraph>
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/A4K93wtmfCY61TBvdbK1X_sqlserverpropertiesdb.png" position="flex-start" size="40" indent="1" initialPath="Install_Deploy_Images/SQL_Server_Properties_DB.png" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Install_Deploy_Images/SQL_Server_Properties_DB.png"></Image>
+
+3. Click the FILESTREAM tab.
+4. Check Enable FILESTREAM for Transact-SQL access and Enable FILESTREAM for file I/O access.
+5. Enter a Windows share name for the files.
+6. Check Allow remote clients access to FILESTREAM data.
+7. Click OK.
+8. On the database server, go to the Windows apps menu and click SQL Server Management Studio.
+9. In Microsoft SQL Server Management Studio, connect to the database server.
+10. Right-click the server and choose Properties from the pop-up menu.
+11. Under Select a page, click Advanced.
+12. Double-click the entry called FILESTREAM Access Level until it displays Full access enabled.
+13. Click OK.
+14. (Optional) If you see a restart required message, restart the Microsoft SQL Server.
+
+<Paragraph indent="1">
+  *Microsoft SQL Server Properties*
+</Paragraph>
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/PcyoygV80BHyPYPPwt_1s_serverpropertiesfilestreamaccess.png" position="flex-start" size="40" indent="1" initialPath="Install_Deploy_Images/Server_Properties_Filestream_Access.png" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Install_Deploy_Images/Server_Properties_Filestream_Access.png"></Image>
+
+## Task 2: Setting up Neurons for ITSM
+
+The \{\{Primary.Product}} application database and the configuration database are Microsoft SQL databases. On Microsoft SQL databases, user accounts with the db\_owner fixed database role can perform all configuration and maintenance activities on the database.
+
+These steps are in addition to those described under [Configuring Neurons for ITSM ](Server_Config_Procedure.mdx).
+
+1. On the database server, go to the Windows apps menu and click System Configuration Wizard.
+2. On the Configuration Application page, specify a configuration database user account that has a db\_owner role on Microsoft SQL Server. This is for the User Name field. See [Configuring the Configuration Database](Configure_HEAT_Configuration_Database.mdx).
+3. When you create a new configuration database, specify the directory path to the MDF and LDF database files.
+
+<Paragraph indent="1">
+  *Creating a New Configuration Database*
+</Paragraph>
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/PKr7IsqaQLEN9bJikux1a_newdatabase.PNG" position="flex-start" size="40" indent="1" initialPath="Install_Deploy_Images/NewDatabase.PNG" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Install_Deploy_Images/NewDatabase.PNG"></Image>
+
+4. On the \{\{Primary.Product}} Application page, specify a \{\{Primary.Product}} application database user account that has a db\_owner role on Microsoft SQL Server. This is for the User Name field. See [Configuring the Neurons for ITSM Application](Configure_HEAT_Service_Management_Application.mdx).
+5. When you create a new \{\{Primary.Product}} application database, specify an additional path to the server.
+
+## Task 3: Running the File Stream Attachment Script
+
+The FileStreamAttachment.sql script is included on the Software product CD. The script creates an attachment filestream database file group and a filestream.
+
+Before you run the script, open it in Microsoft SQL Server Management Studio and read the script notes carefully, so that you understand what the script does.
+
+1. On the Microsoft SQL Server hosting the configuration database, run the FileStreamAttachment.sql script.
+2. On the Microsoft SQL Server hosting the \{\{Primary.Product}} application database, run the FileStreamAttachment.sql script.
+
+When you create your \{\{Primary.Product}} application database, you can now specify the FILESTREAM attachment type.

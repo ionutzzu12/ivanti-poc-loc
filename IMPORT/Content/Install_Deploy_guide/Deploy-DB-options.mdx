@@ -1,0 +1,134 @@
+---
+title: Database Deployment Options
+docTags: 
+createdAt: Fri Jun 05 2026 13:49:30 GMT+0300 (Eastern European Summer Time)
+---
+
+This section describes the different options available for the \{\{Primary.Product}} databases.
+
+- :Link[About the Databases Used in Neurons for ITSM]{label="About the Databases Used in Neurons for ITSM" overridedLabel="About the Databases Used in Neurons for ITSM" spaceId docId="Bp30Iz7hdSDvuHNII7eG6" version="v2" docAnchorId="#About" loadingMethod="dynamic" newTab="false" href="Deploy-DB-options.mdx"}
+- :Link[Diagram Conventions]{label="Diagram Conventions" overridedLabel="Diagram Conventions" spaceId docId="Bp30Iz7hdSDvuHNII7eG6" version="v2" docAnchorId="#Diagram" loadingMethod="dynamic" newTab="false" href="Deploy-DB-options.mdx"}
+- :Link[Option D1: Separate Database Servers (Recommended and Best Practice)]{label="Option D1: Separate Database Servers (Recommended and Best Practice)" overridedLabel="Option D1: Separate Database Servers (Recommended and Best Practice)" spaceId docId="Bp30Iz7hdSDvuHNII7eG6" version="v2" docAnchorId="#Separate2" loadingMethod="dynamic" newTab="false" href="Deploy-DB-options.mdx"}
+- :Link[Option D2a: Single Database Server (Best Practice)]{label="Option D2a: Single Database Server (Best Practice)" overridedLabel="Option D2a: Single Database Server (Best Practice)" spaceId docId="Bp30Iz7hdSDvuHNII7eG6" version="v2" docAnchorId="#OptionD2a:SingleDatabaseServer(Recommended)" loadingMethod="dynamic" newTab="false" href="Deploy-DB-options.mdx"}
+- :Link[Option D2b: Single Database Server]{label="Option D2b: Single Database Server" overridedLabel="Option D2b: Single Database Server" spaceId docId="Bp30Iz7hdSDvuHNII7eG6" version="v2" docAnchorId="#OptionD2b:SingleDatabaseServer" loadingMethod="dynamic" newTab="false" href="Deploy-DB-options.mdx"}
+- :Link[Option D3: Single Configuration Database on a Single Database Server]{label="Option D3: Single Configuration Database on a Single Database Server" overridedLabel="Option D3: Single Configuration Database on a Single Database Server" spaceId docId="Bp30Iz7hdSDvuHNII7eG6" version="v2" docAnchorId="#Separate" loadingMethod="dynamic" newTab="false" href="Deploy-DB-options.mdx"}
+- :Link[Option D4: Multiple Configuration Databases on a Single Server]{label="Option D4: Multiple Configuration Databases on a Single Server" overridedLabel="Option D4: Multiple Configuration Databases on a Single Server" spaceId docId="Bp30Iz7hdSDvuHNII7eG6" version="v2" docAnchorId="#Multiple" loadingMethod="dynamic" newTab="false" href="Deploy-DB-options.mdx"}
+- :Link[Option D5: Multiple Configuration Databases on Multiple Servers]{label="Option D5: Multiple Configuration Databases on Multiple Servers" overridedLabel="Option D5: Multiple Configuration Databases on Multiple Servers" spaceId docId="Bp30Iz7hdSDvuHNII7eG6" version="v2" docAnchorId="#Multiple2" loadingMethod="dynamic" newTab="false" href="Deploy-DB-options.mdx"}
+- :Link[Option D6: Single Configuration Database on Separate Database Servers (for MSPs)]{label="Option D6: Single Configuration Database on Separate Database Servers (for MSPs)" overridedLabel="Option D6: Single Configuration Database on Separate Database Servers (for MSPs)" spaceId docId="Bp30Iz7hdSDvuHNII7eG6" version="v2" docAnchorId="#Separate3" loadingMethod="dynamic" newTab="false" href="Deploy-DB-options.mdx"}
+- :Link[Option D7: Multiple Configuration Databases on Separate Database Servers (for MSPs)]{label="Option D7: Multiple Configuration Databases on Separate Database Servers (for MSPs)" overridedLabel="Option D7: Multiple Configuration Databases on Separate Database Servers (for MSPs)" spaceId docId="Bp30Iz7hdSDvuHNII7eG6" version="v2" docAnchorId="#Multiple3" loadingMethod="dynamic" newTab="false" href="Deploy-DB-options.mdx"}
+
+## About the Databases Used in Neurons for ITSM
+
+The following are the databases used in \{\{Primary.Product}}:
+
+- configuration database (ConfigDB)
+- \{\{Primary.Product}} application database (IvantiSM)
+- \{\{Primary.Product}} reporting database (ReportDB). This database is used for the reporting feature. See [Reporting Services Deployment Options](Deploy-Reporting-options.mdx) for more information.
+- Metrics cache database (Metrics Cache DB). This database is used to cache the run-time state of the schedule jobs. Only one metrics cache database is needed in each isolated landscape. For example, if the configuration database and the \{\{Primary.Product}} application database are hosted on the same database server, your deployment only needs one metrics cache database.
+
+In addition, there are generally three instances for each tenant:
+
+- Staging
+- UAT
+- Production
+
+Each tenant instance, Staging (development), UAT (Test) and Production, can have its own database instance or server. These are called:
+
+| Database         | Description                                                        |
+| ---------------- | ------------------------------------------------------------------ |
+| IvantiSM         | Application database for production                                |
+| IvantiSM-STG     | Application database for staging (development)                     |
+| IvantiSM-UAT     | Application database for UAT (testing)                             |
+| IvantiSM-Dev     | Application database for staging (development) and UAT (testing)   |
+|                  |                                                                    |
+| ConfigDB         | Configuration database for production                              |
+| ConfigDB-STG     | Configuration database for staging (development)                   |
+| ConfigDB-UAT     | Configuration database for UAT (testing)                           |
+| ConfigDB-Dev     | Configuration database for staging (development) and UAT (testing) |
+|                  |                                                                    |
+| ReportServer     | Report database for production                                     |
+| ReportServer-STG | Report database for staging (development)                          |
+| ReportServer-UAT | Report database for UAT (testing)                                  |
+| ReportServer-Dev | Report database for staging (development) and UAT (testing)        |
+
+The advantage of hosting a database on its own server is that it ensures security by isolating the production landscape. It also enhances performance. When you make multiple changes or upgrades to the staging or UAT landscapes, you do not want that to affect the performance of the production landscape. Separating the different databases makes it easier to upgrade the systems, because when you upgrade the systems you have to shut them down and that affects users in the production landscape.
+
+The advantage of hosting everything on one server is that you save money by only having to purchase and administer one server and one Microsoft SQL Server license.
+
+## Diagram Conventions
+
+The following conventions are used in the diagrams:
+
+- A line item is considered a database. There can be many databases within one database engine instance.
+- A barrel is considered a database engine instance. It can contain multiple database instances.
+- A square or rectangle around something means it is on one server (machine).  Each server can potentially host multiple database engine instances.
+
+*Diagram Conventions*
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/0MRl5d65_XSAZXwuNgOlb_example.svg" position="flex-start" size="40" initialPath="Install_Deploy_Images/example.svg" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Install_Deploy_Images/example.svg"></Image>
+
+### Option D1: Separate Database Servers (Recommended and Best Practice)
+
+In this deployment, there are two separate database servers. One is for the production landscape and the other is for the staging and UAT landscape. The staging and UAT servers share a configuration database.
+
+*Example of Separate Database Servers*
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/VfkskbzrziCpiB1CpdTKA_sepproddbserver.svg" position="flex-start" size="40" initialPath="Install_Deploy_Images/SepProdDBServer.svg" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Install_Deploy_Images/SepProdDBServer.svg"></Image>
+
+## Option D2a: Single Database Server (Best Practice)
+
+In this deployment, there is a single database server and one configuration database (ConfigDB-Dev).
+
+*Example of Recommended Single Database Server*
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/i6G08kXx726u9Bl5Rv7ro_singledbinstancebestpract.svg" position="flex-start" size="40" initialPath="Install_Deploy_Images/SingleDBinstance_bestpract.svg" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Install_Deploy_Images/SingleDBinstance_bestpract.svg"></Image>
+
+## Option D2b: Single Database Server
+
+In this deployment, there is a single database server and either no configuration database or two configuration databases (ConfigDB-STG and ConfigDB-UAT).
+
+*Example of Alternative Single Database Servers*
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/wKmaGgtp5lkCNNtnyKp-o_singledbinstanceothers.svg" position="flex-start" size="40" initialPath="Install_Deploy_Images/SingleDBinstance_others.svg" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Install_Deploy_Images/SingleDBinstance_others.svg"></Image>
+
+## Option D3: Single Configuration Database on a Single Database Server
+
+In this deployment, there is one configuration database for the production landscape and another configuration database shared between the staging and UAT landscapes.
+
+*Example of Separate Database Engine Instances on a Single Database Server*
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/LXHFfABB8JOMExU0Z-02F_sepproddbinstance.svg" position="flex-start" size="40" initialPath="Install_Deploy_Images/SepProdDBInstance.svg" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Install_Deploy_Images/SepProdDBInstance.svg"></Image>
+
+## Option D4: Multiple Configuration Databases on a Single Server
+
+In this deployment, there are separate configuration databases for the production landscape, the staging landscape, and the UAT landscape.
+
+*Example of Multiple Configuration Databases on a Single Server*
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/9ZGPsS9lxxN0kk3DjVeIQ_multconfigdb.svg" position="flex-start" size="40" initialPath="Install_Deploy_Images/MultConfigDB.svg" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Install_Deploy_Images/MultConfigDB.svg"></Image>
+
+## Option D5: Multiple Configuration Databases on Multiple Servers
+
+In this deployment, there are separate configuration databases for the production landscape, the staging landscape, and the UAT landscape and separate instances.
+
+*Example of Multiple Configuration Databases on Multiple Servers*
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/1ztgnkLH6XSHJKkonXBLm_multconfigdb2.svg" position="flex-start" size="40" initialPath="Install_Deploy_Images/MultConfigDB2.svg" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Install_Deploy_Images/MultConfigDB2.svg"></Image>
+
+## Option D6: Single Configuration Database on Separate Database Servers (for MSPs)
+
+A Managed Service Provider (MSP) is a service partner who provides \{\{Primary.Product}} for multiple tenants or outside customers.
+
+In this deployment, there is a single configuration database shared between landscapes.
+
+*Example of a Single Configuration Database on Separate Database Servers*
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/2FhExKMzS1GU5tgOK8RCA_sepproddbserver2.svg" position="flex-start" size="40" initialPath="Install_Deploy_Images/SepProdDBServer2.svg" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Install_Deploy_Images/SepProdDBServer2.svg"></Image>
+
+## Option D7: Multiple Configuration Databases on Separate Database Servers (for MSPs)
+
+In this deployment, there are separate configuration databases for the production landscape, the staging landscape, and the UAT landscape and separate instances.
+
+*Example of Multiple Configuration Databases on Separate Database Servers*
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/1uxlfAo_zXJG-f7JEG89B_multconfigdb3.svg" position="flex-start" size="40" initialPath="Install_Deploy_Images/MultConfigDB3.svg" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Install_Deploy_Images/MultConfigDB3.svg"></Image>

@@ -1,0 +1,1002 @@
+---
+title: Web Methods
+docTags: 
+createdAt: Fri Jun 05 2026 13:49:32 GMT+0300 (Eastern European Summer Time)
+---
+
+The following sections describe the full details for these
+
+### Important Note Regarding Service Request Subscription
+
+<hint type="info">
+  Note that when accessing the various Service Catalog web methods via the API, most of the Web Methods are invoked with respect to the Id of the Service Request Subscription record, and not with the Id of the Request Offering itself.
+</hint>
+
+Recall that when the Request Offering is defined, the user needs to specify whether it is configured as "Published and Subscribe", or "Publish".
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/lCvxPTIdASHvtNpU0P9Zm_03000008.png" position="flex-start" size="40" initialPath="WebServices_images/03000008.png" githubPath="ITSM-On-Prem-Help/Content/WebServices/WebServices_images/03000008.png"></Image>
+
+- When configured as **Published and Subscribe**, users belonging to the indicated Organizational Unit and below will have access to the Request Offering.
+- When configured as **Published**, user will have access to the Request Offering, based on the Service Level Agreement (SLA) for the Organizational Unit the user belongs to.
+
+The **ServiceReqSubscription** record (used internally by the Service Catalog) contains the information regarding which Organizational Unit is associated with the Request Offering, and the SLA information, if it is configured relative to the SLA.
+
+In the following sections, several of the Web Methods will make use of the **Id value** of the **ServiceReqSubscription&#x20;**&#x72;ecord. For this, a helper web method called **GetSubscriptionId()** can be used, for obtaining the Subscription Id, which can then be used in any subsequent operations, such as **SubmitRequest()**.
+
+## GetCategories
+
+Get the list of available Categories for the Service Catalog.
+
+### Request syntax:
+
+public FRSHEATGetCategoriesResponse GetCategories(string sessionKey, string tenantId)
+
+### Parameters:
+
+- **sessionKey**: Key received in the earlier Connect request
+- **tenantId**: tenant for which the key is authenticated.
+
+### Return Value:
+
+An FRSHEATGetCategoriesResponse object, defined as follows:
+
+    public class FRSHEATGetCategoriesResponse
+
+    \{
+
+        public string status \{ get; set; }
+
+        public string exceptionReason \{ get; set; }
+
+        public List\<FRSHEATServiceReqCategory> srCategories \{ get; set; }
+
+    }
+
+The FRSHEATIntegrationFindBOResponse class comprises the following fields:
+
+- **status&#x20;**– this field provides a Status value indicating whether the operation was successful.A full description of the available Status values is provided in the table below.
+- **exceptionReason&#x20;**– if there is an exception thrown in the course of running the Connect WebMethod, the exception information will be captured in this field.
+- **srCategories&#x20;**– a list of FRSHEATServiceReqCategory objects, each of which represents the Category value in the Service Catalog.
+
+The FRSHEATServiceReqCategory class is defined as follows:
+
+    public class FRSHEATServiceReqCategory
+
+    \{
+
+        public string strRecId;
+
+        public string strName;
+
+        public string strDescription;
+
+    }
+
+The FRSHEATServiceReqCategory class comprises the following fields:
+
+- **strRecId&#x20;**– the RecId corresponding to the Category value
+- **strName&#x20;**– the Name of the Category
+- **strDescription&#x20;**– the Description for the Category
+
+The following table lists the available status values, and describes how to interpret them.
+
+| Status  | Explanation                                                                                                                                                                  |
+| ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Success | The list of Categories in the Service Catalog can be successfully retrieved, and are available via the srCategories list.                                                    |
+| Error   | An Error was encountered during the execution of this Web Method - the corresponding exceptionReason member should be inspected, to determine why the web method has failed. |
+
+### Example
+
+            FRSHEATGetCategoriesResponse getCategoriesResponse = frSvc.GetCategories(authSessionKey, tenantId);
+
+            if (getCategoriesResponse.status == "Success")
+
+            \{
+
+                foreach (FRSHEATServiceReqCategory srCategory in getCategoriesResponse.srCategories)
+
+                \{
+
+                    Console.WriteLine("Category: \{\{0}}", srCategory.strName);
+
+                }
+
+            }
+
+## GetCategoryTemplates
+
+Get the list of Request Offerings in the Service Catalog, which belong to the indicated Category
+
+### Request syntax:
+
+public FRSHEATGetTemplatesResponse GetCategoryTemplates(string sessionKey, string tenantId, string categoryid, string searchString)
+
+### Parameters:
+
+- **sessionKey**: Key received in the earlier Connect request
+- **tenantId**: tenant for which the key is authenticated.
+- **categoryId**: the RecId of the Category in the Service Catalog, obtained via the GetCategories WebMethod
+- **searchString**: a substring for determining the matching Request Offerings
+
+### Return Value:
+
+An FRSHEATGetTemplatesResponse object, defined as follows:
+
+    public class FRSHEATGetTemplatesResponse
+
+    \{
+
+        public string status \{ get; set; }
+
+        public string exceptionReason \{ get; set; }
+
+        public List\<FRSHEATServiceReqTemplateListItem> srtList \{ get; set; }
+
+    }
+
+The FRSHEATGetTemplatesResponse class comprises the following fields:
+
+- **status&#x20;**– this field provides a Status value indicating whether the operation was successful.A full description of the available Status values is provided in the table below.
+- **exceptionReason&#x20;**– if there is an exception thrown in the course of running the Connect WebMethod, the exception information will be captured in this field.
+- **srtList&#x20;**– a list of FRSHEATServiceReqTemplateListItem objects, each of which represents the Request Offering matching the search criteria.
+
+The FRSHEATServiceReqTemplateListItem class is defined as follows:
+
+    public class FRSHEATServiceReqTemplateListItem
+
+    \{
+
+        public string strRecId;
+
+        public string strName;
+
+        public string strDescription;
+
+        public string strSubscriptionId;
+
+    }
+
+The FRSHEATServiceReqTemplateListItem class comprises the following fields:
+
+- **strRecId&#x20;**– the RecId corresponding to the Request Offering
+- **strName&#x20;**– the Name of the Request Offering
+- **strDescription&#x20;**– the Description for the Request Offering
+- **strSubscriptionId&#x20;**– the SubscriptionId
+
+The following table lists the available status values, and describes how to interpret them.
+
+| Status  | Explanation                                                                                                                                                                  |
+| ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Success | The list of matching Request Offerings in the Service Catalog can be successfully retrieved, and are available via the srtList member.                                       |
+| Error   | An Error was encountered during the execution of this Web Method - the corresponding exceptionReason member should be inspected, to determine why the web method has failed. |
+
+### Example
+
+            FRSHEATGetTemplatesResponse getTemplatesResponse = frSvc.GetCategoryTemplates(authSessionKey, tenantId, categoryid, searchString);
+
+            if (getTemplatesResponse.status == "Success")
+
+            \{
+
+                foreach (FRSHEATServiceReqTemplateListItem srTemplateListItem in getTemplatesResponse.srtList)
+
+                \{
+
+                    Console.WriteLine("Request Offering: \{\{0}} \{\{1}}", srTemplateListItem.strSubscriptionId, srTemplateListItem.strName);
+
+                }
+
+            }
+
+## GetAllTemplates
+
+Get the full list of Request Offerings in the Service Catalog
+
+### Request syntax:
+
+public FRSHEATGetTemplatesResponse GetAllTemplates(string sessionKey, string tenantId)
+
+### Parameters:
+
+- **sessionKey**: Key received in the earlier Connect request
+- **tenantId**: tenant for which the key is authenticated.
+
+### Return Value:
+
+An FRSHEATGetTemplatesResponse object, defined as follows:
+
+    public class FRSHEATGetTemplatesResponse
+
+    \{
+
+        public string status \{ get; set; }
+
+        public string exceptionReason \{ get; set; }
+
+        public List\<FRSHEATServiceReqTemplateListItem> srtList \{ get; set; }
+
+    }
+
+The FRSHEATGetTemplatesResponse class comprises the following fields:
+
+- **status&#x20;**– this field provides a Status value indicating whether the operation was successful.A full description of the available Status values is provided in the table below.
+- **exceptionReason&#x20;**– if there is an exception thrown in the course of running the Connect WebMethod, the exception information will be captured in this field.
+- **srtList&#x20;**– a list of FRSHEATServiceReqTemplateListItem objects, each of which represents the Request Offering matching the search criteria.
+
+The FRSHEATServiceReqTemplateListItem class is defined as follows:
+
+    public class FRSHEATServiceReqTemplateListItem
+
+    \{
+
+        public string strRecId;
+
+        public string strName;
+
+        public string strDescription;
+
+        public string strSubscriptionId;
+
+    }
+
+The FRSHEATServiceReqTemplateListItem class comprises the following fields:
+
+- **strRecId&#x20;**– the RecId corresponding to the Request Offering
+- **strName&#x20;**– the Name of the Request Offering
+- **strDescription&#x20;**– the Description for the Request Offering
+- **strSubscriptionId&#x20;**– the Subscription Id
+
+The following table lists the available status values, and describes how to interpret them.
+
+| Status  | Explanation                                                                                                                                                                  |
+| ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Success | The list of matching Request Offerings in the Service Catalog can be successfully retrieved, and are available via the srtList member.                                       |
+| Error   | An Error was encountered during the execution of this Web Method - the corresponding exceptionReason member should be inspected, to determine why the web method has failed. |
+
+### Example
+
+            FRSHEATGetTemplatesResponse getTemplatesResponse = frSvc.GetAllTemplates(authSessionKey, tenantId);
+
+            if (getTemplatesResponse.status == "Success")
+
+            \{
+
+                foreach (FRSHEATServiceReqTemplateListItem srTemplateListItem in getTemplatesResponse.srtList)
+
+                \{
+
+                    Console.WriteLine("Request Offering: \{\{0}} \{\{1}}", srTemplateListItem.strSubscriptionId, srTemplateListItem.strName);
+
+                }
+
+            }
+
+## GetSubscriptionId
+
+Fetches the Subscription ID corresponding to the Request Offering for the current user
+
+### Request syntax:
+
+public FRSHEATGetSubscriptionIdResponse GetSubscriptionId(string sessionKey, string tenantId, string name)
+
+### Parameters:
+
+- **sessionKey**: Key received in the earlier Connect request
+- **tenantId**: tenant for which the key is authenticated.
+- **name**: name of the Request Offering
+
+### Return Value:
+
+An FRSHEATGetSubscriptionIdResponse object, defined as follows:
+
+    public class FRSHEATGetSubscriptionIdResponse
+
+    \{
+
+        public string status \{ get; set; }
+
+        public string exceptionReason \{ get; set; }
+
+        public string subscriptionId \{ get; set; }
+
+    }
+
+The FRSHEATGetSubscriptionIdResponse class comprises the following fields:
+
+- **status&#x20;**– this field provides a Status value indicating whether the operation was successful.A full description of the available Status values is provided in the table below.
+- **exceptionReason&#x20;**– if there is an exception thrown in the course of running the Connect WebMethod, the exception information will be captured in this field.
+- **subscriptionId&#x20;**– the Subscription ID corresponding to the Request Offering for the current user.
+
+The following table lists the available status values, and describes how to interpret them.
+
+| Status   | Explanation                                                                                                                                                                  |
+| -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Success  | The Subscription ID of the indicated Request Offering can be accessed via the subscriptionId member                                                                          |
+| NotFound | There is no Request Offering available with the given name in the tenant – please ensure that the name of the Request Offering is spelled correctly                          |
+| Error    | An Error was encountered during the execution of this Web Method - the corresponding exceptionReason member should be inspected, to determine why the web method has failed. |
+
+### Example
+
+            FRSHEATGetSubscriptionIdResponse subscriptionIdResponse = frSvc.GetSubscriptionId(authSessionKey, tenantId, offeringName);
+
+            string offeringname = "Domain Password Reset";
+
+            if (subscriptionIdResponse.status == "Success")
+
+            \{
+
+                string subscriptionId = subscriptionIdResponse.subscriptionId;
+
+                Console.WriteLine("The Subscription Id for the \\"\{\{0}}\\" Request Offering is \{\{1}}", offeringName, subscriptionId);
+
+            }  
+
+## GetPackageData
+
+Retrieve the details of the indicated Request Offering
+
+### Request syntax:
+
+public FRSHEATGetPackageDataResponse GetPackageData(string sessionKey, string tenantId, string strSubscrRecId)
+
+### Parameters:
+
+- **sessionKey**: Key received in the earlier Connect request
+- **tenantId**: tenant for which the key is authenticated.
+- **strSubscrRecId**: the Subscription ID corresponding to the Request Offering for the current user
+
+### Return Value:
+
+An FRSHEATGetPackageDataResponse object, defined as follows:
+
+    public class FRSHEATGetPackageDataResponse
+
+    \{
+
+        public string status \{ get; set; }
+
+        public string exceptionReason \{ get; set; }
+
+        public FRSHEATServiceReqSubscription srSubscription \{ get; set; }
+
+    }
+
+The FRSHEATGetPackageDataResponse class comprises the following fields:
+
+- **status&#x20;**– this field provides a Status value indicating whether the operation was successful.A full description of the available Status values is provided in the table below.
+- **exceptionReason&#x20;**– if there is an exception thrown in the course of running the Connect WebMethod, the exception information will be captured in this field.
+- **srSubscription&#x20;**– an FRSHEATServiceReqSubscription object, containing the full details of the Request Offering (such as the parameter details)
+
+The FRSHEATServiceReqSubscription class is defined as follows:
+
+    public class FRSHEATServiceReqSubscription
+
+    \{
+
+        public string strSubscriptionRecId;
+
+        public string strDateSubscribed;
+
+        public string strOrgUnitId;
+
+        public string strName;
+
+        public string strDescription;
+
+        public string strServiceName;
+
+        public string strRecId;
+
+        public List\<FRSHEATServiceReqTemplateParam> lstParameters;
+
+    }
+
+The FRSHEATServiceReqTemplateListItem class comprises the following fields:
+
+- **strSubscriptionRecId&#x20;**– the Subscription ID corresponding to the Request Offering for the current user
+- **strDateSubscribed&#x20;**– date when the Request Offering was marked as Published and Subscribed
+- **strOrgUnitId&#x20;**– RecId of the OrganizationalUnit the Request Offering is associated with
+- **strName&#x20;**– the name of the Request Offering
+- **strDescription&#x20;**– description value of the Request Offering
+- **strServiceName&#x20;**– name of the Service the Request Offering is associated with
+- **strRecId&#x20;**– the RecId of the Request Offering
+- **lstParameters&#x20;**– a list of FRSHEATServiceReqTemplateParam objects, each item representing a parameter in the Request Offering
+
+The FRSHEATServiceReqTemplateParam class is defined as follows:
+
+    public class FRSHEATServiceReqTemplateParam
+
+    \{
+
+        public string strName;
+
+        public string strLabel;
+
+        public string strDescription;
+
+        public string strType;
+
+        public bool bAllowSelectByUser;
+
+        public bool bDBValidated;
+
+        public string strRequiredExpression;
+
+        public bool isCalculated;
+
+        public bool autoFillOnlyWhenEmpty;
+
+        public string strValidationListRecId;
+
+        public string strValidationListTableRef;
+
+        public bool bIsHidden;
+
+        public string strRecId;
+
+        public List\<ValidationConstraint> validationConstraints;
+
+        public string strValidationConstraints;
+
+        public string strAutoFillExpression;
+
+        public List\<string> triggerFields;
+
+        public string strTriggerFields;
+
+        public string strDefaultValue;
+
+    }
+
+The FRSHEATServiceReqTemplateListItem class comprises the following fields:
+
+- **strName&#x20;**– name of the parameter
+- **strLabel&#x20;**– label of the parameter
+- **strDescription&#x20;**– description of the parameter
+- **strType&#x20;**– type of the parameter
+- **bAllowSelectByUser&#x20;**– flag indicating whether the parameter can be selected by the user
+- **bDBValidated&#x20;**– flag indicating whether the parameter is validated
+- **strRequiredExpression&#x20;**– expression indicating how the parameter is (conditionally) required
+- **isCalculated&#x20;**– flag indicating whether the parameter is calculated (i.e. does not take inputs from users)
+- **autoFillOnlyWhenEmpty&#x20;**– flag indicating whether the autofill for the parameter occurs, when the parameter is initially empty
+- **strValidationListRecId&#x20;**– RecId of the named validation list (i.e. pick list), if the parameter is a Dropdown Selection
+- **strValidationListTableRef&#x20;**– the name of the Business Object, from which the dropdown values are retrieved, for the Dropdown Selection
+- **bIsHidden&#x20;**– flag indicating whether the parameter is hidden
+- **strRecId&#x20;**– RecId of the Request Offering parameter
+- **validationConstraints&#x20;**– list of ValidationConstraint objects, used for representing the validation constraints currently set on the parameter
+- **strValidationConstraints&#x20;**– textual representation of the validationConstraints member
+- **strAutoFillExpression&#x20;**– textual representation of the autofill expression
+- **triggerFields&#x20;**– list of dependent parameters, upon which the current parameter is dependent upon
+- **strTriggerFields&#x20;**– textual representation of the triggerFields member
+- **strDefaultValue&#x20;**– textual representation of the default value for the parameter
+
+The following table lists the available status values, and describes how to interpret them.
+
+| Status   | Explanation                                                                                                                                                                                                                                                                                           |
+| -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Success  | The details of the Request Offering can be successfully retrieved, and can be accessed via the srSubscription member                                                                                                                                                                                  |
+| NotFound | There is no Request Offering available with the given Subscription Id in the tenant – please ensure that the ID of of the Request Offering is specified correctly.<br /><br />Recall that the GetSubscriptionId Web Method is used for fetching the Subscription ID corresponding to the current user |
+| Error    | An Error was encountered during the execution of this Web Method - the corresponding exceptionReason member should be inspected, to determine why the web method has failed.                                                                                                                          |
+
+### Example
+
+            FRSHEATGetPackageDataResponse getPackageDataResponse = frSvc.GetPackageData(authSessionKey, tenantId, strSubscrRecId);
+
+            FRSHEATServiceReqSubscription scsrs;
+
+            if (getPackageDataResponse.status == "Success")
+
+            \{
+
+                scsrs = getPackageDataResponse.srSubscription;
+
+                // Go ahead and access the relevant properties of interest from the Request Offering ..
+
+            }
+
+## UserCanAccessRequestOffering
+
+Check whether the current user is entitled to access the given Request Offering
+
+### Request syntax:
+
+public FRSHEATUserCanAccessReqOfferingResponse UserCanAccessRequestOffering(string sessionKey, string tenantId, string loginId, string reqOfferingName)
+
+### Parameters:
+
+- **sessionKey**: Key received in the earlier Connect request
+- **tenantId**: tenant for which the key is authenticated.
+- **loginId**: loginId of the user
+- **reqOfferingName**: name of the Request Offering
+
+### Return Value:
+
+An FRSHEATUserCanAccessReqOfferingResponse object, defined as follows:
+
+    public class FRSHEATUserCanAccessReqOfferingResponse
+
+    \{
+
+        public string status \{ get; set; }
+
+        public string exceptionReason \{ get; set; }
+
+        public bool canAccess \{ get; set; }
+
+    }
+
+The FRSHEATUserCanAccessReqOfferingResponse class comprises the following fields:
+
+- **status&#x20;**– this field provides a Status value indicating whether the operation was successful.A full description of the available Status values is provided in the table below.
+- **exceptionReason&#x20;**– if there is an exception thrown in the course of running the Connect WebMethod, the exception information will be captured in this field.
+- **canAccess&#x20;**– boolean field, indicating whether the user is entitled to access the given Request Offering
+
+The following table lists the available status values, and describes how to interpret them.
+
+| <font color="#000000">Status</font> | <font color="#000000">Explanation</font>                                                                                                                                                                         |
+| ----------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Success                             | The indicated user and Request Offering can be successfully located in the tenant  - the canAccess field can then be checked, to determine whether the indicated user is entitled to access the Request Offering |
+| UserNotFound                        | No user record can be located in the tenant, with the given LoginID value.<br /><br />Check the LoginID value that was passed in, to ensure that it is spelled correctly                                         |
+| OfferingNotFound                    | No Request Offering can be found with the given name.<br /><br />Check the name of the Request Offering that is passed in, to ensure that it is spelled correctly                                                |
+| Error                               | An Error was encountered during the execution of this Web Method - the corresponding exceptionReason member should be inspected, to determine why the web method has failed.                                     |
+
+### Example
+
+            string loginId = "ASimon";
+
+            string reqOfferingName = "Domain Password Reset";
+
+            FRSHEATUserCanAccessReqOfferingResponse canAccessReqOfferingResponse = frSvc.UserCanAccessRequestOffering(sessionKey, tenantId, loginId, reqOfferingName);
+
+            if (canAccessReqOfferingResponse.status == "Success")
+
+            \{
+
+                if (canAccessReqOfferingResponse.canAccess)
+
+                \{
+
+                    Console.WriteLine("User \{\{0}} can access the Request Offering \{\{1}}", loginId, reqOfferingName);
+
+                }
+
+                else
+
+                \{
+
+                    Console.WriteLine("User \{\{0}} has no access to the Request Offering \{\{1}}", loginId, reqOfferingName);
+
+                }
+
+            }
+
+## SubmitRequest
+
+Creates and submits the Service Request, on behalf of a given user
+
+### Request syntax:
+
+public FRSHEATSubmitRequestResponse SubmitRequest(string sessionKey, string tenantId, string subscriptionId, List\<FRSHEATServiceReqParam> srparameters, string loginId)
+
+### Parameters:
+
+- **sessionKey**: Key received in the earlier Connect request
+- **tenantId**: tenant for which the key is authenticated
+- **subscriptionId**: the Subscription ID corresponding to the Request Offering for the current user
+- **srparameters**: list of FRSHEATServiceReqParam objects, representing the key / values for the  parameters, for submission for the Service Request
+- **loginId**: loginId of the user
+
+An FRSHEATServiceReqParam class is defined as follows:
+
+    public class FRSHEATServiceReqParam
+
+    \{
+
+        public string strName;
+
+        public string strValue;
+
+    }
+
+The FRSHEATServiceReqParam class comprises the following fields:
+
+**strName**: name of the parameter
+
+**strValue**: value for the parameter
+
+Return Value:
+
+An FRSHEATSubmitRequestResponse object, defined as follows:
+
+    public class FRSHEATSubmitRequestResponse
+
+    \{
+
+        public string status \{ get; set; }
+
+        public string exceptionReason \{ get; set; }
+
+        public FRSHEATServiceReqRequest reqData \{ get; set; }
+
+    }
+
+The FRSHEATSubmitRequestResponse class comprises the following fields:
+
+- **status&#x20;**– this field provides a Status value indicating whether the operation was successful.A full description of the available Status values is provided in the table below.
+- **exceptionReason&#x20;**– if there is an exception thrown in the course of running the Connect WebMethod, the exception information will be captured in this field.
+- **reqData&#x20;**– an FRSHEATServiceReqRequest object, containing the Service Request that is successfully submitted
+
+The FRSHEATServiceReqRequest class is defined as follows:
+
+    public class FRSHEATServiceReqRequest
+
+    \{
+
+        public string strRequestRecId;
+
+        public string strRequestNum;
+
+        public decimal fTotalPrice;
+
+        public decimal fTotalRecurPrice;
+
+        public string strByEmployee;
+
+        public string strFulfillmentPlanType;
+
+        public string strUrgency;
+
+        public DateTime? DateSubmitted;
+
+        public DateTime? DateUpdated;
+
+        public string strUpdatedBy;
+
+        public DateTime? DateDelivery;
+
+        public string strSubscriptionRecId;
+
+        public bool isFulfilled;
+
+        public string strName;
+
+        public string strDescription;
+
+        public decimal fPrice;
+
+        public decimal fRecurPrice;
+
+        public int nRecurPeriod;
+
+        public int nDeliveryCommitment;
+
+        public string strStatus;
+
+        public string strCreatedBy;
+
+        public string strRecId;
+
+        public List\<FRSHEATServiceReqTemplateParam> lstParameters;
+
+}
+
+The FRSHEATServiceReqRequest class comprises the following fields:
+
+- **strRequestRecId&#x20;**– RecId of the Service Request
+- **strRequestNum&#x20;**– ID of the Service Request
+- **fTotalPrice&#x20;**– total non-recurring price on the Service Request
+- **fTotalRecurPrice&#x20;**– total recurring price on the Service Request
+- **strByEmployee&#x20;**- LoginId of the requestor of the Service Request
+- **strFulfillmentPlanType&#x20;**– type of fulfillment
+- **strUrgency&#x20;**– urgency value on the Service Request
+- **DateSubmitted&#x20;**– date when the Service Request was submitted
+- **DateUpdated&#x20;**- date when the Service Request was last updated
+- **strUpdatedBy&#x20;**– LoginId of the user who last updated the Service Request
+- **DateDelivery&#x20;**– delivery date for the Service Request
+- **strSubscriptionRecId&#x20;**– RecId of the Subscription corresponding to the Service Request
+- **isFulfilled&#x20;**– flag indicating whether the Service Request has been fulfilled or not
+- **strName&#x20;**– name of the Request Offering, from which the Service Request was created from
+- **strDescription&#x20;**– description of the Service Request
+- **fPrice&#x20;**– Price on the Service Request
+- **fRecurPrice&#x20;**– Recurring Price on the Service Request
+- **nRecurPeriod&#x20;**– recurrence period for the Service Request
+- **nDeliveryCommitment&#x20;**– delivery commitment period for the Service Request
+- **strStatus&#x20;**– Status of the Service Request
+- **strCreatedBy&#x20;**- LoginId of the user who created the Service Request
+- **strRecId&#x20;**– RecId of the Service Request
+- **lstParameters&#x20;**– list of FRSHEATServiceReqTemplateParam objects, where each item in the list represents the parameter value for the Service Request
+
+The following table lists the available status values, and describes how to interpret them.
+
+| Status                   | Explanation                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| ------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Success                  | The list of matching Request Offerings in the Service Catalog can be successfully retrieved, and are available via the srtList member.                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| UserNotFound             | No user recordcan be located in the tenant, with the given LoginID value.<br /><br />Check the LoginID value that was passed in, to ensure that it is spelled correctly                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| ReqParamsNotFilled       | One or more required parameters are not filled out.<br /><br />Check the exceptionReason member ,to determine which specific required parameters were not filled out properly                                                                                                                                                                                                                                                                                                                                                                                                            |
+| ValidationValuesMismatch | The value that was passed in for a drop-down selection parameter, does not belong in the validation list.<br /><br />For example, assume there is a drop-down selection parameter which is validated against the Departments validation list. If a value of “Billing” is supplied to the SubmitRequest WebMethod, but “Billing” does not exist in the validation list, the return Status in this case will be “ValidationValuesMismatch”.<br /><br />Check the exceptionReason member, to determine which specific validated parameters did not have the proper values filled out for it |
+| ParameterTypeMismatch    | One or more parameters were specified with values, which are inappropriate for the underlying parameter data type.<br /><br />For example, the Text Field parameter type can be used to store various types of values. If the data type of the parameter is Number, and a text value is specified for the parameter, the return status in this case will be “ParameterTypeMismatch”.<br /><br />Check the exceptionReason member, to determine which specific parameters were specified with values with the incorrect type.                                                             |
+| Error                    | An Error was encountered during the execution of this Web Method - the corresponding exceptionReason member should be inspected, to determine why the web method has failed.                                                                                                                                                                                                                                                                                                                                                                                                             |
+
+### Service Request Submission Validation
+
+Before submitting the Service Request, the SubmitRequest Web Method performs three types of validation:
+
+- **Required Parameters** – ensures that all parameters marked as required are filled out. Currently the code will handle unconditional required parameters, as well as simple conditional required parameters.If there are one or more required parameters which are not filled out properly, the SubmitRequest WebMethod will return a status value of “ReqParamsNotFilled”. In such cases, the exceptionReason member can be consulted, for determining which specific parameter values have not been filled out.
+- **Validation Values** – ensures that the supplied values are allowable values, based on the existing records in the validation list table.Currently the code will handle regular validation (i.e. validation against a single field) as well as simple constrained validation (i.e. validation which is constrained, based on the value of an earlier field).If there are one or more parameters which do not satisfy the validation, the SubmitRequest WebMethod will return a status value of “ValidationValuesMismatch”. In such cases, the exceptionReason member can be consulted, for determining which specific parameter values do not match up with the validation list.
+- **Parameter Type Checking** – ensures that the supplied value is appropriate with respect to the data type of the given parameter.If there are one or more values which do not match the corresponding parameter type, the SubmitRequest WebMethod will return a status value of “ParameterTypeMismatch”. In such cases, the exceptionReason member can be consulted, for determining which specific parameter values do not match the corresponding data type.This will be defined in detailed in the next section.
+
+### Type Checking of Parameters in the Service Request
+
+Prior to submitting the Service Request, the SubmitRequest Web Method will perform the data type checking of the values, with respect to the data types of the respective parameters.
+
+The following table summarizes the various parameter types. If data type validation is performed, the details section will describe this information in greater detail.
+
+| Data Type              | Details                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| ---------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Text                   | Currently not validated (matches the current Service Catalog behavior)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| CheckBox               | Allowed values are those which can be parsed as either true or false.<br />Uses the Boolean.TryParse() method in .NET for determining if the value for checkbox is valid or not.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| Date / Time / DateTime | Allowed values are those which can be parsed as date/time values.<br /><br />Uses the DateTime.TryParse() method in .NET for determining if the value for date / time / datetime is valid or not.<br />To specify date/time values, the string value should be specified using ISO 8601 format, and the value itself should be relative to UTC.<br />So the date/time value can be specified in one of the following two ways:<br />yyyy-mm-dd  hh\:mm<br />or<br />yyyy-mm-ddThh\:mm<br />Either a space character or “T” character can be used to separate between the date and time values.<br />The following are two examples of specifying a date/time value of March 26th, 2013, 18:38 UTC, relative to the above two formats:<br />2013-03-26 18:38<br />2013-03-26T18:38 |
+| Number / Money         | Allowed values are those which can be parsed as decimal values.<br />Uses the Decimal.TryParse() method in .NET for determining if the numerical value is valid or not.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| Phone                  | Allowed values are phone numbers which match a US phone number; e.g. (415)555-1212<br />This matches the current Service Catalog behavior. Do not use this parameter type for validating International phone numbers.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| SSN                    | Allowed values are US Social Security Numbers; e.g.<br />123-45-6789                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| Email                  | Currently not validated (matches the current Service Catalog behavior)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| URL                    | Currently not validated (matches the current Service Catalog behavior)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+
+### Example
+
+            string strSubscrRecId = frSvc.GetSubscriptionId(authSessionKey, tenantId, "Domain Password Reset").subscriptionId;
+
+            List\<FRSHEATServiceReqParam> srparamListItems = new List\<FRSHEATServiceReqParam>();
+
+            srparamListItems.Add(new FRSHEATServiceReqParam
+
+            \{
+
+                strName = "RequesterDepartment",
+
+                strValue = "IT"
+
+            });
+
+            srparamListItems.Add(new FRSHEATServiceReqParam
+
+            \{
+
+                strName = "Requester",
+
+                strValue = "Ashley Simon"
+
+            });
+
+            FRSHEATSubmitRequestResponse srResponse = frSvc.SubmitRequest(authSessionKey, tenantId, strSubscrRecId, srparamListItems.ToArray(), loginId);
+
+            FRSHEATServiceReqRequest srres;
+
+            if (srResponse.status == "Success")
+
+            \{
+
+                srres = srResponse.reqData;
+
+            }
+
+            else
+
+            \{
+
+                if (srResponse.exceptionReason != null)
+
+                \{
+
+                    Console.WriteLine("Error: " + srResponse.exceptionReason);
+
+                }
+
+            }
+
+## GetRequestData
+
+Retrieves the data for the given Service Request
+
+### Request syntax:
+
+public FRSHEATGetRequestDataResponse GetRequestData(string sessionKey, string tenantId, string strReqNumber)
+
+### Parameters:
+
+**sessionKey**: Key received in the earlier Connect request
+
+**tenantId**: tenant for which the key is authenticated.
+
+**strReqNumber**: numeric ID value for the Service Request
+
+Return Value:
+
+An FRSHEATGetRequestDataResponse object, defined as follows:
+
+    public class FRSHEATGetRequestDataResponse
+
+    \{
+
+        public string status \{ get; set; }
+
+        public string exceptionReason \{ get; set; }
+
+        public FRSHEATServiceReqRequest reqData \{ get; set; }
+
+    }
+
+The FRSHEATGetRequestDataResponse class comprises the following fields:
+
+- **status&#x20;**– this field provides a Status value indicating whether the operation was successful.A full description of the available Status values is provided in the table below.
+- **exceptionReason&#x20;**– if there is an exception thrown in the course of running the Connect WebMethod, the exception information will be captured in this field.
+- **reqData&#x20;**– an FRSHEATServiceReqRequest object, containing the Service Request that is successfully submitted
+
+Refer to the earlier SubmitRequest section, regarding the definition of the FRSHEATServiceReqRequest class.
+
+The following table lists the available status values, and describes how to interpret them.
+
+| Status   | Explanation                                                                                                                                                                  |
+| -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Success  | The Service Request with the given numeric ID can be located, and is available via the reqData member.                                                                       |
+| NotFound | The Service Request with the given numeric ID cannot be located.<br /><br />Confirm that the numeric ID of the Service Request was specified correctly .                     |
+| Error    | An Error was encountered during the execution of this Web Method - the corresponding exceptionReason member should be inspected, to determine why the web method has failed. |
+
+### Example
+
+            FRSHEATGetRequestDataResponse getRequestDataResponse = frSvc.GetRequestData(authSessionKey, tenantId, strReqRecId);
+
+            FRSHEATServiceReqRequest srRequest;
+
+            if (getRequestDataResponse.status == "Success")
+
+            \{
+
+                srRequest = getRequestDataResponse.reqData;
+
+                // Go ahead and access the relevant properties of interest from the Service Request ..
+
+            }
+
+## FetchServiceReqValidationListData
+
+Fetch the allowable validation list data for the given Service Request parameter
+
+### Request syntax:
+
+public FRSHEATFetchSRValListDataResponse FetchServiceReqValidationListData(string sessionKey, string tenantId, string offeringName, string paramName, FRSHEATDepValItem depvalItem = null, string subStrMatch = "")
+
+### Parameters:
+
+- **sessionKey**: Key received in the earlier Connect request
+- **tenantId**: tenant for which the key is authenticated.
+- **offeringName**: Name of the Request Offering
+- **paramName**: Name of the parameter in the Request Offering
+- **depValItem**: an FRSHEATDepValItem object, representing the dependent validation item
+- **substrMatch**: substring to match against the returned validation list items
+
+### Return Value:
+
+An FRSHEATFetchSRValListDataResponse object, defined as follows:
+
+    public class FRSHEATFetchSRValListDataResponse
+
+    \{
+
+        public string status \{ get; set; }
+
+        public string exceptionReason \{ get; set; }
+
+        public List\<FRSHEATValListValue> validationValuesList \{ get; set; }
+
+    }
+
+The FRSHEATFetchSRValListDataResponse class comprises the following fields:
+
+- **status&#x20;**– this field provides a Status value indicating whether the operation was successful.A full description of the available Status values is provided in the table below.
+- **exceptionReason&#x20;**– if there is an exception thrown in the course of running the Connect WebMethod, the exception information will be captured in this field.
+- **validationValuesList&#x20;**– a List of FRSHEATValListValue objects, each item representing the records returned from the underlying validation list, based on the specified search criteria
+
+The FRSHEATValListValue class is defined as follows:
+
+    public class FRSHEATValListValue
+
+    \{
+
+        public string strRecId;
+
+        public string strStoredValue;
+
+        public string strDisplayValue;
+
+    }
+
+The FRSHEATValListValue class comprises the following fields:
+
+- **strRecId&#x20;**– RecId of the validation list record
+- **strStoredValue&#x20;**– the stored value of the validation list record (e.g. “ASimon”, if the validation list record corresponds to the “Ashley Simon” Employee record)
+- **strDisplayValue&#x20;**- the display value of the validation list record (e.g. “Ashley Simon”, if the validation list record corresponds to the “Ashley Simon” Employee record)
+
+The following table lists the available status values, and describes how to interpret them.
+
+| Status   | Explanation                                                                                                                                                                  |
+| -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Success  | The Service Request with the given numeric ID can be located, and is available via the reqData member.                                                                       |
+| NotFound | The Service Request with the given numeric ID cannot be located.<br /><br />Confirm that the numeric ID of the Service Request was specified correctly .                     |
+| Error    | An Error was encountered during the execution of this Web Method - the corresponding exceptionReason member should be inspected, to determine why the web method has failed. |
+
+### Example
+
+            // Fetch the matching validation list records for Requester, in the "Domain Password Reset" Request Offering
+
+            // Since the Requester is constrained by the "RequesterDeparment" parameter, this needs to be specified as an input parameter to the Web Method
+
+            string offeringName = "Domain Password Reset";
+
+            string paramName = "Requester";
+
+            FRSHEATDepValItem depValItem = new FRSHEATDepValItem()
+
+            \{
+
+                strParName = "RequesterDepartment",
+
+                strParValue = "IT"
+
+            };
+
+            FRSHEATFetchSRValListDataResponse validationValuesResponse = frSvc.FetchServiceReqValidationListData(authSessionKey, tenantId, offeringName, paramName, depValItem, subStrQuery);
+
+            FRSHEATValListValue\[] valListValues;
+
+            if (validationValuesResponse.status == "Success")
+
+            \{
+
+                valListValues = validationValuesResponse.validationValuesList;
+
+                Console.WriteLine("Here are the matching validation list records:\n");
+
+                foreach (FRSHEATValListValue valListItem in valListValues)
+
+                \{
+
+                    Console.WriteLine("Stored Value: \\"\{\{0}}\\"\t\tDisplay Value: \\"\{\{1}}\\"", valListItem.strStoredValue, valListItem.strDisplayValue);
+
+                }
+
+            }
+
+# Appendix A: Creating a Test Console Application using Visual Studio
+
+As explained in the earlier Introduction section, the FRSHEATIntegration Web Service uses standard Web Service technologies, and can be consumed using various programming languages / platforms such as Microsoft .NET, Java, etc.
+
+This section describes how one would create a test console application using Visual Studio 2010, specifically for creating the Web Reference to access the SOAP-based FRSHEATIntegration API.
+
+Note that alternative .NET based clients such as WPF, ASP.NET, and Windows Forms clients can also be created, using the same concepts as presented here.
+
+To create a new test console application in Visual Studio, follow these steps:
+
+1. Launch Visual Studio 2010, and then create a new Visual C# Console Project.
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/wLVCpgS281D-w2qFSpItM_03000009.png" position="flex-start" size="40" indent="1" initialPath="WebServices_images/03000009.png" githubPath="ITSM-On-Prem-Help/Content/WebServices/WebServices_images/03000009.png"></Image>
+
+2. In the Solution Explorer, right click the References folder, then select **Add Service Reference** from the context menu.
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/3lv2t12SVogBJettpArmK_0300000a.png" position="flex-start" size="40" indent="1" initialPath="WebServices_images/0300000A.png" githubPath="ITSM-On-Prem-Help/Content/WebServices/WebServices_images/0300000A.png"></Image>
+
+<Paragraph indent="1">
+  The Add Service Reference dialog box appears.
+</Paragraph>
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/pscZMVgIHwBdEADa3xVMg_0300000b.png" position="flex-start" size="40" indent="1" initialPath="WebServices_images/0300000B.png" githubPath="ITSM-On-Prem-Help/Content/WebServices/WebServices_images/0300000B.png"></Image>
+
+3. Click **Advanced&#x20;**&#x69;n the lower left hand corner, to launch the Service Reference Settings dialog box.
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/XR45q_vr69QzOix4kHuny_0300000c.png" position="flex-start" size="40" indent="1" initialPath="WebServices_images/0300000C.png" githubPath="ITSM-On-Prem-Help/Content/WebServices/WebServices_images/0300000C.png"></Image>
+
+4. Click **Add Web Reference** in the lower left hand corner, to launch the Add Web Reference dialog box.
+
+<Paragraph indent="1">
+  At this point, you are now ready to author the necessary code, for exercising the FRSHEATIntegration Web Service.
+</Paragraph>

@@ -1,0 +1,33 @@
+---
+title: Items Excluded from Migration
+docTags: 
+createdAt: Fri Jun 05 2026 13:49:31 GMT+0300 (Eastern European Summer Time)
+---
+
+- :Link[Configuration Data (Settings)]{label="Configuration Data (Settings)" overridedLabel="Configuration Data (Settings)" spaceId docId="qVV95eeLwGC-KVI8uzskS" version="v2" docAnchorId="#Configur" loadingMethod="dynamic" newTab="false" href="Not_migrated.mdx"}
+- :Link[Master Data]{label="Master Data" overridedLabel="Master Data" spaceId docId="qVV95eeLwGC-KVI8uzskS" version="v2" docAnchorId="#Master" loadingMethod="dynamic" newTab="false" href="Not_migrated.mdx"}
+
+### Configuration Data (Settings)
+
+Configuration data, also called settings, is defined as core configuration attributes that define Ivanti Service Manager.
+
+The only configuration data (settings) that the system migrates when you migrate configuration data (settings), as described in :Link[Updating Configuration Data (Copy Settings)]{label="Updating Configuration Data (Copy Settings)" overridedLabel="Updating Configuration Data (Copy Settings)" spaceId docId="VvatisdgL5BT76U4_xhmM" version="v2" docAnchorId="#Updating" loadingMethod="dynamic" newTab="false" githubPath="Push_data.htm#Updating" href="Push_data.mdx"}, are the following:
+
+- Allowed attachments
+- Authentication providers such as LDAP, SAML, OpenId, and Windows Integrated Security
+- Bulk upload profiles
+- Dynamic styles
+- Global constants
+- Integration settings
+- LDAP configurations
+- Object matching lists
+- Password policies
+- Voice integrations
+- Watch list items
+- Email configurations (including approval status keywords, email status update mapping settings, ignore message with subject settings, object mappings for email, task assignment status keywords, truncate body settings, and trusted sender domains)
+
+You cannot migrate other types of configuration data (settings) using the Operations Console. To migrate this data, do so manually outside of the Operations Console by using Microsoft SQL commands.
+
+### Master Data
+
+You cannot selectively update master data. If you need to update only certain records of master data (for example, only one record in a table), use Microsoft SQL commands to do so outside of the Operations Console.

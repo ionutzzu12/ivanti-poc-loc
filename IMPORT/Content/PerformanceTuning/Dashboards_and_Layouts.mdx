@@ -1,0 +1,48 @@
+---
+title: Best Practices for Dashboards and Layouts
+docTags: 
+createdAt: Fri Jun 05 2026 13:49:31 GMT+0300 (Eastern European Summer Time)
+---
+
+You can improve Ivanti Service Manager performance by following the dashboard and layout best practices described in these sections:
+
+- :Link[Dashboard Best Practices]{label="Dashboard Best Practices" overridedLabel="Dashboard Best Practices" spaceId docId="bp28LUgKlrBAttJrJiShN" version="v2" docAnchorId="#Dashboar" loadingMethod="dynamic" newTab="false" href="Dashboards_and_Layouts.mdx"}
+- :Link[Layout Best Practices]{label="Layout Best Practices" overridedLabel="Layout Best Practices" spaceId docId="bp28LUgKlrBAttJrJiShN" version="v2" docAnchorId="#Layout" loadingMethod="dynamic" newTab="false" href="Dashboards_and_Layouts.mdx"}
+
+### Dashboard Best Practices
+
+Because dashboards are created from multiple dashboard parts, they usually execute multiple saved searches when they are opened or updated. You can significantly improve performance by following these best practices:
+
+- Ensure that dashboards display only active records, and that searches configured in dashboard parts do not search for closed or completed records.
+- Disable or increase the duration of automatic refresh on all active dashboard parts.
+- Use the fewest possible dashboard parts to create a dashboard (no more than four whenever possible).
+- Wherever possible, add date filters and remove the all option.
+- Wherever possible, remove memo fields from grids.
+- Enable auditing only when necessary.
+
+### Layout Best Practices
+
+Ensure that tabs in a workspace exist only if they are absolutely necessary. Workspace tabs that contain counters can consume significant resources. If a tab contains a counter, Ivanti Service Manager executes a query to return the number of records available on that tab. Each tab that generates a query adds to the time it takes for the parent workspace to load.
+
+## Improving Back-End Processing
+
+This section describes how to tune stored procedures, triggers, and file import processes to improve performance.
+
+- :Link[Stored Procedures and Triggers]{label="Stored Procedures and Triggers" overridedLabel="Stored Procedures and Triggers" spaceId docId="bp28LUgKlrBAttJrJiShN" version="v2" docAnchorId="#Stored" loadingMethod="dynamic" newTab="false" href="Dashboards_and_Layouts.mdx"}
+- :Link[File Import Processes]{label="File Import Processes" overridedLabel="File Import Processes" spaceId docId="bp28LUgKlrBAttJrJiShN" version="v2" docAnchorId="#ITSM" loadingMethod="dynamic" newTab="false" href="Dashboards_and_Layouts.mdx"}
+
+### Stored Procedures and Triggers
+
+We recommend that you configure stored procedures and triggers outside of Ivanti Service Manager to avoid any unnecessary problems.
+
+Stored procedures often consist of complex searches that query multiple database tables. A deadlock can result if a stored procedure is scheduled to run too frequently. Wherever possible, minimize the use of frequently scheduled stored procedures and triggers that query primary business objects such as incident, problem, change, journal, task, and other primary business objects. If possible, do not run these procedures at intervals of less than five minutes. If a frequently scheduled stored procedure is necessary, we recommend that you run it outside of normal business hours.
+
+### File Import Processes
+
+If there are too many files to process or import in too short of a time (which might occur if the creation of a new record generates multiple queries), system performance can be significantly impacted.
+
+Wherever possible, schedule the file import process to run outside of normal business hours.
+
+## Using Event and Error Log Files for Troubleshooting
+
+Microsoft event logs and message queuing error logs are often helpful in determining common configuration errors, especially with regard to the email listener and file import process. We recommend that you review these logs when you troubleshoot performance issues.

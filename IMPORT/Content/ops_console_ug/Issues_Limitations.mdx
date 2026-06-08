@@ -1,0 +1,338 @@
+---
+title: Troubleshooting and Known Issues
+docTags: 
+createdAt: Fri Jun 05 2026 13:49:31 GMT+0300 (Eastern European Summer Time)
+---
+
+- :Link[Debugging the Migration]{label="Debugging the Migration" overridedLabel="Debugging the Migration" spaceId docId="hdQq-lXOflaXUUHh6RB_J" version="v2" docAnchorId="#Debuggin" loadingMethod="dynamic" newTab="false" href="Issues_Limitations.mdx"}
+- :Link[Known Issues in the Operations Console]{label="Known Issues in the Operations Console" overridedLabel="Known Issues in the Operations Console" spaceId docId="hdQq-lXOflaXUUHh6RB_J" version="v2" docAnchorId="#top" loadingMethod="dynamic" newTab="false" href="Issues_Limitations.mdx"}
+
+## Debugging the Migration
+
+There are several ways to debug the data migration:
+
+- :Link[Previewing the Package Before Migrating It]{label="Previewing the Package Before Migrating It" overridedLabel="Previewing the Package Before Migrating It" spaceId docId="hdQq-lXOflaXUUHh6RB_J" version="v2" docAnchorId="#Preview" loadingMethod="dynamic" newTab="false" href="Issues_Limitations.mdx"}
+- :Link[Viewing the Warning and Error Messages]{label="Viewing the Warning and Error Messages" overridedLabel="Viewing the Warning and Error Messages" spaceId docId="hdQq-lXOflaXUUHh6RB_J" version="v2" docAnchorId="#Viewing" loadingMethod="dynamic" newTab="false" href="Issues_Limitations.mdx"}
+- :Link[Reviewing the Package Content]{label="Reviewing the Package Content" overridedLabel="Reviewing the Package Content" spaceId docId="hdQq-lXOflaXUUHh6RB_J" version="v2" docAnchorId="#Reviewin" loadingMethod="dynamic" newTab="false" href="Issues_Limitations.mdx"}
+- :Link[Viewing the Operations Console Log Files]{label="Viewing the Operations Console Log Files" overridedLabel="Viewing the Operations Console Log Files" spaceId docId="hdQq-lXOflaXUUHh6RB_J" version="v2" docAnchorId="#Viewing2" loadingMethod="dynamic" newTab="false" href="Issues_Limitations.mdx"}
+- :Link[Running Packages in the Correct Order]{label="Running Packages in the Correct Order" overridedLabel="Running Packages in the Correct Order" spaceId docId="hdQq-lXOflaXUUHh6RB_J" version="v2" docAnchorId="#Running" loadingMethod="dynamic" newTab="false" href="Issues_Limitations.mdx"}
+- :Link[Checking the API Keys]{label="Checking the API Keys" overridedLabel="Checking the API Keys" spaceId docId="hdQq-lXOflaXUUHh6RB_J" version="v2" docAnchorId="#Checking" loadingMethod="dynamic" newTab="false" href="Issues_Limitations.mdx"}
+
+### Previewing the Package Before Migrating It
+
+If you used the Ivanti Service Manager development project, as described in [Appendix C: Using the ISM Development Project to Migrate Data](ProjectOLH.mdx), you can preview the changes to ensure that they are correct. On the Applying Package To screen, click Preview. The system downloads an XML file with the proposed changes. Open the file in an XML editor and ensure that the changes are correct. The system associates all warnings to a change record by using a unique sequence number.
+
+*Example of XML File with Proposed Changes*
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/n53PGmR3aikgOP8957zBu_xml-preview.png" position="flex-start" size="40" initialPath="ops_Images/XML Preview.png" githubPath="ITSM-On-Prem-Help/Content/ops_console_ug/ops_Images/XML Preview.png"></Image>
+
+### Viewing the Warning and Error Messages
+
+After you perform the first migration from the production instance of the tenant to the staging instance of the tenant, review the error messages.  You can review them in any of the following places:
+
+- The Event and Audit History tab in the Operations Console.  See :Link[Viewing Events and Audit History]{label="Viewing Events and Audit History" overridedLabel="Viewing Events and Audit History" spaceId docId="hWnDisjDllHtpIXJH33qw" version="v2" docAnchorId="#Viewing2" loadingMethod="dynamic" newTab="false" githubPath="OpsConsole_Using.htm#Viewing2" href="OpsConsole_Using.mdx"}.
+- The patch log in the Ivanti Service Manager configuration database (ConfigDB).
+- The patch log in the Ivanti Service Manager target tenant instance. See the Ivanti Service Manager online help for information.
+- If you used the Ivanti Service Manager development project, as described in [Appendix C: Using the ISM Development Project to Migrate Data](ProjectOLH.mdx), the system displays errors and warnings on the bottom of the Applying Package To screen.
+
+*Sample Errors for a Package*
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/XYc7OqBehVnk4qYwp9bmp_package-errors.png" position="flex-start" size="40" initialPath="ops_Images/package-errors.png" githubPath="ITSM-On-Prem-Help/Content/ops_console_ug/ops_Images/package-errors.png"></Image>
+
+### Reviewing the Package Content
+
+Review the package content:
+
+- This is located in a file called source-tenant-timestamp.MetadataPatch.zip which resides in the c:\Temp\OpsConsoleDiff directory on the server on which the Operations Console is installed. This package file lists the contents of the migration.
+- Check the Transaction Details workspace in Ivanti Service Manager. This workspace lists the details of the package migrations.
+
+### Viewing the Operations Console Log Files
+
+Find and open the log files from the source tenant instance and the target tenant instance and compare the metadata.
+
+### Running Packages in the Correct Order
+
+If you used the Ivanti Service Manager development project, as described in [Appendix C: Using the ISM Development Project to Migrate Data](ProjectOLH.mdx), and your migration contains multiple packages, ensure that you migrate the packages in the correct order. If items must be migrated in a specific order and you do not follow that order, the system may display an error. To avoid this, we recommend creating a master package that contains the incremental packages in the correct order.
+
+### Checking the API Keys
+
+Check the API keys. Each API key must be unique and cannot be shared between tenant instances. See :Link[About System Information]{label="About System Information" overridedLabel="About System Information" spaceId docId="hWnDisjDllHtpIXJH33qw" version="v2" docAnchorId="#About4" loadingMethod="dynamic" newTab="false" githubPath="OpsConsole_Using.htm#About4" href="OpsConsole_Using.mdx"}.
+
+## Known Issues in the Operations Console
+
+This section contains information about issues and limitations in the Operations Console.
+
+- :Link[Copying Child Business Objects]{label="Copying Child Business Objects" overridedLabel="Copying Child Business Objects" spaceId docId="hdQq-lXOflaXUUHh6RB_J" version="v2" docAnchorId="#Copying" loadingMethod="dynamic" newTab="false" href="Issues_Limitations.mdx"}
+- :Link[Migrating Logos]{label="Migrating Logos" overridedLabel="Migrating Logos" spaceId docId="hdQq-lXOflaXUUHh6RB_J" version="v2" docAnchorId="#Pushing" loadingMethod="dynamic" newTab="false" href="Issues_Limitations.mdx"}
+- :Link[Five Minute Timeout Causes Problems When Migrating Data in a Load-Balancing Deployment]{label="Five Minute Timeout Causes Problems When Migrating Data in a Load-Balancing Deployment" overridedLabel="Five Minute Timeout Causes Problems When Migrating Data in a Load-Balancing Deployment" spaceId docId="hdQq-lXOflaXUUHh6RB_J" version="v2" docAnchorId="#Five" loadingMethod="dynamic" newTab="false" href="Issues_Limitations.mdx"}
+- :Link[Operations Console Does Not Work with Microsoft Internet Explorer Releases 8 and 9]{label="Operations Console Does Not Work with Microsoft Internet Explorer Releases 8 and 9" overridedLabel="Operations Console Does Not Work with Microsoft Internet Explorer Releases 8 and 9" spaceId docId="hdQq-lXOflaXUUHh6RB_J" version="v2" docAnchorId="#HEAT" loadingMethod="dynamic" newTab="false" href="Issues_Limitations.mdx"}
+- :Link[Data Not Showing in Microsoft Internet Explorer Release 11]{label="Data Not Showing in Microsoft Internet Explorer Release 11" overridedLabel="Data Not Showing in Microsoft Internet Explorer Release 11" spaceId docId="hdQq-lXOflaXUUHh6RB_J" version="v2" docAnchorId="#Data" loadingMethod="dynamic" newTab="false" href="Issues_Limitations.mdx"}
+- :Link[There is No Push Link]{label="There is No Push Link" overridedLabel="There is No Push Link" spaceId docId="hdQq-lXOflaXUUHh6RB_J" version="v2" docAnchorId="#Push" loadingMethod="dynamic" newTab="false" href="Issues_Limitations.mdx"}
+- :Link[Cannot Migrate Data if a Business Object Contains More than 100,000 Records]{label="Cannot Migrate Data if a Business Object Contains More than 100,000 Records" overridedLabel="Cannot Migrate Data if a Business Object Contains More than 100,000 Records" spaceId docId="hdQq-lXOflaXUUHh6RB_J" version="v2" docAnchorId="#Cannot2" loadingMethod="dynamic" newTab="false" href="Issues_Limitations.mdx"}
+- :Link[Wrong Session Key Format Error]{label="Wrong Session Key Format Error" overridedLabel="Wrong Session Key Format Error" spaceId docId="hdQq-lXOflaXUUHh6RB_J" version="v2" docAnchorId="#Wrong" loadingMethod="dynamic" newTab="false" href="Issues_Limitations.mdx"}
+- :Link[Cannot Validate or Duplicate the API Key]{label="Cannot Validate or Duplicate the API Key" overridedLabel="Cannot Validate or Duplicate the API Key" spaceId docId="hdQq-lXOflaXUUHh6RB_J" version="v2" docAnchorId="#Cannot3" loadingMethod="dynamic" newTab="false" href="Issues_Limitations.mdx"}
+- :Link[Report Template and Schedule Issues]{label="Report Template and Schedule Issues" overridedLabel="Report Template and Schedule Issues" spaceId docId="hdQq-lXOflaXUUHh6RB_J" version="v2" docAnchorId="#Report" loadingMethod="dynamic" newTab="false" href="Issues_Limitations.mdx"}
+- :Link[Some Dashboard and Saved Search Properties are Not Migrated]{label="Some Dashboard and Saved Search Properties are Not Migrated" overridedLabel="Some Dashboard and Saved Search Properties are Not Migrated" spaceId docId="hdQq-lXOflaXUUHh6RB_J" version="v2" docAnchorId="#Some" loadingMethod="dynamic" newTab="false" href="Issues_Limitations.mdx"}
+- :Link[Duplicate Data or Database Constraint Errors]{label="Duplicate Data or Database Constraint Errors" overridedLabel="Duplicate Data or Database Constraint Errors" spaceId docId="hdQq-lXOflaXUUHh6RB_J" version="v2" docAnchorId="#Duplicat" loadingMethod="dynamic" newTab="false" href="Issues_Limitations.mdx"}
+- :Link[Problems Creating Packages]{label="Problems Creating Packages" overridedLabel="Problems Creating Packages" spaceId docId="hdQq-lXOflaXUUHh6RB_J" version="v2" docAnchorId="#Problems" loadingMethod="dynamic" newTab="false" href="Issues_Limitations.mdx"}
+- :Link[No Tenants in the Operations Console After Upgrading]{label="No Tenants in the Operations Console After Upgrading" overridedLabel="No Tenants in the Operations Console After Upgrading" spaceId docId="hdQq-lXOflaXUUHh6RB_J" version="v2" docAnchorId="#No" loadingMethod="dynamic" newTab="false" href="Issues_Limitations.mdx"}
+
+### Copying Child Business Objects
+
+### Symptom
+
+When copying data from the staging or UAT instance of a tenant, selecting a business object does not copy the data of its child business objects.
+
+### Affected Release
+
+All releases.
+
+### Resolution
+
+To copy the data for a child business object, you cannot simply select its parent business object. You must select the child business object.
+
+For example, to copy all of the knowledge articles in the QandA category, you cannot select only the FRS\_Knowledge business object. You must select the child business object, which in this case is FRS\_Knowledge.QandA.
+
+The configuration items are listed in the drop-down list by their display names. See below for an example.
+
+*Configuration Items*
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/gTiuCUKSj8yzFpKrTLXyM_copy-child-obj.png" position="flex-start" size="40" initialPath="ops_Images/Copy-child-obj.png" githubPath="ITSM-On-Prem-Help/Content/ops_console_ug/ops_Images/Copy-child-obj.png"></Image>
+
+### Migrating Logos
+
+### Symptom
+
+When migrating data that includes a logo, the updated logo does not migrate.
+
+### Affected Release
+
+All releases.
+
+### Resolution
+
+The Operations Console does not touch the logo during data migration. It does not remove the logo, but it also does not update the logo. Therefore, if you change the logo and then migrate data, after the data migration you must manually upload the new logo.
+
+Also, changing the logo is not something that gets tracked in Ivanti Service Manager. Therefore, you cannot use the package process for this item.
+
+### Five Minute Timeout Causes Problems When Migrating Data in a Load-Balancing Deployment
+
+### Symptom
+
+When migrating data on a system that uses a load-balancing deployment, the system is usually set to time out after 5 minutes for security reasons, but often it takes more than 5 minutes to migrate data. This causes the data migration to fail and the system displays an error message stating "Unable to retrieve metadata from tenant\_name due to the underlying connection was closed."
+
+### Affected Release
+
+All releases.
+
+### Resolution
+
+You can configure the Operations Console to go directly to the Ivanti Service Manager application server without going through the load balancer. To do this, go to the file called C:\Windows\System32\drivers\etc\hosts and add the host name for the multi-instance service URL. You can also use another port number for the multi-instance service URL in the Ivanti Service Manager application server. See :Link[Editing a Landscape]{label="Editing a Landscape" overridedLabel="Editing a Landscape" spaceId docId="8eKoisZQmWu1O91nuONnS" version="v2" docAnchorId="#Editing" loadingMethod="dynamic" newTab="false" githubPath="OpsConsole_Landscapes.htm#Editing" href="OpsConsole_Landscapes.mdx"} for more information about the multi-instance service URL.
+
+You can also change the timeout setting in your network, but we do not recommend doing this.
+
+### Operations Console Does Not Work with Microsoft Internet Explorer Releases 8 and 9
+
+### Symptom
+
+The Operations Console does not work with Microsoft Internet Explorer Release 8 or Release 9 because they do not support the latest third-party Javascript code.
+
+### Affected Release
+
+All releases.
+
+### Resolution
+
+Upgrade to a newer release of Microsoft Internet Explorer or to another browser.
+
+### Data Not Showing in Microsoft Internet Explorer Release 11
+
+### Symptom
+
+The Operations Console does not work in Microsoft Internet Explorer Release 11 due to a new security feature in Microsoft Internet Explorer Release 11.
+
+### Affected Release
+
+All releases.
+
+### Resolution
+
+Add the URL of the Operations Console to the trusted sites list in Microsoft Internet Explorer Release 11. Follow these steps:
+
+1. Go to Tools > Internet Options > Security.
+2. Highlight Trusted sites and click Sites.
+3. Click Add.
+
+There is also a known issue with Microsoft Internet Explorer Release 11 and the French operating system. If you run into this problem when using the French operating system, clear the Microsoft Internet Explorer browser cache.
+
+### There is No Push Link
+
+### Symptom
+
+There are three scenarios where this happens:
+
+1. There is no Push link between the staging instance of the tenant and the production instance of the tenant if the production instance of the tenant is not at version 0.
+2. There is no Push link between the UAT and production instances of the tenant after migrating data from UAT to production.
+3. There is no Push link between the UAT and production instances of the tenant after you apply a closed package from the staging instance of the tenant to the production instance of the tenant.
+
+You can only migrate data from one instance to another if there is a different version number. The system automatically increases the version number after a successful migration.
+
+In a three-tier landscape group, you can only migrate data from staging to production when the production instance of the tenant is at version 0.
+
+| With a two-tier landscape group, the migration path is only between two tenant instances, usually the production instance of the tenant and the staging instance of the tenant. With a three-tier landscape group, there are migration paths between three tenant instances, usually the production instance of the tenant, the staging instance of the tenant, and the UAT instance of the tenant.<br /><br />We recommend always using a three-tier landscape group unless you have a demo environment. |
+| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+
+### Affected Release
+
+All releases.
+
+### Resolution
+
+For the first scenario, we recommend temporarily switching from a three-tier landscape group to a two-tier landscape group to immediately migrate data between the staging instance of the tenant and the production instance of the tenant. See :Link[Editing a Landscape Group]{label="Editing a Landscape Group" overridedLabel="Editing a Landscape Group" spaceId docId="8eKoisZQmWu1O91nuONnS" version="v2" docAnchorId="#Editing3" loadingMethod="dynamic" newTab="false" githubPath="OpsConsole_Landscapes.htm#Editing3" href="OpsConsole_Landscapes.mdx"} for information about doing this. After the migration, switch back to a three-tier landscape group.
+
+For the second and third scenarios, you must increase the version of the UAT instance of the tenant. To do this, click Push and in the Operation field, select No Op (Increase version only). This increases the version of the UAT instance of the tenant so that the Push link appears. See :Link[Increasing the Version Number (No Op \[Increase Version Only\])]{label="Increasing the Version Number (No Op [Increase Version Only])" overridedLabel="Increasing the Version Number (No Op [Increase Version Only])" spaceId docId="VvatisdgL5BT76U4_xhmM" version="v2" docAnchorId="#Increasi" loadingMethod="dynamic" newTab="false" githubPath="Push_data.htm#Increasi" href="Push_data.mdx"}.
+
+### Cannot Migrate Data if a Business Object Contains More than 100,000 Records
+
+### Symptom
+
+The Operations Console cannot migrate database tables with more than 100,000 records. In some deployments, the ServiceReqParam table can have more than 100,000 records.
+
+### Affected Release
+
+All releases.
+
+### Resolution
+
+We have removed the ServiceReqParam tables so they are no longer part of the service request copy in the Operations Console.
+
+We recommend as a best practice that your database tables be smaller than 100,000 records.  We also recommend that if you do have a table with more than 100,000 records, you do not migrate it using the Operations Console.
+
+If you do have a table with more than 100,000 records that needs to be migrated, use Microsoft SQL Server commands to manually copy the data and its relationships, or break the table into smaller tables, migrate the smaller tables, and then reform the data into a larger table after the migration.
+
+### Wrong Session Key Format Error
+
+### Symptom
+
+When migrating data with the Operations Console, the system gives a "Wrong Session Key Format" error.
+
+### Affected Release
+
+All releases.
+
+### Resolution
+
+The system gives this error when you copy the database from another server and restore it for a tenant without using the push action in the Operations Console to set up the tenant. To solve this, migrate the data using the Operations Console using the copy to replace with database already restored option.
+
+You can also use Microsoft SQL Server to truncate the table using this command: truncate table Frs\_ops\_session\_secondary\_key;.
+
+### Cannot Validate or Duplicate the API Key
+
+### Symptom
+
+When migrating data or adding a new tenant with the Operations Console, the system gives an error message about being unable to validate the API key.
+
+### Affected Release
+
+All releases.
+
+### Resolution
+
+Check that all active tenants in the Ivanti Service Manager configuration database have a valid database and proper login credentials.
+
+Make sure that none of the tenants has duplicate API keys by logging into the Operations Console, clicking the System Status tab, and looking for duplicate API key entries.  If you see a duplicate entry, click Fix to fix the issue.  See :Link[Fixing Problems]{label="Fixing Problems" overridedLabel="Fixing Problems" spaceId docId="hWnDisjDllHtpIXJH33qw" version="v2" docAnchorId="#Fixing" loadingMethod="dynamic" newTab="false" githubPath="OpsConsole_Using.htm#Fixing" href="OpsConsole_Using.mdx"} for more information.
+
+### Report Template and Schedule Issues
+
+### Symptom
+
+The Operations Console does not migrate out-of-the-box report templates (.rdl files) if the source and target tenants are on different servers.
+
+The Operations Console does not migrate custom-created report templates (.rdl files) even if the source and target tenants are on the same server. (These report templates are stored in the Report Server, which is specific to the tenant.)
+
+The Operations Console does not migrate the report schedules, report subscriptions, or report distributions for migrated reports.
+
+The system does not provision a report when its report template is not out-of-the-box (that is, if it is a custom report template), or if the report template has not been migrated.
+
+### Affected Release
+
+All releases.
+
+### Resolution
+
+The Operations Console does migrate new report definitions, regardless of if there is a template or not.
+
+The Operations Console does migrate updated report definitions. You can overwrite the target if the source definition is older than the target definition.
+
+You can delete report definitions in the target tenant if it does not exist in the source tenant.
+
+The system provisions the new report only if the report template is out-of-the-box, or if the report template exists for the tenant on the Report Server.
+
+To perform all other report migration and provisioning tasks, use the Ivanti Service Manager reporting service.
+
+### Some Dashboard and Saved Search Properties are Not Migrated
+
+### Symptom
+
+Some properties (such as "Set as default for myself", "Default for ...", and "My default") for dashboards and saved searches are not migrated.
+
+### Affected Release
+
+All releases.
+
+### Resolution
+
+These "default" properties are not metadata and are therefore not copied.
+
+### Duplicate Data or Database Constraint Errors
+
+### Symptom
+
+When you migrate data, the system gives this error:
+
+<hint type="success">
+  Error during metadata commit operation: DataLayer.ConstraintViolationException: DB constraint violation exception: Violation of PRIMARY KEY constraint .....
+
+  Error during metadata commit operation: DataLayer.ConstraintViolationException: DB constraint violation exception: Violation of UNIQUE KEY constraint .....
+</hint>
+
+### Affected Release
+
+All releases.
+
+### Resolution
+
+This happens when you add or edit data in both the source and target instance of the tenant. When you use the Operations Console to migrate data, you cannot add or edit data on both the source instance of the tenant and the target instance of the tenant.
+
+If you try to migrate data after adding or editing data on both the source instance of the tenant and the target instance of the tenant, the system duplicates the records. You must ignore the error message and fix the errors manually.
+
+### Problems Creating Packages
+
+### Symptom
+
+When creating packages, it can be difficult to create the correct package for the migration. It can be challenging to find the right pieces of metadata to package and to find all of the dependencies.
+
+### Affected Release
+
+All releases.
+
+### Resolution
+
+- Before making any changes, always add a Ivanti Service Manager development project.
+- Before making any changes, select a project. It is easier for you to include all changes in a project to a package.
+- Review the transaction details to find and review transaction sets. You can search based on the object type, business object, entity name, and the name of the person who made the change. You can then add the transaction sets to the package.
+- You may need to do a few iterations before you get the right package.
+
+### No Tenants in the Operations Console After Upgrading
+
+### Symptom
+
+After upgrading Ivanti Service Manager, the system updated the connection strings for the landscape with the incorrect name for the data source.
+
+### Affected Release
+
+All releases.
+
+### Resolution
+
+In the Operations Console, edit each landscape to update the data source to the correct database server name. See :Link[Editing a Landscape]{label="Editing a Landscape" overridedLabel="Editing a Landscape" spaceId docId="8eKoisZQmWu1O91nuONnS" version="v2" docAnchorId="#Editing" loadingMethod="dynamic" newTab="false" githubPath="OpsConsole_Landscapes.htm#Editing" href="OpsConsole_Landscapes.mdx"} for more information on how to do this.

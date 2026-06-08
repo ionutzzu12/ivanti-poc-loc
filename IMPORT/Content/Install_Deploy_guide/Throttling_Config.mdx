@@ -1,0 +1,74 @@
+---
+title: About Configuring Throttling Settings
+docTags: 
+createdAt: Fri Jun 05 2026 13:49:30 GMT+0300 (Eastern European Summer Time)
+---
+
+- :Link[About Throttling]{label="About Throttling" overridedLabel="About Throttling" spaceId docId="aDXgdyUchYHnI0qgKhq3q" version="v2" docAnchorId="#About" loadingMethod="dynamic" newTab="false" href="Throttling_Config.mdx"}
+- :Link[Checking the Throttling Status]{label="Checking the Throttling Status" overridedLabel="Checking the Throttling Status" spaceId docId="aDXgdyUchYHnI0qgKhq3q" version="v2" docAnchorId="#Checking" loadingMethod="dynamic" newTab="false" href="Throttling_Config.mdx"}
+- :Link[Configuring Outbound Throttling Settings]{label="Configuring Outbound Throttling Settings" overridedLabel="Configuring Outbound Throttling Settings" spaceId docId="aDXgdyUchYHnI0qgKhq3q" version="v2" docAnchorId="#Configur" loadingMethod="dynamic" newTab="false" href="Throttling_Config.mdx"}
+
+## About Throttling
+
+In \{\{Primary.Product}}, throttling is when the system intentionally slows the speed of web services. We use this process to regulate the network traffic and to minimize bandwidth congestion. When using web services, \{\{Primary.Product}} may limit the message rate, based on overall load. If you exceed the rate of 100,000 API calls per day, you may find your responses slowed to an appropriate rate. This helps ensure that you get a fair share of resources, and Ivanti Software can prevent unintended performance degradation from runaway integrations and denial of service attempts.
+
+For more information about using the \{\{Primary.Product}} integration web services, go to the online help and view the topic called Working with the Integration Web Service.
+
+## Checking the Throttling Status
+
+## Configuring Outbound Throttling Settings
+
+In on-premise implementations, your web service use only affects your environment. If you exceed the recommended rate, you may see performance implications. You can adjust your outbound throttling thresholds to maximize performance. The hardware capacity of your system also affects the values that you set these parameters to.
+
+The following are the outbound throttling parameters:
+
+| Parameter                           | Description                                                                                                                                                                                                       |
+| ----------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ResetRuntimeCacheExpectedTimeout    | The amount of time, in ms, that the system allocates to reset the runtime cache operation. If it takes longer than this, the system moves the operation to the pending actions and marks the server as unhealthy. |
+| ResetRuntimeCacheUnhealthyDelayTime | If the server is considered unhealthy, this is the amount of time, in ms, to delay things. After this amount of time has passed, the system executes the action.                                                  |
+| PendingActionCleanupPeriod          | How often, in ms, to clean up the pending actions that are stored in memory.                                                                                                                                      |
+| PendingActionsThreshold             | The amount of memory, in bytes, used to store all of the pending actions. Whenever a pending action exceeds the timeout value, the system adds the action to the pending action collection in memory.             |
+| ThrottlingEnable                    | Turns on or off outbound throttling.                                                                                                                                                                              |
+
+Change the throttling parameters as follows:
+
+1. Navigate to the AppServer folder and open the web.config file using a text editor such as Notepad.
+2. Search for and find the following strings:
+
+<hint type="success">
+  \<!--Expected timeout on executing reset runtime cache action
+
+  during throttling (value in milliseconds)-->
+
+  \<add key="ResetRuntimeCacheExpectedTimeout" value="1000" />
+
+
+
+  \<!--Expected delaying on executing reset runtime cache before
+
+  executing action in during throttling (value in milliseconds)-->
+
+  \<add key="ResetRuntimeCacheUnhealthyDelayTime" value="5000" />
+
+
+
+  \<!--Expected period to clean up the pending actions (value
+
+  in milliseconds)-->
+
+  \<add key="PendingActionCleanupPeriod" value="300000" />
+
+
+
+  \<!--Expected size threshold of pending actions collection -->
+
+  \<add key="PendingActionsThreshold" value="15728640" />
+
+
+
+  \<add key="ThrottlingEnable" value="true" />
+</hint>
+
+3. Change the values as needed.
+4. Save the file.
+5. Perform a Microsoft IIS reset.

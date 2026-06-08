@@ -1,0 +1,679 @@
+---
+title: Hardware and Software Requirements
+docTags: 
+createdAt: Fri Jun 05 2026 13:49:30 GMT+0300 (Eastern European Summer Time)
+---
+
+This section outlines the hardware and software requirements necessary for the installation of \{\{Primary.Product}}.
+
+## Application Server Requirements
+
+This section explains the hardware and software specifications needed to properly install, run, and maintain an application server.
+
+### Hardware
+
+<table isTableHeaderOn="true" columnWidths="330,331">
+  <tr>
+    <td>
+      Component
+    </td>
+    <td>
+      Recommended
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **CPU**
+    </td>
+    <td>
+      - 2 core minimum
+      - 4 core recommended for heavy transaction rates and workflow/escalation usage
+    </td>
+  </tr>
+  <tr>
+    <td>
+      RAM
+    </td>
+    <td>
+      - 8 GB minimum, and more depending on transaction rates and workflow/escalation complexity
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Hard Disk
+    </td>
+    <td>
+      - 20 GB minimum free space (approximately 1.1 GB for \{\{Primary.Product}} files and the remaining space for log files).
+      - <font color="#ff7f50">Best Practice!</font> We recommend that you install \{\{Primary.Product}} in a location other than on the system drive (typically the C drive).
+    </td>
+  </tr>
+</table>
+
+### Software
+
+<table isTableHeaderOn="true" columnWidths="180,481">
+  <tr>
+    <td>
+      Item
+    </td>
+    <td>
+      Supported Version
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Operating System
+    </td>
+    <td>
+      - Microsoft Windows Server 2025 (64-bit) (recommended) (supports ITSM 2025.3 or later)
+      - Microsoft Windows Server 2022 (64-bit)
+      - Microsoft Windows Server 2019 (64-bit)
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Microsoft .NET Framework
+    </td>
+    <td>
+      - If FedRAMP feature is not enabled, the minimum required version is Microsoft .NET Framework Release 4.6. If FedRAMP feature is enabled, the minimum required version is Microsoft .NET Framework Release 4.8.
+      This requires the latest Microsoft Windows update.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Web Server
+    </td>
+    <td>
+      - Microsoft IIS Release 10 (Versions 1607 and 1809, which supports Windows Server 2019 or later)
+    </td>
+  </tr>
+</table>
+
+## Web Server Requirements
+
+This section explains the hardware and software specifications needed to install, configure, and run a web server.
+
+<hint type="info">
+  In multi-server environments, each \{\{Primary.Product}} web server must meet these requirements.
+</hint>
+
+### Hardware
+
+<table isTableHeaderOn="true" columnWidths="330,331">
+  <tr>
+    <td>
+      Component
+    </td>
+    <td>
+      Recommended
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **CPU**
+    </td>
+    <td>
+      - 2 core minimum
+      - 4 core recommended for heavy transaction rates and workflow/escalation usage
+    </td>
+  </tr>
+  <tr>
+    <td>
+      RAM
+    </td>
+    <td>
+      - 8 GB minimum, and more depending on transaction rates and workflow/escalation complexity
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Hard Disk
+    </td>
+    <td>
+      - 20 GB minimum free space (approximately 1.1 GB for \{\{Primary.Product}} files and the remaining space for log files).
+      - <font color="#ff7f50">Best Practice!</font> We recommend that you install \{\{Primary.Product}} in a location other than on the system drive (typically the C drive).
+    </td>
+  </tr>
+</table>
+
+### Software
+
+<table isTableHeaderOn="true" columnWidths="330,331">
+  <tr>
+    <td>
+      Item
+    </td>
+    <td>
+      Supported Version
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Operating System**
+    </td>
+    <td>
+      - Microsoft Windows Server 2025 (recommended) (supports ITSM 2025.3 or later)
+      - Microsoft Windows Server 2022
+      - Microsoft Windows Server 2019
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Microsoft .NET Framework
+    </td>
+    <td>
+      - If FedRAMP feature is not enabled, the minimum required version is Microsoft .NET Framework Release 4.6. If FedRAMP feature is enabled, the minimum required version is Microsoft .NET Framework Release 4.8.
+      This requires the latest Microsoft Windows update or that you download the following security patch: [https://www.microsoft.com/en-us/download/details.aspx?id=42327](https://www.microsoft.com/en-us/download/details.aspx?id=42327)
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Web Server
+    </td>
+    <td>
+      - Microsoft IIS Release 10 (Versions 1607 and 1809, which supports Windows Server 2019 or later)
+    </td>
+  </tr>
+</table>
+
+## Database Server Requirements
+
+This section explains the hardware and software specifications needed to install, run, and maintain a database server.
+
+### Hardware
+
+<table isTableHeaderOn="true" columnWidths="330,331">
+  <tr>
+    <td>
+      Component
+    </td>
+    <td>
+      Recommended
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **CPU**
+    </td>
+    <td>
+      - 4 core minimum. Your deployment may require more for heavy transaction rate and workflow or escalation usage
+    </td>
+  </tr>
+  <tr>
+    <td>
+      RAM
+    </td>
+    <td>
+      - 16 GB minimum; however, your deployment may require much more RAM depending on transaction rates and workflow or escalation complexity
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Hard Disk
+    </td>
+    <td>
+      - <font color="#ff6347">Best Practice!</font> We recommend that you have separate volumes for the database and the transaction logs.
+      - **Database**: 100 GB minimum free space. For proper disk space sizing, use these guidelines:
+        - \{\{Primary.Product}} application demo database: 500 MB
+        - Average disk space requirement per record (incident, problem, change, configuration): \~200 KB
+        - For storing records more than three years old: more than 60 GB
+        - Average disk space requirement per record (configuration item): \~500 KB. For example, for 20,000 configuration items, we recommend a minimum of 10 GB.
+        - 10 GB minimum free space. This is the minimum.
+      - **Transaction logs**: 60 GB minimum free space.
+    </td>
+  </tr>
+</table>
+
+### Software
+
+<hint type="info">
+  If your deployment has the reporting feature installed, you must have Microsoft .NET Framework Release 4.8, which requires the latest Microsoft Windows update or that you download the following security patch: [https://www.microsoft.com/en-us/download/details.aspx?id=42327](https://www.microsoft.com/en-us/download/details.aspx?id=42327).
+</hint>
+
+<table isTableHeaderOn="true" columnWidths="330,331">
+  <tr>
+    <td>
+      Item
+    </td>
+    <td>
+      Supported Version
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Operating System**
+    </td>
+    <td>
+      - Microsoft Windows Server 2025 (recommended) (supports ITSM 2025.3 or later)
+      - Microsoft Windows Server 2022
+      - Microsoft Windows Server 2019
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Database Management Software
+    </td>
+    <td>
+      - Microsoft SQL Server 2025
+      - Microsoft SQL Server 2022
+      - Microsoft SQL Server 2019
+      - Microsoft SQL Server 2017 (ITSM 2026.1 is the last version to support Microsoft SQL Server 2017)
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Other Software
+    </td>
+    <td>
+      - iFilters (required for full-text indexing)
+      - An iFilter is a plugin that allows the Microsoft SQL Server to index various file formats so that they become searchable. Download the latest version of the iFilter for the document type (these links are subject to change):
+        - Microsoft Office 2010: [https://www.microsoft.com/en-us/download/details.aspx?id=5829](https://www.microsoft.com/en-us/download/details.aspx?id=5829)
+      - Adobe PDF iFilter 64 Release 11.0.01: [http://www.adobe.com/support/downloads/detail.jsp?ftpID=5542](http://www.adobe.com/support/downloads/detail.jsp?ftpID=5542)
+    </td>
+  </tr>
+</table>
+
+<hint type="danger">
+  - Microsoft SQL Server must have full-text search enabled. If it is not enabled, the \{\{Primary.Product}} demo database will not run properly.
+  - ITSM application does not support case-sensitive SQL Collation.
+  - ITSM application only supports the SQL Collation of SQL\_Latin1\_General\_CP1\_CI\_AS.
+</hint>
+
+<hint type="info">
+  If you are using Microsoft SQL Server 2022 and consider migrating to a Cloud deployment of \{\{Primary.Product}}, we recommend to downgrade your SQL 2022 database to SQL 2019 prior to migrating.
+</hint>
+
+## Reporting Feature Requirements
+
+This section explains the requirements to implement or support a reporting feature in a software system.
+
+### Hardware
+
+<table isTableHeaderOn="true" columnWidths="330,331">
+  <tr>
+    <td>
+      Component
+    </td>
+    <td>
+      Recommended
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **CPU**
+    </td>
+    <td>
+      - 2 core minimum
+      - 4 core recommended for heavy transaction rates and workflow and escalation usage
+    </td>
+  </tr>
+  <tr>
+    <td>
+      RAM
+    </td>
+    <td>
+      - 8 GB minimum, and more depending on transaction rates and workflow and escalation complexity
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Hard Disk
+    </td>
+    <td>
+      - 20 GB minimum free space (approximately 1.1 GB for \{\{Primary.Product}} files and the remaining space for log files).
+      - <font color="#ff7f50">Best Practice!</font> We recommend that you install \{\{Primary.Product}} in a location other than on the system drive (typically the C drive).
+    </td>
+  </tr>
+</table>
+
+### Software
+
+<table isTableHeaderOn="true" columnWidths="330,331">
+  <tr>
+    <td>
+      Item
+    </td>
+    <td>
+      Supported Version
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Operating System**
+    </td>
+    <td>
+      - Microsoft Windows Server 2025 (recommended) (supports ITSM 2025.3 or later)
+      - Microsoft Windows Server 2022
+      - Microsoft Windows Server 2019
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Microsoft .NET Framework**
+    </td>
+    <td>
+      - If FedRAMP feature is not enabled, the minimum required version is Microsoft .NET Framework Release 4.6. If FedRAMP feature is enabled, the minimum required version is Microsoft .NET Framework Release 4.8.
+      This requires the latest Microsoft Windows update or that you download the following security patch: https\://www\.microsoft.com/en- us/download/details.aspx?id=42327
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Database Management Software
+    </td>
+    <td>
+      - Microsoft SQL Server 2025
+      - Microsoft SQL Server 2022
+      - Microsoft SQL Server 2019
+      - Microsoft SQL Server 2017 (ITSM 2026.1 is the last version to support Microsoft SQL Server 2017)
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Other Software
+    </td>
+    <td>
+      Microsoft SQL Server Reporting Services (SSRS)
+      - Microsoft SSRS 2022
+      - Microsoft SSRS 2019
+      - Microsoft SSRS 2017
+    </td>
+  </tr>
+</table>
+
+### Microsoft SSRS Report Designer
+
+Business Intelligence Development Studio (BIDS) is a Microsoft component used in creating reports and report templates for \{\{Primary.Product}}. BIDS comes with Microsoft SQL Express edition. For on-premise users, BIDS comes with Microsoft SQL Server license.
+
+<table isTableHeaderOn="true" columnWidths="330,331">
+  <tr>
+    <td>
+      Item
+    </td>
+    <td>
+      Supported Version
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Operating System**
+    </td>
+    <td>
+      - Microsoft Windows Server 2025 (recommended) (supports ITSM 2025.3 or later)
+      - Microsoft Windows Server 2022
+      - Microsoft Windows Server 2019
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Hard Disk**
+    </td>
+    <td>
+      - 5 GB minimum free space
+    </td>
+  </tr>
+  <tr>
+    <td>
+      RAM
+    </td>
+    <td>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Processors
+    </td>
+    <td>
+      - **X86**: Pentium III-compatible processor or faster (processor speed of 1.0 GHz or faster); Windows only; 64-bit x86 PC compatible
+      - **X64**: Minimum: AMD Opteron, AMD Athlon 64, Intel Xeon with Intel EM64T support, Intel Pentium IV with EM64T support (processor speed of 1.0 GHz or faster)
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Other Software**
+    </td>
+    <td>
+      Microsoft Business Intelligence Development Studio (BIDS)
+      - Microsoft BIDS 2022
+      - Microsoft BIDS 2019
+    </td>
+  </tr>
+</table>
+
+- 512 MB minimum, 2GB is recommended
+
+## Discovery Requirements
+
+This section explains the requirements needed to successfully perform automated asset discovery and service mapping across your IT infrastructure.
+
+### Hardware
+
+<table isTableHeaderOn="true" columnWidths="330,331">
+  <tr>
+    <td>
+      Component
+    </td>
+    <td>
+      Recommended
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **CPU**
+    </td>
+    <td>
+      - 2 core minimum
+      - 4 core recommended for heavy transaction rates and workflow and escalation usage
+    </td>
+  </tr>
+  <tr>
+    <td>
+      RAM
+    </td>
+    <td>
+      - 8 GB minimum, and more depending on transaction rates and workflow and escalation complexity
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Hard Disk
+    </td>
+    <td>
+      - 20 GB minimum free space (approximately 1.1 GB for \{\{Primary.Product}} files and the remaining space for log files).
+      - <font color="#ff7f50">Best Practice!</font> We recommend that you install \{\{Primary.Product}} in a location other than on the system drive (typically the C drive).
+    </td>
+  </tr>
+</table>
+
+### Software
+
+<table isTableHeaderOn="true" columnWidths="330,331">
+  <tr>
+    <td>
+      Item
+    </td>
+    <td>
+      Supported Version
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Operating System**
+    </td>
+    <td>
+      - Microsoft Windows Server 2025 (recommended) (supports ITSM 2025.3 or later)
+      - Microsoft Windows Server 2022
+      - Microsoft Windows Server 2019
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Microsoft .NET Framework**
+    </td>
+    <td>
+      - If FedRAMP feature is not enabled, the minimum required version is Microsoft .NET Framework Release 4.6. If FedRAMP feature is enabled, the minimum required version is Microsoft .NET Framework Release 4.8.
+      This requires the latest Microsoft Windows update or that you download the following security patch: https\://www\.microsoft.com/en- us/download/details.aspx?id=42327
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Web Server
+    </td>
+    <td>
+      - Microsoft IIS Release 10 (Versions 1607 and 1809, which supports Windows Server 2019 or later)
+    </td>
+  </tr>
+</table>
+
+## Client Computer Requirements
+
+This section explains the requirements that your computer (client) must meet to successfully run a specific application, connect to a server, or access a system.
+
+### Hardware
+
+<table isTableHeaderOn="true" columnWidths="330,331">
+  <tr>
+    <td>
+      Component
+    </td>
+    <td>
+      Recommended
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **CPU**
+    </td>
+    <td>
+      Single core
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **RAM**
+    </td>
+    <td>
+      4 GB
+    </td>
+  </tr>
+</table>
+
+### Mobile
+
+\{\{Primary.Product}} offers native apps for mobile devices for the Android and iOS platforms. The \{\{Primary.Product}} app can be downloaded from their respective platform's app stores.
+
+<table isTableHeaderOn="true" columnWidths="330,331">
+  <tr>
+    <td>
+      Platform
+    </td>
+    <td>
+      Supported Version
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Android**
+    </td>
+    <td>
+      16.0 or later
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **iOS**
+    </td>
+    <td>
+      18.0 or later
+    </td>
+  </tr>
+</table>
+
+### Software
+
+See the :Link[Browser Compatibility]{label="Browser Compatibility" overridedLabel="Browser Compatibility" spaceId docId="mMdUqdJqoASH2OEBQfEKf" version="v2" docAnchorId="#BrowserCompatibility" loadingMethod="dynamic" newTab="false" githubPath="Compatibility_Matrix.htm#BrowserCompatibility" href="Compatibility_Matrix.mdx"} for browser compatibility information.
+
+There is a Known Issue during installation of the 2017.2 Discovery Client Agent.
+
+Installation pops up Windows Warning for digital signature requirement from Microsoft.
+
+Windows cannot verify the digital signature for this file. A recent hardware or software change might have installed a file that is signed incorrectly or damaged, or that might be malicious software from an unknown source.
+
+To correct this, digital signature certificates have been updated. However, Ivanti recommends to apply updates to support Code Signing issues in Windows 7 and Windows Server 2008.
+
+For windows 7, please make sure that System has SP1 installed and install KB from [https://technet.microsoft.com/en-us/library/security/3033929](https://technet.microsoft.com/en-us/library/security/3033929).
+
+As per MSDN driver signing has changed in Windows 10, version 1607.
+
+Exceptions / Are cross-signed drivers still valid?
+
+- Enforcement only happens on fresh installations, with Secure Boot on, and only applies to new kernel mode drivers:
+  - PCs upgrading from a release of Windows prior to Windows 10 Version 1607 will still permit installation of cross-signed drivers.
+  - PCs with Secure Boot OFF will still permit installation of cross-signed drivers.
+  - Drivers signed with an end-entity certificate issued prior to July 29th, 2015 that chains to a supported cross-signed CA will continue to be allowed.
+
+To prevent systems from failing to boot properly, boot drivers will not be blocked, but they will be removed by the Program Compatibility Assistant. Future versions of Windows will block boot driver.
+
+To summarize, on non-upgraded fresh installations of Windows 10, version 1607 with Secure Boot ON, drivers must be signed by Microsoft or with an end-entity certificate issued prior to July 29th, 2015 that chains to a supported cross-signed CA.
+
+Reference: [https://blogs.msdn.microsoft.com/windows\_hardware\_certification/2016/07/26/driver-signing-changes-in-windows-10-version-1607/](https://blogs.msdn.microsoft.com/windows_hardware_certification/2016/07/26/driver-signing-changes-in-windows-10-version-1607/).
+
+If the certificate uses SHA-2 or has SHA-2 certificates in its chain of trust and it is being used to sign kernel modules, then please be aware of KB3033929, an update for Windows 7 distributed through Windows Update. On versions of Windows 7 without this update, the kernel will reject signatures made with certificates that use SHA-2, so they cannot be used to get a kernel module to load.
+
+Reference: [https://support.comodo.com/index.php?/Knowledgebase/Article/View/1103/0/signing-microsoft-windows-64-bit-kernel-mode-drivers](https://support.comodo.com/index.php?/Knowledgebase/Article/View/1103/0/signing-microsoft-windows-64-bit-kernel-mode-drivers).
+
+### Remote Control Feature
+
+For customers using the legacy Remote Control solution, this feature requires that your browsers enable either TLS 1.0 or TLS 1.1 to support the HTTPS connection between the clients and the remote control server.
+
+### Bandwidth and Latency
+
+For optimal application performance, we recommend a latency of 110 ms or below with a minimum of 1.5 MB/sec in bandwidth between the \{\{Primary.Product}} application server and the remote location client machines.
+
+## Chat Service Requirements
+
+### Software requirements
+
+<table isTableHeaderOn="true" columnWidths="330,331">
+  <tr>
+    <td>
+      Component Name
+    </td>
+    <td>
+      Description
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Redis**
+    </td>
+    <td>
+      The Redis server should be running on a Linux container.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Microsoft SQL server**
+    </td>
+    <td>
+      The database server should be available to store chat history and other statistics.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      **Node js**
+    </td>
+    <td>
+      The node software should be installed where \{\{Primary.Product}} installer is being installed. The node software is required to enable the server to run chat as a back-end service.
+    </td>
+  </tr>
+</table>
+
+Points to Note:
+
+- In the on-premise machine, Chat service is installed as a part of the appserver module installation while \{\{Primary.Product}} installer is installed as software and Chat service runs on IIS.
+- Currently installed on-prem node version: 23.2.0.
+- Currently installed on-prem Redis server version : 6.2.5 or higher.
+
+## Redis server installation guide
+
+For more details on Redis server installation, refer [Setting up Redis](../Install_Deploy_guide/On-premise-Redis-Setup.mdx).

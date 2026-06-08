@@ -1,0 +1,325 @@
+---
+title: Setting up Redis
+docTags: 
+createdAt: Fri Jun 05 2026 13:49:30 GMT+0300 (Eastern European Summer Time)
+---
+
+You will have to setup Redis if you want to use the Chat service in Neurons for ITSM. All the different setup scenarios are explained below.
+
+<hint type="info">
+  If you have installed Redis but not using the Chat service, you might consider uninstalling it. To uninstall refer to the section :Link[Uninstall Redis]{label="Uninstall Redis" overridedLabel="Uninstall Redis" spaceId docId="EZ-Y65hoVbAel7qURgC0t" version="v2" docAnchorId="#UninstallRedis" loadingMethod="dynamic" newTab="false" href="On-premise-Redis-Setup.mdx"}.
+</hint>
+
+## Different install and uninstall options and scenarios
+
+**Upgrading/Installing Redis for existing/New customer:**
+
+- :Link[Installing Redis in Linux Container on Windows]{label="Installing Redis in Linux Container on Windows" overridedLabel="Installing Redis in Linux Container on Windows" spaceId docId="EZ-Y65hoVbAel7qURgC0t" version="v2" docAnchorId="#InstallOnWindowsServer" loadingMethod="dynamic" newTab="false" href="On-premise-Redis-Setup.mdx"}
+  - :Link[Installing Linux container on Windows Server with Docker]{label="Installing Linux container on Windows Server with Docker" overridedLabel="Installing Linux container on Windows Server with Docker" spaceId docId="EZ-Y65hoVbAel7qURgC0t" version="v2" docAnchorId="#InstallOnWindowsWithDocker" loadingMethod="dynamic" newTab="false" href="On-premise-Redis-Setup.mdx"}
+  - :Link[Installing Redis 6.2.5 in Docker]{label="Installing Redis 6.2.5 in Docker" overridedLabel="Installing Redis 6.2.5 in Docker" spaceId docId="EZ-Y65hoVbAel7qURgC0t" version="v2" docAnchorId="#InstallonDocker" loadingMethod="dynamic" newTab="false" href="On-premise-Redis-Setup.mdx"}
+- :Link[Installing Redis on Linux Machine]{label="Installing Redis on Linux Machine" overridedLabel="Installing Redis on Linux Machine" spaceId docId="EZ-Y65hoVbAel7qURgC0t" version="v2" docAnchorId="#InstallOnLinux" loadingMethod="dynamic" newTab="false" href="On-premise-Redis-Setup.mdx"}
+  - :Link[Installing Redis on Linux Machine (Ubuntu)]{label="Installing Redis on Linux Machine (Ubuntu)" overridedLabel="Installing Redis on Linux Machine (Ubuntu)" spaceId docId="EZ-Y65hoVbAel7qURgC0t" version="v2" docAnchorId="#InstallOnLinux" loadingMethod="dynamic" newTab="false" href="On-premise-Redis-Setup.mdx"}
+  - :Link[Establish the remote Redis Connection]{label="Establish the remote Redis Connection" overridedLabel="Establish the remote Redis Connection" spaceId docId="EZ-Y65hoVbAel7qURgC0t" version="v2" docAnchorId="#RemoreRedisConnection" loadingMethod="dynamic" newTab="false" href="On-premise-Redis-Setup.mdx"}
+  - :Link[Install Redis on Windows Using WSL2]{label="Install Redis on Windows Using WSL2" overridedLabel="Install Redis on Windows Using WSL2" spaceId docId="EZ-Y65hoVbAel7qURgC0t" version="v2" docAnchorId="#Option" loadingMethod="dynamic" newTab="false" href="On-premise-Redis-Setup.mdx"}
+- :Link[Uninstalling Redis from Windows Server (existing customer)]{label="Uninstalling Redis from Windows Server (existing customer)" overridedLabel="Uninstalling Redis from Windows Server (existing customer)" spaceId docId="EZ-Y65hoVbAel7qURgC0t" version="v2" docAnchorId="#UninstallRedisExistingCustomers" loadingMethod="dynamic" newTab="false" href="On-premise-Redis-Setup.mdx"}
+  - :Link[Remote Redis Connection - using redis.bat script]{label="Remote Redis Connection - using redis.bat script" overridedLabel="Remote Redis Connection - using redis.bat script" spaceId docId="EZ-Y65hoVbAel7qURgC0t" version="v2" docAnchorId="#UninstallUsingBatScript" loadingMethod="dynamic" newTab="false" href="On-premise-Redis-Setup.mdx"}
+  - :Link[Remote Redis Connection from Windows UI]{label="Remote Redis Connection from Windows UI" overridedLabel="Remote Redis Connection from Windows UI" spaceId docId="EZ-Y65hoVbAel7qURgC0t" version="v2" docAnchorId="#UninstallFromWindowsUI" loadingMethod="dynamic" newTab="false" href="On-premise-Redis-Setup.mdx"}
+  - :Link[Remote Redis Connection using redis-server.exe]{label="Remote Redis Connection using redis-server.exe" overridedLabel="Remote Redis Connection using redis-server.exe" spaceId docId="EZ-Y65hoVbAel7qURgC0t" version="v2" docAnchorId="#UninstallUsingServerExe" loadingMethod="dynamic" newTab="false" href="On-premise-Redis-Setup.mdx"}
+- :Link[Uninstalling from Linux Container]{label="Uninstalling from Linux Container" overridedLabel="Uninstalling from Linux Container" spaceId docId="EZ-Y65hoVbAel7qURgC0t" version="v2" docAnchorId="#UninstallFromLinuxContainer" loadingMethod="dynamic" newTab="false" href="On-premise-Redis-Setup.mdx"}
+- :Link[Uninstall from Linux Machine]{label="Uninstall from Linux Machine" overridedLabel="Uninstall from Linux Machine" spaceId docId="EZ-Y65hoVbAel7qURgC0t" version="v2" docAnchorId="#UninstallFromLinuxMachine" loadingMethod="dynamic" newTab="false" href="On-premise-Redis-Setup.mdx"}
+
+## Option 1 – Install Redis in Linux Container on Windows Server
+
+Prerequisite:
+
+- Windows server - version 2019 or above with HyperV enabled.
+- For more information on Linux container requirements check out - [Windows container requirements](https://learn.microsoft.com/en-us/virtualization/windowscontainers/deploy-containers/system-requirements).
+- For upgrading your Windows Servers, check out this [Windows Server Upgrade guide](https://learn.microsoft.com/en-us/windows-server/get-started/upgrade-overview#which-version-of-windows-server-should-i-upgrade-to) and look for target version you need to upgrade.
+
+Installation steps:
+
+### Installing Linux container with docker on Windows Server
+
+1. Open PowerShell as Administrator and run the following command:
+
+Install-Module -Name DockerMsftProvider -Repository PSGallery -Force
+
+<Paragraph indent="1">
+  This installs the Docker-Microsoft PackageManagement provider.
+</Paragraph>
+
+<Paragraph indent="1">
+  Sample Output
+</Paragraph>
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/DzR9xLUiGhcSdgUzbiu0P_sample-output.jpg" position="flex-start" size="40" indent="1" initialPath="Redis-Installation/Sample-Output.jpg" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Redis-Installation/Sample-Output.jpg"></Image>
+
+2. Install the preview build of Docker EE and run the following commands:
+
+Install-Module DockerProvider
+
+Install-Package Docker -ProviderName DockerProvider -RequiredVersion preview
+
+3. Use “Yes” or “Y” to agree to install or use “A” to agree to all.
+4. When the installation is complete, reboot the system.
+5. To run Linux containers, enable LinuxKit system and use the following command:
+
+\[Environment]::SetEnvironmentVariable("LCOW\_SUPPORTED", "1", "Machine")
+
+6. Use the following command to restart the system/Docker service after the change:
+
+Restart-Service docker
+
+<Paragraph indent="1">
+  The Linux container should now successfully run on your Windows Server.
+</Paragraph>
+
+For more information, refer - [How to run Docker Containers on Windows Server 2019](https://computingforgeeks.com/how-to-run-docker-containers-on-windows-server-2019)
+
+### Installing Redis 6.2.5 in Docker
+
+1. Open PowerShell as Administrator and run the following command:
+
+docker run -d -p 6379:6379 --name redis-con redis:6.2.5
+
+2. Check if it has successfully installed by executing the command - `docker ps`
+
+Best Practices
+
+- Run the command - `docker update --restart always redis-con` to always restart Redis Container whenever the docker/machine is restarted. If this is not enabled you have to enable Redis container manually everytime the docker/machine is restarted.
+- Enable Authentication for Redis. Refer, Add Authentication to Redis.
+
+### Setting up Redis Authentication
+
+Add Auth to Redis server
+
+1. Open Powershell and run the command - `docker exec -it redis-con sh`.
+
+<Paragraph indent="1">
+  This will give you Redis console.
+</Paragraph>
+
+2. Run **Redis-cli** to set password to Redis server.
+3. Run this command to set Redis password - `redis-cli Config Set requirepass <your-password>`.
+
+<Paragraph indent="1">
+  Your password is successfully set now.
+</Paragraph>
+
+4. To test run the command - `redis-cli Auth <your-password>” it should return “Ok`.
+
+Set the password through SCW for the application to authenticate through Redis password.
+
+In step 2 of SCW configuration (Service and Asset Manager settings) in the field **Redis Auth Password**, enter the same password that is set in the **redis-cli**, and save it.
+
+<hint type="info">
+  Once docker/Redis server/machine is restarted , the auth will be set back to noAuth, sensure to remember and update the password to redis server every time restarted.
+</hint>
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/7j0b52jq9RE70Nr4tU1Fj_scw.jpg" position="flex-start" size="40" initialPath="Redis-Installation/SCW.jpg" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Redis-Installation/SCW.jpg"></Image>
+
+## Option 2 – Install Redis on Linux Machine
+
+Prerequisite:
+
+- Ubuntu 16.04 or above
+
+Steps to install:
+
+1. Execute the following commands:
+
+Sudo apt update
+
+Sudo apt install redis-server
+
+2. Check if Redis is set up using the following command:
+
+sudo systemctl status redis
+
+If the result displays as `Active: active (running)` then Redis is successfully setup.
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/XX_JK7Dh_bGej-kiuftFR_runningstatus.jpg" position="flex-start" size="40" initialPath="Redis-Installation/RunningStatus.jpg" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Redis-Installation/RunningStatus.jpg"></Image>
+
+3. Edit the **redis.conf** file to make Redis port available to other servers (by default, the Redis port is on :6379) “sudo gedit /etc/redis/redis.conf” or “sudo nano /etc/redis/redis.conf”
+4. Check for the line “**bind 127.0.0.1**” comment this line by prepending ‘**#**’
+
+<Paragraph indent="1">
+  Since you have removed binding, it is highly recommended to add authentication to Redis Server.
+</Paragraph>
+
+5. Edit **redi.conf “sudo gedit /etc/redis/redis.conf”**
+6. Search for requirepass foobared, replace foobared with your\_passowrd.
+7. Restart the Redis Server to apply changes.
+
+<Paragraph indent="1">
+  “sudo systemctl restart redis.service”
+</Paragraph>
+
+8. Then follow “Remote Redis Connection” and “Set password through SCW for the application to authenticate through Redis password.”
+
+## Option 3 – Install Redis on Windows Using WSL2
+
+This procedure describes how to install Redis on Windows by using Windows Subsystem for Linux (WSL). Redis is installed inside a Linux environment, which runs on Windows through WSL. This method is supported on Windows 10, Windows 11, and Windows Server 2019 or later.
+
+To install Redis on Windows, enable WSL2 (Windows Subsystem for Linux). WSL2 lets you run Linux binaries natively on Windows.
+
+**Prerequisites:**
+
+- Windows 10, Windows 11, or Windows Server 2019/2022.
+
+**Steps to enable WSL:**
+
+**For Windows 10, Windows 11, or Windows Server 2022.**
+
+1. Open **PowerShell** or **Command Prompt** as an administrator.
+2. Run the following command:
+   wsl --install
+3. Restart the system when prompted.
+
+<hint type="info">
+  The **wsl --install** command installs the WSL feature and sets Ubuntu as the default Linux distribution.
+</hint>
+
+**For Windows Server 2019 (version 1709 and later)**
+
+1. Open **PowerShell** as an administrator.
+2. Run the following command:
+   Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
+3. Restart your computer when prompted.
+4. Download a Linux distribution from the Microsoft WSL Store: *"https\://aka.ms/wslstore"*
+5. Download the latest **ubuntu** from the following link: *"Manual installation steps for older versions of WSL | Microsoft Learn"*
+6. Open PowerShell, Install the downloaded distribution using the following command::
+   curl.exe -L -o ubuntu-2004.appx https\://aka.ms/wslubuntu2004
+7. Replace **app\_name.appx** with the actual file name of the downloaded package.
+   1. Add-AppxPackage .\ ubuntu-2004.appx
+8. This installs Linux on your computer.
+
+**Steps to Install Redis:**
+
+1. Open the installed Linux distribution (for example, Ubuntu) from the Start menu.
+2. Update the package list and install Redis:
+   curl -fsSL https\://packages.redis.io/gpg | sudo gpg --dearmor -o /usr/share/keyrings/redis-archive-keyring.gpg
+   echo "deb \[signed-by=/usr/share/keyrings/redis-archive-keyring.gpg] https\://packages.redis.io/deb $(lsb\_release -cs) main" | sudo tee /etc/apt/sources.list.d/redis.list
+   sudo apt-get update
+   sudo apt-get install redis
+3. Start the Redis server:
+   sudo service redis-server start
+4. Verify that Redis is running:
+   redis-cli
+   ping
+5. If Redis is running correctly, the response will be:
+   PONG
+
+### Establish the remote Redis Connection
+
+1. Edit the **.env** file in the path “\<install-Path>\Heat\Appserver\chat\\.env”
+2. Edit the attribut&#x65;**&#x20;REDIS\_HOST=localhost to REDIS\_HOST=\<remote-server-ip>**
+3. Save the file.
+4. This will install redis successfully.
+5. Check if Redis is up by using the command `sudo systemctl status redis” – you should see the active (running status).`
+
+## Uninstall Redis for Windows Server (Existing Customer)
+
+This is a mandatory step for existing customers who have already installed Redis and are upgrading to the new version. Uninstall the obsolete Redis version from your machine by following the below server details and uninstall steps.
+
+Redis server details:
+
+| Version | 3.0.503                                                                                                                          |
+| ------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| Path    | \<install\_path>\HEAT\Appserver\AppServer.Main\redis                                                                             |
+| Project | [https://github.com/microsoftarchive/redis](https://github.com/microsoftarchive/redis)                                           |
+| License | [https://github.com/microsoftarchive/redis/blob/3.0/license.txt](https://github.com/microsoftarchive/redis/blob/3.0/license.txt) |
+
+### Option 1 – Uninstall using redis.bat script
+
+1. Run the following in Powershell with administrator privileges.
+
+cd \<install\_path>\HEAT\Appserver\AppServer.Main\redis; .\redis.bat -p $(pwd) -c stop
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/c3tXI1AzhIiJRrfKSzxPh_windowspowershell.jpg" position="flex-start" size="40" indent="1" initialPath="Redis-Installation/WindowsPowershell.jpg" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Redis-Installation/WindowsPowershell.jpg"></Image>
+
+2. Optional Step: Cleanup Redis installation files by using the below command:
+
+.\redis.bat -p $(pwd) -c cleanup
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/FpjLN4hBXeclm2YVF4RWy_rediscleanup.jpg" position="flex-start" size="40" indent="1" initialPath="Redis-Installation/RedisCleanup.jpg" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Redis-Installation/RedisCleanup.jpg"></Image>
+
+### Option 2 – Uninstall from Windows UI
+
+1. Run the following in Powershell with administrator privileges:
+
+Run services.msc
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/RqcjE6GnA1a1nJy5OtYPu_runservices.jpg" position="flex-start" size="40" indent="1" initialPath="Redis-Installation/RunServices.jpg" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Redis-Installation/RunServices.jpg"></Image>
+
+2. Locate Redis in the list and stop the service.
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/p9JkCbrBPMiltKR5zUtdZ_stopservices.jpg" position="flex-start" size="40" indent="1" initialPath="Redis-Installation/StopServices.jpg" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Redis-Installation/StopServices.jpg"></Image>
+
+3. Right click > **Properties**, Change **Startup type** to **Disabled**.
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/nBK22y94Sd0VVvw8TBDCa_redisproperties.jpg" position="flex-start" size="40" indent="1" initialPath="Redis-Installation/RedisProperties.jpg" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Redis-Installation/RedisProperties.jpg"></Image>
+
+### Option 3 – Uninstall using redis-server.exe
+
+Stop the service
+
+Run the following in Powershell with administrator privileges.
+
+.\redis-server.exe --service-stop
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/PNON4ySEobt864H425xPC_method3-stopservice.jpg" position="flex-start" size="40" initialPath="Redis-Installation/Method3-StopService.jpg" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Redis-Installation/Method3-StopService.jpg"></Image>
+
+Uninstall service
+
+Run the following in Powershell with administrator privileges.
+
+.\redis-server.exe --service-uninstall redis.windows.conf
+
+## Uninstall Redis
+
+If you do not want to use the Chat service, you may uninstall Redis by the following the below steps:
+
+### Option 1 – Uninstall Redis in container
+
+Execute the following command:
+
+Docker rm /redis-con
+
+### Option 2 – Uninstall Redis in Linux Machine
+
+For ubuntu distributions
+
+\# if you use apt-get to install redis then use
+
+sudo apt-get purge --auto-remove redis-server
+
+\# if you compiled redis manually then follow the
+
+\# steps below to remove it completely from linux/ubuntu
+
+sudo service redis\_version stop
+
+\# Now delete everything related to Redis server from /usr/local/bin/
+
+sudo rm /usr/local/bin/redis-\*
+
+\# Now delete Redis Configuration files directory and it’s content.
+
+sudo rm -r /etc/redis/
+
+\# Delete existing Redis log files.
+
+sudo rm /var/log/redis\_\*
+
+\# Delete existing Redis data directory and it’s content.
+
+sudo rm -r /var/lib/redis/
+
+\# Delete existing Redis server init scripts
+
+sudo rm /etc/init.d/redis\_\*
+
+\# Remove existing Redis PID files (Only if exists)
+
+sudo rm /var/run/redis\_\*

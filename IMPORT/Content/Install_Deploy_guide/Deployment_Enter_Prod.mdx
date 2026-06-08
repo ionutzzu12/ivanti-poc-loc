@@ -1,0 +1,131 @@
+---
+title: Enterprise Production Deployment
+docTags: 
+createdAt: Fri Jun 05 2026 13:49:30 GMT+0300 (Eastern European Summer Time)
+---
+
+Customers supporting large user populations of 100 or more are primarily concerned with availability and load management rather than with minimizing hardware expense. Customers with more than 100 users should use this setup as a baseline and then add the equivalent amount of hardware for each additional 100 users. The enterprise production deployment architecture splits \{\{Primary.Product}} into:
+
+- Front-end web servers
+- Back-end processing servers
+
+The back-end servers handle workflow, email processing, license allocation, inventory management, and so on. This architecture also separates the production environment from development and testing.
+
+There are two key advantages of separating development and testing from production:
+
+- Any issues created during the development cycle do not affect production users.
+- You can perform upgrade testing on the development and testing servers before upgrading the production servers.
+
+Optionally, you can install your development and test landscapes onto separate physical servers.
+
+*Example of&#x20;*\{\{Primary.Product}}*&#xA0;in an Enterprise Deployment*
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/SaYX5mT4cD30HK9imJ3Sa_enterprisedeploymentinternal.svg" position="flex-start" size="40" initialPath="Install_Deploy_Images/enterprise_deployment_internal.svg" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Install_Deploy_Images/enterprise_deployment_internal.svg"></Image>
+
+## Hardware Requirements for the Enterprise Production Deployment
+
+### Web Servers
+
+The following are the hardware requirements for the \{\{Primary.Product}} web servers:
+
+- Two virtual servers
+- Outside the firewall
+- Load balanced
+- 4 CPU
+- 16 GB memory
+- 200 GB hard drive
+
+### Processing Servers (Production)
+
+The following are the hardware requirements for the \{\{Primary.Product}} processing servers used for the production landscape:
+
+- Two virtual servers
+- Inside the firewall
+- Load balanced
+- 4 CPU
+- 16 GB memory
+- 200 GB hard drive
+
+### Processing Servers (Development and Testing)
+
+The following are the hardware requirements for the \{\{Primary.Product}} processing server used for the development (staging) and testing (UAT) landscapes:
+
+- One physical or virtual server
+- 2 CPU
+- 4 GB memory
+- 200 GB hard drive
+
+### Microsoft SQL Server Requirements
+
+Microsoft SQL Server is the database server for the deployment. Depending on your needs, you may have multiple database servers. The following are the requirements for the Microsoft SQL server where the databases reside:
+
+- One physical server
+- Microsoft SQL Server -
+  - Microsoft SQL Server 2012 including Management Studio
+  - Microsoft SQL Server 2012 SP2 including Management Studio
+  - Microsoft SQL Server 2014
+  - Microsoft SQL Server 2016
+  - Microsoft SQL Server 2017
+  - Microsoft SQL Server 2019
+- Inside the firewall
+- 8 CPU
+- 24 GB memory
+- 1 TB hard drive
+
+<hint type="info">
+  Customers may experience an error when Always On Availability is configured on the database server. Ivanti Service Manager currently does not support Always On Availability. For more details, see [Ivanti Community](https://forums.ivanti.com/s/article/Cannot-push-tenants-over-Ops-Console-Error-message-Failed-to-execute-due-to-Failed-to-sanitize-database-name-in-DBServer-server-name).
+</hint>
+
+### Microsoft SSRS Reporting Server
+
+The reporting feature requires that Microsoft SQL Server Reporting Services (SSRS) be installed and running on the database server that hosts the \{\{Primary.Product}} reporting feature.
+
+Microsoft SSRS can be installed on the Microsoft SQL server or on a separate Microsoft SSRS server, depending on your preference. We recommend a separate installation in the following situations:
+
+- Multi-tenant environments, including managed service providers and enterprises with multiple Ivanti Service Manager tenants.
+- The Microsoft SQL database is used also for applications other than \{\{Primary.Product}}.
+- Installations where the database server must remain online, because upgrading Microsoft SSRS often requires a reboot.
+
+The following are the requirements for the Microsoft SQL Server Reporting Services (SSRS) reporting server:
+
+- One physical server
+- Microsoft SQL Server Release 2016
+- Inside the firewall
+- 8 CPU
+- 24 GB memory
+- 1 TB hard drive
+
+### Hardware Requirements when Adding Additional Users
+
+For each additional 100 users, add this to architecture:
+
+- Two additional \{\{Primary.Product}} web servers.
+- Two additional \{\{Primary.Product}} processing servers.
+
+System load determines the actual number of servers to add. You can add the web and processing servers on demand.
+
+In most cases, you do not need to add more development (staging) or testing (UAT) servers.
+
+## High Availability and Load Balancing
+
+You can achieve high availability through physical load balancing or by load balancing handled within \{\{Primary.Product}}. For example, in the configuration shown in :Link[Example of Neurons for ITSM in an Enterprise Deployment]{label="Example of Neurons for ITSM in an Enterprise Deployment" overridedLabel="Example of Neurons for ITSM in an Enterprise Deployment" spaceId docId="ACaYlJ1fPYIHAS-Bow7-Y" version="v2" docAnchorId="#fig_Example_HEAT_SM_Enterprise_Deployment" loadingMethod="dynamic" newTab="false" href="Deployment_Enter_Prod.mdx"}. The Ivanti Service Manager components are connected to one or more load-balanced servers. In this example:
+
+- The \{\{Primary.Product}} web servers, which contain \{\{Primary.Product}} components that are user-facing, all connect to a physical load-balancing server.
+- The \{\{Primary.Product}} process servers, which contain \{\{Primary.Product}} components that are not user-facing, do not connect to a physical load-balancing server, but instead use a built-in load balancer. The escalation engine, workflow engine, and email server have built-in load-balancing mechanisms.
+- The \{\{Primary.Product}} web servers and process servers all connect to the same Ivanti Service Manager application database and configuration database. High availability for the \{\{Primary.Product}} databases is achieved through a cluster.
+
+Communication within the system, such as between an \{\{Primary.Product}} process server and an \{\{Primary.Product}} web server, does not require SSL. However, external communication can use SSL.
+
+<hint type="info">
+  By default, the **Use SSL** checkbox in all instances will be selected for new customers. New customers must provide the fully qualified domain name for the server location in the **SSL certificate** field. However, the **Use SSL** checkbox is not selected by default for the existing customer, and they have to select **Use SSL** if needed and provide the domain name. For more details on the **SSL Certificate**, see [Optional SSL Configuration](SSL_Config.mdx).
+</hint>
+
+When using a hardware load balancer, turn on session persistence so that connections from the web browsers always get directed to the same web server.
+
+## About Installing the Neurons for ITSM for the Enterprise Production Deployment
+
+:Link[Neurons for ITSM Components and Databases in an Enterprise Deployment]{label="Neurons for ITSM Components and Databases in an Enterprise Deployment" overridedLabel="Neurons for ITSM Components and Databases in an Enterprise Deployment" spaceId docId="ACaYlJ1fPYIHAS-Bow7-Y" version="v2" docAnchorId="#fig_HEAT_SM_Components" loadingMethod="dynamic" newTab="false" href="Deployment_Enter_Prod.mdx"} shows a diagram of the recommended locations of the various \{\{Primary.Product}} components.
+
+\{\{Primary.Product}}*&#x20;Components and Databases in an Enterprise Deployment*
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/6HHPFGnL7mHEBTNwtqrfn_enterprisedeploymentcomponents.svg" position="flex-start" size="40" initialPath="Install_Deploy_Images/enterprise_deployment_components.svg" githubPath="ITSM-On-Prem-Help/Content/Install_Deploy_guide/Install_Deploy_Images/enterprise_deployment_components.svg"></Image>
