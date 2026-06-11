@@ -1,8 +1,210 @@
 {
   "$schema": "https://api.archbee.com/git-config-schema",
-  "docsPath": "./FRA",
+  "docsPath": "FRA/",
   "structure": {
     "assets": "assets",
-    "docsTree": []
+    "docsTree": [
+      {
+        "categoryName": "Vue d'ensemble",
+        "isCategory": false,
+        "path": "Content/Self-Service/LandingPage-Self.mdx",
+        "children": []
+      },
+      {
+        "categoryName": "Premiers pas dans le portail Self Service",
+        "isCategory": false,
+        "path": "Content/Self-Service/Getting-Started-with-Self-Service.mdx",
+        "children": [
+          {
+            "categoryName": "Navigation sur le portail en self-service",
+            "isCategory": false,
+            "path": "Content/Self-Service/Navigating-the-Self-Service-Portal.mdx",
+            "children": []
+          }
+        ]
+      },
+      {
+        "categoryName": "Comment faire ?",
+        "isCategory": false,
+        "path": "Content/Self-Service/Self-Service-How-do-I.mdx",
+        "children": []
+      },
+      {
+        "categoryName": "Utilisation des espaces de travail",
+        "isCategory": false,
+        "path": "Content/Self-Service/Using-the-Workspaces.mdx",
+        "children": [
+          {
+            "categoryName": "Mes éléments",
+            "isCategory": false,
+            "path": "Content/Self-Service/my-items.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "Demandes de service et incidents",
+            "isCategory": false,
+            "path": "Content/Self-Service/service-requests-and-incidents.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "Centre de connaissances",
+            "isCategory": false,
+            "path": "Content/Self-Service/knowledge-center.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "Annonces, FAQ et alertes",
+            "isCategory": false,
+            "path": "Content/Self-Service/announcements-FAQs-and-alerts.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "Messages de la console des réseaux sociaux",
+            "isCategory": false,
+            "path": "Content/Self-Service/social-board-messages.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "Zone de chat",
+            "isCategory": false,
+            "path": "Content/Self-Service/chat-zone.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "Utilisation des favoris",
+            "isCategory": false,
+            "path": "Content/Self-Service/Working-with-Favorite.mdx",
+            "children": []
+          }
+        ]
+      },
+      {
+        "categoryName": "Ivanti Neurons for Facilities - Utilisateur Self Service",
+        "isCategory": false,
+        "path": "Content/Self-Service/Neurons-for-Facitities-Self-Service-User.mdx",
+        "children": []
+      },
+      {
+        "categoryName": "Ivanti Neurons for GRC - Utilisateur Self Service",
+        "isCategory": false,
+        "path": "Content/Self-Service/Neurons-for-GRC-Self-Service-User.mdx",
+        "children": []
+      },
+      {
+        "categoryName": "Page Bienvenue dans Enterprise Self Service",
+        "isCategory": false,
+        "path": "Content/Self-Service/Enterprise-Self-Service-Welcome-Page.mdx",
+        "children": []
+      },
+      {
+        "categoryName": "Portail Self Service Mobile",
+        "isCategory": false,
+        "path": "Content/Self-Service/self-service-mobile.mdx",
+        "children": [
+          {
+            "categoryName": "Rapports d'incident et soumission de demandes",
+            "isCategory": false,
+            "path": "Content/Self-Service/Reporting-incidents-and-submitting-requests-SSM.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "Base de connaissances",
+            "isCategory": false,
+            "path": "Content/Self-Service/Knowledge-base-SSM.mdx",
+            "children": []
+          }
+        ]
+      },
+      {
+        "categoryName": "Portail de gestion Self Service V3",
+        "isCategory": false,
+        "path": "Content/Self-Service/Self Service Management Portal 3.0/Self Service Management Portal.mdx",
+        "children": [
+          {
+            "categoryName": "Connexion au portail de gestion Self Service",
+            "isCategory": false,
+            "path": "Content/Self-Service/Self Service Management Portal 3.0/Logging into Self Service Management Portal.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "Navigation dans le portail de gestion Self Service",
+            "isCategory": false,
+            "path": "Content/Self-Service/Self Service Management Portal 3.0/Navigating the Self Service Management Portal.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "Catalogue de services",
+            "isCategory": false,
+            "path": "Content/Self-Service/Self Service Management Portal 3.0/Service Catalog.mdx",
+            "children": [
+              {
+                "categoryName": "Offres externes",
+                "isCategory": false,
+                "path": "Content/Self-Service/Self Service Management Portal 3.0/External Offerings.mdx",
+                "children": []
+              }
+            ]
+          },
+          {
+            "categoryName": "Mes éléments",
+            "isCategory": false,
+            "path": "Content/Self-Service/Self Service Management Portal 3.0/My Items.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "Annonces",
+            "isCategory": false,
+            "path": "Content/Self-Service/Self Service Management Portal 3.0/Announcements.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "Connaissances",
+            "isCategory": false,
+            "path": "Content/Self-Service/Self Service Management Portal 3.0/Knowledge.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "Alertes",
+            "isCategory": false,
+            "path": "Content/Self-Service/Self Service Management Portal 3.0/Alerts.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "Chat avec le support technique",
+            "isCategory": false,
+            "path": "Content/Self-Service/Chat-with-Support-SSM.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "FAQ",
+            "isCategory": false,
+            "path": "Content/Self-Service/Self Service Management Portal 3.0/FAQ.mdx",
+            "children": []
+          }
+        ]
+      },
+      {
+        "categoryName": "Utilisation du bot Ivanti Service Manager",
+        "isCategory": false,
+        "path": "Content/Self-Service/Using-MS-Teams-Bot.mdx",
+        "children": []
+      },
+      {
+        "categoryName": "Plus d'informations",
+        "isCategory": false,
+        "path": "Content/More-Information.mdx",
+        "children": []
+      },
+      {
+        "isCategory": false,
+        "path": "expanding-text-aka-togglers-and-dropdowns.mdx",
+        "children": []
+      },
+      {
+        "isCategory": false,
+        "path": "votre-recherche-pour-a-donne-resultats.mdx",
+        "children": []
+      }
+    ]
   }
 }
