@@ -3,30 +3,22 @@
   "docsPath": "./ENU",
   "structure": {
     "assets": "assets",
-    "docsTree": [
-      { "name": "blabla",
-        "path": "About_Ivanti_Neurons_for_MDM.md",
-        "children": [
-          {
-            "categoryName": "CA",
-            "isCategory": true,
-            "children": [
-              {
-                "name": "blabla2",
-                "path": "test/Access.md",
-                "children": []
-              }]
-          }
-        ]
-      }
-    ]
+    "docsTree": []
   },
   "sites": [
-    {"docsPath": "./IMPORT"},
     {"docsPath": "./ENU"},
-    {"docsPath": "./DEU"},
+    {"docsPath": "./ARA"},
+    {"docsPath": "./CHS"},
     {"docsPath": "./CHT"},
+    {"docsPath": "./DEU"},
+    {"docsPath": "./ENG"},
+    {"docsPath": "./ESP"},
+    {"docsPath": "./FRA"},
+    {"docsPath": "./ITA"},
+    {"docsPath": "./JPN"},
+    {"docsPath": "./NLD"},
     {"docsPath": "./PLK"},
-    {"docsPath": "./ESP"}
+    {"docsPath": "./PTB"},
+    {"docsPath": "./RUS"}
   ]
 }
