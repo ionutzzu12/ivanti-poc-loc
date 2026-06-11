@@ -1,0 +1,141 @@
+---
+title: Microsoft Teams ボットの使用
+docTags: 
+createdAt: Thu Jun 11 2026 13:01:15 GMT+0300 (Eastern European Summer Time)
+---
+
+**ロール**: セルフサービス ユーザ。
+
+**最小バージョン**: \{\{FRS\_VARS.ProductName-Service-Manager.}} 2021.1。
+
+***前提条件:***
+
+- コンピュータに Microsoft Teams をインストールし、クライアント アカウントを設定します。
+- 組織に固有の Teams アプリを Teams クライアント アカウントに追加します。
+
+<Paragraph indent="1">
+  a. Teams クライアント アカウントにログインします。
+</Paragraph>
+
+<Paragraph indent="1">
+  b. **\[アプリ]** をクリックして、組織用に作成された Teams アプリを選択し、**\[チャットに追加]** をクリックします。
+</Paragraph>
+
+組織の Teams アプリがチャット連絡先に追加されました。 これにより、サービス デスク アナリストにメッセージを送ることができます。
+
+<Paragraph indent="1">
+  *構築された Teams アプリケーションのサンプル画像&#x20;*\{\{FRS\_VARS.Company}}
+</Paragraph>
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/Swwp4X_nzRx-cX7iUIiMT_msteams-app-for-ivanti.png" position="flex-start" size="40" indent="1" initialPath="i/MSTeams-App-for-Ivanti.png" githubPath="self-JPN/Content/Self-Service/i/MSTeams-App-for-Ivanti.png"></Image>
+
+<Paragraph indent="1">
+  \{\{FRS\_VARS.Company}}*&#x20;用に構築された Teams アプリケーションを Teams チャットに追加するサンプル画像*
+</Paragraph>
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/nZIALbP8soOtruWQPJACH_adding-teams-app-to-chat.png" position="flex-start" size="40" indent="1" initialPath="i/Adding-Teams-App-To-Chat.png" githubPath="self-JPN/Content/Self-Service/i/Adding-Teams-App-To-Chat.png"></Image>
+
+<hint type="info">
+  組織の Teams アプリが見つからない場合、または追加中に問題が発生した場合は、組織の管理者にお問い合わせください。
+</hint>
+
+<ExpandableHeading>
+  ## Microsoft Teams ボットの操作
+
+  MS Teams ボットが構成され、組織に公開されると、組織名の付いた Teams チャットに表示されます。
+
+  1. Microsoft Teams クライアント アカウントにログインします。
+  2. :Link[前提条件:]{label="前提条件:" overridedLabel="前提条件:" spaceId docId="aC35msImaZllAk4kiDajI" version="v2" docAnchorId="#Prerequisite" loadingMethod="dynamic" newTab="false" href="Using-MS-Teams-Bot.mdx"} セクションで、チャットに追加した組織用の Teams アプリをクリックします。
+  3. 会話を始めるには、「こんにちは」と言います。 次のページが表示されます。
+
+  <Paragraph indent="1">
+    *Ivanti Service Manager のボット ページの画像*
+  </Paragraph>
+
+
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/BkyfV4SvSlF_NGyAY7XvN_image-2.png" position="flex-start" size="53" indent="1" initialPath="../Resources/Images/image (2).png" githubPath="self-JPN/Content/Resources/Images/image (2).png"></Image>
+
+  4. 次のアクションを実行できます。
+
+  - **チケットの作成**: インシデントを作成できます。 ボットは、追加の質問をした後にインシデントを作成し、インシデント ID を表示します。 このインシデントは、インシデントに対処するサポート/サービス デスク チームに転送されます。
+  - **サービス申請の作成**: サービス申請を作成できます。 使用可能なテンプレートは、管理者が構成します。
+
+  この機能が Teams ボットで表示されるように、ITSM ポータルで **\[Teams ボットに対して有効にする]** チェックボックスが選択されていることを確認します。
+
+  - **マイ チケットのステータスを確認**: 作成したすべてのインシデントとサービス申請のステータスをリストします。
+  - **アナリストとチャット**: 問題を解決する、対応可能なアナリストとのチャット チャネルを開きます。
+    - そのチャットをピックアップするアナリストがいなかった場合、「他のアナリストに接続します。しばらくお待ちください」というメッセージが表示されます。 つながるのをお待ちください。
+    - オンラインのアナリストがいない場合、「すべてのアナリストがオフラインです」というメッセージが表示されます。 オンラインのアナリストにつながるまで引き続き待つことも、終了することもできます。 アナリストにつながるのを待機できる最大時間は5分で、この時間を過ぎると、「申し訳ございません。現在おつなぎすることができません」というメッセージが表示されます。引き続きボットを使用する場合は **\[はい]** を、終了する場合は **\[いいえ]** をクリックします。
+  - **チャットの会話をクローズ**: チャット アナリストとのチャット会話を終了します。
+  - **ヘルプ**: すべてのコマンドに関するヘルプ情報を表示します。
+
+  <hint type="info">
+    * 所定のオプションを選択するのではなく、テキスト メッセージを送信すると、「無効な選択です。 利用可能なオプションのいずれかを選択してください」というメッセージが表示されます。
+    * ボットがオプションを表示した場合は、それらの所定のオプションから選択します。 そうでないと、表示されたオプションのみから選択するよう求める、「無効」メッセージが表示されます。
+  </hint>
+</ExpandableHeading>
+
+**フィードバックのフローと新しいコマンド**
+
+MS Teams ボットのエクスペリエンスは、明確さ、使いやすさ、エンドユーザのエンゲージメントを向上させます。 これを構成して組織に公開すると、ボットが Teams チャットの組織名の下に表示され、合理化された会話フローをサポートします。
+
+インタラクションには、次の手順が含まれます。
+
+- **チケットを送信する前に推奨される記事を確認する** - ボットは、サポート チケットを作成する前に、関連する KB 記事と FAQ のリストを推奨します。 KB 記事 で **\[その他を表示]** をクリックすると、Microsoft Teams 内にポップアップ ウィンドウで記事全体が開きます。 ナレッジ記事または FAQ で回答を見つけた場合は、**\[解決]** をクリックして問題をクローズします。
+
+<Paragraph indent="1">
+  *問題解決に役立つ KB 記事と FAQ*
+</Paragraph>
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/C2l-1gtfbm3glPCEZkbRn_kb-article.png" position="flex-start" size="40" indent="1" initialPath="../Resources/Images/KB Article..png" githubPath="self-JPN/Content/Resources/Images/KB Article..png"></Image>
+
+<Paragraph indent="1">
+  *ポップアップ画面の KB 記事*
+</Paragraph>
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/g01WSJEpiK1vYuUPryBsB_kb-article1.png" position="flex-start" size="40" indent="1" initialPath="../Resources/Images/KB Article1.png" githubPath="self-JPN/Content/Resources/Images/KB Article1.png"></Image>
+
+<Paragraph indent="1">
+  どの提案も役に立たない場合は、**\[いいえ]** をクリックしてチケットの作成に進みます。
+</Paragraph>
+
+- **チケットを送信し、そのステータスを追跡する** - チケットを送信した後、ボットはチケット番号でそれを確認します。 進行状況バーから、現在のステータスを確認し、進行状況を追跡できます。 追加のアクションが必要な場合は、その時点から続行できます。
+
+<Paragraph indent="1">
+  *チケットの送信とステータスの追跡*
+</Paragraph>
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/JsJGZj9BkBhOHcf-P_jkP_using-bots.png" position="flex-start" size="40" indent="1" initialPath="../Resources/Images/using bots.png" githubPath="self-JPN/Content/Resources/Images/using bots.png"></Image>
+
+- **ジャーニーの完了後にフィードバックを提供する** - サポート インタラクションの後、エクスペリエンスを評価し、オプションでコメントを追加します。 フィードバックは、将来のサポートの改善に役立ちます。
+
+<Paragraph indent="1">
+  *ジャーニー完了後のフィードバック*
+</Paragraph>
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/11hsEC3VRP6t03m0gtuPY_image14.png" position="flex-start" size="40" indent="1" initialPath="../Resources/Images/image14.png" githubPath="self-JPN/Content/Resources/Images/image14.png"></Image>
+
+**言語パックのサポート**
+
+チャットボットは複数の言語パックをサポートしています。 サポートされている言語を選択すると、チャットボットはその言語のローカライズされたコンテンツを表示します。 選択した言語がサポートされていない場合、チャットボットは既定で英語になります。
+
+Microsoft Teams の言語を変更するには:
+
+1. チャットボットの横にある省略記号ボタン :inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/LOweqRIvDrYKzbIUwphfE_image3023x20.png" alt caption} (設定とその他オプション) をクリックします。
+2. **\[設定]** を選択します。
+3. **\[全般]** セクションで、\[**言語**設定 > **Teams アプリ言語の選択**] までスクロールダウンします。
+4. 希望の言語を選択します。
+5. **\[保存して再起動]** をクリックします。
+
+<Paragraph indent="1">
+  *\[設定] での Teams アプリ言語の変更*
+</Paragraph>
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/ptziODt3V6-LNdNhNBp86_image33.png" position="flex-start" size="40" indent="1" initialPath="../Resources/Images/image33.png" githubPath="self-JPN/Content/Resources/Images/image33.png"></Image>
+
+<Paragraph indent="1">
+  チャットボットは、サポートされている選択した言語に適応します。 そうでない場合は、英語での回答を続けます。
+</Paragraph>
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/ijyxd20t383oFM6u-lIF4_image-7.png" position="flex-start" size="40" indent="1" initialPath="../Resources/Images/image (7).png" githubPath="self-JPN/Content/Resources/Images/image (7).png"></Image>
