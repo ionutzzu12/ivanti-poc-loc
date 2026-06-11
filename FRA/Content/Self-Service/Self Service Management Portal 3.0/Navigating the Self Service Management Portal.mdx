@@ -1,0 +1,91 @@
+---
+title: Navigation dans le portail de gestion Self Service
+docTags: 
+createdAt: Thu Jun 11 2026 13:00:50 GMT+0300 (Eastern European Summer Time)
+---
+
+## Vue d'ensemble
+
+Le portail de gestion Self Service est une plateforme centralisée qui vous permet de demander des services, de signaler des problèmes, d'accéder à du contenu personnalisé et de trouver des ressources de support, le tout en un seul endroit. Conçu pour être facile à utiliser, le portail rationalise les tâches IT et commerciales courantes, vous aidant à résoudre rapidement les problèmes et à rester informé.
+
+**Capacités clés**
+
+- Demander des services
+- Signaler les problèmes
+- Accéder à des informations basées sur les rôles
+- Suivre les demandes et les incidents
+- Afficher des entrées \{\{FRS\_VARS.Announcements}} et parcourir les articles de connaissances.
+
+<hint type="info">
+  Certains modules ou fonctions décrits dans cette section ne sont pas disponibles par défaut. Vous ne pouvez les afficher et y accéder que si votre administrateur les a activés pour votre rôle ou votre environnement.
+</hint>
+
+<ExpandableHeading>
+  ## Disposition du portail
+
+  Le portail comprend trois zones principales :
+
+  - **Cadre Bannière** : Affiche votre profil d'utilisateur, une zone de recherche pour trouver rapidement des éléments, et la fonction **Soumettre le panier**.
+  - **Volet de gauche** : Répertorie les modules (comme **Mes éléments**) qui vous permettent de créer et d'afficher des incidents.
+  - **Cadre Contenu** : Affiche le contenu des espaces de travail sélectionnés.
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/TD5A9m7jO3V1tV41yyRzp_ssm-home-page.png" position="flex-start" size="100" indent="1" initialPath="../i/ssm-home-page.png" githubPath="self-FRA/Content/Self-Service/i/ssm-home-page.png"></Image>
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Vues Espace de travail d'accueil et Page d'accueil
+
+  Lorsque vous vous connectez, le portail affiche un espace de travail d'accueil basé sur le rôle qui vous a été affecté (par exemple, Administrateur ou Self Service). Votre vue peut varier en fonction de la configuration réalisée par votre administrateur, notamment en ce qui concerne la disposition, la page d'accueil, les modules disponibles et le schéma de couleurs.
+
+  **Options d'affichage de la page d'accueil**
+
+  - **Page d'accueil d'entreprise** - Affiche tous les rôles disponibles sous forme de vignettes, comme défini à la section **Exceptions/Rôles personnalisés** de l'éditeur de style. Chaque vignette représente un rôle accessible à votre rôle d'utilisateur. Pour accéder aux fonctions Self Service, sélectionnez l'option Self Service dans la liste déroulante ou cliquez sur la vignette **Self Service**.
+  - **Rôle Self Service étendu** : Affiche des informations détaillées spécifiques au rôle d'utilisateur en libre-service. La disposition est adaptée à vos permissions, et seules les fonctions et données pertinentes sont affichées.
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Fonction de recherche
+
+  Utilisez la zone de recherche dans le cadre Contenu pour trouver des services, des problèmes signalés, des articles de connaissances, des FAQ et des annonces. Lorsque vous entrez un mot-clé, les suggestions apparentées apparaissent. Cliquez sur une suggestion pour accéder à la page des résultats de recherche.
+
+  Une option de recherche secondaire peut apparaître à côté de votre nom de connexion utilisateur dans le cadre Bannière. Vous pouvez entrer un mot-clé et accéder à la page des résultats de recherche.
+
+  **Accès mobile et Délai de session**
+
+  Vous pouvez accéder au portail sur les périphériques mobiles pris en charge. Pour des raisons de sécurité, le portail vous déconnecte automatiquement après une période d'inactivité, en fonction des paramètres d'authentification unique (SSO) de votre entreprise.
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Utilisation du volet de gauche
+
+  Cliquez sur l'icône de menu dans le volet de gauche pour accéder aux modules disponibles. Les modules que vous voyez dépendent du rôle et de la configuration qui vous ont été affectés :
+
+  | **Icône d'interface (UI) et espace de travail**                                                                                                                                             | **Description**                                                                                                                                                               |
+  | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+  | :inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/2aVPM-NRGTiwaIIFYzngb_home-ssm-3025x25.png" alt caption}\{\{L10n.Home}}                         | Fournit des liens rapides pour émettre des demandes, signaler des problèmes, ou afficher des actualités, des annonces, des articles et des FAQ.                               |
+  | :inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/q-iWrqAoe65y9UuoA3Lb5_service-catalog-3025x25.png" alt caption}\{\{FRS\_VARS.Service\_Catalog}} | Suivez les demandes ouvertes ou soumettez-en de nouvelles pour des périphériques ou des logiciels, ou signalez les problèmes.                                                 |
+  | :inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/DjbHc_Y_63idmbW2-jce5_myitemsicon25x25.png" alt caption}\{\{FRS\_VARS.My\_Items}}               | Affichez et suivez les demandes de service que vous avez soumises et les incidents que vous avez signalés.                                                                    |
+  | :inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/DKd9vDwXB33qlZNK9IVCB_announcements-ssm-3025x25.png" alt caption}\{\{FRS\_VARS.Announcements}}  | Affichez les actualités, les mises à jour et les messages système pour toute votre entreprise.  <br />Les administrateurs gèrent cet espace de travail.                       |
+  | :inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/aaLRunyFoDvGYC0qHc66C_knowledge-base-ssm-3025x25.png" alt caption}\{\{FRS\_VARS.Knowledge}}     | Parcourez les articles de connaissances (\{\{FRS\_VARS.Knowledge}}), qui vous fournissent des informations. Vous pouvez rechercher des astuces de dépannage et des solutions. |
+  | Vous pouvez voir les modules suivants si votre administrateur les a activés pour votre rôle.                                                                                                |                                                                                                                                                                               |
+  | :inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/nOVAl8_IIv5grosvW1o2O_alert-ssm-3025x25.png" alt caption}Alertes                                | Affichez les alertes actives, notamment les erreurs système, les avertissements et les messages d'information.                                                                |
+  | :inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/D2OolAKEjXTK6_UunS7pH_faq-ssm-3025x25.png" alt caption}FAQ                                      | Trouvez la réponse aux questions courantes avant de soumettre un incident.                                                                                                    |
+  | Chat                                                                                                                                                                                        | Démarrez un chat en direct avec l'équipe Support technique ou le support Self Service.                                                                                        |
+  | Plus                                                                                                                                                                                        | Cliquez sur **Plus** pour afficher les autres espaces de travail configurés pour votre rôle.                                                                                  |
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Liens rapides
+
+  **Parcourir le catalogue** - Cliquez ici pour parcourir différentes offres de demande, notamment les périphériques ou logiciels (ou d'autres services), ou signaler des problèmes.
+
+  **Soulever un problème** - Créer une demande de support d'ordre général. Lorsque vous saisissez un titre, les articles associés peuvent apparaître, pour vous aider à résoudre le problème avant de le soumettre.
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Modules de liste
+
+  **Actualités** et \{\{FRS\_VARS.Announcements}} - Consultez les annonces et mises à jour pour toute l'entreprise. Cliquez sur **Tout afficher** pour ouvrir l'espace de travail \{\{FRS\_VARS.Announcements}}.
+
+  **Articles de connaissance (articles courants)** - Afficher les articles courants concernant le dépannage. Cliquez sur **Tout afficher** pour ouvrir l'espace de travail Articles de connaissances (\{\{FRS\_VARS.Knowledge}}).
+</ExpandableHeading>
