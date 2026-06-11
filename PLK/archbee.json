@@ -1,0 +1,8 @@
+{
+  "$schema": "https://api.archbee.com/git-config-schema",
+  "docsPath": "./PLK",
+  "structure": {
+    "assets": "assets",
+    "docsTree": []
+  }
+}
