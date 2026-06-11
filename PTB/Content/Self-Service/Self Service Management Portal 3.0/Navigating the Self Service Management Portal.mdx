@@ -1,0 +1,91 @@
+---
+title: Navegar no Portal Self Service Management
+docTags: 
+createdAt: Thu Jun 11 2026 13:01:44 GMT+0300 (Eastern European Summer Time)
+---
+
+## Visão geral
+
+O portal de autoatendimento é uma plataforma centralizada que permite solicitar serviços, relatar problemas, acessar conteúdo personalizado e encontrar recursos de suporte, tudo em um só lugar. Projetado para ser fácil de usar, o portal simplifica tarefas comuns relacionadas a TI e negócios, ajudando você a resolver problemas rapidamente e a se manter informado.
+
+**Principais recursos**
+
+- Solicitar serviços
+- Relatar problemas
+- Acessar informações baseadas em função
+- Acompanhar solicitações e incidentes
+- Visualizar \{\{FRS\_VARS.Announcements-Comunicados}} e procurar artigos de conhecimento.
+
+<hint type="info">
+  Alguns recursos ou módulos descritos nesta seção não estão disponíveis por padrão. Você só pode visualizá-los e acessá-los se o administrador os tiver habilitado para sua função ou ambiente.
+</hint>
+
+<ExpandableHeading>
+  ## Layout do portal
+
+  O layout do portal inclui três áreas principais:
+
+  - **Quadro de faixa**: mostra seu perfil de usuário, uma caixa de pesquisa para encontrar itens rapidamente e o recurso **Enviar carrinho**.
+  - **Painel esquerdo** : lista módulos como **Meus itens**, que permite criar e exibir incidentes.
+  - **Quadro de conteúdo**: exibe o conteúdo dos espaços de trabalho selecionados.
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/F-6B62Hhh2B2m6hRizhun_ssm-home-page.png" position="flex-start" size="100" indent="1" initialPath="../i/ssm-home-page.png" githubPath="self-PTB/Content/Self-Service/i/ssm-home-page.png"></Image>
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Exibições do espaço de trabalho inicial e da página de aterrissagem
+
+  Quando você faz login, o portal exibe um espaço de trabalho inicial com base na função que você recebeu (por exemplo, Administrador ou Self Service). O que você vê, como layout, página de aterrissagem, módulos disponíveis e esquema de cores, pode variar dependendo de como o administrador configurou.
+
+  **Opções de exibição da página de aterrissagem**
+
+  - **Página de aterrissagem empresarial** - exibe todas as funções disponíveis como blocos, conforme definido na seção **Exceções/Funções Personalizadas** do Editor de Estilo. Cada bloco representa uma função acessível à sua função de usuário. Para acessar os recursos do Self Service, selecione a opção Self Service no menu suspenso ou clique no bloco **Self Service**.
+  - **Função estendida do Self Service** - mostra informações detalhadas específicas da função do usuário Self Service. O layout se ajusta às suas permissões, e apenas recursos e dados relevantes são exibidos.
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Funcionalidade de pesquisa
+
+  Use a caixa de pesquisa no quadro de conteúdo para encontrar serviços, problemas relatados, artigos de conhecimento, perguntas frequentes e comunicados. À medida que você digita uma palavra-chave, aparecem sugestões relacionadas. Clique em uma sugestão para navegar até a página de resultados da pesquisa.
+
+  Uma opção de pesquisa secundária pode aparecer ao lado do seu login de usuário, no quadro de faixa. Você pode inserir uma palavra-chave e navegar até a página de resultados da pesquisa.
+
+  **Acesso móvel e tempo limite da sessão**
+
+  Você pode acessar o portal em dispositivos móveis compatíveis. Por motivos de segurança, o portal encerra automaticamente a sua sessão após um período de inatividade, com base nas configurações de logon único (SSO) da sua organização.
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Usar o painel esquerdo
+
+  Clique no ícone de menu no painel esquerdo para acessar os módulos disponíveis. Os módulos que você visualiza dependem da função e da configuração que lhe foram atribuídas:
+
+  | **Ícone da IU e espaço de trabalho**                                                                                                                                                                             | **Descrição**                                                                                                                                                     |
+  | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+  | :inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/wwU5J5mMqBbSbWgqICxql_home-ssm-3025x25.png" alt caption}\{\{L10n.Home-Inicio..}}                                     | Fornece links rápidos para gerar solicitações, relatar problemas, visualizar notícias, comunicados, artigos e perguntas frequentes.                               |
+  | :inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/VgjbT4X6DyDVnM6mhhwu0_service-catalog-3025x25.png" alt caption}\{\{FRS\_VARS.Service\_Catalog-Catalogo-de-Servicos}} | Acompanhe solicitações em aberto, envie novas solicitações para dispositivos e software ou relate problemas.                                                      |
+  | :inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/CmKd69E0AylE1uMPB0ptw_myitemsicon25x25.png" alt caption}\{\{FRS\_VARS.My\_Items-Meus-Itens}}                         | Visualize e acompanhe as solicitações de serviço enviadas e os incidentes relatados por você.                                                                     |
+  | :inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/i7GtldlB8qDO5G9-sP8p-_announcements-ssm-3025x25.png" alt caption}\{\{FRS\_VARS.Announcements-Comunicados}}           | Veja notícias, atualizações e mensagens do sistema de toda a organização.  <br />Os administradores gerenciam este espaço de trabalho.                            |
+  | :inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/FhjX7AleaGQBvoYdhbmfT_knowledge-base-ssm-3025x25.png" alt caption}\{\{FRS\_VARS.Knowledge-Conhecimento}}             | Procure artigos de \{\{FRS\_VARS.Knowledge-Conhecimento}} que lhe forneçam informações. Você pode procurar dicas de solução de problemas e resoluções de tarefas. |
+  | Você poderá visualizar os seguintes módulos se o seu administrador os tiver habilitado para a sua função.                                                                                                        |                                                                                                                                                                   |
+  | :inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/Yiocogt717do9F0Uu4Egq_alert-ssm-3025x25.png" alt caption}Alertas                                                     | Visualize alertas ativos, como erros de sistema, avisos e mensagens informativas.                                                                                 |
+  | :inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/THOsMy1lD34vQD0OU8Zhp_faq-ssm-3025x25.png" alt caption}Perguntas frequentes                                          | Encontre respostas para dúvidas comuns antes de enviar incidentes.                                                                                                |
+  | Chat                                                                                                                                                                                                             | Inicie um chat ao vivo com a equipe de suporte técnico ou com a equipe de suporte do autoatendimento.                                                             |
+  | Mais                                                                                                                                                                                                             | Clique em **Mais** para visualizar outros espaços de trabalho configurados para a sua função.                                                                     |
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Links rápidos
+
+  **Navegar no catálogo** - clique para navegar por diferentes ofertas de solicitação, como dispositivos ou software, outros serviços, ou relatar problemas.
+
+  **Criar um caso** - crie uma solicitação de suporte geral. À medida que você inserir o título, poderão aparecer artigos relacionados para ajudá-lo a resolver o problema antes de enviar.
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Módulos de lista
+
+  **Notícias** e \{\{FRS\_VARS.Announcements-Comunicados}} - veja os comunicados e atualizações de toda a organização. Clique em **Exibir tudo** para abrir o espaço de trabalho \{\{FRS\_VARS.Announcements-Comunicados}}.
+
+  **Artigos de conhecimento para problemas comuns** - veja artigos para resolver problemas comuns. Clique em **Exibir tudo** para abrir o espaço de trabalho Artigos de \{\{FRS\_VARS.Knowledge-Conhecimento}}.
+</ExpandableHeading>
