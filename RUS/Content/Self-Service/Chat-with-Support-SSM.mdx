@@ -1,0 +1,81 @@
+---
+title: Чат со службой поддержки
+docTags: 
+createdAt: Thu Jun 11 2026 12:13:28 GMT+0300 (Eastern European Summer Time)
+---
+
+Вы можете использовать встроенную функцию чата \{\{FRS\_VARS.ProductName-Service-Manager}} или приложение Microsoft Teams для отправки сообщений команде аналитиков/службы поддержки для решения ваших проблем или получения ответов на вопросы в чате один на один. Вы также можете создавать инциденты прямо в чате.
+
+<hint type="info">
+  Если эта функция недоступна, вероятно, ваш администратор не включил ее для вас. Обратитесь к администратору вашей организации для ее включения.
+</hint>
+
+## Использование встроенного чата Service Manager
+
+1. Нажмите значок **Чат со службой поддержки**, :inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/Y9IEpxjzW8RFEwB8N41ZH_chatwithsupporticon.png" alt caption}.
+   - Отобразится новое окно чата с сообщением "*Мы доступны*", если персонал службы поддержки/\{\{FRS\_VARS.Neurons\_ITSM\_-\_Service\_Desk\_Analyst-Analitik-Service-Desk}} сейчас доступен. Если нет, отобразится сообщение, - "*Чат сейчас недоступен!*".
+   - Как только \{\{FRS\_VARS.Neurons\_ITSM\_-\_Service\_Desk\_Analyst-Analitik-Service-Desk}} станет назначен для вашего сеанса чата, вы увидите в окне сообщение, "*Связь с \<имя&#x20;*\{\{FRS\_VARS.Neurons\_ITSM\_-\_Service\_Desk\_Analyst-Analitik-Service-Desk}}*>*".
+2. В текстовом поле введите свой запрос или расскажите о проблеме, с которой вы столкнулись, и нажмите значок отправки, :inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/ViNXEuHZqgkHMUc-CBmXW_chatsendicon.png" alt caption}.
+
+<Paragraph indent="1">
+  \{\{FRS\_VARS.Neurons\_ITSM\_-\_Service\_Desk\_Analyst-Analitik-Service-Desk}} ответит на ваш запрос или проблему. В случае невозможности решить данную проблему через чат будет создан инцидент, и его номер отобразится в вашем окне чата.
+</Paragraph>
+
+<hint type="info">
+  Если вы будете бездействовать в чате долгое время, после двух предупреждений приложение выполнит ваш выход из чата.
+</hint>
+
+## Использование бота приложения Microsoft Teams
+
+***Предварительные условия:***
+
+- Вы должны установить на своем компьютере ПО Microsoft Teams и создать учетную запись клиента.
+- Также вы должны добавить приложение Teams, созданное для вашей организации, в свою клиентскую учетную запись Teams.
+
+<Paragraph indent="1">
+  a. Выполните вход в приложение Teams с вашей учетной записью.
+</Paragraph>
+
+<Paragraph indent="1">
+  b. Нажмите **Приложения** (Apps) и выберите приложение Teams, созданное для вашей организации > **Добавить в чат** (Add to a chat).
+</Paragraph>
+
+<Paragraph indent="2">
+  Приложение Teams вашей организации будет добавлено в ваши контакты чата, которые можно использовать для общения с аналитиками службы поддержки.
+</Paragraph>
+
+<Paragraph indent="2">
+  *Пример изображения приложения Teams, созданного для&#x20;*\{\{FRS\_VARS.Company}}
+</Paragraph>
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/Z3nwylOifJFzghecI6daO_msteams-app-for-ivanti.png" position="flex-start" size="40" indent="2" initialPath="i/MSTeams-App-for-Ivanti.png" githubPath="self-RUS/Content/Self-Service/i/MSTeams-App-for-Ivanti.png"></Image>
+
+<Paragraph indent="2">
+  *Пример изображения во время добавления приложения Teams, созданного для&#x20;*\{\{FRS\_VARS.Company}}*, в чат Teams*
+</Paragraph>
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/ZNubH4VukzvIqqDmN7HGl_adding-teams-app-to-chat.png" position="flex-start" size="40" indent="2" initialPath="i/Adding-Teams-App-To-Chat.png" githubPath="self-RUS/Content/Self-Service/i/Adding-Teams-App-To-Chat.png"></Image>
+
+<hint type="info" indent="1">
+  Если вы не можете найти приложение Teams вашей организации или у вас возникают проблемы с его добавлением в чат Teams, обратитесь к администратору вашей организации.
+</hint>
+
+1. Выполните вход в приложение Microsoft Teams с вашей учетной записью.
+2. Выберите приложение Teams вашей организации, добавленное вами в ваш чат в разделе :Link[Предварительные условия:]{label="Предварительные условия:" overridedLabel="Предварительные условия:" spaceId docId="NBFCq431qazFzivDZKTGt" version="v2" docAnchorId="#Prerequisite" loadingMethod="dynamic" newTab="false" href="Chat-with-Support-SSM.mdx"} (Prerequisites).
+3. Чтобы начать разговор с ботом, напишите и отправьте текст Привет (Hi).
+
+<Paragraph indent="1">
+  Отобразится всплывающее окно с командами.
+</Paragraph>
+
+4. Выберите любую из следующих команд:
+   - **Создать инцидент** - используется для ввода темы и симптома проблемы для создания инцидента. Бот создаст инцидент и отобразит идентификатор инцидента. Затем инцидент будет отправлен в службу поддержки для разрешения.
+   - **Проверить статус моего инцидента** - используется для отображения списка всех инцидентов и запросов на обслуживание, созданных вами или для вас. Выберите один из них для просмотра.
+   - **Чат со службой поддержки** - открывает сеанс чата с доступным специалистом службы поддержки/\{\{FRS\_VARS.Neurons\_ITSM\_-\_Service\_Desk\_Analyst-Analitik-Service-Desk}}, который поможет решить вашу проблему.
+   - **Покинуть чат** - завершает сеанс чата.
+   - **Справка** - отображает краткое описание каждой из представленных выше команд.
+
+<hint type="info">
+  - Если вы будете бездействовать в чате, срок действия вашего сеанса завершится после 3 предупреждающих сообщений, что зависит от тайм-аута завершения сеанса, установленного вашим администратором.
+  - Доступные параметры могут отличаться и зависят от настроек чата администратором вашей организации.
+</hint>
