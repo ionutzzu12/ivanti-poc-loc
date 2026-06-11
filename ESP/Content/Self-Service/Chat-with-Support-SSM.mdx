@@ -1,0 +1,81 @@
+---
+title: Hablar con Atención al cliente
+docTags: 
+createdAt: Thu Jun 11 2026 13:00:26 GMT+0300 (Eastern European Summer Time)
+---
+
+Puede utilizar la función de chat integrada de \{\{FRS\_VARS.ProductName-Neurons-para-ITSM}} o usar Microsoft Teams para enviar un mensaje instantáneo al equipo de soporte/analista del servicio de asistencia para ayudarle a resolver sus problemas o responder a sus preguntas en un chat individual. También puede crear incidencias desde el chat.
+
+<hint type="info">
+  Si esta función no está disponible, es posible que su administrador no la haya habilitado. Contacte con el admistrador de su empresa para que lo habilite.
+</hint>
+
+## Uso del chat integrado de Neurons para ITSM
+
+1. Pulse el icono **Chatear con soporte técnico** :inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/0qroWu7_r9jm99ZFhkgeS_chatwithsupporticon.png" alt caption}.
+   - Aparece una nueva ventana de chat con el mensaje "*Estamos en línea*" cuando el personal de Soporte/\{\{FRS\_VARS.Neurons\_ITSM\_-\_Service\_Desk\_Analyst-Analista-de-Service-Desk}} está disponible. De lo contrario, se muestra el mensaje "*El chat no está disponible en estos momentos"*.
+   - Después asignar \{\{FRS\_VARS.Neurons\_ITSM\_-\_Service\_Desk\_Analyst-Analista-de-Service-Desk}} a su sesión de chat, verá el mensaje "*Conectado a \<&#x20;*\{\{FRS\_VARS.Neurons\_ITSM\_-\_Service\_Desk\_Analyst-Analista-de-Service-Desk}}*nombre >*" en la ventana de chat.
+2. Escriba su consulta o el problema que tiene en el cuadro de texto y pulse el botón de enviar :inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/1UVwfLwl8mfGhrdP-trXA_chatsendicon.png" alt caption}.
+
+<Paragraph indent="1">
+  El \{\{FRS\_VARS.Neurons\_ITSM\_-\_Service\_Desk\_Analyst-Analista-de-Service-Desk}} responderá a su consulta o problema. Si no se puede solucionar mediante el chat, se elevará una Incidencia y el número de ésta se mostrará en la ventana del chat.
+</Paragraph>
+
+<hint type="info">
+  Si no tiene actividad en el chat durante un largo periodo de tiempo, tras dos advertencias, se cerrará la sesión.
+</hint>
+
+## Uso del bot de Microsoft Teams
+
+***Requerimientos previo:***
+
+- Debe tener instalado Microsoft Teams en su equipo y tener creada una cuenta de cliente.
+- Debe haber agregado la aplicación de Teams de su empresa en su cuenta de cliente de Teams.
+
+<Paragraph indent="1">
+  a. Inicie sesión en su cuenta de cliente de Teams.
+</Paragraph>
+
+<Paragraph indent="1">
+  b. Haga clic en **Aplicaciones** > seleccione la aplicación Teams que ha creado su empresa > **Agregar a un chat**.
+</Paragraph>
+
+<Paragraph indent="2">
+  La aplicación Teams de su empresa ahora se ha agregado a sus contactos del chat, que puede usar para chatear con Service Desk Analysts.
+</Paragraph>
+
+<Paragraph indent="2">
+  *Imagen de muestra de la aplicación Teams creada para&#x20;*\{\{FRS\_VARS.Company}}
+</Paragraph>
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/kqBxtk5TfPD9fz6Ehnfeh_msteams-app-for-ivanti.png" position="flex-start" size="40" indent="2" initialPath="i/MSTeams-App-for-Ivanti.png" githubPath="self-ESP/Content/Self-Service/i/MSTeams-App-for-Ivanti.png"></Image>
+
+<Paragraph indent="2">
+  *Imagen de muestra de agregar la aplicación Teams creada para&#x20;*\{\{FRS\_VARS.Company}}*&#x20;en el chat de Teams*
+</Paragraph>
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/OZIgTMUwF6OJV65lPz1Zi_adding-teams-app-to-chat.png" position="flex-start" size="40" indent="2" initialPath="i/Adding-Teams-App-To-Chat.png" githubPath="self-ESP/Content/Self-Service/i/Adding-Teams-App-To-Chat.png"></Image>
+
+<hint type="info" indent="1">
+  Si no puede encontrar la aplicación Teams de su empresa o tiene problemas para agregarla a su chat de Teams, contacte con el administrador de su empresa.
+</hint>
+
+1. Inicie sesión en su cuenta de cliente de Microsoft Teams.
+2. Haga clic en la aplicación Teams de su empresa que agregó al chat de la sección :Link[Requerimientos previo:]{label="Requerimientos previo:" overridedLabel="Requerimientos previo:" spaceId docId="lYjEaXdb0ur0EsTn89gie" version="v2" docAnchorId="#Prerequisite" loadingMethod="dynamic" newTab="false" href="Chat-with-Support-SSM.mdx"}.
+3. Para iniciar una conversación con el bot, envía un Hola.
+
+<Paragraph indent="1">
+  Aparece una ventana emergente con comandos.
+</Paragraph>
+
+4. Seleccione cualquiera de los comandos siguientes:
+   - **Crear un billete**: le pide que introduzca el asunto y el síntoma de su incidencia para crear una incidencia. El bot crea un incidente y muestra la ID del incidente. A continuación, el incidente se remite al equipo de Soporte/Servicio de Atención al Cliente para que se ocupe de ella.
+   - **Comprobar el estado de mi billete**: muestra la lista de todas las incidencias y solicitudes de servicio creadas para/por usted. Haga clic en uno para ver el estado.
+   - **Chatear con soporte técnico**: abre una sesión de chat con un Soporte disponible/\{\{FRS\_VARS.Neurons\_ITSM\_-\_Service\_Desk\_Analyst-Analista-de-Service-Desk}} que le ayudará a resolver su problema.
+   - **Abandonar conversación de chat**: finaliza la sesión de chat.
+   - **Ayuda**: muestra una breve descripción sobre cada uno de los comandos anteriores.
+
+<hint type="info">
+  - Si permanece inactivo en el chat, la u sesión caducará después de 3 mensajes de advertencia basados en el tiempo de caducidad de la sesión configurado por el administrador.
+  - Las opciones disponibles pueden variar en función de cómo lo haya configurado el administrador de su empresa.
+</hint>
