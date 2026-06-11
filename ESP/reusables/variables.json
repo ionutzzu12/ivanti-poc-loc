@@ -1,0 +1,184 @@
+{
+  "Primary.Company": {
+    "contentVariableId": "w0pgzqFbi_FGW0AJHU5Lt",
+    "name": "Primary.Company",
+    "content": "Ivanti",
+    "type": "variable",
+    "scope": "global"
+  },
+  "FRS_VARS.Company": {
+    "contentVariableId": "T6jFfmXhGsopBujarv5fY",
+    "name": "FRS_VARS.Company",
+    "content": "Ivanti",
+    "type": "variable",
+    "scope": "global"
+  },
+  "FRS_VARS.Neurons_for_Facilities": {
+    "contentVariableId": "genEfCxBQHG3nlx5hNWol",
+    "name": "FRS_VARS.Neurons_for_Facilities",
+    "content": "Neurons for Facilities",
+    "type": "variable",
+    "scope": "global"
+  },
+  "FRS_VARS.Company-short": {
+    "contentVariableId": "IktVI8BRpijNWjMMlpofK",
+    "name": "FRS_VARS.Company-short",
+    "content": "Ivanti",
+    "type": "variable",
+    "scope": "global"
+  },
+  "FRS_VARS.Neurons_for_GRC": {
+    "contentVariableId": "fq2OtQzjswmh-c45AF4c2",
+    "name": "FRS_VARS.Neurons_for_GRC",
+    "content": "Neurons for GRC",
+    "type": "variable",
+    "scope": "global"
+  },
+  "FRS_VARS.Neurons_for_ITSM_Enterprise": {
+    "contentVariableId": "zSxLqLtOyfcdHplOEwtJc",
+    "name": "FRS_VARS.Neurons_for_ITSM_Enterprise",
+    "content": "Neurons for ITSM Enterprise",
+    "type": "variable",
+    "scope": "global"
+  },
+  "FRS_VARS.Neurons_ITSM_-_Self_Service_User": {
+    "contentVariableId": "jOsvH1Di2S0moauemX6RF",
+    "name": "FRS_VARS.Neurons_ITSM_-_Self_Service_User",
+    "content": "Self Service",
+    "type": "variable",
+    "scope": "global"
+  },
+  "Primary.Release_Version": {
+    "contentVariableId": "eGW6sAeosXBoQRDC2gvgY",
+    "name": "Primary.Release_Version",
+    "content": "(Undefined variable: Primary.Release Version)",
+    "type": "variable",
+    "scope": "global"
+  },
+  "L10n.Copyright": {
+    "contentVariableId": "xE_V2_9FufU1H1bmmP9pD",
+    "name": "L10n.Copyright",
+    "content": "Copyright",
+    "type": "variable",
+    "scope": "global"
+  },
+  "Primary.Year-2023": {
+    "contentVariableId": "cshbLwvvC9TKDXDepKjfE",
+    "name": "Primary.Year-2023",
+    "content": "2023",
+    "type": "variable",
+    "scope": "global"
+  },
+  "FRS_VARS.ProductName-Neurons-para-ITSM": {
+    "contentVariableId": "XubRv42DBEdzL8jVhYdnc",
+    "name": "FRS_VARS.ProductName-Neurons-para-ITSM",
+    "content": "Neurons para ITSM",
+    "type": "variable",
+    "scope": "global"
+  },
+  "FRS_VARS.Service_Catalog-Catalogo-de-servicios": {
+    "contentVariableId": "pvIvQWeKBqOUk7HlnOaKC",
+    "name": "FRS_VARS.Service_Catalog-Catalogo-de-servicios",
+    "content": "Catálogo de servicios",
+    "type": "variable",
+    "scope": "global"
+  },
+  "FRS_VARS.Neurons_ITSM_-_Administrator-Administrador": {
+    "contentVariableId": "Oa_Bl8FYE1401k2NZ9NRF",
+    "name": "FRS_VARS.Neurons_ITSM_-_Administrator-Administrador",
+    "content": "Administrador",
+    "type": "variable",
+    "scope": "global"
+  },
+  "FRS_VARS.Self_Service_Mobile_portal-Self-Service-movil": {
+    "contentVariableId": "75xOip_fobDaPkRYgpkHJ",
+    "name": "FRS_VARS.Self_Service_Mobile_portal-Self-Service-movil",
+    "content": "Self Service móvil",
+    "type": "variable",
+    "scope": "global"
+  },
+  "Primary.Product-Neurons-para-ITSM": {
+    "contentVariableId": "mY7EL-hAIGOtsHG9jX5_8",
+    "name": "Primary.Product-Neurons-para-ITSM",
+    "content": "Neurons para ITSM",
+    "type": "variable",
+    "scope": "global"
+  },
+  "FRS_VARS.Announcements-Anuncios": {
+    "contentVariableId": "w8odtJdAcE52l90iP7EKZ",
+    "name": "FRS_VARS.Announcements-Anuncios",
+    "content": "Anuncios",
+    "type": "variable",
+    "scope": "global"
+  },
+  "L10n.Home-Inicio": {
+    "contentVariableId": "J-ay116CP60lFqwdNr6wh",
+    "name": "L10n.Home-Inicio",
+    "content": "Inicio",
+    "type": "variable",
+    "scope": "global"
+  },
+  "FRS_VARS.My_Items-Mis-elementos": {
+    "contentVariableId": "xYZnMhtbAQ2X9rG-WJ54c",
+    "name": "FRS_VARS.My_Items-Mis-elementos",
+    "content": "Mis elementos",
+    "type": "variable",
+    "scope": "global"
+  },
+  "FRS_VARS.Knowledge-Conocimiento": {
+    "contentVariableId": "fFTEtienJ5bVfydYpm-uK",
+    "name": "FRS_VARS.Knowledge-Conocimiento",
+    "content": "Conocimiento",
+    "type": "variable",
+    "scope": "global"
+  },
+  "FRS_VARS.Request_Offering-Solicitar-oferta": {
+    "contentVariableId": "WR-oXvVTUmEbP5EsHhYyo",
+    "name": "FRS_VARS.Request_Offering-Solicitar-oferta",
+    "content": "Solicitar oferta",
+    "type": "variable",
+    "scope": "global"
+  },
+  "FRS_VARS.Incident-Incidencia": {
+    "contentVariableId": "oti-HlBrs__CpM0vZHEGa",
+    "name": "FRS_VARS.Incident-Incidencia",
+    "content": "Incidencia",
+    "type": "variable",
+    "scope": "global"
+  },
+  "FRS_VARS.Service_Request-Solicitud-de-servicio": {
+    "contentVariableId": "3cEXeRiwCSBf6G9dVG1UW",
+    "name": "FRS_VARS.Service_Request-Solicitud-de-servicio",
+    "content": "Solicitud de servicio",
+    "type": "variable",
+    "scope": "global"
+  },
+  "FRS_VARS.Neurons_ITSM_-_Service_Desk_Analyst-Analista-de-Service-Desk": {
+    "contentVariableId": "ElBoU2P7OxH8lfK2oLVV0",
+    "name": "FRS_VARS.Neurons_ITSM_-_Service_Desk_Analyst-Analista-de-Service-Desk",
+    "content": "Analista de Service Desk",
+    "type": "variable",
+    "scope": "global"
+  },
+  "FRS_VARS.AutoDate-mayo-26-aaaa": {
+    "contentVariableId": "CFhyYLTwo8CCTrZkehMj8",
+    "name": "FRS_VARS.AutoDate-mayo-26-aaaa",
+    "content": "mayo 26, aaaa",
+    "type": "variable",
+    "scope": "global"
+  },
+  "Primary.TitleLine-Neurons-para-ITSM": {
+    "contentVariableId": "AeKGO9ht2jfrUqz-eHMZ1",
+    "name": "Primary.TitleLine-Neurons-para-ITSM",
+    "content": "Neurons para ITSM",
+    "type": "variable",
+    "scope": "global"
+  },
+  "L10n.AllRights-Todos-los-derechos-reservados.": {
+    "contentVariableId": "OqP49fhSA9c1zASa6wcLe",
+    "name": "L10n.AllRights-Todos-los-derechos-reservados.",
+    "content": "Todos los derechos reservados.",
+    "type": "variable",
+    "scope": "global"
+  }
+}

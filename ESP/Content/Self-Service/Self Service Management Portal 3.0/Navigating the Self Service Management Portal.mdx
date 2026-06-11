@@ -1,0 +1,91 @@
+---
+title: Navegar por Self Service Management Portal
+docTags: 
+createdAt: Thu Jun 11 2026 13:00:26 GMT+0300 (Eastern European Summer Time)
+---
+
+## Descripción general
+
+El portal de gestión de Self service es una plataforma centralizada que te permite solicitar servicios, informar de problemas, acceder a contenido personalizado y encontrar recursos de asistencia, todo en un solo lugar. Diseñado para facilitar el uso, el portal agiliza las tareas comunes de TI y relacionadas con el negocio, lo que te ayuda a resolver problemas rápidamente y mantenerse informado.
+
+**Capacidades clave**
+
+- Solicitar servicios
+- Informar de problemas
+- Acceder a información basada en roles
+- Seguimiento de solicitudes e incidencias
+- Ver \{\{FRS\_VARS.Announcements-Anuncios}} y explorar artículos de Conocimiento.
+
+<hint type="info">
+  Algunas características o módulos descritos en esta sección no están disponibles de forma predeterminada. Puede verlos y acceder a ellos solo si el administrador los ha habilitado para su rol o entorno.
+</hint>
+
+<ExpandableHeading>
+  ## Diseño del portal
+
+  El diseño del portal incluye tres áreas principales:
+
+  - **Marco de banner**: muestra su perfil de usuario, un cuadro de búsqueda para encontrar rápidamente artículos y la función **Enviar carrito**.
+  - **Panel izquierdo**: enumera módulos como **Mis elementos** que le permiten crear y ver incidencias.
+  - **Marco de contenido**: muestra el contenido de los espacios de trabajo seleccionados.
+
+  <Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/bDT_Zfw-7_yN50SPVj0kB_ssm-home-page.png" position="flex-start" size="100" indent="1" initialPath="../i/ssm-home-page.png" githubPath="self-ESP/Content/Self-Service/i/ssm-home-page.png"></Image>
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Vistas del espacio de trabajo de inicio y de la página de destino
+
+  Al iniciar sesión, el portal muestra un espacio de trabajo de inicio basado en su función asignada (por ejemplo, Administrador o Self Service). Su vista puede variar dependiendo de la configuración de su administrador, incluido el diseño, la página de destino, los módulos disponibles y el esquema de colores.
+
+  **Opciones de visualización de la página de destino**
+
+  - **Página de inicio de la empresa**: muestra todos los roles disponibles como mosaicos, tal como se define en la sección **Excepciones / Roles personalizados** del editor de estilos. Cada mosaico representa una función accesible para su función de usuario. Para acceder a las funciones de Self Service, seleccione la opción Self Service en el menú desplegable o haga clic en el mosaico **Self Service**.
+  - **Función ampliada de autoservicio**: muestra información detallada específica de la función de usuario de Self Service. El diseño se adapta a sus permisos y solo se muestran las características y datos relevantes.
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Funcionalidad de búsqueda
+
+  Utiliza el cuadro de búsqueda del marco de contenido para encontrar servicios, problemas notificados, artículos de conocimiento, preguntas frecuentes y anuncios. A medida que escribe una palabra clave, aparecen sugerencias relacionadas. Haga clic en una sugerencia para navegar a la página de resultados de búsqueda.
+
+  Puede aparecer una opción de búsqueda secundaria junto a su inicio de sesión de usuario en el marco del banner. Puede introducir una palabra clave y navegar a la página de resultados de búsqueda.
+
+  **Acceso móvil y tiempo de espera de sesión**
+
+  Puede acceder al portal desde dispositivos móviles compatibles. Por motivos de seguridad, el portal cierra la sesión automáticamente después de un período de inactividad, según la configuración de inicio de sesión único (SSO) de su organización.
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Uso del panel izquierdo
+
+  Haga clic en el icono de menú del panel izquierdo para acceder a los módulos disponibles. Los módulos que vea dependen de su función y configuración asignadas:
+
+  | **Icono de interfaz de usuario y espacio de trabajo**                                                                                                                                                             | **Descripción**                                                                                                                                                              |
+  | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+  | :inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/RxrKRcuXXi3OxJEdf7Zz6_home-ssm-3025x25.png" alt caption}\{\{L10n.Home-Inicio}}                                        | Proporciona enlaces rápidos para plantear solicitudes, informar problemas, ver noticias, anuncios, artículos y preguntas frecuentes.                                         |
+  | :inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/E1EoShcSoGbYNY7Al4_-S_service-catalog-3025x25.png" alt caption}\{\{FRS\_VARS.Service\_Catalog-Catalogo-de-servicios}} | Realice un seguimiento de las solicitudes abiertas o envíe nuevas para dispositivos, software o informes de problemas.                                                       |
+  | :inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/kiuoD6l_FS3lxDeoueYHE_myitemsicon25x25.png" alt caption}\{\{FRS\_VARS.My\_Items-Mis-elementos}}                       | Realice una visualización y seguimiento de las solicitudes de servicio enviadas y de las incidencias notificadas.                                                            |
+  | :inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/K29Rm8M_LEHHKBIhkb55U_announcements-ssm-3025x25.png" alt caption}\{\{FRS\_VARS.Announcements-Anuncios}}               | Ver noticias, actualizaciones y mensajes del sistema en toda la organización.  <br />Los administradores administran este espacio de trabajo.                                |
+  | :inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/svLiMxZmq9qW882B8KDMJ_knowledge-base-ssm-3025x25.png" alt caption}\{\{FRS\_VARS.Knowledge-Conocimiento}}              | Explore artículos de \{\{FRS\_VARS.Knowledge-Conocimiento}} que le proporcionan información. Puede buscar consejos para la resolución de problemas y resoluciones de tareas. |
+  | Puede ver los siguientes módulos si el administrador los ha habilitado para su función.                                                                                                                           |                                                                                                                                                                              |
+  | :inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/URW2DjjaKwyKeDadnCT94_alert-ssm-3025x25.png" alt caption}Alertas                                                      | Ver alertas activas como errores del sistema, advertencias y mensajes informativos.                                                                                          |
+  | :inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/MTk-rzqVdcdlZrQ_q1-n9_faq-ssm-3025x25.png" alt caption}PREGUNTAS FRECUENTES                                           | Encuentre respuestas a preguntas comunes antes de plantear incidentes.                                                                                                       |
+  | Chatear                                                                                                                                                                                                           | Inicie un chat en directo con el equipo de asistencia técnica o el personal de asistencia de self service.                                                                   |
+  | Más                                                                                                                                                                                                               | Haga clic en **Más** para ver espacios de trabajo adicionales configurados para su rol de usuario.                                                                           |
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Enlaces rápidos
+
+  **Explorar catálogo**: haga clic en para explorar diferentes ofertas de solicitudes, como dispositivos o software, u otros servicios, o informar problemas.
+
+  **Presentar un caso**: crear una solicitud de soporte general. A medida que introduce un título, pueden aparecer artículos relacionados para ayudarle a resolver el problema antes de enviarlo.
+</ExpandableHeading>
+
+<ExpandableHeading>
+  ## Módulos de lista
+
+  **Noticias** y \{\{FRS\_VARS.Announcements-Anuncios}}: Vea los anuncios y actualizaciones de toda la organización. Haga clic en **Ver todo** para abrir el espacio de \{\{FRS\_VARS.Announcements-Anuncios}} trabajo.
+
+  **Artículos de conocimientos para artículos comunes**: vea artículos comunes de solución de problemas. Haga clic en **Ver todo** para abrir el espacio de trabajo de artículos \{\{FRS\_VARS.Knowledge-Conocimiento}}.
+</ExpandableHeading>
