@@ -1,8 +1,227 @@
 {
   "$schema": "https://api.archbee.com/git-config-schema",
-  "docsPath": "./RUS",
+  "docsPath": "RUS/",
   "structure": {
     "assets": "assets",
-    "docsTree": []
+    "docsTree": [
+      {
+        "categoryName": "Обзор",
+        "isCategory": false,
+        "path": "Content/Self-Service/LandingPage-Self.mdx",
+        "children": []
+      },
+      {
+        "categoryName": "Обзор портала самообслуживания",
+        "isCategory": false,
+        "path": "Content/Self-Service/Getting-Started-with-Self-Service.mdx",
+        "children": [
+          {
+            "categoryName": "Навигация в портале самообслуживания",
+            "isCategory": false,
+            "path": "Content/Self-Service/Navigating-the-Self-Service-Portal.mdx",
+            "children": []
+          }
+        ]
+      },
+      {
+        "categoryName": "Как сделать?",
+        "isCategory": false,
+        "path": "Content/Self-Service/Self-Service-How-do-I.mdx",
+        "children": []
+      },
+      {
+        "categoryName": "Использование рабочих зон",
+        "isCategory": false,
+        "path": "Content/Self-Service/Using-the-Workspaces.mdx",
+        "children": [
+          {
+            "categoryName": "Мои элементы",
+            "isCategory": false,
+            "path": "Content/Self-Service/my-items.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "Запросы на обслуживание и инциденты",
+            "isCategory": false,
+            "path": "Content/Self-Service/service-requests-and-incidents.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "Центр знаний",
+            "isCategory": false,
+            "path": "Content/Self-Service/knowledge-center.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "Объявления, часто задаваемые вопросы и предупреждения",
+            "isCategory": false,
+            "path": "Content/Self-Service/announcements-FAQs-and-alerts.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "Сообщения форума",
+            "isCategory": false,
+            "path": "Content/Self-Service/social-board-messages.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "Чат-зона",
+            "isCategory": false,
+            "path": "Content/Self-Service/chat-zone.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "Использование избранного",
+            "isCategory": false,
+            "path": "Content/Self-Service/Working-with-Favorite.mdx",
+            "children": []
+          }
+        ]
+      },
+      {
+        "categoryName": "Ivanti Neurons for Facilities - Пользователь приложения самообслуживания",
+        "isCategory": false,
+        "path": "Content/Self-Service/Neurons-for-Facitities-Self-Service-User.mdx",
+        "children": []
+      },
+      {
+        "categoryName": "Ivanti Neurons for GRC - Пользователь приложения самообслуживания",
+        "isCategory": false,
+        "path": "Content/Self-Service/Neurons-for-GRC-Self-Service-User.mdx",
+        "children": []
+      },
+      {
+        "categoryName": "Страница корпоративного приложения самообслуживания",
+        "isCategory": false,
+        "path": "Content/Self-Service/Enterprise-Self-Service-Welcome-Page.mdx",
+        "children": []
+      },
+      {
+        "categoryName": "Мобильный портал самообслуживания",
+        "isCategory": false,
+        "path": "Content/Self-Service/self-service-mobile.mdx",
+        "children": [
+          {
+            "categoryName": "Создание инцидентов и отправка запросов",
+            "isCategory": false,
+            "path": "Content/Self-Service/Reporting-incidents-and-submitting-requests-SSM.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "База знаний",
+            "isCategory": false,
+            "path": "Content/Self-Service/Knowledge-base-SSM.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "Включение функции входа с помощью биометрической аутентификации",
+            "isCategory": false,
+            "path": "Content/Self-Service/Biometric.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "Включение функции мобильного оповещения",
+            "isCategory": false,
+            "path": "Content/Self-Service/Mobile Notification.mdx",
+            "children": []
+          }
+        ]
+      },
+      {
+        "categoryName": "Портал управления самообслуживанием версии 3",
+        "isCategory": false,
+        "path": "Content/Self-Service/Self Service Management Portal 3.0/Self Service Management Portal.mdx",
+        "children": [
+          {
+            "categoryName": "Вход в портал управления самообслуживанием",
+            "isCategory": false,
+            "path": "Content/Self-Service/Self Service Management Portal 3.0/Logging into Self Service Management Portal.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "Использование портала управления самообслуживанием",
+            "isCategory": false,
+            "path": "Content/Self-Service/Self Service Management Portal 3.0/Navigating the Self Service Management Portal.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "Каталог услуг",
+            "isCategory": false,
+            "path": "Content/Self-Service/Self Service Management Portal 3.0/Service Catalog.mdx",
+            "children": [
+              {
+                "categoryName": "Внешние предложения",
+                "isCategory": false,
+                "path": "Content/Self-Service/Self Service Management Portal 3.0/External Offerings.mdx",
+                "children": []
+              }
+            ]
+          },
+          {
+            "categoryName": "Мои элементы",
+            "isCategory": false,
+            "path": "Content/Self-Service/Self Service Management Portal 3.0/My Items.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "Объявления",
+            "isCategory": false,
+            "path": "Content/Self-Service/Self Service Management Portal 3.0/Announcements.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "Статьи знаний",
+            "isCategory": false,
+            "path": "Content/Self-Service/Self Service Management Portal 3.0/Knowledge.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "Предупреждения",
+            "isCategory": false,
+            "path": "Content/Self-Service/Self Service Management Portal 3.0/Alerts.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "Чат со службой поддержки",
+            "isCategory": false,
+            "path": "Content/Self-Service/Chat-with-Support-SSM.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "Часто задаваемые вопросы",
+            "isCategory": false,
+            "path": "Content/Self-Service/Self Service Management Portal 3.0/FAQ.mdx",
+            "children": []
+          }
+        ]
+      },
+      {
+        "categoryName": "Using-MS-Teams-Bot",
+        "isCategory": false,
+        "path": "Content/Self-Service/Using-MS-Teams-Bot.mdx",
+        "children": []
+      },
+      {
+        "categoryName": "Дополнительная информация",
+        "isCategory": false,
+        "path": "Content/More-Information.mdx",
+        "children": []
+      },
+      {
+        "isCategory": false,
+        "path": "poisk-vernul-rezultata-ov.mdx",
+        "children": []
+      },
+      {
+        "isCategory": false,
+        "path": "ispolzovanie-bota-ivanti-service-manager.mdx",
+        "children": []
+      },
+      {
+        "isCategory": false,
+        "path": "expanding-text-aka-togglers-and-dropdowns.mdx",
+        "children": []
+      }
+    ]
   }
 }

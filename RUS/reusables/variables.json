@@ -1,0 +1,198 @@
+{
+  "Primary.Company": {
+    "contentVariableId": "w0pgzqFbi_FGW0AJHU5Lt",
+    "name": "Primary.Company",
+    "content": "Ivanti",
+    "type": "variable",
+    "scope": "global"
+  },
+  "FRS_VARS.Company": {
+    "contentVariableId": "T6jFfmXhGsopBujarv5fY",
+    "name": "FRS_VARS.Company",
+    "content": "Ivanti",
+    "type": "variable",
+    "scope": "global"
+  },
+  "FRS_VARS.Neurons_for_Facilities": {
+    "contentVariableId": "genEfCxBQHG3nlx5hNWol",
+    "name": "FRS_VARS.Neurons_for_Facilities",
+    "content": "Neurons for Facilities",
+    "type": "variable",
+    "scope": "global"
+  },
+  "FRS_VARS.Company-short": {
+    "contentVariableId": "IktVI8BRpijNWjMMlpofK",
+    "name": "FRS_VARS.Company-short",
+    "content": "Ivanti",
+    "type": "variable",
+    "scope": "global"
+  },
+  "FRS_VARS.Neurons_for_GRC": {
+    "contentVariableId": "fq2OtQzjswmh-c45AF4c2",
+    "name": "FRS_VARS.Neurons_for_GRC",
+    "content": "Neurons for GRC",
+    "type": "variable",
+    "scope": "global"
+  },
+  "FRS_VARS.Neurons_for_ITSM_Enterprise": {
+    "contentVariableId": "zSxLqLtOyfcdHplOEwtJc",
+    "name": "FRS_VARS.Neurons_for_ITSM_Enterprise",
+    "content": "Neurons for ITSM Enterprise",
+    "type": "variable",
+    "scope": "global"
+  },
+  "Primary.Release_Version": {
+    "contentVariableId": "eGW6sAeosXBoQRDC2gvgY",
+    "name": "Primary.Release_Version",
+    "content": "(Undefined variable: Primary.Release Version)",
+    "type": "variable",
+    "scope": "global"
+  },
+  "Primary.Year-2023": {
+    "contentVariableId": "cshbLwvvC9TKDXDepKjfE",
+    "name": "Primary.Year-2023",
+    "content": "2023",
+    "type": "variable",
+    "scope": "global"
+  },
+  "FRS_VARS.ProductName-Service-Manager": {
+    "contentVariableId": "jBh_1w_Ax4aVOgvewCIjp",
+    "name": "FRS_VARS.ProductName-Service-Manager",
+    "content": "Service Manager",
+    "type": "variable",
+    "scope": "global"
+  },
+  "FRS_VARS.Service_Catalog-Katalog-uslug": {
+    "contentVariableId": "Co_CMWZsJYKu7HP1NMtLf",
+    "name": "FRS_VARS.Service_Catalog-Katalog-uslug",
+    "content": "Каталог услуг",
+    "type": "variable",
+    "scope": "global"
+  },
+  "FRS_VARS.Neurons_ITSM_-_Administrator-Administrator": {
+    "contentVariableId": "sYv93jYMBCB4XkDq9ScSG",
+    "name": "FRS_VARS.Neurons_ITSM_-_Administrator-Administrator",
+    "content": "Администратор",
+    "type": "variable",
+    "scope": "global"
+  },
+  "FRS_VARS.Self_Service_Mobile_portal-Mobilnoe-prilozhenie-samoobsluzhivaniya": {
+    "contentVariableId": "xXK2Drb1VQn9QjFAeZP-N",
+    "name": "FRS_VARS.Self_Service_Mobile_portal-Mobilnoe-prilozhenie-samoobsluzhivaniya",
+    "content": "Мобильное приложение самообслуживания",
+    "type": "variable",
+    "scope": "global"
+  },
+  "Primary.Product-Service-Manager": {
+    "contentVariableId": "Vs-H59d22bm9v-PER2Azz",
+    "name": "Primary.Product-Service-Manager",
+    "content": "Service Manager",
+    "type": "variable",
+    "scope": "global"
+  },
+  "FRS_VARS.Mobile_Analyst-Analitik-mobilnogo-prilozheniya": {
+    "contentVariableId": "KgdVRaxympWVILV7l2eKv",
+    "name": "FRS_VARS.Mobile_Analyst-Analitik-mobilnogo-prilozheniya",
+    "content": "Аналитик мобильного приложения",
+    "type": "variable",
+    "scope": "global"
+  },
+  "FRS_VARS.ProductAcronym": {
+    "contentVariableId": "jUydphdUxaEWPR6G6qchK",
+    "name": "FRS_VARS.ProductAcronym",
+    "content": "(Undefined variable: FRS_VARS.ProductAcronym)",
+    "type": "variable",
+    "scope": "global"
+  },
+  "FRS_VARS.Neurons_ITSM_-_Self_Service_User-Samoobsluzhivanie": {
+    "contentVariableId": "9YKb2tpxZ0HATrgZObtv6",
+    "name": "FRS_VARS.Neurons_ITSM_-_Self_Service_User-Samoobsluzhivanie",
+    "content": "Самообслуживание",
+    "type": "variable",
+    "scope": "global"
+  },
+  "FRS_VARS.Announcements-Obuyavleniya": {
+    "contentVariableId": "BvmqmPfmq4U9hrvaYLAxT",
+    "name": "FRS_VARS.Announcements-Obuyavleniya",
+    "content": "Объявления",
+    "type": "variable",
+    "scope": "global"
+  },
+  "L10n.Home-Glavnaya-stranica": {
+    "contentVariableId": "RioyNL01GJVWWEgucQ2ob",
+    "name": "L10n.Home-Glavnaya-stranica",
+    "content": "Главная страница",
+    "type": "variable",
+    "scope": "global"
+  },
+  "FRS_VARS.My_Items-Moi-elementy": {
+    "contentVariableId": "5D8-1SoN-eOVfkwrUH58J",
+    "name": "FRS_VARS.My_Items-Moi-elementy",
+    "content": "Мои элементы",
+    "type": "variable",
+    "scope": "global"
+  },
+  "FRS_VARS.Knowledge-Stati-znanij": {
+    "contentVariableId": "uTGT1zeJ1bH0pVXcjPlcJ",
+    "name": "FRS_VARS.Knowledge-Stati-znanij",
+    "content": "Статьи знаний",
+    "type": "variable",
+    "scope": "global"
+  },
+  "FRS_VARS.Request_Offering-Predlozhenie-uslug": {
+    "contentVariableId": "pUtYHh05YCmwDxKxsx_3l",
+    "name": "FRS_VARS.Request_Offering-Predlozhenie-uslug",
+    "content": "Предложение услуг",
+    "type": "variable",
+    "scope": "global"
+  },
+  "FRS_VARS.Service_Request-Zapros-na-obsluzhivanie": {
+    "contentVariableId": "y3zIss0CmVthepW_CLLxJ",
+    "name": "FRS_VARS.Service_Request-Zapros-na-obsluzhivanie",
+    "content": "Запрос на обслуживание",
+    "type": "variable",
+    "scope": "global"
+  },
+  "FRS_VARS.Incident-Incident": {
+    "contentVariableId": "7uSEcKMOKB9fO0h0p49Hi",
+    "name": "FRS_VARS.Incident-Incident",
+    "content": "Инцидент",
+    "type": "variable",
+    "scope": "global"
+  },
+  "FRS_VARS.Neurons_ITSM_-_Service_Desk_Analyst-Analitik-Service-Desk": {
+    "contentVariableId": "czwW6rdTuxKLqigvCsGQO",
+    "name": "FRS_VARS.Neurons_ITSM_-_Service_Desk_Analyst-Analitik-Service-Desk",
+    "content": "Аналитик Service Desk",
+    "type": "variable",
+    "scope": "global"
+  },
+  "FRS_VARS.AutoDate-MMMM-dd-gggg": {
+    "contentVariableId": "Kx9zyzcVQ44BeOGJuHrMQ",
+    "name": "FRS_VARS.AutoDate-MMMM-dd-gggg",
+    "content": "ММММ дд, гггг",
+    "type": "variable",
+    "scope": "global"
+  },
+  "Primary.TitleLine-Service-Manager": {
+    "contentVariableId": "YwBtOVZ_nLmCq95TK8Ccl",
+    "name": "Primary.TitleLine-Service-Manager",
+    "content": "Service Manager",
+    "type": "variable",
+    "scope": "global"
+  },
+  "L10n.Copyright-Avtorskoe-pravo": {
+    "contentVariableId": "KA5K9cbCMTKKRBWT4MIHk",
+    "name": "L10n.Copyright-Avtorskoe-pravo",
+    "content": "Авторское право",
+    "type": "variable",
+    "scope": "global"
+  },
+  "L10n.AllRights-Vse-prava-zashisheny.": {
+    "contentVariableId": "4TUu8TgUN8htCuiHGTTKc",
+    "name": "L10n.AllRights-Vse-prava-zashisheny.",
+    "content": "Все права защищены.",
+    "type": "variable",
+    "scope": "global"
+  }
+}
