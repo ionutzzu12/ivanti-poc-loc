@@ -1,8 +1,227 @@
 {
   "$schema": "https://api.archbee.com/git-config-schema",
-  "docsPath": "./CHT",
+  "docsPath": "CHT/",
   "structure": {
     "assets": "assets",
-    "docsTree": []
+    "docsTree": [
+      {
+        "categoryName": "概觀",
+        "isCategory": false,
+        "path": "Content/Self-Service/LandingPage-Self.mdx",
+        "children": []
+      },
+      {
+        "categoryName": "開始使用自助服務入口網站",
+        "isCategory": false,
+        "path": "Content/Self-Service/Getting-Started-with-Self-Service.mdx",
+        "children": [
+          {
+            "categoryName": "瀏覽自助服務入口網站",
+            "isCategory": false,
+            "path": "Content/Self-Service/Navigating-the-Self-Service-Portal.mdx",
+            "children": []
+          }
+        ]
+      },
+      {
+        "categoryName": "我該如何？",
+        "isCategory": false,
+        "path": "Content/Self-Service/Self-Service-How-do-I.mdx",
+        "children": []
+      },
+      {
+        "categoryName": "使用工作區",
+        "isCategory": false,
+        "path": "Content/Self-Service/Using-the-Workspaces.mdx",
+        "children": [
+          {
+            "categoryName": "我的項目",
+            "isCategory": false,
+            "path": "Content/Self-Service/my-items.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "服務要求和事件",
+            "isCategory": false,
+            "path": "Content/Self-Service/service-requests-and-incidents.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "知識中心",
+            "isCategory": false,
+            "path": "Content/Self-Service/knowledge-center.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "公告、常見問題與警示",
+            "isCategory": false,
+            "path": "Content/Self-Service/announcements-FAQs-and-alerts.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "社交面板訊息",
+            "isCategory": false,
+            "path": "Content/Self-Service/social-board-messages.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "聊天區",
+            "isCategory": false,
+            "path": "Content/Self-Service/chat-zone.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "使用我的最愛",
+            "isCategory": false,
+            "path": "Content/Self-Service/Working-with-Favorite.mdx",
+            "children": []
+          }
+        ]
+      },
+      {
+        "categoryName": "Ivanti Neurons for Facilities - 自助服務使用者",
+        "isCategory": false,
+        "path": "Content/Self-Service/Neurons-for-Facitities-Self-Service-User.mdx",
+        "children": []
+      },
+      {
+        "categoryName": "Ivanti Neurons for GRC - 自助服務使用者",
+        "isCategory": false,
+        "path": "Content/Self-Service/Neurons-for-GRC-Self-Service-User.mdx",
+        "children": []
+      },
+      {
+        "categoryName": "企業自助服務歡迎使用頁面",
+        "isCategory": false,
+        "path": "Content/Self-Service/Enterprise-Self-Service-Welcome-Page.mdx",
+        "children": []
+      },
+      {
+        "categoryName": "自助服務行動版入口網站",
+        "isCategory": false,
+        "path": "Content/Self-Service/self-service-mobile.mdx",
+        "children": [
+          {
+            "categoryName": "報告事件並提交要求",
+            "isCategory": false,
+            "path": "Content/Self-Service/Reporting-incidents-and-submitting-requests-SSM.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "知識庫",
+            "isCategory": false,
+            "path": "Content/Self-Service/Knowledge-base-SSM.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "啟用生物特徵辨識驗證登入",
+            "isCategory": false,
+            "path": "Content/Self-Service/Biometric.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "啟用行動通知",
+            "isCategory": false,
+            "path": "Content/Self-Service/Mobile Notification.mdx",
+            "children": []
+          }
+        ]
+      },
+      {
+        "categoryName": "自助服務管理入口網站 V3",
+        "isCategory": false,
+        "path": "Content/Self-Service/Self Service Management Portal 3.0/Self Service Management Portal.mdx",
+        "children": [
+          {
+            "categoryName": "登入自助服務管理入口網站",
+            "isCategory": false,
+            "path": "Content/Self-Service/Self Service Management Portal 3.0/Logging into Self Service Management Portal.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "瀏覽自助服務管理入口網站",
+            "isCategory": false,
+            "path": "Content/Self-Service/Self Service Management Portal 3.0/Navigating the Self Service Management Portal.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "服務目錄",
+            "isCategory": false,
+            "path": "Content/Self-Service/Self Service Management Portal 3.0/Service Catalog.mdx",
+            "children": [
+              {
+                "categoryName": "外部供應項目",
+                "isCategory": false,
+                "path": "Content/Self-Service/Self Service Management Portal 3.0/External Offerings.mdx",
+                "children": []
+              }
+            ]
+          },
+          {
+            "categoryName": "我的項目",
+            "isCategory": false,
+            "path": "Content/Self-Service/Self Service Management Portal 3.0/My Items.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "公告",
+            "isCategory": false,
+            "path": "Content/Self-Service/Self Service Management Portal 3.0/Announcements.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "知識",
+            "isCategory": false,
+            "path": "Content/Self-Service/Self Service Management Portal 3.0/Knowledge.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "警示",
+            "isCategory": false,
+            "path": "Content/Self-Service/Self Service Management Portal 3.0/Alerts.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "與支援人員聊天",
+            "isCategory": false,
+            "path": "Content/Self-Service/Chat-with-Support-SSM.mdx",
+            "children": []
+          },
+          {
+            "categoryName": "常見問題",
+            "isCategory": false,
+            "path": "Content/Self-Service/Self Service Management Portal 3.0/FAQ.mdx",
+            "children": []
+          }
+        ]
+      },
+      {
+        "categoryName": "使用 Ivanti Service Manager 機器人",
+        "isCategory": false,
+        "path": "Content/Self-Service/Using-MS-Teams-Bot.mdx",
+        "children": []
+      },
+      {
+        "categoryName": "其他資訊",
+        "isCategory": false,
+        "path": "Content/More-Information.mdx",
+        "children": []
+      },
+      {
+        "isCategory": false,
+        "path": "expanding-text-aka-togglers-and-dropdowns.mdx",
+        "children": []
+      },
+      {
+        "isCategory": false,
+        "path": "v3.mdx",
+        "children": []
+      },
+      {
+        "isCategory": false,
+        "path": "fi3uv2YiLaHkHjDQrzlos.mdx",
+        "children": []
+      }
+    ]
   }
 }
