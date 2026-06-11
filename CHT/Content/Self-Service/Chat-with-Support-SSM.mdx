@@ -1,0 +1,81 @@
+---
+title: 與支援人員聊天
+docTags: 
+createdAt: Thu Jun 11 2026 12:55:11 GMT+0300 (Eastern European Summer Time)
+---
+
+您可以使用 \{\{FRS\_VARS.ProductName}} 的內建聊天功能，或使用 Microsoft Teams，即時傳訊給支援/服務台分析師團隊，透過一對一聊天的方式，協助您解決問題或解答疑問。 您也可以透過聊天建立事件。
+
+<hint type="info">
+  若您無法使用此功能，則可能是您的管理員並未為您啟用該功能。請聯絡貴組織的管理員來啟用該功能。
+</hint>
+
+## 使用 Neurons for ITSM 的內建聊天
+
+1. 點選**與支援人員聊天**圖示 :inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/r71158ICG3Ykc78OpF-wi_chatwithsupporticon.png" alt caption}。
+   - 當支援/\{\{FRS\_VARS.Neurons\_ITSM\_-\_Service\_Desk\_Analyst-mhll-mktb-alkhdmh.}} 人員有空時，會顯示一個新的聊天視窗以及訊息「*我們在線上*」。若目前無法提供服務，便會顯示「*目前無法使用聊天!*」訊息。
+   - 當系統指派 \{\{FRS\_VARS.Neurons\_ITSM\_-\_Service\_Desk\_Analyst-mhll-mktb-alkhdmh.}} 到您的聊天工作階段後，您會在聊天視窗內看見「*已連線至 \<*\{\{FRS\_VARS.Neurons\_ITSM\_-\_Service\_Desk\_Analyst-mhll-mktb-alkhdmh.}}*&#x20;名稱>*」訊息。
+2. 在文字方塊中輸入欲查詢的內容或目前面臨的問題，然後點選傳送圖示 :inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/-f_WboTTEwXa8eVy1oztR_chatsendicon.png" alt caption}。
+
+<Paragraph indent="1">
+  \{\{FRS\_VARS.Neurons\_ITSM\_-\_Service\_Desk\_Analyst-mhll-mktb-alkhdmh.}} 將會回覆您的查詢或問題。若該事項無法透過聊天解決，便會引發事件並會在您的聊天視窗內顯示事件編號。
+</Paragraph>
+
+<hint type="info">
+  若聊天視窗長時間處於閒置狀態，系統會在兩次警告後登出。
+</hint>
+
+## 使用 Microsoft Teams 機器人
+
+***先決條件:***
+
+- 您應已在電腦上裝好 Microsoft Teams，而且已建好用戶端帳戶。
+- 您應已將為貴組織所建置的 Teams 應用程式新增至您的 Teams 用戶端帳戶。
+
+<Paragraph indent="1">
+  a. 登入您的 Teams 用戶端帳戶。
+</Paragraph>
+
+<Paragraph indent="1">
+  b. 按一下**應用程式** > 選取貴組織已建置的 Teams 應用程式 > **新增至聊天**。
+</Paragraph>
+
+<Paragraph indent="2">
+  貴組織的 Teams 應用程式現已新增至您的聊天聯絡人中，您可以使用它與服務台分析師聊天。
+</Paragraph>
+
+<Paragraph indent="2">
+  *為 所建置之 Teams 應用程式的範例影像&#x20;*\{\{FRS\_VARS.Company}}
+</Paragraph>
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/WvgVuzLmiLAnN3C2V1FLg_msteams-app-for-ivanti.png" position="flex-start" size="40" indent="2" initialPath="i/MSTeams-App-for-Ivanti.png" githubPath="self-CHT/Content/Self-Service/i/MSTeams-App-for-Ivanti.png"></Image>
+
+<Paragraph indent="2">
+  *將為&#x20;*\{\{FRS\_VARS.Company}}*&#x20;建置的 Teams 應用程式新增至 Teams 聊天的範例影像*
+</Paragraph>
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/pWl71qMytM3iR1Ru9wZpY_adding-teams-app-to-chat.png" position="flex-start" size="40" indent="2" initialPath="i/Adding-Teams-App-To-Chat.png" githubPath="self-CHT/Content/Self-Service/i/Adding-Teams-App-To-Chat.png"></Image>
+
+<hint type="info" indent="1">
+  若您找不到貴組織的 Teams 應用程式，或是將其新增至 Teams 聊天時遇到問題，請聯絡貴組織的管理員。
+</hint>
+
+1. 登入您的 Microsoft Teams 用戶端帳戶。
+2. 在:Link[先決條件:]{label="先決條件:" overridedLabel="先決條件:" spaceId docId="Z-5zFjT-ZunnyrReyTaOg" version="v2" docAnchorId="#Prerequisite" loadingMethod="dynamic" newTab="false" href="Chat-with-Support-SSM.mdx"}區段內按一下您新增至聊天中的貴組織之 Teams 應用程式。
+3. 若要發起與機器人的對話，請發送 Hi。
+
+<Paragraph indent="1">
+  此時將顯示一個包含命令的快顯視窗。
+</Paragraph>
+
+4. 選取以下任何一個命令:
+   - **建立票證** - 提示輸入問題的主旨和徵兆以建立事件。 機器人會建立一個事件並顯示事件 ID。 接著，該事件會轉交給支援/服務台團隊處理。
+   - **檢查我的票證狀態** - 顯示為您/由您建立的所有事件和服務要求的清單。 按一下任意項目可檢視其狀態。
+   - **與支援人員聊天** - 開啟與有空支援人員/\{\{FRS\_VARS.Neurons\_ITSM\_-\_Service\_Desk\_Analyst-mhll-mktb-alkhdmh.}} 的聊天工作階段，協助您解決問題。
+   - **離開聊天對話** - 結束聊天工作階段。
+   - **說明** - 顯示有關上述各個命令的簡短說明。
+
+<hint type="info">
+  - 若聊天視窗處於閒置狀態，根據管理員所設定的工作階段到期逾時，您的工作階段將在 3 則警示訊息後到期。
+  - 您可選擇的選項可能會依據貴組織管理員的設定方式而有所不同。
+</hint>
