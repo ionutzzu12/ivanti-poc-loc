@@ -1,0 +1,81 @@
+---
+title: Chat con il supporto
+docTags: 
+createdAt: Thu Jun 11 2026 13:01:05 GMT+0300 (Eastern European Summer Time)
+---
+
+È possibile utilizzare la funzione di chat integrata di \{\{FRS\_VARS.ProductName}} oppure utilizzare Microsoft Teams per inviare istantaneamente un messaggio al team Support/Service Desk Analyst per risolvere i problemi o rispondere alle domande in una chat individuale. È anche possibile creare Incident dalla chat.
+
+<hint type="info">
+  Se questa funzionalità non è disponibile per l'utente, il proprio amministratore potrebbe non averla abilitata. Richiedere all'amministratore della propria organizzazione di abilitarla.
+</hint>
+
+## Utilizzo della chat integrata in Neurons for ITSM
+
+1. Toccare l'icona **Chat con supporto** :inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/_9LYOvEXa4rQZcXizadVd_chatwithsupporticon.png" alt caption}.
+   - Una nuova finestra di chat viene visualizzata con il messaggio "*Siamo online*" quando il personale di supporto/\{\{FRS\_VARS.Neurons\_ITSM\_-\_Service\_Desk\_Analyst-Service-Desk-Analyst}} è disponibile. Altrimenti, verrà visualizzato il messaggio "*Chat non disponibile al momento!*".
+   - Una volta che \{\{FRS\_VARS.Neurons\_ITSM\_-\_Service\_Desk\_Analyst-Service-Desk-Analyst}} è stato assegnato alla propria sessione chat, apparirà il messaggio "*Connesso a \<nome&#x20;*\{\{FRS\_VARS.Neurons\_ITSM\_-\_Service\_Desk\_Analyst-Service-Desk-Analyst}}>" nella finestra della chat.
+2. Digitare la propria query o il problema che si sta affrontando nella casella di testo, quindi toccare l'icona invia :inlineImage[]{src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/05dhMSdBzCO2uw4TlB2Lj_chatsendicon.png" alt caption}.
+
+<Paragraph indent="1">
+  \{\{FRS\_VARS.Neurons\_ITSM\_-\_Service\_Desk\_Analyst-Service-Desk-Analyst}} risponderà alla propria query o al problema. Qualora non sia possibile fornire una soluzione via chat, verrà generato un Incident e il relativo Numero incident verrà visualizzato sulla finestra della chat.
+</Paragraph>
+
+<hint type="info">
+  Se non si compie alcuna operazione all'interno della chat per un lungo periodo, si verrà disconnessi dopo due avvisi.
+</hint>
+
+## Utilizzo del Bot di Microsoft Teams
+
+***Prerequisiti:***
+
+- È necessario disporre di Microsoft Teams installato sul proprio computer e aver creato un account client.
+- Si deve inoltre aver aggiunto l'app Teams creata per la propria organizzazione al proprio account client Teams.
+
+<Paragraph indent="1">
+  a. Accedere al proprio account client Teams.
+</Paragraph>
+
+<Paragraph indent="1">
+  b. Fare clic su **App** > selezionare l'app Teams creata dalla propria organizzazione e premere > **Aggiungi a una chat**.
+</Paragraph>
+
+<Paragraph indent="2">
+  L'app Teams della propria organizzazione è ora aggiunta ai propri contatti chat, utilizzabili per chattare con i propri Analisti Service Desk.
+</Paragraph>
+
+<Paragraph indent="2">
+  *Immagine campione dell'app Teams integrata per&#x20;*\{\{FRS\_VARS.Company}}
+</Paragraph>
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/qqU8WSH-tOeqI2aGgIZX4_msteams-app-for-ivanti.png" position="flex-start" size="40" indent="2" initialPath="i/MSTeams-App-for-Ivanti.png" githubPath="self-ITA/Content/Self-Service/i/MSTeams-App-for-Ivanti.png"></Image>
+
+<Paragraph indent="2">
+  *Immagine campione dell'aggiunta dell'app Teams creata per&#x20;*\{\{FRS\_VARS.Company}}*&#x20;alla chat Teams*
+</Paragraph>
+
+<Image src="https://archbee-image-uploads-qa.s3.amazonaws.com/yzXkkCTORWlcwRG_AVHKZ/QQUuQqx2v5w8gHheSoJqu_adding-teams-app-to-chat.png" position="flex-start" size="40" indent="2" initialPath="i/Adding-Teams-App-To-Chat.png" githubPath="self-ITA/Content/Self-Service/i/Adding-Teams-App-To-Chat.png"></Image>
+
+<hint type="info" indent="1">
+  Se non è possibile trovare l'app Teams della propria organizzazione o se si hanno problemi ad aggiungerla alla propria chat Teams, contattare l'amministratore della propria organizzazione.
+</hint>
+
+1. Accedere al proprio account client Microsoft Teams.
+2. Fare clic sull'app Teams della propria organizzazione aggiunta alla chat nella sezione :Link[Prerequisiti:]{label="Prerequisiti:" overridedLabel="Prerequisiti:" spaceId docId="do_Pmw7lz7uFMImCfZkTe" version="v2" docAnchorId="#Prerequisite" loadingMethod="dynamic" newTab="false" href="Chat-with-Support-SSM.mdx"}.
+3. Per avviare una conversazione con il bot, inviare Ciao.
+
+<Paragraph indent="1">
+  Viene visualizzato un pop-up con i comandi.
+</Paragraph>
+
+4. Selezionare uno dei seguenti comandi:
+   - **Crea un ticket** - richiede di inserire l'oggetto e il sintomo del problema per creare un incident. Il bot crea un incident e visualizza l'ID dell'incident. L'incident viene quindi indirizzato al team di supporto/Service Desk per la risoluzione del problema.
+   - **Controlla lo stato del mio ticket** - visualizza l'elenco di tutti gli incident e le richieste di assistenza creati da/per l'utente. Fare clic su uno di essi per visualizzarne lo stato.
+   - **Chatta con il supporto** - apre una sessione di chat con un membro del supporto/\{\{FRS\_VARS.Neurons\_ITSM\_-\_Service\_Desk\_Analyst-Service-Desk-Analyst}} disponibile che aiuterà a risolvere il problema.
+   - **Abbandona conversazione chat** - termina la sessione chat.
+   - **Guida** - visualizza una breve descrizione di ciascuno dei comandi precedenti.
+
+<hint type="info">
+  - Se si rimane inattivi nella chat, la sessione scadrà dopo 3 messaggi di avviso in base al timeout di scadenza della sessione impostato dall'amministratore.
+  - Le opzioni disponibili possono variare a seconda dell'impostazione dell'amministratore dell'organizzazione.
+</hint>
