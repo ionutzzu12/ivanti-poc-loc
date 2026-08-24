@@ -1,15 +1,8 @@
 {
   "Primary.Company": {
-    "contentVariableId": "w0pgzqFbi_FGW0AJHU5Lt",
+    "contentVariableId": "XT0j1v673Gh5SqV0V3S0D",
     "name": "Primary.Company",
     "content": "Ivanti",
-    "type": "variable",
-    "scope": "global"
-  },
-  "FRS_VARS.Self_Service_Mobile_portal": {
-    "contentVariableId": "cVswPNNz7VJKQTL_9bsqM",
-    "name": "FRS_VARS.Self_Service_Mobile_portal",
-    "content": "Self Service Mobile",
     "type": "variable",
     "scope": "global"
   },
@@ -55,13 +48,6 @@
     "type": "variable",
     "scope": "global"
   },
-  "FRS_VARS.Incident": {
-    "contentVariableId": "WzomYcfGnjgQ_4qpIO3k4",
-    "name": "FRS_VARS.Incident",
-    "content": "Incident",
-    "type": "variable",
-    "scope": "global"
-  },
   "Primary.Release_Version": {
     "contentVariableId": "eGW6sAeosXBoQRDC2gvgY",
     "name": "Primary.Release_Version",
@@ -80,6 +66,27 @@
     "contentVariableId": "cshbLwvvC9TKDXDepKjfE",
     "name": "Primary.Year-2023",
     "content": "2023",
+    "type": "variable",
+    "scope": "global"
+  },
+  "FRS_VARS.Neurons_ITSM_-_Administrator-Administrator.": {
+    "contentVariableId": "s46yE-QjB5BvsvZp5Y0kN",
+    "name": "FRS_VARS.Neurons_ITSM_-_Administrator-Administrator.",
+    "content": "Administrator",
+    "type": "variable",
+    "scope": "global"
+  },
+  "FRS_VARS.Self_Service_Mobile_portal": {
+    "contentVariableId": "cVswPNNz7VJKQTL_9bsqM",
+    "name": "FRS_VARS.Self_Service_Mobile_portal",
+    "content": "Self Service Mobile",
+    "type": "variable",
+    "scope": "global"
+  },
+  "FRS_VARS.Incident": {
+    "contentVariableId": "WzomYcfGnjgQ_4qpIO3k4",
+    "name": "FRS_VARS.Incident",
+    "content": "Incident",
     "type": "variable",
     "scope": "global"
   },
@@ -122,13 +129,6 @@
     "contentVariableId": "queOzUqFTDbFJuBX2Gjvf",
     "name": "FRS_VARS.Service_Catalog-Servicekatalog",
     "content": "Servicekatalog",
-    "type": "variable",
-    "scope": "global"
-  },
-  "FRS_VARS.Neurons_ITSM_-_Administrator-Administrator.": {
-    "contentVariableId": "s46yE-QjB5BvsvZp5Y0kN",
-    "name": "FRS_VARS.Neurons_ITSM_-_Administrator-Administrator.",
-    "content": "Administrator",
     "type": "variable",
     "scope": "global"
   },
