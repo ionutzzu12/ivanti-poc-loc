@@ -216,6 +216,12 @@
         "isCategory": false,
         "path": "ihre-suche-nach-ergab-ergebnisse.mdx",
         "children": []
+      },
+      {
+        "categoryName": "Shadow Docs",
+        "isCategory": true,
+        "children": [],
+        "isShadowDocs": true
       }
     ]
   }
