@@ -19,6 +19,7 @@
     {"docsPath": "./NLD"},
     {"docsPath": "./PLK"},
     {"docsPath": "./PTB"},
-    {"docsPath": "./RUS"}
+    {"docsPath": "./RUS"},
+    {"docsPath": "./NEW"}
   ]
 }
