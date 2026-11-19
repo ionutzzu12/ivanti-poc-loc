@@ -5,6 +5,15 @@
     "assets": "assets",
     "docsTree": [
       {
+        "path": "petstore.json",
+        "docTreeOptions": {
+          "shouldCreateIntro": true,
+          "shouldCreateSchemaCategory": true,
+          "showDownloadOpenApiFile": true
+        },
+        "children": []
+      },
+      {
         "categoryName": "Обзор",
         "isCategory": false,
         "path": "Content/Self-Service/LandingPage-Self.mdx",
